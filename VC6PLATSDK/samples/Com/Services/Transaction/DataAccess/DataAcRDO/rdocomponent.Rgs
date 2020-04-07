@@ -1,0 +1,24 @@
+HKCR
+{
+	RDOComponent.RDOComponent.1 = s 'RDOComponent Class'
+	{
+		CLSID = s '{DB28BB7F-D3C1-11D0-8233-00AA00A3F13E}'
+	}
+	RDOComponent.RDOComponent = s 'RDOComponent Class'
+	{
+		CurVer = s 'RDOComponent.RDOComponent.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {DB28BB7F-D3C1-11D0-8233-00AA00A3F13E} = s 'RDOComponent Class'
+		{
+			ProgID = s 'RDOComponent.RDOComponent.1'
+			VersionIndependentProgID = s 'RDOComponent.RDOComponent'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

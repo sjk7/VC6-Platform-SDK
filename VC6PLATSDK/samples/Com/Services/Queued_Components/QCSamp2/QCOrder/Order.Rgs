@@ -1,0 +1,25 @@
+HKCR
+{
+	QCOrder.Order.1 = s 'Order Class'
+	{
+		CLSID = s '{CB34A1A2-28C2-11D2-B5B6-00C04FC340EE}'
+	}
+	QCOrder.Order = s 'Order Class'
+	{
+		CLSID = s '{CB34A1A2-28C2-11D2-B5B6-00C04FC340EE}'
+		CurVer = s 'QCOrder.Order.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CB34A1A2-28C2-11D2-B5B6-00C04FC340EE} = s 'Order Class'
+		{
+			ProgID = s 'QCOrder.Order.1'
+			VersionIndependentProgID = s 'QCOrder.Order'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

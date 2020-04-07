@@ -1,0 +1,43 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\CLSID\{37824810-ADBA-11d1-B6FB-00A024A85A1F}]
+@="Cancel Sample Server - None Threading Model"
+
+[HKEY_CLASSES_ROOT\CLSID\{37824810-ADBA-11d1-B6FB-00A024A85A1F}\InprocServer32]
+@="C:\\MSSDK\\Samples\\COM\\Fundamentals\\dcom\\cancel\\bin\\debug\\x86\\inproc.dll"
+
+[HKEY_CLASSES_ROOT\CLSID\{37824811-ADBA-11d1-B6FB-00A024A85A1F}]
+@="Cancel Sample Server - Single Threading Model"
+
+[HKEY_CLASSES_ROOT\CLSID\{37824811-ADBA-11d1-B6FB-00A024A85A1F}\InprocServer32]
+@="C:\\MSSDK\\Samples\\COM\\Fundamentals\\dcom\\cancel\\bin\\debug\\x86\\inproc.dll"
+"ThreadingModel"="Apartment"
+ 
+[HKEY_CLASSES_ROOT\CLSID\{37824812-ADBA-11d1-B6FB-00A024A85A1F}]
+@="Cancel Sample Server - Free Threading Model"
+
+[HKEY_CLASSES_ROOT\CLSID\{37824812-ADBA-11d1-B6FB-00A024A85A1F}\InprocServer32]
+@="C:\\MSSDK\\Samples\\COM\\Fundamentals\\dcom\\cancel\\bin\\debug\\x86\\inproc.dll"
+"ThreadingModel"="Free"
+
+[HKEY_CLASSES_ROOT\CLSID\{37824811-ADBA-11d1-B6FB-00A024A85A1F}]
+@="Cancel Sample Server - Single Threading Model"
+"AppID"="{37824811-ADBA-11d1-B6FB-00A024A85A1F}"
+
+[HKEY_CLASSES_ROOT\AppID\{37824811-ADBA-11d1-B6FB-00A024A85A1F}]
+@="Cancel Sample Server - Single Threading Model"
+"RunAs"="Interactive User"
+
+[HKEY_CLASSES_ROOT\CLSID\{37824811-ADBA-11d1-B6FB-00A024A85A1F}\LocalServer32]
+@="C:\\MSSDK\\Samples\\COM\\Fundamentals\\dcom\\cancel\\bin\\debug\\x86\\sta.exe"
+ 
+[HKEY_CLASSES_ROOT\CLSID\{37824812-ADBA-11d1-B6FB-00A024A85A1F}]
+@="Cancel Sample Server - Multi Threading Model"
+"AppID"="{37824812-ADBA-11d1-B6FB-00A024A85A1F}"
+
+[HKEY_CLASSES_ROOT\AppID\{37824812-ADBA-11d1-B6FB-00A024A85A1F}]
+@="Cancel Sample Server - Multi Threading Model"
+"RunAs"="Interactive User"
+
+[HKEY_CLASSES_ROOT\CLSID\{37824812-ADBA-11d1-B6FB-00A024A85A1F}\LocalServer32]
+@="C:\\MSSDK\\Samples\\COM\\Fundamentals\\dcom\\cancel\\bin\\debug\\x86\\mta.exe"

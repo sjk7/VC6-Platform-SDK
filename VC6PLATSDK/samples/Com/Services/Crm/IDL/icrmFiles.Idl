@@ -1,0 +1,65 @@
+/*+==========================================================================
+
+File: ICrmFiles.idl 
+
+----------------------------------------------------------------------------
+
+This file is part of the Microsoft COM+ Samples.
+
+
+
+Copyright (C) 1995-1998 Microsoft Corporation. All rights reserved.
+
+
+
+This source code is intended only as a supplement to Microsoft
+
+Development Tools and/or on-line documentation. See these other
+
+materials for detailed information regarding Microsoft code samples.
+
+
+
+THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+
+PARTICULAR PURPOSE.
+
+==========================================================================+*/
+
+// ICrmFiles.idl : Interfaces common to VC and VJ implementations
+//
+
+#include "mtxattr.h"
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+// ICrmFilesWorker
+[
+	object,
+	uuid(43A7D836-B492-11D1-82F1-00A0C91EEDE9),
+	dual,
+	helpstring("ICrmFilesWorker Interface"),
+	pointer_default(unique)
+]
+interface ICrmFilesWorker : IDispatch
+	{
+		[helpstring("method CreateFile")] HRESULT CreateFile([in] BSTR bstrFileName);
+		[helpstring("method DeleteFile")] HRESULT DeleteFile([in] BSTR bstrFileName);
+	};
+
+// ICrmFilesCompensator
+[
+	object,
+	uuid(43A7D838-B492-11D1-82F1-00A0C91EEDE9),
+	dual,
+	helpstring("ICrmFilesCompensator Interface"),
+	pointer_default(unique)
+]
+interface ICrmFilesCompensator : IDispatch
+	{
+	};

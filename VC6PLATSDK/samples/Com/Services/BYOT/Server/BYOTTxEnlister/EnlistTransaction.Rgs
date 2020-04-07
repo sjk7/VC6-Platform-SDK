@@ -1,0 +1,26 @@
+HKCR
+{
+	BYOTSample.EnlistTransaction.1 = s 'EnlistTransaction Class'
+	{
+		CLSID = s '{7058AFD0-C852-11D2-848F-0080C7A03FC6}'
+	}
+	BYOTSample.EnlistTransaction = s 'EnlistTransaction Class'
+	{
+		CLSID = s '{7058AFD0-C852-11D2-848F-0080C7A03FC6}'
+		CurVer = s 'BYOTSample.EnlistTransaction.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7058AFD0-C852-11D2-848F-0080C7A03FC6} = s 'EnlistTransaction Class'
+		{
+			ProgID = s 'BYOTSample.EnlistTransaction.1'
+			VersionIndependentProgID = s 'BYOTSample.EnlistTransaction'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{353C2600-C852-11D2-848F-0080C7A03FC6}'
+		}
+	}
+}

@@ -1,0 +1,23 @@
+HKCR
+{
+	CrmMonComp.CrmMonComp.1 = s 'CrmMonComp Class'
+	{
+		CLSID = s '{1721CAC4-E9BA-11D1-A8D7-00A0C91EEDE9}'
+	}
+	CrmMonComp.CrmMonComp = s 'CrmMonComp Class'
+	{
+		CurVer = s 'CrmMonComp.CrmMonComp.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1721CAC4-E9BA-11D1-A8D7-00A0C91EEDE9} = s 'CrmMonComp Class'
+		{
+			ProgID = s 'CrmMonComp.CrmMonComp.1'
+			VersionIndependentProgID = s 'CrmMonComp.CrmMonComp'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

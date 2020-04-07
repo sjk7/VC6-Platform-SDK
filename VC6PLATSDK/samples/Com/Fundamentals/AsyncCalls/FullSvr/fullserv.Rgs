@@ -1,0 +1,23 @@
+HKCR
+{
+	FullSvr.FullServ.1 = s 'FullServ Class'
+	{
+		CLSID = s '{F03BE175-A8DE-40D1-9161-A36BCBE1FEA6}'
+	}
+	FullSvr.FullServ = s 'FullServ Class'
+	{
+		CLSID = s '{F03BE175-A8DE-40D1-9161-A36BCBE1FEA6}'
+		CurVer = s 'FullSvr.FullServ.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F03BE175-A8DE-40D1-9161-A36BCBE1FEA6} = s 'FullServ Class'
+		{
+			ProgID = s 'FullSvr.FullServ.1'
+			VersionIndependentProgID = s 'FullSvr.FullServ'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '{56130FDA-CFF8-4A66-BA65-024DCDCE3E2C}'
+			'TypeLib' = s '{F8AFC809-B006-4011-BBDF-F10C617811B9}'
+		}
+	}
+}

@@ -1,0 +1,7 @@
+// PoolTest.idl : IDL source for PoolTest.dll
+//
+
+library DummyLib
+{
+
+};

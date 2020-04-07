@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<title>Transaction Bank Sample</title>
+
+<link rel=Stylesheet type="text/css" media=all href="..\..\..\styles.css">
+
+<font face=verdana size=2>
+
+<h2>Transaction Sample Bank</h2>
+
+<hr>
+
+<h4>Overview</h4>
+
+<p>
+The Sample Bank application consists of a simple Microsoft Visual Basic (VB) form through which a user can perform basic bank transaction such as debits, credits, and transfers. VB performs these action by instantiating COM+ objects to make database updates using ADO.  These COM+ objects are implemented in three different programming languages and through the UI the user can select which version or component to use.
+</p>
+
+<p>
+<center>
+<img src="dialog.jpg" height=313 width=553>
+</center>
+</p>
+
+
+<p>
+The components can be installed as standard COM objects or as COM+ objects.If used as standard COM objects, the components do not participate in transactions. BankAdmin contains a sample script that uses the COMAdmin scripting components to create a COM+ application and to register the components.
+</p>
+
+<p><h4>Project Files</h4></p>
+
+<table border=0 cellpadding=0 width="75%" style='width:75.0%;mso-cellspacing:
+ 1.5pt;mso-padding-alt:0in 0in 0in 0in'>
+ <tr>
+  <td width="25%" valign=top style='width:25.8%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><strong><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>Subdirectory</span></strong><span style='font-size:9.0pt;
+  font-family:Verdana;color:black'><o:p></o:p></span></p>
+  </td>
+  <td width="73%" valign=top style='width:73.4%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><strong><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>Description</span></strong><span style='font-size:9.0pt;
+  font-family:Verdana;color:black'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="25%" valign=top style='width:25.8%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>vbacct<o:p></o:p></span></p>
+  </td>
+  <td width="73%" valign=top style='width:73.4%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>Visual Basic implementation of Sample Bank components.
+  Demonstrates how to participate in a transaction.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="25%" valign=top style='width:25.8%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>vcacct<o:p></o:p></span></p>
+  </td>
+  <td width="73%" valign=top style='width:73.4%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>Visual C++ implementation of Sample Bank components.
+  Demonstrates how to participate in a transaction.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="25%" valign=top style='width:25.8%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>vjacct<o:p></o:p></span></p>
+  </td>
+  <td width="73%" valign=top style='width:73.4%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>Visual J++ implementation of Sample Bank components.
+  Demonstrates how to participate in a transaction.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="25%" valign=top style='width:25.8%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>BankAdmin<o:p></o:p></span></p>
+  </td>
+  <td width="73%" valign=top style='width:73.4%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>Sample scripts demonstrating how to automate the installation of
+  COM+ applications.<span style="mso-spacerun: yes">  </span>For more
+  information about the sample scripts, see <a href="BankAdmin\Admin.htm"><span
+  style='font-size:12.0pt;font-family:"Times New Roman"'>Admin.htm</span></a><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="25%" valign=top style='width:25.8%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>VBBank<o:p></o:p></span></p>
+  </td>
+  <td width="73%" valign=top style='width:73.4%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt;font-family:Verdana;
+  color:black'>Visual Basic client for the Sample Bank application.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<font face=verdana size=2>
+<h4>Build Notes</h4>
+
+<p><ul>
+<li>VC: Either run <b>nmake -a</b> from the vbbank\ folder or run and build <b>Transaction.dsw</b> fron the Transaction\ folder.<br>
+<li>VB: Run and build <b>account.vbp</b> from the vbacct\ folder and <b>bank.vbp</b> from the vbbank\ folder.<br>
+<li>VJ: Ensure that the <b>CLASSPATH</b> user environment variable has the path to the <b>\Transaction\SampleBank\vjacct</b> folder listed first then run and build <b>Vjacct.vjp</b> from the vjacct\ folder.
+</ul></p>
+
+<h4>Remarks</h4>
+
+<p>These samples require that a FILESDSN called BankSample be installed and correctly configured. This DSN should have been installed by the Platform SDK Installer. If BankSample.dsn does not exist, create a FILEDSN that points to the pubs database on any valid SQL Server.</p>
+
+<p>
+The subdirectories step1 through step8 in the vbacct directory demonstrate one possible
+development path for the sample code.The final version of the sample code is contained in vbacct directory itself.
+</p>
+
+<hr>
+
+</font>
+</body>
+</html>

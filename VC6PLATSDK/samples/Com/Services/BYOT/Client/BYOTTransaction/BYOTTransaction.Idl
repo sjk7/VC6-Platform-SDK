@@ -1,0 +1,42 @@
+// ByotTransaction.idl : IDL source for ByotTransaction.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ByotTransaction.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(6812A8D0-C6B7-11D2-8482-0080C7A03FC6),
+		dual,
+		helpstring("IByotTransaction Interface"),
+		pointer_default(unique)
+	]
+	interface IByotTransaction : IDispatch
+	{
+		[id(1), helpstring("Begins a BYOT Transaction")] HRESULT BeginTransaction();
+		[id(2), helpstring("Commits the BYOT Transaction")] HRESULT CommitTransaction();
+		[id(3), helpstring("Aborts the BYOT Transaction")] HRESULT AbortTransaction();
+		[propget, id(4), helpstring("Retrieves the TIP URL associated with this BYOT Transaction")] HRESULT TipURL([out, retval] BSTR *pVal);
+	};
+
+[
+	uuid(F9638B00-C6B6-11D2-8482-0080C7A03FC6),
+	version(1.0),
+	helpstring("BYOT Sample ByotTransaction 1.0 Type Library")
+]
+library BYOTTRANSACTIONLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(B8B87F20-C6B7-11D2-8482-0080C7A03FC6),
+		helpstring("ByotTransaction Object Class")
+	]
+	coclass ByotTransObj
+	{
+		[default] interface IByotTransaction;
+	};
+};

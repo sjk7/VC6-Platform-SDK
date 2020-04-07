@@ -1,0 +1,433 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./DataAccess_files/filelist.xml">
+<link rel=Edit-Time-Data href="./DataAccess_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Transactions</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Eric Adams</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Eric Adams</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>41</o:TotalTime>
+  <o:Created>1999-06-04T03:52:00Z</o:Created>
+  <o:LastSaved>1999-06-04T03:52:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>374</o:Words>
+  <o:Characters>2134</o:Characters>
+  <o:Company>Microsoft Corp.</o:Company>
+  <o:Lines>17</o:Lines>
+  <o:Paragraphs>4</o:Paragraphs>
+  <o:CharactersWithSpaces>2620</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="..\..\..\styles.css">
+<style>
+<!--
+a:visited
+	{color: 336666;}
+A:hover {background:Olive; color: White}
+ /* Font Definitions */
+@font-face
+	{font-family:"Arial Narrow";
+	panose-1:2 11 5 6 2 2 2 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h2
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+h4
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Arial Narrow";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;
+	mso-bidi-font-weight:normal;}
+a:link, span.MsoHyperlink
+	{mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	mso-ascii-font-family:Verdana;
+	mso-hansi-font-family:Verdana;
+	color:olive;
+	mso-text-animation:none;
+	mso-hide:none;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	mso-ascii-font-family:Verdana;
+	mso-hansi-font-family:Verdana;
+	color:blue;
+	mso-text-animation:none;
+	mso-hide:none;
+	text-decoration:none;
+	text-underline:none;
+	text-decoration:none;
+	text-line-through:none;}
+p
+	{margin-right:0in;
+	mso-margin-top-alt:auto;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+code
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	mso-hide:none;}
+kbd
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	mso-hide:none;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";}
+samp
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	mso-hide:none;}
+tt
+	{mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	mso-hide:none;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=olive vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2><span style='font-family:Verdana;color:black'>DataAcADO<o:p></o:p></span></h2>
+
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:9.0pt;font-family:Verdana;color:black'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+
+<h4><span style='font-family:Verdana;color:black'>Overview<o:p></o:p></span></h4>
+
+<p><span style='font-size:9.0pt;font-family:Verdana;color:black'>The Data
+Access sample shows how to write data access components that participate in
+transactions that use three different data access technologies: RDO, ADO, And
+OLE DB.<span style="mso-spacerun: yes">  </span><o:p></o:p></span></p>
+
+<p><span style='font-size:9.0pt;font-family:Verdana;color:black'>This sample is
+a simple COM+ component that obtains a first name from SQL Server’s pubs
+database and returns this name to the COM+ client.<o:p></o:p></span></p>
+
+<h4><span style='font-family:Verdana;color:black'>Creating Your Own Project<o:p></o:p></span></h4>
+
+<p><span style='font-size:9.0pt;font-family:Verdana;color:black'><B>To recreate
+this sample from scratch</b><o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>1. Use the ATL COM App Wizard to create a new DLL. Click <b>Support
+MTS</b>.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>2. Insert a new ATL COM object.<span style="mso-spacerun: yes"> 
+</span>Click MS Transaction Server type. On the <B>MTS</b> tab, click 
+<b>Support IObjectControl</b> and <b>Can be Pooled</b>.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>(In this example, the object is named &quot;ADOComponent.&quot;)<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>3. In <b>ClassView</b>, right-click the object's interface and click
+<b>Add<span style="mso-spacerun: yes">  </span>method</B>.<span
+style="mso-spacerun: yes">  </span>Type the method name, and in the <b>Parameters</b>
+field, type:<o:p></o:p></span></p>
+
+<b><p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'><span style="mso-spacerun: yes">   </span>[in, out] VARIANT *
+returnval</b><o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>4. Use ClassView to open the .cpp file for your method.<span
+style="mso-spacerun: yes">  </span>(In this case, the file is named <span
+style="mso-spacerun: yes"> </span>DOComponent.cpp.)<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>5. Below the includes at the top of the cpp file, insert the
+following line:<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'><span style="mso-spacerun: yes">   </span>#import
+&quot;msado15.dll&quot; no_namespace rename(&quot;EOF&quot;, &quot;adoEOF&quot;
+)<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>6. On the <B>Build</b> menu,  click <B>Set Active Configuration</b>
+and then click <B>Win32 Debug</b><span style="mso-spacerun: yes"> 
+</span>configuration. (In a production environment, you should Release Min Size
+for COM+ components.) <o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>7. Under <b>Project Settings</b>, select the <b>C/C++</b> tab and add the /GX
+flag to enable C++ exception handling.<span style="mso-spacerun: yes"> 
+</span>(C++ exception handling is required by ATL smart pointers.)<span
+style="mso-spacerun: yes">  </span>Also, delete /D &quot;_ATL_MIN_CRT&quot;.<o:p></o:p></span></p>
+
+<p style='margin-left:.5in'><span style='font-size:9.0pt;font-family:Verdana;
+color:black'>8. Insert the following code from this and the following page in
+your method and then compile:<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">  
+</span>_RecordsetPtr adoRs;<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>_bstr_t
+Source(&quot;select au_fname from authors where au_lname = 'White'&quot;);<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>_bstr_t
+Connect(&quot;DSN=pubs;Uid=sa;Pwd=;Database=pubs&quot;);<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>try<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>{<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">     
+</span>_variant_t InVar;<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">     
+</span>adoRs.CreateInstance(__uuidof(Recordset));<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes"> </span><span
+style="mso-spacerun: yes">     </span>adoRs-&gt;Open( Source,<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">               
+</span>Connect, <o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">               
+</span>adOpenForwardOnly, <o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:4'>                        </span>adLockReadOnly,
+<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:4'>                        </span>adCmdText);<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">      </span>InVar =
+adoRs-&gt;Fields-&gt;GetItem(&quot;au_fname&quot;)-&gt;Value;<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">     
+</span>VariantClear(returnval);<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">     
+</span>VariantCopy(returnval, &amp;(InVar.Detach()));<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">     
+</span>adoRs-&gt;Close();<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>}<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">    </span><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">  
+</span>catch(_com_error z)<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>{<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">     
+</span>if(adoRs)<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:2'>            </span>{<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">        
+</span>adoRs-&gt;Close();<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">        
+</span>adoRs = NULL;<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:2'>            </span>}<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">    </span><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:2'>            </span>if
+(m_spObjectContext)<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:3'>                  </span>m_spObjectContext-&gt;SetAbort();<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:2'>            </span>return
+z.Error();<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:1'>      </span>}<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>if
+(m_spObjectContext)<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>{<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style='mso-tab-count:2'>            </span>m_spObjectContext-&gt;SetComplete();<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>}<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>adoRs =
+NULL;<o:p></o:p></span></code></p>
+
+<p class=MsoNormal style='margin-left:.5in'><code><span style='font-size:10.0pt;
+font-family:"Courier New"'><span style="mso-spacerun: yes">   </span>return
+S_OK;<o:p></o:p></span></code></p>
+
+<p><span style='font-size:9.0pt;font-family:Verdana;color:black'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<h4><span style='font-family:Verdana;color:black'>Remarks<o:p></o:p></span></h4>
+
+<p>In order for this sample to work, a system DSN named pubs should be present,
+and this data source should point to an instance of SQL Server’s pubs database.<span
+style='font-size:9.0pt;font-family:Verdana;color:black'> <o:p></o:p></span></p>
+
+
+<div class=MsoNormal align=center style='text-align:center'><span
+style='font-size:9.0pt;font-family:Verdana;color:black'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+
+<p><span style='font-size:9.0pt;font-family:Verdana;color:black'>&nbsp;<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

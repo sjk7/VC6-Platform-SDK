@@ -1,0 +1,23 @@
+HKCR
+{
+	CrmFilesWorker.CrmFilesWorker.1 = s 'CrmFilesWorker Class'
+	{
+		CLSID = s '{43A7D837-B492-11D1-82F1-00A0C91EEDE9}'
+	}
+	CrmFilesWorker.CrmFilesWorker = s 'CrmFilesWorker Class'
+	{
+		CurVer = s 'CrmFilesWorker.CrmFilesWorker.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {43A7D837-B492-11D1-82F1-00A0C91EEDE9} = s 'CrmFilesWorker Class'
+		{
+			ProgID = s 'CrmFilesWorker.CrmFilesWorker.1'
+			VersionIndependentProgID = s 'CrmFilesWorker.CrmFilesWorker'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

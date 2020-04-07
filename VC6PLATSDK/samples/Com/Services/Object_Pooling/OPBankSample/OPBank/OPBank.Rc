@@ -1,0 +1,260 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "1 TYPELIB ""OPBank.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "OPBank Module\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "OPBank\0"
+            VALUE "LegalCopyright", "Copyright 1998\0"
+            VALUE "OriginalFilename", "OPBank.EXE\0"
+            VALUE "ProductName", "OPBank Module\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "OLESelfRegister", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_OPBank              REGISTRY MOVEABLE PURE  "OPBank.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&Action"
+    BEGIN
+        MENUITEM "&Go\t(CTRL+G)",               IDC_SUBMIT
+        MENUITEM "&Stop",                       IDC_STOP
+        MENUITEM "&Kill Worker Threads",        IDM_KILL_THREADS
+        MENUITEM "&Run Test Suite\t(CTRL+R)",   IDC_RUN_SUITE
+        MENUITEM "&Set Row Count",              IDC_CREATE_ROWS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDOK
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy Selection",             IDM_COPY
+        MENUITEM "Copy &All",                   IDM_COPYALL
+        MENUITEM "Copy &Errors",                IDM_COPYERRORS
+    END
+    POPUP "&Suite"
+    BEGIN
+        MENUITEM "View &Next\t(CTRL+N)",        IDC_VIEW_NEXT
+        MENUITEM "View &Previous\t(CTRL+P)",    IDC_VIEW_PREV
+        MENUITEM "&Add",                        IDC_ADD
+        MENUITEM "&Remove",                     IDC_REMOVE
+    END
+    POPUP "&Test"
+    BEGIN
+        POPUP "&Move Money"
+        BEGIN
+            MENUITEM "&Transfer",                   ID_MM_TRANSFER
+            MENUITEM "&Debit",                      ID_MM_DEBIT
+            MENUITEM "&Credit",                     ID_MM_CREDIT
+        END
+        POPUP "&Account"
+        BEGIN
+            MENUITEM "&Debit",                      ID_AC_DEBIT
+            MENUITEM "&Credit",                     ID_AC_CREDIT
+        END
+        MENUITEM "&Pool Test",                  IDM_POOL_TEST
+    END
+    POPUP "&CoInit"
+    BEGIN
+        MENUITEM "&MTA",                        ID_COINIT_MTA
+        MENUITEM "&STA",                        ID_COINIT_STA
+        MENUITEM "&Random",                     ID_COINIT_RANDOM
+    END
+    POPUP "&Language"
+    BEGIN
+        MENUITEM "&C++",                        ID_LANG_C
+        MENUITEM "&Visual Basic",               ID_LANG_VB
+        MENUITEM "&Java",                       ID_LANG_JAVA, GRAYED
+        MENUITEM "&Delphi",                     ID_LANG_DELPHI
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&Assert on Errors",           ID_ASSERT_ON_ERRORS
+        MENUITEM "Stop on &ODBC Errors",        IDM_OPTION_ODBC_STOP
+        MENUITEM "&Chatty Display",             IDM_OPTION_CHATTY
+        MENUITEM "Create Per &Iteration",       IDM_OPTION_CREATE_ITERATION
+        MENUITEM "&Use Random Accounts",        IDM_RANDOM
+        MENUITEM "&Retry On Errors",            IDM_RETRY
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BANKDLG DIALOGEX 0, 0, 578, 174
+STYLE WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "OP Bank"
+MENU IDR_MENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_ROWS,263,38,70,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FROM,39,18,70,14,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_TO,39,35,70,14,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_AMOUNT,263,20,70,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ITERS,155,18,70,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_THREADS,155,35,70,14,ES_AUTOHSCROLL
+    LTEXT           "&From:",IDC_STATIC,15,20,18,8
+    LTEXT           "&To:",IDC_STATIC,21,38,12,8
+    LTEXT           "Iterations:",IDC_STATIC,117,21,32,8
+    LTEXT           "Amount",IDC_STATIC,233,21,25,8
+    LTEXT           "&Threads:",IDC_STATIC,117,38,29,8
+    CONTROL         "List2",IDC_RESULTS,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,5,62,568,107
+    GROUPBOX        "Test Data",IDC_STATIC,5,5,568,51
+    LTEXT           "Test 0 of 0",IDC_SUITE_STATUS,351,17,64,8
+    LTEXT           "Rows",IDC_STATIC,238,41,19,8
+    EDITTEXT        IDC_DESCRIPTION,351,27,209,22,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATORS ACCELERATORS DISCARDABLE 
+BEGIN
+    "G",            IDC_SUBMIT,             VIRTKEY, CONTROL, NOINVERT
+    "N",            IDC_VIEW_NEXT,          VIRTKEY, CONTROL, NOINVERT
+    "P",            IDC_VIEW_PREV,          VIRTKEY, CONTROL, NOINVERT
+    "R",            IDC_RUN_SUITE,          VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_BANKDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 573
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 169
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "OPBank"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "OPBank.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0027)http://com/sdk/template.htm -->
+<HTML><HEAD><TITLE>Name of Your Feature/Service</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type><LINK 
+href="template_files/styles.css" rel=stylesheet type=text/css>
+<STYLE>A:link {
+	COLOR: olive
+}
+A:visited {
+	COLOR: #336666
+}
+A:hover {
+	BACKGROUND: olive; COLOR: white
+}
+UL {
+	LIST-STYLE: url(../images/BLACKARROW.GIF)
+}
+</STYLE>
+
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY>
+<h2>DCOM Timeouts Sample</h2>
+<HR>
+
+<H4>Overview</H4>
+<p>Control of DCOM Timeouts has been a much-requested capabilitiy. With the
+introduction in Windows 2000 of Non-Blocking Method calls, an application
+developer can develop code that reliably controls application-specific
+method-call timeouts. Non-Blocking Method Calls combined with Call Cancellation
+allows cleanup of any RPC, and DCOM resources a call uses thus eliminate leaks.</p>
+<p>This sample contains a client that implements two different approaches to
+timeouts:</p>
+<p style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in; mso-list: l0 level1 lfo1; tab-stops: list .5in">1.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Fixed Timeouts: The call to the server ‘must’ complete in a
+particular interval.</p>
+<p style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in; mso-list: l0 level1 lfo1; tab-stops: list .5in">2.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Variable Timeouts with Pinging: The call to the server can complete in
+any timeframe but during that interval the server must still be responsive to
+client pings. As long as the server is responsive to pings, the original call is
+allowed to take as long as necessary.</p>
+<p>The first approach has the benefit of being simple to implement. It has the
+disadvantage (or some say advantage ;-) of timing out calls as the load on the
+server application increases and the server’s response time becomes sluggish.
+For your application to use this technique you will want to choose a timeout
+that balances the number of <span style="mso-spacerun: yes">&nbsp;</span>timeouts
+versus the server load.</p>
+<p>The second approach has the benefit of timing out calls only when the server
+becomes very unresponsive. The technique is a little more complicated to
+implement on the client and in the server. It allows client of a long running
+server operation to reliably detect the server as up or down (network partition,
+system hung, etc…). The Ping timeout needs to be tuned to not detect up
+servers as down. This technique also has the capability of flooding the network
+with extra traffic. To minimize this flooding, it is recommended that you
+implement an exponential backoff after each successful ping before issuing the
+next one. For instance, you might choose to reissue the ping at 1 second, then
+2, 4, 8, 16 seconds as each subsequent ping succeeds. (That implementation is
+left as an exercise to the reader ;-)</p>
+<H4>Project Files</H4>
+<TABLE border=0 width="75%">
+  <TBODY>
+  <TR>
+    <TD width="34%"><STRONG>Sub-directory</STRONG></TD>
+    <TD width="66%"><STRONG>Description</STRONG></TD></TR>
+  <TR>
+    <TD width="34%">PingResp</TD>
+    <TD width="66%">Free-Threaded Responder for client-initiated Pings</TD></TR>
+  <TR>
+    <TD width="34%">Server</TD>
+    <TD width="66%">Server for objects used in the Timeouts Sample</TD></TR>
+  <TR>
+    <TD width="34%">Client</TD>
+    <TD width="66%">Code that demonstrates how client code can implement
+      timeouts</TD></TR>
+  </TBODY></TABLE>
+<H4>Build Notes</H4>
+<p>
+- Setup the normal SDK build environment<br>
+- To build: From the command line execute “nmake” from the timeouts directory<br>
+- This will cause building of the following binaries:
+client.exe, server.exe, serverps.dll, pingresp.dll.</p>
+<p>Copy the binaries to a directory on your local and remote machines.</p>
+<p>Execute the following commands:<br>
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>regsvr32
+serverps.dll<br>
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>regsvr32
+pingresp.dll<br>
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>server.exe
+/regserver</p>
+<H4>Remarks</H4>
+<P>Client.exe displays a dialog box that is used to control the sample:</P>
+<P><img border="0" src="./client.jpg" width="424" height="262"></P>
+<p>Enter the remote host name, click “Use Pinging” or not, and click
+“Start”. When you want to try some other combination click the “Start”
+button (which now says “Stop”) again to stop the client. Click Exit when you
+are done using the program.</p>
+<p>The Last Response field is what was returned from the server on the last
+successful Method Call. The “Ok!” item will change to “Warning!” and
+then to “Help!” as the number of Method calls in a row that have timed out
+increases.</p>
+<TABLE border=0 width="75%">
+  <TBODY>
+  <TR>
+    <TD width="20%"><strong>Counter Name</strong></TD>
+    <TD width="80%"><STRONG>Description</STRONG></TD></TR>
+  <TR>
+    <TD width="20%">Tries</TD>
+    <TD width="80%">Number of Method Calls Attempted</TD></TR>
+  <TR>
+    <TD width="20%">Fails</TD>
+    <TD width="80%">Failures of the Begin_ Method</TD></TR>
+  <TR>
+    <TD width="20%">Timeouts</TD>
+    <TD width="80%">Number of Method Calls TimedOut and Canceled</TD></TR>
+  <TR>
+    <TD width="20%">Pings</TD>
+    <TD width="80%">Number of Pings Attempted while Method Call is outstanding</TD></TR>
+  <TR>
+    <TD width="20%">Ping Fails</TD>
+    <TD width="80%">Number of Ping Timeouts (these also cause Timeouts to be
+      counted)</TD></TR>
+  </TBODY></TABLE>
+<p>&nbsp;</p>
+<HR>
+
+<P>&nbsp;</P></BODY></HTML>

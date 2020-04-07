@@ -1,0 +1,143 @@
+<html>
+
+<head>
+<title>Asynchronous COM</title>
+<link rel="stylesheet" type="text/css" href="../../docs/Styles.css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>Asynchronous COM</h2>
+<hr>
+<h4>Overview</h4>
+ <p> This sample demonstrates how to implement
+and use asynchronous interfaces. Aync COM operates independently from how both the server
+implements the interface and the client calls it for both local/remote servers. A client
+created for Windows NT 4/Windows 95 will make a method synchronously call on an COM object
+that is free to implement the interface asynchronously and vise versa. This allows the
+server to do work such as servicing other clients while it's waiting on a database query.</p>
+<p>This sample also demonstrates a
+form of asynchronous events in which the server is able to loop through signaling each
+client that something of interest has happen without waiting for the client to process the
+event. This is accomplished through an asynchronous auto completion mechanism. For
+example, we call Begin_XXX method of the call object and then release the call object
+without calling the corresponding Finish_XXX method</p>
+<blockquote>
+  <blockquote>
+    <p><font SIZE="2" color="#000000" face="Courier">PCallFactory-&gt;CreateCall(pAsync)</font></p>
+    <p><font SIZE="2" color="#000000" face="Courier">PAsync-&gt;Begin_Method()</font></p>
+    <p><font SIZE="2" color="#000000" face="Courier">PAsync-&gt;Release()</font></p>
+    <p><font SIZE="2" color="#000000" face="Courier">PCallFactory-&gt;Release()</font></p>
+  </blockquote>
+</blockquote>
+<p>
+One very important note: this is
+not a general-purpose mechanism. In particular, the asynchronous interface can not be
+derived from IDispatch. Furthermore, there is no guarantee that the call will actually
+reach the client.</p>
+<h4>Project Files</h4>
+<table border="1" width="75%">
+  <tr>
+    <td width="26%"><strong>File Name</strong></td>
+    <td width="74%"><strong>Description</strong></td>
+  </tr>
+ <tr>
+    <td width="26%">async_com.dsw</td>
+    <td width="74%">VC project file.</td>
+  </tr>
+  <tr>
+    <td width="26%">Server\CasyncTest.cpp</td>
+    <td width="74%">This file and the CAsyncXXX
+    file make up the Call Object that you return in ICallFactory::CreateCall.</td>
+  </tr>
+  <tr>
+    <td width="26%">Server\CAsyncXXX.cpp</td>
+    <td width="74%">Generic template for Call Objects</td>
+  </tr>
+
+  <tr>
+    <td width="26%">Server\CconnectionPt.cpp</td>
+    <td width="74%">This file and CEnumXXX contain the
+    supporting interfaces for Connection points</td>
+  </tr>
+
+  <tr>
+    <td width="26%">Server\DCOMServer.cpp</td>
+    <td width="74%">This file makes up the main class for
+    this server. </td>
+  </tr>
+
+  <tr>
+    <td width="26%">Server\Main.cpp</td>
+    <td width="74%">Initialization code which will
+    register/unregister the server or class factories depending on command line parameters</td>
+  </tr>
+
+  <tr>
+    <td width="26%">Proxy\Proxy.idl</td>
+    <td width="74%">IDL file</td>
+  </tr>
+
+  <tr>
+    <td width="26%">Client\Main.cpp</td>
+    <td width="74%">Client code which runs the server.
+    Depending on how this is compiled it can either be a asynchronous client that supports
+    events as well as defining the DCOM settings that specify where server will run</td>
+  </tr>
+
+  <tr>
+    <td width="26%">makefile</td>
+    <td width="74%">Makefile for building the project</td>
+  </tr>
+
+</table>
+
+
+<h4>Build Notes</h4>
+<p>There are two
+projects in this sample: the client and the server. To build the project, simply type
+NMAKE in the command line of your directory or use the VC IDE by clicking on the link
+below if you've installed the SDK. </p>
+<p>If you wish to run this sample as
+a DCOM server and client, you have two choices: one is to hardcode the Remote machine
+name, and the other is to hardcode the user whom the server will use to determine the
+launch and access rights. To do this, you will need to modify the client code slightly.
+Search for the <i>COSERVERINFO</i> manifest constant and supply the above information</p>
+<blockquote>
+  <p><font SIZE="2" color="#000000" face="Courier">MACHINE L&quot;MachineName&quot;</font></p>
+  <p><font SIZE="2" color="#000000" face="Courier">DOMAIN L&quot;Domain&quot;</font></p>
+  <p><font SIZE="2" color="#000000" face="Courier">USER L&quot;ME&quot;</font></p>
+  <p><font SIZE="2" color="#000000" face="Courier">PASSWORD L&quot;COM_STUD&quot;</font></p>
+</blockquote>
+<p>Domain, User, Password can be
+filled with an empty string L&quot;&quot; if you do not wish to try out a different user
+context than is logged on to the client machine. You can also use DCOMCNFG to set
+up the remote server name.</p>
+<p>NOTE: The typelib/proxy project is
+a dependency<font color="#000000" SIZE="2"> <font face="Verdana"> of the server. The
+server requires that both the proxy and typelibrary be in the same directory as the EXE.
+You will need to copy both of these files to that directory prior to registering this
+server. </p>
+
+
+<h4>Remarks</h4>
+<p>Prior to
+testing this sample, you must register the server, typelibrary and proxy. To do this
+simply type at the command line:</p>
+<blockquote>
+  <font SIZE="2"><p></font></font></font><font size="2" color="#000000" face="Courier">AsyncServer</font><font face="Verdana"><font SIZE="2" color="#000000" face="Courier"> /RegServer
+  </font><font SIZE="2"></p>
+  </font>
+</blockquote>
+<p>Running the client automatically connects the client
+to the server. If you choose to run this remotely
+you will need to use DCOMCNFG to configure the remote machine to allow Launch/Access
+rights for the user. On the client machine you may also need to set the RemoteMachineName
+if you have not followed steps described above. </p>
+</body>
+</html>

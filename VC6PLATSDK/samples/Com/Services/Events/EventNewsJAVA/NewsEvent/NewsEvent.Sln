@@ -1,0 +1,13 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{66355F20-A65B-11D0-BFB5-00A0C91EBFA0}") = "NewsEvent", "NewsEvent.vjp", "{C103FD80-B401-4C1B-A342-CCDEA5D3BE3B}"
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {C103FD80-B401-4C1B-A342-CCDEA5D3BE3B}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {C103FD80-B401-4C1B-A342-CCDEA5D3BE3B}
+	EndGlobalSection
+	GlobalSection(DeploymentRoot) = postSolution
+	EndGlobalSection
+EndGlobal

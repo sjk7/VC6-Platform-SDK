@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Running the sample</TITLE>
+<META NAME="Template" CONTENT="D:\Program Files\Microsoft Office\Office\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H2>Setting Up and Running the Sample</H2>
+
+<P>This sample does not have any UI. However, it does make ample use of OutputDebugString. Before performing these steps, you may want to run a utility like dbmon.exe or some other utility that displays the output from OutputDebugString.
+<p><b> Note</b>: &nbsp;&nbsp;&nbsp;  You can perform steps 1 and 2 at the same time.</P>
+<OL>
+
+<LI><A HREF="create_empty.htm">Create three empty COM+ applications: QCOrder, QCShip, and QCNotify.</A></LI>
+<LI><A HREF="qapp.htm">Set the Queued property for QCShip and QCNotify</A>. This step actually creates the underlying Message Queuing queues that provide the queuing services for these Queued Components.</LI>
+<LI><A HREF="instcomp.htm">For each COM+ application, install the appropriate queued component.</A></LI>
+<LI><A HREF="setqcomp.htm">Confirm the Queued property for the interfaces on the QCShip and QCNotify components.</A></LI>
+<LI>Run Driver.exe from Services\Queued_Components\QCSamp1\Driver\Debug. Notice that QCShip or QCNotify have not been started.</LI>
+</I></STRONG><LI>Driver.exe will terminate when it submits 100 orders. It submits one order per second. Again, you can observe Driver.exe submitting orders via a utility like Dbmon.exe. Also, using the Message Queuing snap-in, observe the messages in the QCShip queue. You may have to press F5 to Refresh.</LI>
+<LI><A HREF="listen.htm">Start the QCShip application and listener.</A> At this point, the QCShip application will begin processing the ship orders submitted by the client application Driver.exe. If you have Dbmon.exe (or some other utilty that can display OutputDebugString diagnostics) you will see QCShip process 100 ship orders and execute 100 queued calls to QCNotify. Also, using the Message Queuing snap-in, observe the messages in the QCNotify queue. You may have to press F5 to Refresh.</LI>
+<LI>When QCShip completes, <A HREF="listen.htm">start the QCNotify application and listener</A>. You will see QCNotify start processing the notifications submitted by QCShip. Again, it is instructive to see what's going on with Dbmon.exe. Also, using the Message Queuing snap-in, observe that all queued messages have been processed.</LI>
+<LI>You can rerun Driver.exe with both QCShip and QCNotify both up and running. The application behaves identically if QCShip and QCNotify are available or not.</LI>
+<LI>You can also run multiple instances of Driver.exe.</LI></OL>
+</BODY>
+</HTML>

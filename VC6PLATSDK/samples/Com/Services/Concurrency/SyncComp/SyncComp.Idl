@@ -1,0 +1,7 @@
+// SyncComp.idl : IDL source for SyncComp.dll
+// This is just here so we can use the ATL Wizards
+//
+
+library DummyLib
+{
+};

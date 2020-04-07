@@ -1,0 +1,20 @@
+// OPBank.idl : IDL source for OPBank.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (OPBank.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(7B876BC0-96BC-11D2-84FA-00C04F79E4B5),
+	version(1.0),
+	helpstring("OPBank 1.0 Type Library")
+]
+library OPBANKLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+};

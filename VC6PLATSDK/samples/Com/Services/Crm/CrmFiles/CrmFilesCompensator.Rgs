@@ -1,0 +1,23 @@
+HKCR
+{
+	CrmFilesCompensator.CrmFilesCompensator.1 = s 'CrmFilesCompensator Class'
+	{
+		CLSID = s '{43A7D839-B492-11D1-82F1-00A0C91EEDE9}'
+	}
+	CrmFilesCompensator.CrmFilesCompensator = s 'CrmFilesCompensator Class'
+	{
+		CurVer = s 'CrmFilesCompensator.CrmFilesCompensator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {43A7D839-B492-11D1-82F1-00A0C91EEDE9} = s 'CrmFilesCompensator Class'
+		{
+			ProgID = s 'CrmFilesCompensator.CrmFilesCompensator.1'
+			VersionIndependentProgID = s 'CrmFilesCompensator.CrmFilesCompensator'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

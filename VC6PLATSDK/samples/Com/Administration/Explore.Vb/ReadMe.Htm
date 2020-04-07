@@ -1,0 +1,96 @@
+<html>
+
+<head>
+<title>COM+ Administration - Explore Example (VB)</title>
+<link rel="stylesheet" type="text/css" href="../../docs/Styles.css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>VB Explore</h2>
+
+<hr>
+<p>The COM+ Explore sample demonstrates how to exercise the COM+ Administration 
+services using Visual Basic. </P>
+
+<p>It contains examples of the following:
+<ul>
+<li>navigating collections (including adding and removing objects and changing properties)
+<li>exporting and installing applications
+<li>importing and integrating components into applications
+<li>controlling the router on the machine
+<li>writing Start and Stop applications
+<li>connecting to different machines to administer their COM objects
+</ul>
+<p>This document has the following sections:</p>
+<ul>
+  <li><a href="#Overview">Overview</a> - provides a description of the sample
+  <li><a href="#Build / Configuration">Build / Configuration</a> - provides step
+    by step instructions for building and installing the sample
+  <li><a href="#Tour">Tour</a> - provides a guided tour of the interesting
+    features of the sample</li>
+</ul>
+<p>For more information see <a href="http://msdn.microsoft.com/library/default.asp?URL=/library/psdk/cossdk/adreftoplevel_6o4l.htm">COM+
+Administration Reference</a><a href="http://msdn.microsoft.com/library/default.asp?URL=/library/psdk/cossdk/pgservices_events_2y9f.htm" target="_top">
+</a>on MSDN</p>
+<h3>Overview</h3>
+<p>COM+ administrative tasks can be managed programmatically by a rich set of
+interfaces as well as through the component services application.&nbsp;&nbsp;This
+sample demonstrates navigation through the collections of the COM+ Catalog</p>
+
+<h3>Build / Configuration</h3>
+<ol>
+<LI>Open the file <B><a href="Explore.vbp">Explore.vbp</a></B> using Visual Basic
+  6.0 
+<LI>To build the application, select <b>File / Make Explore.exe</b>
+</ol>
+<p>Were you able to build the sample?&nbsp; If not, check with the <a href="#HelpDesk">Help
+Desk</a>&nbsp;</p>
+
+<h3>Tour</h3>
+<p>The COM+ Administration interfaces expose a group of collections that are
+composed into a hierarchy of collections.&nbsp; Using this sample you can browse
+collections, set and change properties of elements in the collection and save
+your changes to the COM+ catalog.</p>
+<ol>
+  <li>Start the <a href="Explore.exe">Explorer.exe</a> application.<br>
+    To start with, you are on the root collection. </li>
+  <li>Click on <b>Applications</b> in the Related Collections listbox.&nbsp;
+    This will display a list of COM+ applications installed on your system</li>
+  <li>Click the <b>Add</b> button (third button from left) to add a new COM+
+    application.</li>
+  <li>In the Objects list a new entry <b>New Application</b> appears.&nbsp;
+    Click on <b>New Application.</b></li>
+  <li>Now set the application name by selecting the <b>Name</b> property in the
+    properties list.</li>
+  <li>Change the name to <b>My New App.</b> Then click the Set button.</li>
+  <li>Click on the <b>save</b> button to save your changes to the catalog.</li>
+</ol>
+<p>You have now created a new COM+ application with the COM+ Administrative
+interface</p>
+
+<p>Did the sample work as expected?&nbsp; If not, check with the <a href="#HelpDesk">Help
+Desk</a>&nbsp;</p>
+
+<h3><a name="HelpDesk"><img border="0" src="../../Images/help.gif" align="right" width="185" height="128">Help Desk</a></h3>
+<h5>What are you have trouble with?</h5>
+<ul>
+  <li><a href="../../docs/BuildEnv.htm">Building the sample</a></li>
+  <li><a href="../../docs/Troubleshooting.htm">My problem is not listed, just
+    show me the FAQ</a></li>
+</ul>
+
+<hr>
+
+<!--MSFT COPYRIGHT-->
+<FONT CLASS="SMALL" FACE="Verdana, Arial, Geneva, Helvetica, sans-serif" SIZE=1>
+<A HREF="http://www.microsoft.com/info/cpyright.htm">&copy; 2000 Microsoft Corporation. All rights reserved. Terms of Use.</A>
+</FONT>
+<!--MSFT COPYRIGHT-->
+</body>
+</html>

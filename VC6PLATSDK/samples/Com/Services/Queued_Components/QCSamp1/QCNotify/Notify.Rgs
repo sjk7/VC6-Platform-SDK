@@ -1,0 +1,25 @@
+HKCR
+{
+	QCNotify.Notify.1 = s 'Notify Class'
+	{
+		CLSID = s '{6DD1E6F0-28C1-11D2-B5B6-00C04FC340EE}'
+	}
+	QCNotify.Notify = s 'Notify Class'
+	{
+		CLSID = s '{6DD1E6F0-28C1-11D2-B5B6-00C04FC340EE}'
+		CurVer = s 'QCNotify.Notify.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6DD1E6F0-28C1-11D2-B5B6-00C04FC340EE} = s 'Notify Class'
+		{
+			ProgID = s 'QCNotify.Notify.1'
+			VersionIndependentProgID = s 'QCNotify.Notify'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

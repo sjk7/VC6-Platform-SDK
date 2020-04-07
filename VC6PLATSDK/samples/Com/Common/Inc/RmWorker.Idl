@@ -1,0 +1,232 @@
+
+/******************************************************************************\
+********************************************************************************
+* Filename: RmWorker.idl
+*
+* Description: IDL source for RmWorker.dll
+*
+* This file will be processed by the MIDL tool to
+* produce the type library (RmWorker.tlb) and marshalling code.
+*
+*
+* This file is provided as part of the Microsoft Transaction Server
+* Software Development Kit
+*
+*THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT 
+*WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+*INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+*OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR 
+*PURPOSE.
+*
+* Copyright (C) 1997 Microsoft Corporation, All rights reserved
+********************************************************************************
+\******************************************************************************/
+
+import "oaidl.idl";
+
+//---------------------------------------------------------------------
+//  RMRC:
+//  Definition of the resource manager return code type.
+//---------------------------------------------------------------------
+
+typedef enum  tagRMSTATUS
+{
+	RM_STATUS_SUCCESS,
+	RM_STATUS_FAILURE,
+	RM_STATUS_UNDO_ERROR,
+	RM_STATUS_LOG_ERROR,
+	RM_STATUS_COPY_FAILURE,
+	RM_STATUS_DELETE_FAILURE,
+	RM_STATUS_RENAME_FAILURE,
+	RM_STATUS_MOVE_FAILURE,
+	RM_STATUS_IN_MEMORY_LIST,
+	RM_STATUS_OVERWRITE_EXISTING,
+	RM_STATUS_FILE_NOT_FOUND,
+	RM_STATUS_INTERFACE,
+	RM_STATUS_NO_MEMORY,
+	RM_STATUS_INVALID_PARM,
+	RM_STATUS_IMPORT_ERROR,
+	RM_STATUS_ENLIST_ERROR,
+	RM_STATUS_INVALID_STATE,
+	RM_STATUS_TM_DOWN,
+	RM_STATUS_RECOVERY_FAILURE
+} RMSTATUS;
+
+//---------------------------------------------------------------------
+// RECOVERYRC:
+// Return codes for recovery functions.
+//---------------------------------------------------------------------
+
+typedef enum tagRECOVERYRC
+{
+	REC_S_SUCCESS,
+	REC_E_NO_MEMORY,
+	REC_E_ORPHANED_TRANSACTION,
+	REC_E_INVALID_STATE,
+	REC_E_PREPARE_SEQUENCE,
+	REC_E_UNDO_SEQUENCE,
+	REC_E_END_TRANSACTION_SEQUENCE,
+	REC_E_FORGET_SEQUENCE,
+	REC_E_BEGINUNDO_SEQUENCE,
+	REC_E_ENDUNDO_SEQUENCE,
+	REC_E_COMMIT_SEQUENCE,
+	REC_E_TRANSACTION_DUPLICATED,
+	REC_E_INVALID_LOG_RECORD,
+	REC_E_LOG_FAILURE,
+	REC_E_STATE_UNKNOWN,
+	REC_E_UNDO_INCOMPLETE,
+	REC_E_INDOUBT_INVALID,
+	REC_E_REENLIST,
+	REC_E_TM_DOWN,
+	REC_E_OUTCOMEACTION
+} RECOVERYRC;
+
+
+//---------------------------------------------------------------------
+// RECOVERY_STATE:
+// State of a recovering transaction.
+//---------------------------------------------------------------------
+
+typedef enum tagRECOVERY_STATE
+{
+	REC_STATE_ACTIVE,
+	REC_STATE_COMPLETED,
+	REC_STATE_DORMANT,
+	REC_STATE_INDOUBT,
+	REC_STATE_ABORTING
+} RECOVERY_STATE;
+
+//---------------------------------------------------------------------
+// TXSTATE:
+// Definition of Resource Manager states.
+// NB:  The Resource Manager only processes one transaction at a time.
+//      After initialization the Resource Manager states reflect the 
+//      transaction states.
+//
+
+typedef enum
+{
+	TX_UNINITIALIZED,
+	TX_INITIALIZING,
+	TX_INITIALIZED,
+	TX_ENLISTING,
+	TX_ENLISTED,
+	TX_PREPARING,
+	TX_PREPARED,
+	TX_COMMITTING,
+	TX_COMMITTED,
+	TX_ABORTING,
+	TX_ABORTED,
+	TX_DONE,
+	TX_TMDOWN,
+	TX_INVALID_STATE
+} TXSTATE;
+
+typedef enum
+{
+	RM_COPY,
+	RM_DELETE,
+	RM_MOVE,
+	RM_RENAME,
+	RM_UNDO, 
+	RM_NONE,
+	RM_FORGET,
+	RM_UNDO_BEGIN,
+	RM_UNDO_END
+	
+} FILE_OPERATION;
+
+
+	[
+	
+		object,	
+		uuid(FC005CE6-3F0B-11D0-9693-00AA00C149A6),	
+		helpstring("IRmWorker Interface"),
+		pointer_default(unique)
+	]
+	interface IRmWorker : IUnknown
+	{
+
+		[helpstring("copy a file")]
+		HRESULT FileCopyTx([in] BSTR sSource, [in] BSTR sDestination, BOOL bFailIfExists);
+
+		[helpstring("rename a file")]
+		HRESULT FileRenameTx([in] BSTR sSource, [in] BSTR sDestination);
+
+		[helpstring("add a file to copy")]
+		HRESULT AddFile([in] BSTR sSource, [in] BSTR sDestination);
+
+		[helpstring("copy the list of files")]
+		HRESULT CopyListTx();
+	
+
+		[helpstring("Move a file")]
+		HRESULT FileMoveTxt([in] BSTR sSource, [in] BSTR sDestination);
+
+		[helpstring("delete a file")]
+		HRESULT FileDeleteTx([in] BSTR sFileName);	
+		
+		[helpstring("Exports the Tx")]
+		HRESULT ExportTx([in] ULONG cbTranCookie, [out]BYTE *rgbTranCookie);
+
+		[helpstring("Initializes the Worker")]
+		HRESULT Init([in] IUnknown * pUnkLog, [in] IUnknown * pUnkDtcResMgr, [in]IUnknown *pUnkDtc, [in] BSTR sRecDir);
+
+		[helpstring("Returns the Tx ID as a GUID converted to a string")]
+		HRESULT GetTransactionId([out] BSTR * guidTx);
+
+		[helpstring("Recovers any transactions that need it")]
+		HRESULT Recover(IStorage * pStorage);
+
+		[helpstring("Resets a completed transaction to a resusable state")]
+		HRESULT Reset();
+
+		[helpstring("called by CopyFileRm when the TM goes down and the worker was not enlisted")]
+		HRESULT TMDown();
+
+
+
+	};
+
+
+	[
+	
+		object,	
+		uuid(FC005CE2-3F0B-11D0-9693-00AA00C149A6),	
+		helpstring("IRmWorkerPriv Interface"),
+		pointer_default(unique)
+	]
+	interface IRmWorkerPriv : IUnknown
+	{
+		import "oaidl.idl";
+		HRESULT	PrepareTx (void);
+		HRESULT	CommitTx (void);
+		HRESULT	AbortTx (void);
+		HRESULT GetState([out] TXSTATE *eState);
+		HRESULT	SetState([in]  TXSTATE eState);
+		HRESULT	CleanupTx (void);
+		HRESULT GetDTCUnknown([out] IUnknown ** pUnk);
+	};
+
+
+	[
+		uuid(FC005CE3-3F0B-11D0-9693-00AA00C149A6),
+		version(1.0),
+		helpstring("RmWorker 1.0 Type Library")
+	]
+	library RMWORKERLib
+	{
+		importlib("stdole2.tlb");
+
+		
+
+		[
+			uuid(FC005CE5-3F0B-11D0-9693-00AA00C149A6),
+			helpstring("RmWorker Class")
+		]
+		coclass CRmWorkerObj
+		{
+			[default] interface IRmWorker;
+			interface IRmWorkerPriv;
+		};
+	};

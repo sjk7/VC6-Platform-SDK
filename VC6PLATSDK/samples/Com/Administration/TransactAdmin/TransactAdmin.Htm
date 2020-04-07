@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>TransactAdmin</title>
+<link rel="stylesheet" type="text/css" href="../../docs/Styles.css">
+</head>
+
+<body>
+
+<h2>Transacted Administration</h2>
+<hr>
+<h4><a name="Overview">Overview&nbsp;</a></h4>
+<p>This sample provides an example of using the <b>COMAdmin</b> objects to
+administer COM+ applications inside a transaction. By encompassing a series of
+changes to the catalog in a transaction, applications may be configured while
+maintaining the catalog in a consistent state. This benefits your applications
+by simplifying the cleanup code required.</p>
+<p><b>Note&nbsp;&nbsp;&nbsp; </b>While changes to the <b>regdb</b> are
+transacted, any changes to the registry, file system and MSI are not because
+these resources don't participate in DTC transactions, therefore changes to
+these must be cleaned up manually.</p>
+
+<p>This document has the following sections:</p>
+<ul>
+  <li><a href="#Overview">Overview</a> - provides a description of the sample</li>
+  <li><a href="#Build / Configuration">Build / Configuration</a> - provides step
+    by step instructions for building and installing the sample</li>
+  <li><a href="#Tour">Tour</a> - provides a guided tour of the interesting features of the sample</li>
+</ul>
+
+<p>See Also&nbsp;&nbsp;&nbsp; <a href="http://msdn.microsoft.com/library/default.asp?URL=/library/psdk/cossdk/adreftoplevel_6o4l.htm">COM+
+Administration Reference</a></p>
+
+<hr>
+<h4><a name="Build / Configuration">Build / Configuration</a>&nbsp;</h4>
+<h5>Build the <b>TransactAdmin</b> project</h5>
+<ol>
+  <li>Open the <a href="TransactAdmin.vbp"><b>TransactAdmin.vbp</b></a> project
+    using Visual Basic 6.0</li>
+  <li>Select <b>File / Make TransactAdmin.dll</b></li>
+</ol>
+<h5>Build the <b>AdminClient</b> project</h5>
+<ol>
+  <li>Open the <b><a href="AdminClient.vbp">AdminClient.vbp</a></b>&nbsp;
+    project using Visual Basic 6.0</li>
+  <li>Select <b>File / Make AdminClient.exe</b></li>
+</ol>
+
+<h5>Start Component Services</h5>
+
+<oL><li>On the <b>Start</b> menu, point to <b>Programs</b> <li>Point to <b>Administration Tools</b>, click <b>Component Services</b>. </p></ol>
+<h5><FONT 
+color=black> Create the </FONT>Transacted Admin<FONT 
+color=black> Application</FONT></h5>
+
+<p>Queued Components must hosted by a registered COM+ application.&nbsp; To create
+the Hello Queued Components application:</p>
+
+<ol>
+  <li>Click on <b> COM+ Applications</b>.&nbsp;
+</li>
+  <li>  Right click <b>COM+ Applications</b>, click <b>New</b> and then click <b>Application</b>.
+</li>
+  <li> Click on <b>Create Empty Application</b>, then click <b>
+Next</b>.
+</li>
+  <li>Name the application <b>Transacted Administration</b>
+</li>
+  <li>Select <b>Library Application </b>for the Activation Type
+</li>
+  <li>Finish the wizard using the remaining defaults
+</li>
+</ol>
+
+
+<h5><b>Install The Component</b></h5>
+
+
+<p> To install the <b>TransactAdmin</b> component:</p>
+<oL>
+<LI>Under the <b>Transacted Administration</b> application, right click on 
+  <b>Components</b>, click <b>New</b> and then click <b>Component</b>.<LI>Click <b> Install New
+  Component(s) </b>.<LI>Click on <b> Browse </b>, select <b>TransactAdmin</b><b>.dll</b>
+  and then click <b>Next</b>.<LI>Click <b>Finish</b> to close the wizard.</ol>
+
+<p><b>Note&nbsp;&nbsp;&nbsp; </b>New components have a transaction attribute of <b>Required</b>
+by default.</p>
+<h4><a name="Tour">Tour</a></h4>
+<ol>
+  <li>Start the client application <b><a href="AdminClient.exe">AdminClient.exe</a></b></li>
+  <li>Add an application and click <b>Add</b> - the call to add the application
+    is made, and the work will be added to the uncommitted work list.</li>
+  <li>Add another application and click <b>Add</b>.</li>
+  <li>Take a look at the Component Services explorer.&nbsp; You will not see
+    your new applications in the catalog because the work has not been
+    committed.</li>
+  <li>Click Commit.&nbsp; Your applications will now be added to the COM+
+    catalog.</li>
+  <li>Add some more applications and Abort the transaction - you will notice
+    that they are not added to the catalog</li>
+</ol>
+
+</body>
+
+</html>

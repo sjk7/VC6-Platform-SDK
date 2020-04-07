@@ -1,0 +1,38 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Running the sample on multiple machines</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h2>Running QCSamp2 on multiple computers</h2>
+<p>
+This procedure distributes the queued component sample application QCSamp2 over
+several computers. When an application calls a COM+ application on a remote computer,
+it does so via an application proxy. 
+<p><b>To create and
+install an application proxy</b>
+<p>
+<ol>
+    <li>On computer A, create and configure the COM+ application
+        QCOrder per the instructions documented in <a
+        href="running.htm">Running the sample</a>.</li>
+    <li>On computer B, create and configure the COM+ application
+        QCShip.</li>
+    <li>On computer C, create and configure the COM+ application
+        QCNotify.</li>
+    <li>On computer B, <A HREF="proxy.htm">export an application proxy</a> for QCShip.</li>
+    <li>On computer C, <A HREF="proxy.htm">export an application proxy</a> for QCNotify.</li>
+    <li>On computer A, <A HREF="proxy.htm">import the application proxy</a> for QCShip and QCNotify created in steps 4 and 5.</li>
+    <li>On computer B, <A HREF="proxy.htm">import the application proxy</a> for QCNotify created in step 5.</li>
+    <li>On computer A, run driver.exe.</li>
+    <li>Experiment with running this configuration with QCShip
+        and/or QCNotify not running.</li>
+</ol>
+
+</body>
+</html>

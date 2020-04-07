@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{7B876BC1-96BC-11D2-84FA-00C04F79E4B5} = s 'OPBank'
+		'OPBank.EXE'
+		{
+			val AppID = s {7B876BC1-96BC-11D2-84FA-00C04F79E4B5}
+		}
+	}
+}

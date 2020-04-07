@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Optionally configure ADO DSNs</TITLE>
+<META NAME="Template" CONTENT="D:\Program Files\Microsoft Office\Office\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H2>QCSamp3</H2>
+<P><HR></P>
+
+<H3>Build Notes</H3>
+<P>
+This sample can be built by using <b>VBBuild.Bat</b>. Ensure during the build that project references are correct.
+<p>
+<b>Note</b>: &nbsp;&nbsp;&nbsp; The Visual Basic debugging environment intercepts component activation. You should not create a project group that
+combines the components and then run the driver program with the project group open.
+</P>
+
+<H3>Running the sample</H3>
+<P>Click <A HREF="running.htm">here</A> for detailed instructions on how to set up and run
+QCSamp3.
+<p><b>Note</b>: Unlike defining an interface via IDL, the interfaces defined in Visual Basic will not be marked
+as queued when the components are installed. You must use Component Services explorer to mark the interfaces as queued.
+Also note that the default names for interfaces defined in Visual Basic are prefixed with an "_". The interfaces to mark as queued for the QCSamp3 application are _INotify and _IShip.
+</P>
+
+<H3>Running on multiple computers</H3>
+<P>Click <A HREF="multiple3.htm">here</A> for detailed instructions on how to set up and
+run QCSamp3 on multiple computers. It is in this configuration where you can begin to see
+the potential for building disconnected applications with Queued Components.</P>
+
+<h3>Optional ADO DSNs</h3>
+<P>If SQL Server or some other Microsoft Distributed Transaction Coordinator-compatible  (MS DTC) Data Source Name (DSN) is available, then you can run the
+sample in a configuration that also updates a database while performing Queued Component
+operations. In this configuration, MS DTC is automatically enlisted to ensure that operations against the database and Message Queuing (MSMQ) are performed atomically by using the two-phase commit protocol.</P>
+<p>ADO connection to the DSNs specified on the form as user "sa" with password "". The default is to use the same database for
+both order and ship records by using the FILEDSN "QCSample". This is configurable using the input box on the driver form.</P>
+<H4>Configure ADO DSNs</H4>
+<P>The easiest way to support this configuration is by having SQL Server available on the network and by configuring the appropriate DSNs and user accounts. Driver.exe will automatically create the necessary tables.</P>
+<P><B>Warning</B>: &nbsp;&nbsp;&nbsp; If using SQL Server, configure SQL Server and the DSNs to use TCP/IP instead of named pipes.</P></BODY>
+
+</body>
+</html>

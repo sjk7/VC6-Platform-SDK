@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HelpTOC>
+<HelpTOC DTDVersion="1.0" PluginStyle="Flat">
+    <HelpTOCNode NodeType="Regular" Title="Getting Started">
+        <HelpTOCNode NodeType="TOC" Url="sdkintro"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Development Guides">
+        <HelpTOCNode NodeType="TOC" Url="win64"/>
+        <HelpTOCNode NodeType="TOC" Url="apcompat"/>
+        <HelpTOCNode NodeType="TOC" Url="mslu"/>
+        <HelpTOCNode NodeType="TOC" Url="tpcsdk10"/>
+        <HelpTOCNode NodeType="TOC" Url="winprog"/>
+        <HelpTOCNode NodeType="Regular" Title="Developer Notes" Url="/devnotes/winprog/developer_notes.xml">
+            <HelpTOCNode NodeType="TOC" Url="devnotes"/>
+            <HelpTOCNode NodeType="TOC" Url="regentry"/>
+            <HelpTOCNode NodeType="TOC" Url="dbnetlib"/>
+            <HelpTOCNode NodeType="TOC" Url="dv_other"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="win9x"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Base Services">
+        <HelpTOCNode NodeType="TOC" Url="debug"/>
+        <HelpTOCNode NodeType="TOC" Url="devio"/>
+        <HelpTOCNode NodeType="TOC" Url="dllproc"/>
+        <HelpTOCNode NodeType="Regular" Title="Indexing Service">
+            <HelpTOCNode NodeType="TOC" Url="indexsrv"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="intl"/>
+        <HelpTOCNode NodeType="TOC" Url="ipc"/>
+        <HelpTOCNode NodeType="TOC" Url="memory"/>
+        <HelpTOCNode NodeType="TOC" Url="perfmon"/>
+        <HelpTOCNode NodeType="TOC" Url="power"/>
+        <HelpTOCNode NodeType="TOC" Url="fileio"/>
+        <HelpTOCNode NodeType="TOC" Url="termserv"/>
+        <HelpTOCNode NodeType="TOC" Url="mscs"/>
+        <HelpTOCNode NodeType="TOC" Url="sysinfo"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Component Services">
+        <HelpTOCNode NodeType="TOC" Url="cossdk"/>
+        <HelpTOCNode NodeType="Regular" Title="COM">
+            <HelpTOCNode NodeType="TOC" Url="com"/>
+            <HelpTOCNode NodeType="TOC" Url="automat"/>
+            <HelpTOCNode NodeType="TOC" Url="midl"/>
+            <HelpTOCNode NodeType="TOC" Url="stg"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="mts"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Data Services">
+        <HelpTOCNode NodeType="Regular" Title="Microsoft Data Access Components (MDAC) SDK">
+            <HelpTOCNode NodeType="TOC" Url="mdacsdk"/>
+            <HelpTOCNode NodeType="TOC" Url="ado270"/>
+            <HelpTOCNode NodeType="TOC" Url="oledb"/>
+            <HelpTOCNode NodeType="TOC" Url="odbc"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="ipubsdk"/>
+        <HelpTOCNode NodeType="TOC" Url="xmlsdk"/>
+        <HelpTOCNode NodeType="TOC" Url="xmlsdk30"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Graphics and Multimedia Services">
+        <HelpTOCNode NodeType="TOC" Url="gdicpp"/>
+        <HelpTOCNode NodeType="TOC" Url="icm"/>
+        <HelpTOCNode NodeType="TOC" Url="opengl"/>
+        <HelpTOCNode NodeType="TOC" Url="stillimg"/>
+        <HelpTOCNode NodeType="TOC" Url="gdi"/>
+        <HelpTOCNode NodeType="Regular" Title="Windows Image Acquisition (WIA)">
+            <HelpTOCNode NodeType="TOC" Url="wia"/>
+            <HelpTOCNode NodeType="TOC" Url="wiaaut"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="Regular" Title="Windows Media">
+            <HelpTOCNode NodeType="TOC" Url="wmsrvsdk"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="multimed"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Messaging and Collaboration Services">
+        <HelpTOCNode NodeType="TOC" Url="ds2x"/>
+        <HelpTOCNode NodeType="TOC" Url="cdosys"/>
+        <HelpTOCNode NodeType="TOC" Url="cdo"/>
+        <HelpTOCNode NodeType="TOC" Url="mapi"/>
+        <HelpTOCNode NodeType="TOC" Url="smtpevt"/>
+        <HelpTOCNode NodeType="TOC" Url="netmeet"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Networking and Directory Services">
+        <HelpTOCNode NodeType="TOC" Url="netdir"/>
+        <HelpTOCNode NodeType="TOC" Url="uddi"/>
+        <HelpTOCNode NodeType="TOC" Url="adschema"/>
+        <HelpTOCNode NodeType="Regular" Title="Network Communication">
+            <HelpTOCNode NodeType="TOC" Url="bits"/>
+            <HelpTOCNode NodeType="TOC" Url="fax"/>
+            <HelpTOCNode NodeType="TOC" Url="ics"/>
+            <HelpTOCNode NodeType="TOC" Url="msmq"/>
+            <HelpTOCNode NodeType="TOC" Url="rtcclnt"/>
+            <HelpTOCNode NodeType="TOC" Url="rras"/>
+            <HelpTOCNode NodeType="TOC" Url="tapi"/>
+            <HelpTOCNode NodeType="TOC" Url="upnp"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="Regular" Title="Network Management">
+            <HelpTOCNode NodeType="TOC" Url="netmgmt"/>
+            <HelpTOCNode NodeType="TOC" Url="netmon"/>
+            <HelpTOCNode NodeType="TOC" Url="netshell"/>
+            <HelpTOCNode NodeType="TOC" Url="snmp"/>
+            <HelpTOCNode NodeType="TOC" Url="syncmgr"/>
+            <HelpTOCNode NodeType="TOC" Url="wnet"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="Regular" Title="Network Protocols">
+            <HelpTOCNode NodeType="TOC" Url="bluetooth"/>
+            <HelpTOCNode NodeType="TOC" Url="dlc"/>
+            <HelpTOCNode NodeType="TOC" Url="dns"/>
+            <HelpTOCNode NodeType="TOC" Url="dhcp"/>
+            <HelpTOCNode NodeType="TOC" Url="http"/>
+            <HelpTOCNode NodeType="TOC" Url="irda"/>
+            <HelpTOCNode NodeType="TOC" Url="iphlp"/>
+            <HelpTOCNode NodeType="TOC" Url="madcap"/>
+            <HelpTOCNode NodeType="TOC" Url="netbios"/>
+            <HelpTOCNode NodeType="TOC" Url="qos"/>
+            <HelpTOCNode NodeType="TOC" Url="rpc"/>
+            <HelpTOCNode NodeType="TOC" Url="wininet"/>
+            <HelpTOCNode NodeType="TOC" Url="winsock"/>
+            <HelpTOCNode NodeType="TOC" Url="winhttp"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="Regular" Title="Network Security">
+            <HelpTOCNode NodeType="TOC" Url="eap"/>
+            <HelpTOCNode NodeType="Regular" Title="Internet Authentication Service">
+                <HelpTOCNode NodeType="TOC" Url="ias"/>
+                <HelpTOCNode NodeType="TOC" Url="sdo"/>
+            </HelpTOCNode>
+            <HelpTOCNode NodeType="TOC" Url="mschap"/>
+        </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Security">
+        <HelpTOCNode NodeType="TOC" Url="security"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Setup and System Administration">
+        <HelpTOCNode NodeType="TOC" Url="mmc"/>
+        <HelpTOCNode NodeType="TOC" Url="pchealth"/>
+        <HelpTOCNode NodeType="Regular" Title="Policies and Profiles">
+            <HelpTOCNode NodeType="TOC" Url="policy"/>
+            <HelpTOCNode NodeType="TOC" Url="gpmc"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="Regular" Title="Setup">
+            <HelpTOCNode NodeType="TOC" Url="msi"/>
+            <HelpTOCNode NodeType="TOC" Url="sbscs"/>
+            <HelpTOCNode NodeType="TOC" Url="setupapi"/>
+            <HelpTOCNode NodeType="TOC" Url="wfp"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="sr"/>
+        <HelpTOCNode NodeType="TOC" Url="taskschd"/>
+        <HelpTOCNode NodeType="TOC" Url="wmisdk"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Tools and Scripting">
+        <HelpTOCNode NodeType="Regular" Title="AppVerifier">
+            <HelpTOCNode NodeType="TOC" Url="appverif"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="Regular" Title="Scripting">
+            <HelpTOCNode NodeType="TOC" Url="script56"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="tools"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="User Interface Services">
+        <HelpTOCNode NodeType="TOC" Url="msaa"/>
+        <HelpTOCNode NodeType="TOC" Url="msagent"/>
+        <HelpTOCNode NodeType="TOC" Url="tsf"/>
+        <HelpTOCNode NodeType="TOC" Url="shellcc"/>
+        <HelpTOCNode NodeType="TOC" Url="winui"/>
+        <HelpTOCNode NodeType="TOC" Url="wizard"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Web Development">
+        <HelpTOCNode NodeType="Regular" Title="Internet Development" Url="/inet/workshop/essentials/whatsnew/whatsnew_node_entry.htm">
+            <HelpTOCNode NodeType="TOC" Url="inet"/>
+        </HelpTOCNode>
+        <HelpTOCNode NodeType="TOC" Url="iisref"/>
+    </HelpTOCNode>
+    <HelpTOCNode NodeType="Regular" Title="Web Services">
+        <HelpTOCNode NodeType="TOC" Url="passport25"/>
+    </HelpTOCNode>
+</HelpTOC>

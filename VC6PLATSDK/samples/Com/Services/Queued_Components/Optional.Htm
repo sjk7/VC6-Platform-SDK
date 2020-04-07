@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Optionally configure ADO DSNs</TITLE>
+<META NAME="Template" CONTENT="D:\Program Files\Microsoft Office\Office\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H2>Optionally configure ADO DSNs</H2>
+<P><HR></P>
+<P>If SQL Server or some other Microsoft Distributed Transaction Coordinator-compatible (MS DTC) DSN is available, then you can run the
+sample in a configuration that also updates a database while performing Queued Component
+operations. In this configuration, the MS DTC is automatically enlisted to ensure that operations against the database and Message Queuing (via Queued Components) are performed atomically using the two-phase commit protocol.</P>
+<H4>Modify Driver.cpp</H4>
+<P>To enable this configuration, simply modify the file Driver.cpp (located in [Platform SDK Root]\samples\com\Services\Queued Components\QCSamp1\Driver) and uncomment out the following line:</P>
+<FONT FACE="Courier"><P>// lFlags |= processFlagWriteDB // Write to Order and Shipping tables</P>
+</FONT><P>If you uncomment out the above line and rebuild, the sample will try to establish an ADO connection to QCSampleShip and QCSampleOrder as user "sa" with password "".</P>
+<H4>Configure ADO DSNs</H4>
+<P>The easiest way to support this configuration is by having SQL Server available on the network and by configuring the appropriate DSNs and user accounts. Driver.cpp will automatically create the necessary tables.</P>
+<P><B>Warning</B> 
+<p>If using SQL Server, configure SQL Server and the DSNs to use TCP/IP instead of named pipes.</P></BODY>
+</HTML>

@@ -1,0 +1,26 @@
+HKCR
+{
+	PersistATL.NewsEvent.1 = s 'NewsEvent Class'
+	{
+		CLSID = s '{6B834DA0-A5D3-11D2-AD4D-0080C7BFF6DB}'
+	}
+	PersistATL.NewsEvent = s 'NewsEvent Class'
+	{
+		CLSID = s '{6B834DA0-A5D3-11D2-AD4D-0080C7BFF6DB}'
+		CurVer = s 'PersistATL.NewsEvent.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6B834DA0-A5D3-11D2-AD4D-0080C7BFF6DB} = s 'NewsEvent Class'
+		{
+			ProgID = s 'PersistATL.NewsEvent.1'
+			VersionIndependentProgID = s 'PersistATL.NewsEvent'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{04A47040-A5D3-11D2-AD4D-0080C7BFF6DB}'
+		}
+	}
+}

@@ -1,0 +1,19 @@
+# Microsoft Developer Studio Generated Dependency File, included by cmallspy.mak
+
+.\cmallspy.cxx : \
+	"..\..\..\..\include\basetsd.h"\
+	"..\..\..\..\include\guiddef.h"\
+	"..\..\..\..\include\propidl.h"\
+	"..\..\..\..\include\tvout.h"\
+	"..\..\..\..\include\winefs.h"\
+	".\cmallspy.hxx"\
+	
+
+.\test.cxx : \
+	"..\..\..\..\include\basetsd.h"\
+	"..\..\..\..\include\guiddef.h"\
+	"..\..\..\..\include\propidl.h"\
+	"..\..\..\..\include\tvout.h"\
+	"..\..\..\..\include\winefs.h"\
+	".\cmallspy.hxx"\
+	

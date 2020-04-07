@@ -1,0 +1,62 @@
+//==============================================================================
+// Filename: Account.idl
+//
+// Description: IDL source for Account.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (Account.tlb) and marshalling code
+//
+// This file is part of the Microsoft COM+ Samples
+//
+// Copyright (C) 1995-1999 Microsoft Corporation. All rights reserved
+//
+// This source code is intended only as a supplement to Microsoft
+// Development Tools and/or on-line documentation.  See these other
+// materials for detailed information reagrding Microsoft code samples.
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+// KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
+//==============================================================================
+
+
+#include <mtxattr.h>
+
+	[
+		object,
+		uuid(04CF0B72-1989-11D0-B917-0080C7394688),
+		dual,
+		helpstring("IAccount Interface"),
+		pointer_default(unique)
+
+	]
+	interface IAccount : IDispatch
+	{
+		import "oaidl.idl";
+		import "ocidl.idl";
+		HRESULT Post(		
+			[in] long lAccount,
+			[in] long lAmount,
+			[out,retval] BSTR* pbstrResult);
+	};
+
+[
+	uuid(04CF0B70-1989-11D0-B917-0080C7394688),
+	version(1.0),
+	helpstring("Sample Bank Account (VC version)")
+]
+library ACCOUNT
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(04CF0B76-1989-11D0-B917-0080C7394688),
+		helpstring("Account Class"),
+		TRANSACTION_REQUIRED
+	]
+	coclass CAccount
+	{
+		[default] interface IAccount;
+	};
+};

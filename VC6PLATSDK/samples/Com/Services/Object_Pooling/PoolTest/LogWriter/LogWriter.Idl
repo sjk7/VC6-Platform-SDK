@@ -1,0 +1,39 @@
+// LogWriter.idl : IDL source for LogWriter.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (LogWriter.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(702886C0-088C-11D3-A115-0080C71F306F),
+		dual,
+		helpstring("ILogFile Interface"),
+		pointer_default(unique)
+	]
+	interface ILogFile : IDispatch
+	{
+		HRESULT Write([in] BSTR buf, [in] DWORD dwID);
+	};
+
+[
+	uuid(450CC2A0-088C-11D3-A115-0080C71F306F),
+	version(1.0),
+	helpstring("LogWriter 1.0 Type Library")
+]
+library LOGWRITERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(702886C1-088C-11D3-A115-0080C71F306F),
+		helpstring("LogFile Class")
+	]
+	coclass LogFile
+	{
+		[default] interface ILogFile;
+	};
+};

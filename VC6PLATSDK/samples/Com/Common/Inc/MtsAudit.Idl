@@ -1,0 +1,197 @@
+// MtsAudit.idl : IDL source for MtsAudit.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MtsAudit.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef ULONG64 MTS_OBJID;
+typedef ULONG64 MTS_RESID;
+
+
+	[
+	
+		uuid(AFCF0622-1429-11D1-B1B8-00AA00BA3258),
+	
+		helpstring("IMtsSqlAudit Interface"),
+		pointer_default(unique)
+	]
+	interface IMtsSqlAudit : IUnknown
+	{
+		HRESULT OnUserEvent(
+                [in] LONGLONG perfCount,
+                [in] VARIANT * pvarEvent
+			    );
+		HRESULT OnThreadStart(
+					[in] LONGLONG perfCount,
+					[in] ULONG ThreadID
+				);
+
+		HRESULT OnThreadTerminate(
+					[in] LONGLONG perfCount,
+					[in] ULONG ThreadID
+				);
+
+		HRESULT OnThreadAssignToActivity(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidActivity,
+					[in] ULONG ThreadID
+				);
+
+		HRESULT OnThreadUnassignFromActivity(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidActivity,
+					[in] ULONG ThreadID
+				);
+		HRESULT OnPackageActivation(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidPackage,
+					[in] LPCOLESTR sPackageName
+				);
+
+		HRESULT OnPackageShutdown(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidPackage,
+					[in] LPCOLESTR sPackageName
+				);
+		HRESULT OnObjectCreate(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidActivity,
+					[in] LPCOLESTR clsid,
+					[in] LPCOLESTR tsid,
+					[in] MTS_OBJID ObjectID
+				);
+
+		HRESULT OnObjectRelease(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID
+				);
+
+		HRESULT OnTransactionStart(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidTx,
+					[in] LPCOLESTR tsid,
+					[in] BOOL fRoot
+				);
+
+		HRESULT OnTransactionPrepared(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidTx,
+					[in] BOOL fVoteYes
+				);
+
+		HRESULT OnTransactionAborted(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidTx
+				);
+
+		HRESULT OnMethodCall(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID oid,
+					[in] LPCOLESTR guidCid,
+					[in] LPCOLESTR guidRid,
+					[in] LPCOLESTR sMethod
+				);
+
+		HRESULT OnMethodReturn(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID oid,
+					[in] LPCOLESTR guidCid,
+					[in] LPCOLESTR guidRid,
+					[in] LPCOLESTR sMethod,
+					[in] HRESULT hresult
+				);
+
+		HRESULT OnMethodException(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID oid,
+					[in] LPCOLESTR guidCid,
+					[in] LPCOLESTR guidRid,
+					[in] LPCOLESTR sMethod
+				);
+		HRESULT OnObjectActivate(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID
+				);
+
+		HRESULT OnObjectDeactivate(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID
+				);
+
+		HRESULT OnDisableCommit(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID
+				);
+
+		HRESULT OnEnableCommit(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID
+				);
+
+		HRESULT OnSetComplete(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID
+				);
+	   HRESULT OnResourceCreate(					
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidActivity,
+					[in] MTS_OBJID ObjectID,
+					[in] LPCOLESTR pszType,
+					[in] MTS_RESID resId
+				);
+
+		HRESULT OnResourceAllocate(
+					[in] LONGLONG perfCount,
+					[in] LPCOLESTR guidActivity,
+					[in] MTS_OBJID ObjectID,
+					[in] LPCOLESTR pszType,
+					[in] MTS_RESID resId
+				);
+
+		HRESULT OnResourceRecycle(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID,
+					[in] LPCOLESTR pszType,
+					[in] MTS_RESID resId
+				);
+
+		HRESULT OnResourceDestroy(
+					[in] LONGLONG perfCount,
+					[in] MTS_OBJID ObjectID,
+					[in] LPCOLESTR pszType,
+					[in] MTS_RESID resId
+				);
+		HRESULT OnAuthenticate(
+					  LONGLONG perfCount, 
+					  LPCOLESTR guidActivity, 
+					  LPCOLESTR sOriginalUser,
+					  LPCOLESTR sDirectUser, 
+					  BOOL bCurrentUserInpersonatingInProc
+				);
+
+		HRESULT Init(LPCOLESTR sDSN, LPCOLESTR sUser, LPCOLESTR sPw);
+		
+
+	};
+[
+	uuid(AFCF0615-1429-11D1-B1B8-00AA00BA3258),
+	version(1.0),
+	helpstring("MtsAudit 1.0 Type Library")
+]
+library MTSAUDITLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(AFCF0623-1429-11D1-B1B8-00AA00BA3258),
+		helpstring("MtsSqlAudit Class")
+	]
+	coclass MtsSqlAudit
+	{
+		[default] interface IMtsSqlAudit;
+	};
+};

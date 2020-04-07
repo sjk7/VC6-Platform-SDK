@@ -1,0 +1,59 @@
+
+/******************************************************************************\
+********************************************************************************
+* Filename: MtsUserEventObj.idl
+*
+* Description:
+*
+* This file is provided as part of the Microsoft Transaction Server
+* Software Development Kit
+*
+*THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT 
+*WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+*INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+*OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR 
+*PURPOSE.
+*
+* Copyright (C) 1997 Microsoft Corporation, All rights reserved
+********************************************************************************
+\******************************************************************************/
+// MtsUserEventObj.idl : IDL source for MtsUserEventObj.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MtsUserEventObj.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(F523E424-8485-11D0-B170-00AA00BA3258),
+		dual,
+		helpstring("IMtsUserEventData Interface"),
+		pointer_default(unique)
+	]
+	interface IMtsUserEventData : IDispatch
+	{
+		[propput, id(1), helpstring("property DisplayName")] HRESULT DisplayName([in] BSTR newVal);
+		[propput, id(2), helpstring("property GuidEventId")] HRESULT GuidEventId([in] BSTR newVal);
+		[propput, id(3), helpstring("property Value")] HRESULT Value(BSTR sKey, [in] VARIANT * newVal);
+	};
+[
+	uuid(F523E415-8485-11D0-B170-00AA00BA3258),
+	version(1.0),
+	helpstring("MtsUserEventObj 1.0 Type Library")
+]
+library MTSUSEREVENTOBJLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(F523E425-8485-11D0-B170-00AA00BA3258),
+		helpstring("MtsUserEventData Class")
+	]
+	coclass MtsUserEventData
+	{
+		[default] interface IMtsUserEventData;
+	};
+};

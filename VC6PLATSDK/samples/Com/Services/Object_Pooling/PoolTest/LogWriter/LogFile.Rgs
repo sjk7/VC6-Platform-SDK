@@ -1,0 +1,26 @@
+HKCR
+{
+	LogWriter.LogFile.1 = s 'LogFile Class'
+	{
+		CLSID = s '{702886C1-088C-11D3-A115-0080C71F306F}'
+	}
+	LogWriter.LogFile = s 'LogFile Class'
+	{
+		CLSID = s '{702886C1-088C-11D3-A115-0080C71F306F}'
+		CurVer = s 'LogWriter.LogFile.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {702886C1-088C-11D3-A115-0080C71F306F} = s 'LogFile Class'
+		{
+			ProgID = s 'LogWriter.LogFile.1'
+			VersionIndependentProgID = s 'LogWriter.LogFile'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{450CC2A0-088C-11D3-A115-0080C71F306F}'
+		}
+	}
+}

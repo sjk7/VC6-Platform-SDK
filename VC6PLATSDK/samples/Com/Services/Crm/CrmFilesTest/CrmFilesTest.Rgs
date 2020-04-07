@@ -1,0 +1,24 @@
+HKCR
+{
+	CrmFilesTest.CrmFilesTest.1 = s 'CrmFilesTest Class'
+	{
+		CLSID = s '{963680E2-FCB4-11D1-83D0-00A0C91EEDE9}'
+	}
+	CrmFilesTest.CrmFilesTest = s 'CrmFilesTest Class'
+	{
+		CurVer = s 'CrmFilesTest.CrmFilesTest.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {963680E2-FCB4-11D1-83D0-00A0C91EEDE9} = s 'CrmFilesTest Class'
+		{
+			ProgID = s 'CrmFilesTest.CrmFilesTest.1'
+			VersionIndependentProgID = s 'CrmFilesTest.CrmFilesTest'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

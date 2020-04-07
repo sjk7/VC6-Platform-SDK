@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<title>Asyncronous Calls</title>
+<link rel="stylesheet" type="text/css" href="../../docs/Styles.css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+
+UL { list-style-image:"url('../images/BLACKARROW.GIF')"}
+
+</style>
+</head>
+
+<body>
+
+<h2>Asynchronous Calls</h2>
+
+<hr>
+<h4>Overview</h4>
+<p>These samples are designed to show client side use of non-blocking method calls, and server side asynchronous handling of calls.</p>
+
+<h4>Project Files</h4>
+<table border="1" width="75%">
+  <tr valign="top">
+    <td width="26%"><strong>FullSvr</strong></td>
+    <td width="74%">This project houses a COM component that is referenced by all other projects.  This component has two interfaces IFullServ and ISample.  Both interfaces are marked with async_uuid to allow clients to make non-blocking method calls on the asynchronous versions of these interfaces.  Calls to IFullServ and AsyncIFullServ are handled asynchronously by the server, while calls to ISample and AsyncISample are handled synchronously.</td>
+  </tr>
+  <tr valign="top">
+    <td width="20%"><strong>CppClient</strong></td>
+    <td width="80%">This C++ project houses a simple client that makes non-blocking method calls on IFullServ.</td>
+  </tr>
+  <tr valign="top">
+    <td width="20%"><strong>JavaClient</strong></td>
+    <td width="80%">This Java project houses a simple client that makes non-blocking method calls on IFullServ.</td>
+  </tr>
+  <tr valign="top">
+    <td width="20%"><strong>VBClient</strong></td>
+    <td width="80%">This Visual Basic project houses a simple client that makes non-blocking method calls on IFullServ.</td>
+  </tr valign="top">
+  <tr valign="top">
+    <td width="20%"><strong>CallBackClient</strong></td>
+    <td width="80%">This project demonstrates a client aggregating a non-blocking method call's call object in order to
+      receive a call back on call completion.</td>
+  </tr>
+  <tr valign="top">
+    <td width="20%"><strong>scaleDemo</strong></td>
+    <td width="80%">This project demonstrates the improved scalability of an asynchronous server by making many simultaneous calls first to IFullServ then to ISample, and measuring the time taken to complete the calls.</td>
+  </tr>
+ </table>
+
+
+<h4>Build Notes:</h4>
+<p>
+<b>C++ Projects</b><br>
+Run NMAKE from the command line in the AsyncCalls\ directory<br>
+</p>
+
+<p>
+<b>VB & JAVA Projects</b><br>
+Run and build VBClient\Project1.vbp<br>
+Run and build JavaClient\JavaClient.vjp<br>
+</p>
+
+<h4>To Run:</h4>
+<p>
+To run the demos launch the appropriate EXEs from the command line.<br>
+To see all EXEs run consecutively run RunAll.Bat
+</p>
+
+<p>CppClient, JavaClient and VBClient should all display: <br>
+"Waiting for call completion.<br>
+Sum of 2 and 3 is: 5"
+
+<p>CallBackClient.exe should display: <br>
+"Call sent to the server<br>
+Received a Call Back<br>
+Sum of 2 and 3 is: 5"
+
+
+<p>scaleDemo will display timing information for calls to IFullServ and ISample.
+
+<p>FullSvr.exe simply houses the COM server and should not be run directly.
+</p>
+
+</body>
+</html>

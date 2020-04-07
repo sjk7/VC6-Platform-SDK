@@ -1,0 +1,29 @@
+// PersistATL.idl : IDL source for PersistATL.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PersistATL.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "..\include\news.idl";
+
+[
+	uuid(04A47040-A5D3-11D2-AD4D-0080C7BFF6DB),
+	version(1.0),
+	helpstring("PersistATL 1.0 Type Library")
+]
+library PERSISTATLLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(6B834DA0-A5D3-11D2-AD4D-0080C7BFF6DB),
+		helpstring("NewsEvent Class")
+	]
+	coclass NewsEvent
+	{
+		[default] interface INewsEvent;
+	};
+};

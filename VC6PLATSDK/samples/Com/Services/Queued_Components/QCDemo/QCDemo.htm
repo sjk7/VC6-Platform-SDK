@@ -1,0 +1,79 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<TITLE>Optionally configure ADO DSNs</TITLE>
+<LINK rel="stylesheet" href="../../../styles.css" type="text/css"><STYLE></STYLE></HEAD>
+
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H2>QCDemo</H2>
+<P><HR>
+
+<P></P>
+
+<H3> Overview</H3>
+<P>This application is based on QCDemo but additionally provides a visual 
+interface showing method calls, queueing and component activation taking place 
+in the application.&nbsp; This is useful for learning and demonstrating Queued 
+Components.&nbsp; See 'Viewing the Demo' for more details on the visual 
+interface.</P>
+<H3>Build Notes</H3>
+<P>
+The sample can be built running VBBuild.bat or by building the following projects from the QCDemo\ folder in this order:<br>
+<ul>
+- Monitor.vbp<br>
+- QCNotify.vbp<br>
+- QCShip.vbp<br>
+- QCOrder.vbp<br>
+- Driver.vbp<br>
+</ul>
+Ensure that all references are taken care of while building
+</p>
+
+<p>
+<b>Note that the Visual Basic debugging environment intercepts component activation. You should not create a project group that
+combines the components and then run the driver program with the project group open.</b>
+</p>
+
+<H3>Running the sample</H3>
+<P>Click <A href="running.htm">here</A> for detailed instructions on how to set up and run
+QCDemo.
+<p><b> Note that, unlike defining an interface via IDL, the interfaces defined
+in Visual Basic will not be
+marked as queued when the components are installed. You must use the component services explorer to mark the interfaces as
+queued. Also note that the default names for interfaces defined in Visual Basic are prefixed with an "_". The interfaces to mark as queued for the&nbsp;QCDemo
+application are _INotify and _IShip.
+</b></p>
+<H3>Viewing the Demo</H3>
+<P>You can either start monitor.exe manually or it will launch on the first time 
+QCOrder is called by the driver program.&nbsp; The monitor program displays the 
+demo's components: QCOrder, QCShip and QCNotify and the connections between the 
+components.&nbsp; When a component is activated, it will change color to green 
+and will change back to red when the component is released.&nbsp; Also, the 
+arrows between components will indicate whether a component call is queued or 
+direct.<BR><BR>Buttons on the monitor display provide a convenient way to start 
+and stop the the QCShip and QCNotify applications.&nbsp; You must manually start 
+the QCShip and QCNotify applications if you are calling them via the queue/new 
+moniker.&nbsp; For example, you can create one or more orders, selecting a 
+queued call to QCShip, examine the messages to QCShip in the MSMQ queues and 
+then start the QCShip application to process messages.</P>
+
+<H3>Running on multiple machines</H3>
+<P>Click <A href="multiple3.htm">here</A> for detailed instructions on how to set up and
+run QCDemo on multiple machines. It is in this configuration where you can begin to see
+the potential for building disconnected applications with Queued Components.</P>
+
+<h3>Optional ADO DSNs</h3>
+<P>If SQL Server or some other DTC (Distributed Transaction Coordinator) compatible DSN is available, then you can run the
+sample in a configuration that also updates a database while performing Queued Component
+operations. In this configuration, the DTC is automatically enlisted to ensure that operations against the database and MSMQ (via Queued Components) are performed atomically using the two-phase commit protocol.</P>ADO connection to 
+the DSNs specified on the form as user "sa" with password "". The default is to 
+use the same database for both order and ship records using the FILEDSN 
+"QCSample". This is configurable using the input box on the driver form.
+<P></P>
+<H4>Configure ADO DSNs</H4>
+<P>The easiest way to support this configuration is by having SQL Server available on the network and by configuring the appropriate DSNs and user accounts. Driver.exe will automatically create the necessary tables.</P>
+<P><B>IMPORTANT!</B> If using SQL Server, configure SQL Server and the DSNs to use TCP/IP instead of Named Pipes.</P></BODY>
+
+</body>
+</html>

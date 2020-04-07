@@ -1,0 +1,61 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>COM+ SDK Range Sample</title>
+<link rel="stylesheet" type="text/css" href="../../../docs/Styles.css">
+</head>
+
+<body>
+
+<h2>Range</h2>
+<hr>
+<p>This sample is intended primarily to demonstrate http read range but can also
+be used for simple GET requests without ranges. Application writers may be
+interested in plugging into the interface defined in range.h, one C call to
+initiate the request and one C callback to receive status and data.</p>
+<p>Other interesting aspects include...</p>
+<h4>Urlmon </h4>
+<ul>
+  <li>use of urlmon from a console app (not required) </li>
+  <li>correct use of IStream::Read return values </li>
+  <li>implementation of IHttpNegotiate to add request headers </li>
+  <li>use of IWininetHttpInfo to parse response headers</li>
+</ul>
+<h4>Wininet </h4>
+<ul>
+  <li>passing INTERNET_FLAG_OFFLINE to InternetOpen </li>
+  <li>calling InternetSetFilePointer in offline mode </li>
+  <li>calling InternetTimeFromSystemTime</li>
+</ul>
+<h4>Files</h4>
+<table border="1" width="100%">
+  <tr>
+    <td>range.h&nbsp;&nbsp; </td>
+    <td>HttpReadRequest constants, structures, and prototypes. </td>
+  </tr>
+  <tr>
+    <td>range.c&nbsp;&nbsp; </td>
+    <td>test stub (omit when linking app with remaining files) </td>
+  </tr>
+  <tr>
+    <td>cache.cpp&nbsp;&nbsp; </td>
+    <td>HttpReadRequest entry point and wininet cache handling. </td>
+  </tr>
+  <tr>
+    <td>download.cpp&nbsp;&nbsp; </td>
+    <td>HttpReadFromServer entry point and urlmon downloading. </td>
+  </tr>
+  <tr>
+    <td>makefile&nbsp;&nbsp; </td>
+    <td>makefile for use with inetsdk.mak (note console=1)</td>
+  </tr>
+</table>
+<h4>Limitations </h4>
+<p>Netscape-FastTrack 2.0b3 claims to accept ranges but never returns them.</p>
+
+</body>
+
+</html>

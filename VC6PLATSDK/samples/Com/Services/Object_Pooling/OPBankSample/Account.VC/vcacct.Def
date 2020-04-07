@@ -1,0 +1,14 @@
+; Account.def : Declares the module parameters.
+
+; Microsoft Transaction Server Sample Application
+; Copyright (C) 1996 Microsoft Corporation
+; All rights reserved.
+
+
+LIBRARY      ACCOUNT.DLL
+
+EXPORTS
+	DllCanUnloadNow     @1 PRIVATE
+	DllGetClassObject   @2 PRIVATE
+	DllRegisterServer   @3 PRIVATE
+	DllUnregisterServer	@4 PRIVATE

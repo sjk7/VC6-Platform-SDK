@@ -1,0 +1,83 @@
+/*+==========================================================================
+
+File: CrmMonComp.idl
+
+
+----------------------------------------------------------------------------
+
+This file is part of the Microsoft COM+ Samples.
+
+
+
+Copyright (C) 1995-1998 Microsoft Corporation. All rights reserved.
+
+
+
+This source code is intended only as a supplement to Microsoft
+
+Development Tools and/or on-line documentation. See these other
+
+materials for detailed information regarding Microsoft code samples.
+
+
+
+THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+
+PARTICULAR PURPOSE.
+
+==========================================================================+*/
+
+// CrmMonComp.idl : IDL source for CrmMonComp.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CrmMonComp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+	
+		uuid(1721CAC3-E9BA-11D1-A8D7-00A0C91EEDE9),
+	
+		helpstring("ICrmMonComp Interface"),
+		pointer_default(unique)
+	]
+	interface ICrmMonComp : IUnknown
+	{
+		[propput, helpstring("property TransactionUOW")] HRESULT TransactionUOW([in] VARIANT newVal);
+		[propget, helpstring("property FindClerks")] HRESULT FindClerks([out, retval] long * plNumberOfClerks);
+		[helpstring("method SetClerk")] HRESULT SetClerk([in] long lClerkNumber);
+		[propget, helpstring("property TransactionState")] HRESULT TransactionState([out, retval] VARIANT *pVal);
+		[propget, helpstring("property ActivityId")] HRESULT ActivityId([out, retval] VARIANT *pVal);
+		[propget, helpstring("property ProgId")] HRESULT ProgId([out, retval] VARIANT *pVal);
+		[propget, helpstring("property Description")] HRESULT Description([out, retval] VARIANT *pVal);
+		[propget, helpstring("property NumberOfLogRecords")] HRESULT NumberOfLogRecords([out, retval] long *pVal);
+		[helpstring("method AbortTransaction")] HRESULT AbortTransaction();
+		[helpstring("method SetRecord")] HRESULT SetRecord([in] long lRecordNumber);
+		[propget, helpstring("property ColumnHeaders")] HRESULT ColumnHeaders([out, retval] VARIANT *pVal);
+		[propget, helpstring("property FormattedRecord")] HRESULT FormattedRecord([out, retval] VARIANT *pVal);
+	};
+[
+	uuid(1721CAB4-E9BA-11D1-A8D7-00A0C91EEDE9),
+	version(1.0),
+	helpstring("CrmMonComp 1.0 Type Library")
+]
+library CRMMONCOMPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(1721CAC4-E9BA-11D1-A8D7-00A0C91EEDE9),
+		helpstring("CrmMonComp Class")
+	]
+	coclass CrmMonComp
+	{
+		[default] interface ICrmMonComp;
+	};
+};

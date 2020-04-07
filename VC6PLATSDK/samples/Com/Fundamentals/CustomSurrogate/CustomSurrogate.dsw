@@ -1,0 +1,83 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "custsur"=.\surrog\custsur.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name dogps
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name idl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name dog
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "dog"=.\dog\dog.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name dogps
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name idl
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "dogps"=.\dogps\dogps.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name idl
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "idl"=.\idl\idl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

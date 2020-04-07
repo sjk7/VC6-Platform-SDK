@@ -1,0 +1,26 @@
+HKCR
+{
+	ComSyncObject.ComSyncTest.1 = s 'ComSyncTest Class'
+	{
+		CLSID = s '{BE872DE0-F6A8-11D2-A10B-0080C71F306F}'
+	}
+	ComSyncObject.ComSyncTest = s 'ComSyncTest Class'
+	{
+		CLSID = s '{BE872DE0-F6A8-11D2-A10B-0080C71F306F}'
+		CurVer = s 'ComSyncObject.ComSyncTest.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BE872DE0-F6A8-11D2-A10B-0080C71F306F} = s 'ComSyncTest Class'
+		{
+			ProgID = s 'ComSyncObject.ComSyncTest.1'
+			VersionIndependentProgID = s 'ComSyncObject.ComSyncTest'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Neutral'
+			}
+			'TypeLib' = s '{5659AA70-F6A8-11D2-A10B-0080C71F306F}'
+		}
+	}
+}

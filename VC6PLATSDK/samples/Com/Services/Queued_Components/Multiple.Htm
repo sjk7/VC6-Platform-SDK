@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Running the sample on multiple machines</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1>Running QCSamp1 and QCSamp2 on multiple computers</h1>
+<p>
+In this procedure, you will distribute the queued component sample applications over several computers. When an application calls a COM+ application on a remote computer,
+it does so via an application proxy. 
+
+<h2>
+Running QCSamp1
+</h2>
+
+<ol>
+    <li>On computer A, create and configure the COM+ application
+        QCOrder per the instructions documented in <a
+        href="running.htm">Running the sample</a>.</li>
+    <li>On computer B, create and configure the COM+ application
+        QCShip.</li>
+    <li>On computer C, create and configure the COM+ application
+        QCNotify.</li>
+    <li>On computer B, export an application proxy for QCShip.</li>
+    <li>On computer C, export an application proxy for QCNotify.</li>
+    <li>On computer A, import the application proxy created in 	step 4.</li>
+    <li>On computer B, import the application export created in step 5.</li>
+    <li>On computer A, run driver.exe.</li>
+    <li>Experiment with running this configuration with QCShip
+        and/or QCNotify not running.</li>
+</ol>
+
+<h2>
+Running QCSamp2
+</h2>
+
+<ol>
+    <li>On computer A, create and configure the COM+ application
+        QCOrder per the instructions documented in <a
+        href="running.htm">Running the sample</a>.</li>
+    <li>On computer B, create and configure the COM+ application
+        QCShip.</li>
+    <li>On computer C, create and configure the COM+ application
+        QCNotify.</li>
+    <li>On computer B, export an application proxy for QCShip2 (see below).</li>
+    <li>On computer C, export an application proxy for QCNotify.</li>
+    <li>On computer A, import the application proxies created in steps 4 and 5.</li>
+    <li>On computer A, run driver.exe.</li>
+    <li>Experiment with running this configuration with QCShip2
+        and/or QCNotify not running.</li>
+</ol>
+
+<h2>To export an application proxy</h2>
+
+<p>The following procedure will create an .MSI file with the specified file name. This file should be made available to the
+computer that is going to import and use the COM+ application.
+
+<ol>
+<LI>Start Component Services Explorer by clicking <b>Start</b>, point to <b>Programs</b>, point to <b>Administrative Tools</b> and then click <b>Component Services</b>.</LI>
+<LI>Select <b>Console Root</b>, click <b>Component Services</b>, click <b>Computers</b>, click <b>My Computer</b>, and then click <b>COM+ Applications</b>.</LI>
+<LI>You will see the icons for the COM+ applications, for example, QCShip.</LI>
+<LI>Right-click the application and select <b>Export</b>. This will start the COM Application Export Wizard</LI>. Click <b>Next</b>.
+<LI>Enter the full path for the application file (.MSI file) you want to create.</li>
+<li>Click <b>Export as an Application Proxy</b> and then click <b>Next</b>.</li>
+<li>Click <b>Finish</b>.</li>
+</ol>
+
+<h2>To import an application proxy</h2>
+<ol>
+<LI>Start Component Services Explorer by clicking <b>Start</b>, point to <b>Programs</b>, point to <b>Administrative Tools</b> and then click <b>Component Services</b>.</LI>
+<LI>Select <b>Console Root</b>, click <b>Component Services</b>, click <b>Computers</b>, click <b>My Computer</b>, and then click <b>COM+ Applications</b>.</LI>
+<li>Right-click the <b>COM+ Applications</b> folder, click <b>New</b>, and then click <b>Application</b>. This will start the COM Application Install Wizard.</li>
+<li>Click <b>Next</b>.</li>
+<li>Click <b>Install pre-built application(s)</b>.</li>
+<li>Click the .MSI file created by exporting the application (see To export an application proxy, above).</li>
+<li>Click <b>Open</b>.
+<li>Click <b>Next</b>. This will install the application into the directory shown.</li>
+<li>Click <b>Next</b>.</li>
+<li>Click <b>Finish</b>.</li>
+</ol>
+</body>
+</html>

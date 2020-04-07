@@ -1,0 +1,127 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="-//W3C//DTD HTML 4.0//EN">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./setqcomp_files/filelist.xml">
+<title>Set the &quot;Queued&quot; property for the QCShip and QCNotify
+components.</title>
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1469858653;
+	mso-list-type:hybrid;
+	mso-list-template-ids:552126392 1544329188 1771359382 390873550 -619435702 1644619320 -1828418180 1492450434 -1439505126 -1723197698;}
+@list l1
+	{mso-list-id:2007199493;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1020991434 384233052 128998560 -63158024 -854399478 -1858953514 532315556 1587047772 -1089149914 461548314;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+<meta name=Template content="D:\Program Files\Microsoft Office\Office\html.dot">
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2>Confirm the Queued property for the interfaces on the QCShip
+and QCNotify components</h2>
+
+<p>In this procedure you will confirm the Queued property for the
+interfaces on the QCShip and QCNotify components.</p>
+
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo2;tab-stops:list .5in'>Start the Component Services Explorer. Click <b>Start</b>, point to <b>Programs</b>, point to <b>Administrative Tools</b>, and then click <b>Component Services</b>.</LI>
+<LI>Select <b>Console Root</b>, click <b>Component Services</b>, click <b>Computers</b>, click <b>My Computer</b>, click <b>COM+ Applications</b>, click <b>QCShip</b>, click <b>Components</b>, click <b>QCShip.Ship.1</b>, and then click <b>Interfaces</b>.</LI>
+
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo2;tab-stops:list .5in'>Right-click <b>IShip</b> interface and then select <b>Properties</b>.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo2;tab-stops:list .5in'>Click <b>Queuing</b> tab.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo2;tab-stops:list .5in'>Confirm that the <b>Queued</b> option is clicked.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo2;tab-stops:list .5in'>Repeat this procedure for <b>INotify</b> interface on the QCNotify.Notify.1 component in the QCNotify COM+ application.</li>
+</ol>
+
+<p>These interfaces were automatically set to Queued during component install because the interfaces were marked QUEUEABLE in the idl file that was used to define these interfaces. See <a
+href="QCSamp1/QCShip/QCShip.idl">QCShip.idl</a>
+and <ahref="QCSamp1/QCNotify/QCNotify.idl">QCNotify.idl</a>.</p>
+
+</div>
+
+</body>
+
+</html>

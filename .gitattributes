@@ -1,0 +1,87 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+# leave line endings as-is:
+* text eol=false
+
+
+
+# may need to set, in git cmd: git config --global core.autocrlf false
+
+**/.git-old/** binary
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.ocx binary
+*.exe binary
+*.dll binary
+*.vbp binary
+*.frm binary
+*.ctl binary
+*.cls binary
+*.mod binary
+*.frx binary
+*.ico binary
+*.zip binary
+*.7z binary
+*.7zip binary
+*.rar binary
+*.res binary
+*.git-old* binary
+*.gif binary
+*.ctx binary
+*.chm binary
+*.bmp binary
+*.MDB binary
+*.GID binary
+*.HLP binary
+*.oca binary
+*.ax binary
+*.psp binary
+*.tlb binary
+*.odt binary
+*.rtf binary
+*.rc binary
+*.ncbold binary
+*.resource.h binary
+*.h binary
+*.hpp binary
+*.c binary
+*.cpp binary
+*.frx binary
+*.old binary
+*.pdf binary
+*.ttf binary
+*.cab binary
+*.doc binary
+*.gz binary
+*.tar binary
+*.tar.gz binary
+*.mcp binary
+*.lnk binary
+*.php binary
+*.htm binary
+*.html binary
+*.wma binary
+*.asf binary
+*.lnk binary
+*.enc binary
+*.crt binary
+*.pem binary
+*.renameme binary
+*.grf binary
+*.wav binary
+*.mp3 binary
+*.reg binary
+*.tmpl libary
+*.css binary
+*.htaccess binary
+*.cat binary
+*.adm binary
+* CERTIFICATE binary
+
+
+
+
+
+
+

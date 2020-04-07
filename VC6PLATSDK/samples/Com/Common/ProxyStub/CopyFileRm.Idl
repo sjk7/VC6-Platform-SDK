@@ -1,0 +1,89 @@
+
+/******************************************************************************\
+********************************************************************************
+* Filename: CopyFileRm.idl
+*
+* Description:	IDL source for CopyFileRm.dll
+*   			This file will be processed by the MIDL tool to
+*				produce the type library (CopyFileRm.tlb) and marshalling code.
+*
+*
+* This file is provided as part of the Microsoft Transaction Server
+* Software Development Kit
+*
+*THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT 
+*WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+*INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+*OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR 
+*PURPOSE.
+*
+* Copyright (C) 1997 Microsoft Corporation, All rights reserved
+********************************************************************************
+\******************************************************************************/
+
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(BACEDF87-74AB-11D0-B162-00AA00BA3258),
+		helpstring("IFileRm Interface"),
+		pointer_default(unique)
+	]
+	interface IFileRm : IUnknown
+	{
+		[helpstring("copy the list of files")]
+		HRESULT CopyListTx([in] long lConHandle);
+
+		[helpstring("breaks a connection")]
+		HRESULT Disconnect([in] long ulConnHandle);				
+
+		[helpstring("Establishes a connection")]
+		HRESULT Connect([in] BSTR sAppName, [out] long * ulConnHandle);	
+		
+		[helpstring("copy a file")]
+		HRESULT FileCopyTx([in] long lConHandle, [in] BSTR sSource, [in] BSTR sDestination, [in] BOOL bFailIfExists);
+
+		[helpstring("rename a file")]
+		HRESULT FileRenameTx([in] long lConHandle, [in] BSTR sSource, [in] BSTR sDestination);
+
+		[helpstring("add a file to copy")]
+		HRESULT AddFile([in] long lConHandle, [in] BSTR sSource, [in] BSTR sDestination);
+
+		[helpstring("Move a file")]
+		HRESULT FileMoveTxt([in] long lConHandle, [in] BSTR sSource, [in] BSTR sDestination);
+
+		[helpstring("delete a file")]
+		HRESULT FileDeleteTx([in] long lConHandle, [in] BSTR sFileName);		
+
+		[helpstring("gets the location of the TM")]
+		HRESULT GetTmWhereabouts([in] long lConHandle,[out, size_is(, *pcbTmAddr)]BYTE **rgbTmAddr, [out] ULONG *pcbTmAddr);
+
+		[helpstring("Exports the Tx")]
+		HRESULT ExportTx([in] long lConHandle, [in] ULONG cbTranCookie, [in, size_is(cbTranCookie)]BYTE *rgbTranCookie);
+
+		[helpstring("Resets the Worker for the given handle")]
+		HRESULT ResetConnection([in] long lConHandle);
+		[helpstring("method TMDown")] HRESULT TMDown();
+
+		
+	};
+[
+	uuid(BACEDF7A-74AB-11D0-B162-00AA00BA3258),
+	version(1.0),
+	helpstring("CopyFileRm 1.0 Type Library")
+]
+library COPYFILERMLib
+{
+	importlib("stdole32.tlb");
+
+	[
+		uuid(F67A6312-4EC4-11D0-9697-00AA00C149A6),
+		helpstring("FileRm Class")
+	]
+	coclass CoFileRm
+	{
+		[default] interface IFileRm;
+	};
+};

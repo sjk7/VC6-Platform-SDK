@@ -1,0 +1,66 @@
+/*+==========================================================================
+  File:      QCShip.idl
+  Summary:   Interfaces for Queued Components Order Entry Sample 2
+  Classes:   Declared: Ship2
+  Origin:    Implementation of case study in Queued Components specification.
+----------------------------------------------------------------------------
+  Copyright 1992 - 1998 Microsoft Corporation, All rights reserved.
+
+    THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+    ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+    PARTICULAR PURPOSE
+==========================================================================+*/ 
+
+#include "mtxattr.h"	// For TRANSACTION_REQUIRED
+
+import "oaidl.idl";		// Automation data types
+
+/*I+I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I
+  Interface: IShip
+  Summary:   Represents an order and its line items to the shipping department
+  Methods:   HRESULT CustomerId - sets Customer Identifier property
+			 HRESULT OrderId - sets Order Identifier property
+			 HRESULT LineItem - adds an item to an order
+             HRESULT ProcessOrder - Completes order
+I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I-I*/
+
+[
+	helpstring("IShip2 Interface"), uuid(481EEAE0-C471-11d2-BA65-00C04F8EEE36),
+	object, dual, nonextensible, hidden, pointer_default(unique),
+	QUEUEABLE
+]
+interface IShip2 : IDispatch
+{
+	[id(1), propput] HRESULT CustomerId([in] long lCustomerId);
+	[id(2), propput] HRESULT OrderId([in] long lOrderId);
+	[id(3)]	HRESULT LineItem([in] long lItemId, [in] long lQuantity);
+	[id(4)]	HRESULT Process([in] long lFlags, [in] IUnknown *punkNotify);
+}
+
+[
+	uuid(6DD1E6CF-28C1-11D2-B5B6-00C04FC340EE),
+	version(1.0),
+	helpstring("QCShip2 1.0 Type Library")
+]
+
+// Library and classes
+
+library QCSHIP2Lib
+{
+	importlib("stdole2.tlb");
+
+/*O+O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O
+  ObjectClass: Ship2
+  Summary:     presented order to shipping department, get shipping status
+  Interfaces:  IUnknown			Standard COM object interface
+               IShip2			The order to be shipped
+  Aggregation: Not supported
+O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O-O*/  
+
+	[
+		helpstring("Ship2 Class"), uuid(E0750B65-C471-11d2-BA65-00C04F8EEE36),
+		TRANSACTION_REQUIRED
+	]
+	coclass Ship2 { [default] interface IShip2; };
+};

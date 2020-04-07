@@ -1,0 +1,25 @@
+HKCR
+{
+	QCShip2.Ship2.1 = s 'Ship2 Class'
+	{
+		CLSID = s '{E0750B65-C471-11d2-BA65-00C04F8EEE36}'
+	}
+	QCShip2.Ship2 = s 'Ship2 Class'
+	{
+		CLSID = s '{E0750B65-C471-11d2-BA65-00C04F8EEE36}'
+		CurVer = s 'QCShip2.Ship2.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E0750B65-C471-11d2-BA65-00C04F8EEE36} = s 'Ship2 Class'
+		{
+			ProgID = s 'QCShip2.Ship2.1'
+			VersionIndependentProgID = s 'QCShip2.Ship2'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

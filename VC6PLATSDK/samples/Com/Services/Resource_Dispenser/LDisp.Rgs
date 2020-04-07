@@ -1,0 +1,23 @@
+HKCR
+{
+	LDisp.LDisp.1 = s 'LDisp Class'
+	{
+		CLSID = s '{804E6432-B232-11D1-B32F-00AA006887C3}'
+	}
+	LDisp.LDisp = s 'LDisp Class'
+	{
+		CurVer = s 'LDisp.LDisp.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {804E6432-B232-11D1-B32F-00AA006887C3} = s 'LDisp Class'
+		{
+			ProgID = s 'LDisp.LDisp.1'
+			VersionIndependentProgID = s 'LDisp.LDisp'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

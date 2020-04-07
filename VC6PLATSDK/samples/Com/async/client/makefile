@@ -1,0 +1,15 @@
+
+All:
+!IF "$(CPU)" == "IA64"
+!IFDEF NODEBUG
+   nmake /f Client64.mak CFG="client - Win64 Release" -nologo /$(MAKEFLAGS) $(makeopts)
+!ELSE
+   nmake /f Client64.mak -nologo /$(MAKEFLAGS) $(makeopts)
+!ENDIF
+!ELSE
+!IFDEF NODEBUG
+   nmake /f Client.mak CFG="client - Win32 Release" -nologo /$(MAKEFLAGS) $(makeopts)
+!ELSE
+   nmake /f Client.mak -nologo /$(MAKEFLAGS) $(makeopts)
+!ENDIF
+!ENDIF

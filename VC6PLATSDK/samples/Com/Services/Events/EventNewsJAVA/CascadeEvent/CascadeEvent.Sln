@@ -1,0 +1,13 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{66355F20-A65B-11D0-BFB5-00A0C91EBFA0}") = "CascadeEvent", "CascadeEvent.vjp", "{71A77706-48B5-4D0B-9BAA-D438BB333EC6}"
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {71A77706-48B5-4D0B-9BAA-D438BB333EC6}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {71A77706-48B5-4D0B-9BAA-D438BB333EC6}
+	EndGlobalSection
+	GlobalSection(DeploymentRoot) = postSolution
+	EndGlobalSection
+EndGlobal

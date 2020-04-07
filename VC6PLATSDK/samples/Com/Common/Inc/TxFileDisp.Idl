@@ -1,0 +1,84 @@
+
+/******************************************************************************\
+********************************************************************************
+* Filename: TxFileDisp.idl
+*
+* Description: IDL source for TxFileDisp.dll
+*
+*			   This file will be processed by the MIDL tool to
+*			   produce the type library (TxFileDisp.tlb) and marshalling code.
+*
+*
+* This file is provided as part of the Microsoft Transaction Server
+* Software Development Kit
+*
+*THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT 
+*WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+*INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+*OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR 
+*PURPOSE.
+*
+* Copyright (C) 1997 Microsoft Corporation, All rights reserved
+********************************************************************************
+\******************************************************************************/
+
+import "oaidl.idl";
+
+	
+
+	[
+	
+		object,
+		uuid(8A7339E3-5397-11D0-B151-00AA00BA3258),
+		dual,	
+		helpstring("IFileRmPxy Interface"),
+		pointer_default(unique)
+	]
+	interface IFileRmPxy : IDispatch
+	{
+
+		[helpstring("add a file to copy")]
+		HRESULT AddFile([in] long hConnection, [in] BSTR sSource, [in] BSTR sDestination);
+
+		[helpstring("copy the list of files")]
+		HRESULT CopyFilesInCopyList([in] long hConnection);
+
+		[helpstring("copies a directory")]
+		HRESULT CopyDirTx([in] long hConnection,[in] BSTR sSource,[in] BSTR sDestination);
+
+		[helpstring("connection based file copy")]
+		HRESULT CopyFileTx([in] long hConnection,[in] BSTR sSource,[in] BSTR sDestination, BOOL bFailIfExists);
+
+		[helpstring("connection based file move")]
+		HRESULT MoveFileTx([in] long hConnection,[in] BSTR sSource,[in] BSTR sDestination);
+
+		[helpstring("connection based file delete")]
+		HRESULT DeleteFileTx([in] long hConnection,[in] BSTR sFileName);
+
+
+/* Connection Management */
+		[helpstring("connect to the rm")]
+		HRESULT Connect([out] long *hConnection);
+		[helpstring("disconnect from the rm")]
+		HRESULT Disconnect([in] long hConnection);		
+	};
+	
+[
+	uuid(8A7339E1-5397-11D0-B151-00AA00BA3258),
+	version(1.0),
+	helpstring("TxFileDisp 1.0 Type Library")
+]
+library TXFILEDISPLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8A7339E4-5397-11D0-B151-00AA00BA3258),
+		helpstring("FileRmPxy Class")
+	]
+	coclass FileRmPxy
+	{
+		[default] interface IFileRmPxy;
+	};
+	
+};

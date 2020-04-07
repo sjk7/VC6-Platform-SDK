@@ -1,0 +1,152 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+<link rel="stylesheet" type="text/css" href="../../../docs/Styles.css">
+</head>
+
+<body>
+
+<h2> Active Documents Framer (Container) Sample</h2>
+<hr>
+<h4>Overview</h4>
+<p>Framer is intended to demonstrate simple Active Document Objects hosting as a container.  That is, Framer demonstrates the basic support necessary to
+host Active Documents.  It is implemented according to the guidelines in the "Active Documents Specification" document and has been tested against
+Microsoft Word and Microsoft Excel as well as a few other OLE-enabled applications that do not support Active Documents.<br>
+<br>
+Framer itself has almost nothing in the way of its own user interface such as a more complete host would, such as the Office Binder.  Framer has these
+menu commands available:</p>
+<table border="1" width="100%">
+  <tr>
+    <td><b>    Command&nbsp;&nbsp;&nbsp;</b></td>
+    <td><b>     Description</b></td>
+  </tr>
+  <tr>
+    <td>    File/ Open&nbsp;&nbsp;&nbsp;</td>
+    <td>   Displays a File Open dialog and allows the user to select                a file.  Framer will attempt to activate the file as an                Active Document.  Failing that it will create a standard                embedded object and activate it in a separate window.                This command is disabled when an object already exists.                File/Close must be used before creating another object.</td>
+  </tr>
+  <tr>
+    <td>    File/ Close&nbsp;&nbsp;&nbsp;</td>
+    <td>  Closes the document that is currently open; if the object                is just an embedding it will destroy that object which has                the effect of closing the server as well.  Try opening                a .BMP file (which should activate PaintBrush, for instance)                and use Close to see the effect.  There are some variations to		this behavior (see next section below).</td>
+  </tr>
+  <tr>
+    <td>    File/ Exit&nbsp;&nbsp;&nbsp;</td>
+    <td>   Performs File/Close if necessary and terminates Framer.</td>
+  </tr>
+  <tr>
+    <td>    Help/ About&nbsp;&nbsp;&nbsp;</td>
+    <td>  Displays Framer's About box.  This command exists to                demonstrate Active Document Help menu merging.</td>
+  </tr>
+</table>
+<p>Whenever Framer knows it has an object it displays a small message in its client area to remind you that you have to File/Close before creating another.</p>
+<h4>Creating and Activating an Object</h4>
+<p>Framer allows you to open documents regardless of whether or not there is a server that supports Active Documents for the document
+type and regardless of whether or not the document server even knows about Active Documents at all.&nbsp;<br>
+<br>
+When you "Open" a file in Framer, the code call <b> OleCreateFromFile</b> to create
+an embedded object from the contents of the file.  This has two possible results:</p>
+<ol>
+  <li>If there is an Active Documents server associated with the file, an embedded object initialized with the file contents is created.</li>
+  <li>If there is not an Active Documents server associated with the file, a package object is created.</li>
+</ol>
+<p>Immediately after creation, Framer activates the object with <b> IOleObject::DoVerb</b>
+passing <b>OLEVERB_SHOW</b>.<br>
+<br>
+If the object is a true embedding with server support, one of two things will happen:</p>
+<ol>
+  <li>If the object doesn't know about Active Documents, it is activated in another window.  Using File/Close in this case will close the server.
+    Closing the server itself will cause Framer to do the equivalent of File/Close, which frees the object and re-enables File/Open.
+    See <b> CImpIIAdviseSink::OnClose</b> in iadvsink.cpp.  The closing sequence is in
+    <b> CFrame::Close</b> in framer.cpp.  Using Framer with the Paint application will demonstrate this behavior.<br>
+  </li>
+  <li>If the object has Active Document support, then its server will start activation sequence, primarily by calling
+    <b> IOleDocumentSite::ActivateMe</b> which is found in idocsite.cpp.  Inside this member, Framer
+    then performs the standard sequence of document object activation steps.  After these steps the Active Document will be fully
+    interactive; using File/Close on the menu, which Framer still owns, will deactivate the object through
+    <b> CFrame::Close</b> which performs the same set of steps as in #1 above.  Using Framer with Microsoft Word
+    will demonstrate this behavior.</li>
+</ol>
+<p>If you activate a package object, the result is that you launch an application
+and have it open the file.  Since the application has no OLE support in it whatsoever, there is no
+communication link between Framer and that application. This means that closing Framer will not close that other application.  This is
+what one observes with opening a .TXT file in Framer which will launch Notepad. Once Notepad is running, it's separate and disconnected from Framer.  You have
+to close Notepad manually.</p>
+<p>Framer might have been written to disallow insertion of files that do not have
+Active Documents support.  Framer rather demonstrates how to view any file regardless of server support.</p>
+<h4>Help Menu Merging</h4>
+<p>Framer implements the container side of the Help menu merging protocol
+described in the Active Documents Specification. This involves the members <b>CFrame::InsertMenus</b>,
+<b>CFrame::SetMenu</b>, and <b>CFrame::RemoveMenus</b>. The <b>InsertMenus</b>
+method will install Framer's Help menu in the correct location on the shared
+menu. The container-side popup used here is loaded from Framer's resources on
+startup in <b>CFrame::Init</b>.</p>
+<p>Inside <b>CFrame::SetMenu</b>, Framer checks if there's more than one item on
+the menu added in <b>InsertMenus</b>. If so, then Framer remembers this fact for
+later message handling. Otherwise Framer removes this menu from the shared menu
+entirely as the document object itself isn't using this shared capability.</p>
+<p>Inside <b>CFrame::RemoveMenus</b>, Framer simply makes sure that its own Help
+menu is removed as it should be.</p>
+<p>The really interesting stuff happens in <b>FrameWndProc</b> (framer.cpp) in
+the <b>WM_INITMENU</b>, <b>WM_INITMENUPOPUP</b>, <b>WM_MENUSELECT</b>, and <b>WM_COMMAND</b>
+cases. Inside <b>WM_INITMENU</b> Framer clears a flag that indicates whether the
+last popup menu that was being used was the object's additions to the Help menu.
+Inside <b>WM_MENUSELECT</b>, Framer checks if the originating menu is a popup
+and if so, it checks if that popup is on the shared &quot;Help&quot; popup, and
+if that is also true then Framer checks if the item being used is the first one
+or some other one. The first item is what Framer knows to be its own Help item,
+so it just handles the messages as usual. Otherwise the user is working with an
+Active Document-owned menu, so Framer sets the flag <b>m_fInObjectHelp</b>
+variable to TRUE and forwards the message to the object's window (available from
+<b>IOleInPlaceObject::GetWindow</b>).</p>
+<p>As long as <b>m_fInObjectHelp</b> is set, Framer will forward <b>WM_COMMAND</b>,
+<b>WM_INITMENUPOPUP</b>, and <b>WM_MENUSELECT</b> messages. As soon as another <b>WM_MENUSELECT</b>
+message is seen for another non-object menu, then Framer will reset the flag and
+begin processing messages once again itself.</p>
+<p>In this way you'll see, with Microsoft Word for example, the correct behavior
+of a shared Help popup. Note that Microsoft Excel does not exhibit this shared
+Help menu behavior as it only displays its own Help menus.</p>
+<h4>Known Feature Limitations&nbsp;</h4>
+<ol>
+  <li>Framer does not print so it does not use the <b>IPrint</b> interface nor
+    does it implement <b>IContinueCallback</b>.</li>
+  <li>Framer does nothing with command targets.</li>
+  <li>Framer does not forward owner-draw menu messages to the object which means
+    that if owner-draw menus are used in a DocObject help menu, this sample will
+    not work correctly.</li>
+  <li>Framer does not provide for actually saving any changes made to an Active
+    Document. Because an Active Document is an embedding, Framer has to provide
+    an instance of <b>IStorage</b> through <b>IPersistStorage::InitNew</b> or <b>IPersistStorage::Load</b>.
+    It does this using a temporary Compound File that is deleted when Framer
+    exits. Therefore any changes made to the data in the Active Document will
+    simply be discarded.</li>
+</ol>
+<h4>Potential for Better UI</h4>
+<p>The item #4 above takes a little more explanation. When <b>OleCreateFromFile</b>
+is used in the File/Open command, Framer is making a COPY of the file contents.
+When an Active Document is activated with this content, the document has a copy
+of the file contents, not the contents of the file itself. Therefore any changes
+made there will not be reflected back into the original file, although Framer's
+UI suggests that this should happen.</p>
+<p>A real Active Document container like the Office Binder actually stores all
+the object data in its own Compound File, not as separate files. If one needs to
+have an Active Document save into a separate file, then the container needs to
+either use command-targets or has to call <b>IPersistFile::Save</b> to
+accomplish this step.</p>
+<p>In short, Active Documents is not about activating the apps that manipulate
+files; it's about activating embedded <i>documents</i> saved within the
+container file <i>as if</i> those documents were stand alone.</p>
+<p>Framer's UI, which is really inappropriate for DocObjects, exists as it does
+for simplicity's sake.</p>
+<p>A more appropriate container application would maintain its own
+&quot;files&quot; in which it collected data from a number of other
+&quot;documents&quot; which are stored simply as embedded objects. The Office
+Binder does exactly this, where a &quot;Binder&quot; is a Compound File with
+sub-storages for each &quot;section&quot; in the document.</p>
+<p>Certainly with some more work on UI, Framer could become such an application.</p>
+
+</body>
+
+</html>

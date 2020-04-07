@@ -1,0 +1,23 @@
+HKCR
+{
+	Bank.Account.VC = s 'Account Class'
+	{
+		CLSID = s '{04CF0B76-1989-11D0-B917-0080C7394688}'
+	}
+	Bank.Account.VC = s 'Account Class'
+	{
+		CLSID = s '{04CF0B76-1989-11D0-B917-0080C7394688}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {04CF0B76-1989-11D0-B917-0080C7394688} = s 'Account Class'
+		{
+			ProgID = s 'Bank.Account.VC'
+			VersionIndependentProgID = s 'Bank.Account.VC'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Neutral'
+			}
+		}
+	}
+}

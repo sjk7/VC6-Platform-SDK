@@ -1,0 +1,46 @@
+HKCR
+{
+	tServer.Human = s 'Human Class'
+	{
+		CLSID = s '{CAAD7FA1-F22D-11D0-B5CB-00C04FB957D8}'
+	}
+	tServer.Human = s 'Human Class'
+	{
+		CLSID = s '{CAAD7FA1-F22D-11D0-B5CB-00C04FB957D8}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CAAD7FA1-F22D-11D0-B5CB-00C04FB957D8} = s 'Human Class'
+		{
+			ProgID = s 'tServer.Human'
+			VersionIndependentProgID = s 'tServer.Human'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}
+HKCR
+{
+	tServer.Human = s 'Human Class'
+	{
+		CLSID = s '{CAAD7FA1-F22D-11D0-B5CB-00C04FB957D8}'
+	}
+	tServer.Human = s 'Human Class'
+	{
+		CLSID = s '{CAAD7FA1-F22D-11D0-B5CB-00C04FB957D8}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CAAD7FA1-F22D-11D0-B5CB-00C04FB957D8} = s 'Human Class'
+		{
+			ProgID = s 'tServer.Human'
+			VersionIndependentProgID = s 'tServer.Human'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

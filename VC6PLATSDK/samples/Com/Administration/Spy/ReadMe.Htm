@@ -1,0 +1,172 @@
+<html>
+
+<head>
+
+<title>Spy</title>
+<link rel="stylesheet" type="text/css" href="../../docs/Styles.css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+<body>
+<h2>Spy</h2>
+
+<hr>
+   <p>The COM+ system event publisher publishes events using 
+COM+ LCE services. The COMSpy sample application provides an example of a 
+program which subscribes to these published events. COMSpy shows what is going 
+on inside a COM+ process by displaying and logging the following event 
+metrics:</P>
+  
+<table border="0" width="100%">
+  <tr>
+    <td>Application&nbsp;&nbsp;&nbsp;</td>
+    <td>Activity</td>
+  </tr>
+  <tr>
+    <td>Thread&nbsp;&nbsp;&nbsp;</td>
+    <td>Transaction</td>
+  </tr>
+  <tr>
+    <td>Method&nbsp;&nbsp;&nbsp;</td>
+    <td>Object</td>
+  </tr>
+  <tr>
+    <td>ObjectConstruct&nbsp;&nbsp;&nbsp;</td>
+    <td>Instance</td>
+  </tr>
+  <tr>
+    <td>ObjectPool&nbsp;&nbsp;&nbsp;</td>
+    <td>Security</td>
+  </tr>
+  <tr>
+    <td>Identity&nbsp;&nbsp;&nbsp;</td>
+    <td>Queued Component</td>
+  </tr>
+  <tr>
+    <td>Exceptioin&nbsp;&nbsp;&nbsp;</td>
+    <td>Resource</td>
+  </tr>
+  <tr>
+    <td>CRM&nbsp;&nbsp;&nbsp;</td>
+    <td>User</td>
+  </tr>
+  <tr>
+    <td>Load Balancing&nbsp;&nbsp;&nbsp;</td>
+    <td>Event Store</td>
+  </tr>
+</table>
+
+
+<h4>Project Files</H4>
+<table border="0" width="75%" id=TABLE1>  
+  <tr>
+    <td width="26%"><strong>Folder 
+      Name</STRONG></TD>
+    <td width="74%"><strong>Description</STRONG></TD></TR>
+  <tr>
+    <td width="26%">spy\COMSpy</TD>
+    <td width="74%">Executable for COMSpy</TD></TR>
+  <tr>
+    <td width="26%">spy\COMSpyFace</TD>
+    <td width="74%">A utility project for COMSpy interface 
+      files</TD></TR>
+  <tr>
+    <td width="26%">spy\COMSpyCtl</TD>
+    <td width="74%">A control that shows how to subscribe 
+      to COM+ events</TD></TR> 
+  <tr>
+    <td width="26%">spy\COMSpyAudit</TD>
+    <td width="74%">
+      <P>An in-proc COM component that shows an auditing 
+      mechanism for logging events to a SQL Server 
+Database</P></TD></TR></TABLE>
+
+<h4>Auditing</H4>
+<p>To use the SQL Server auditing feature, you must do the 
+following before you run COMSpy:</P>
+<ol>
+<li>Create a SQL Server Database for COMSpy Auditing.
+<li>Run ComSpyAudit.sql script under Spy\ComSpyAudit directory to create the following tables in your SQL Server database.
+  <table border="0" width="75%">  
+  <tr>
+    <td width="26%"><strong>Table 
+        Name</STRONG></TD>
+    <td width="74%"><strong>Description</STRONG></TD></TR>
+  <tr>
+    <td width="26%">AppEvents</TD>
+    <td width="74%">For Application Event Metrics</TD></TR>
+  <tr>
+    <td width="26%">ActivityEvents</TD>
+    <td width="74%">For Activity Event Metrics</TD></TR>
+  <tr>
+    <td width="26%">ThreadEvents</TD>
+    <td width="74%">For Thread Event Metrics</TD></TR> 
+  <tr>
+    <td width="26%">TransactionEvents</TD>
+    <td width="74%">For Transaction Event Metrics</TD></TR>  
+  <tr>
+    <td width="26%">MethodEvents</TD>
+    <td width="74%">For Method Event Metrics</TD></TR>
+  <tr>
+    <td width="26%">ObjectEvents</TD>
+    <td width="74%">For Object, ObjectConstruction and 
+        Instance Event Metrics</TD></TR>
+  <tr>
+    <td width="26%">ObjectPoolEvents</TD>
+    <td width="74%">For ObjectPool Event Metrics</TD></TR>
+  <tr>
+    <td width="26%">SecurityEvents</TD>
+    <td width="74%">For Security and Identity Event 
+        Metrics</TD></TR> 
+  <tr>
+    <td width="26%">QCEvents</TD>
+    <td width="74%">For Queued Components Event 
+      Metrics</TD></TR>  
+
+  <tr>
+    <td width="26%">ExceptioinEvents</TD>
+    <td width="74%">For Exceptioin Event Metrics</TD></TR>  
+  <tr>
+    <td width="26%">ResourceEvents</TD>
+    <td width="74%">For Resource Event Metrics</TD></TR>
+  <tr>
+    <td width="26%">CRMEvents</TD>
+    <td width="74%">For CRM Event Metrics</TD></TR>
+  <tr>
+    <td width="26%">LBEvents</TD>
+    <td width="74%">For Load Balancing Event 
+    Metrics</TD></TR></TABLE>
+<li>Create an ODBC DSN named "ComSpyAudit" that connects 
+  to your SQL Server database. </LI></OL>
+
+<h4>Build Notes</H4>
+
+
+<ol>
+<li>Set the [MSSDK]\include, [MSSDK]\lib in the header files and library files paths in your IDE environment.
+<li>Load Spy project workspace by using spy\spy.dsw.
+<li>Build COMSpyFace project first in order to generate the correct header files for the rest of the spy projects.
+<li>Set the active project to COMSpy and then build all. 
+  </LI></OL>
+
+<h4>
+
+<b>To run Spy</B>
+</h4>
+<ol>
+<li>Run COMSpy.exe.
+<li>If you would like to log events to a file, choose Log to File from the Options menu and specify the name of a log file.
+<li>If you would like to log events to a SQL Server database, right click on the spy window to bring up the pop-up menu and choose Audit to db from the Options submenu.
+<li>Choose Select Events from the COMSpy menu or pop-up menu. 
+<li>Select an Application or a Process that you would like to monitor from the Select Application or Process list box.
+<li>Select events from the Select Application or Process Events list box for the Application or Process selected in step 5. 
+<li>Repeat step 5 and 6 for the Applications or Processes that you would like to monitor.
+<li>Select events from the Select System Events list box if you would like to monitor the system events.
+<li>Click OK. COMSpy will display events as they are received. </LI>
+</OL>
+
+</body>
+</html>

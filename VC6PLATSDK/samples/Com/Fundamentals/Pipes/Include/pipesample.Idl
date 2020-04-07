@@ -1,0 +1,38 @@
+import "unknwn.idl";
+import "objidl.idl";
+
+// interface definition
+
+[ object,
+  uuid(cc603a56-d9ad-11d2-86a3-00c04f8ef940),
+  pointer_default(unique) ]
+
+interface ISimpleInterface : IUnknown
+{
+    HRESULT InPipeSample([in] IPipeLong *pPipe);
+    HRESULT OutPipeSample([out] IPipeLong **ppPipe);
+    HRESULT InOutPipeSample([in, out] IPipeLong **ppPipe);
+    HRESULT InInOutPipesSample([in] IPipeLong *pPipe1, [in] IPipeLong *pPipe2,
+                               [out] IPipeLong **ppPipe3);
+}
+
+// library definition
+[
+         uuid(74c4b0f0-d9ae-11d2-86a3-00c04f8ef940),
+         helpstring("Pipes Sample Library"),
+         version(1)
+]
+library SimpleLib
+{
+   importlib("stdole2.tlb");
+   
+   // Class definition
+   [
+         uuid(84f2059a-d9ae-11d2-86a3-00c04f8ef940),
+         helpstring("Simple class")
+   ]
+   coclass SimpleClass
+   {
+      [default] interface ISimpleInterface;
+   };
+};

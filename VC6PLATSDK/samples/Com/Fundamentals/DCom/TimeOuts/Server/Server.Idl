@@ -1,0 +1,69 @@
+/*+==========================================================================
+
+File: server.idl
+
+Summary:  Produced by VS6 ATL Wizard. Defines IMonitorServer interface and
+	  coclass that implements it.
+
+----------------------------------------------------------------------------
+
+This file is part of the Microsoft COM+ Samples.
+
+Copyright (C) 1995-1999 Microsoft Corporation. All rights reserved.
+
+This source code is intended only as a supplement to Microsoft
+Development Tools and/or on-line documentation. See these other
+materials for detailed information regarding Microsoft code samples.
+
+THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+==========================================================================+*/
+
+// This file will be processed by the MIDL tool to
+// produce the type library (server.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+interface IPingResponder;
+
+import "..\PingResp\PingResp.idl";
+	
+	[
+		object,
+		async_uuid(F159BD5D-4DA8-11D2-9672-00AA00B913AC),
+		uuid(F159BD5C-4DA8-11D2-9672-00AA00B913AC),
+		helpstring("IMonitorServer Interface"),
+		pointer_default(unique)
+	]
+	interface IMonitorServer : IUnknown
+	{
+		HRESULT GetData([out] LONG *pData);
+		HRESULT GetPingResponder([out] IPingResponder **ppPing);
+	};
+
+	
+[
+	uuid(F159BD4F-4DA8-11D2-9672-00AA00B913AC),
+	version(1.0),
+	helpstring("server 1.0 Type Library")
+]
+library SERVERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(F159BD5E-4DA8-11D2-9672-00AA00B913AC),
+		helpstring("MonitorServer Class")
+	]
+	coclass MonitorServer
+	{
+		[default] interface IMonitorServer;
+	};
+
+};

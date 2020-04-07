@@ -1,0 +1,122 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "CallBackClient"=.\CallBackClient\CallBackClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name FullSvr
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "CppClient"=.\CppClient\CppClient.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name FullSvr
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "FullSrvps"=.\FullSrvps\FullSrvps.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name idl
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "FullSvr"=.\FullSvr\FullSvr.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name idl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name FullSrvps
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "HelpDll"=.\HelpDll\HelpDll.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name FullSvr
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "idl"=.\idl\idl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "scaledemo"=.\scaleDemo\scaledemo.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name FullSvr
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

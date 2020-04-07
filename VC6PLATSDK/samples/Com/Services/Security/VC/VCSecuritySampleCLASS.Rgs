@@ -1,0 +1,24 @@
+HKCR
+{
+	VCSecuritySampleClass.VCSecuritySampleClass.1 = s 'VCSecuritySampleClass Class'
+	{
+		CLSID = s '{8107B4EF-166C-11D1-98C1-00C04FC2C8D5}'
+	}
+	VCSecuritySampleClass.VCSecuritySampleClass = s 'VCSecuritySampleClass Class'
+	{
+		CurVer = s 'VCSecuritySampleClass.VCSecuritySampleClass.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8107B4EF-166C-11D1-98C1-00C04FC2C8D5} = s 'VCSecuritySampleClass Class'
+		{
+			ProgID = s 'VCSecuritySampleClass.VCSecuritySampleClass.1'
+			VersionIndependentProgID = s 'VCSecuritySampleClass.VCSecuritySampleClass'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}

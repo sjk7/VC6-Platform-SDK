@@ -1,0 +1,40 @@
+// Disp1.idl : IDL source for Disp1.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Disp1.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+	
+		uuid(804E6431-B232-11D1-B32F-00AA006887C3),
+	
+		helpstring("ILDisp Interface"),
+		pointer_default(unique)
+	]
+	interface ILDisp : IUnknown
+	{
+		[helpstring("method Alloc")] HRESULT Alloc([in,out] long * pJAustin);
+		[helpstring("method DeAlloc")] HRESULT DeAlloc([in]long JAustin);
+	};
+[
+	uuid(804E6424-B232-11D1-B32F-00AA006887C3),
+	version(1.0),
+	helpstring("Disp1 1.0 Type Library")
+]
+library DISP1Lib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(804E6432-B232-11D1-B32F-00AA006887C3),
+		helpstring("LDisp Class")
+	]
+	coclass LDisp
+	{
+		[default] interface ILDisp;
+	};
+};

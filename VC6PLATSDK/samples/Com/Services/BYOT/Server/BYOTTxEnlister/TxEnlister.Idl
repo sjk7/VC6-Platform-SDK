@@ -1,0 +1,41 @@
+// TxEnlister.idl : IDL source for TxEnlister.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TxEnlister.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(353C2600-C852-11D2-848F-0080C7A03FC6),
+	version(1.0),
+	helpstring("BYOTSample TxEnlister 1.0 Type Library")
+]
+library TXENLISTERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		object,
+		uuid(5F6FA5A0-C852-11D2-848F-0080C7A03FC6),
+		dual,
+		helpstring("IEnlistTransaction Interface"),
+		pointer_default(unique)
+	]
+	interface IEnlistTransaction : IDispatch
+	{
+		[id(1), helpstring("Enlists in a TIP Transaction")] HRESULT EnlistTransaction([in] BSTR bstrTipUrl);
+		[id(2), helpstring("Creates an instance of the requested object under the protection of the associated TIP Transaction")] HRESULT CreateInstance([in] BSTR bstrProgId, [out, retval] IDispatch** ppDispatch);
+	};
+
+	[
+		uuid(7058AFD0-C852-11D2-848F-0080C7A03FC6),
+		helpstring("EnlistTransaction Class")
+	]
+	coclass EnlistTransaction
+	{
+		[default] interface IEnlistTransaction;
+	};
+};

@@ -1,0 +1,98 @@
+/*+==========================================================================
+
+File: FullSvr.cpp
+
+Summary:  Produced by VS6 ATL Wizard. Defines IFullServ and ISample
+
+----------------------------------------------------------------------------
+
+This file is part of the Microsoft COM+ Samples.
+
+Copyright (C) 1995-1999 Microsoft Corporation. All rights reserved.
+
+This source code is intended only as a supplement to Microsoft
+Development Tools and/or on-line documentation. See these other
+materials for detailed information regarding Microsoft code samples.
+
+THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+==========================================================================+*/
+// FullSvr.idl : IDL source for FullSvr.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (FullSvr.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+/*I+I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I
+  Interface: IFullServ
+I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I-I*/
+
+	[
+		object,
+		uuid(D3140112-D43F-4718-9119-EF62D631F2AB),
+		async_uuid(D3140113-D43F-4718-9119-EF62D631F2AB),//Generate AsyncIFullServ
+		helpstring("IFullServ Interface"),
+		pointer_default(unique)
+	]
+	interface IFullServ : IUnknown
+	{
+		[helpstring("method Sum")] HRESULT Sum([in] int i, [in] int j, [out,retval] int * sum);
+	};
+
+/*I+I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I
+  Interface: ISample
+  Summary:   used by scaledemo. Work method does slightly less work than Sum
+			 but calls to Sum are handeled synchronously
+I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I-I*/
+
+	[
+		object,
+		uuid(D3140114-D43F-4718-9119-EF62D631F2AB),
+		async_uuid(D3140115-D43F-4718-9119-EF62D631F2AB),//Generate AsyncISample
+		helpstring("ISample Interface"),
+		pointer_default(unique)
+	]
+	interface ISample : IUnknown
+	{
+		[helpstring("method Work")] HRESULT Work([in] int i, [in] int j, [out,retval] int * sum);
+	};
+
+
+[
+	uuid(F8AFC809-B006-4011-BBDF-F10C617811B9),
+	version(1.0),
+	helpstring("FullSvr 1.0 Type Library")
+]
+library FULLSVRLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(F03BE175-A8DE-40D1-9161-A36BCBE1FEA6),
+		helpstring("FullServ Class")
+	]
+	coclass FullServ
+	{
+		[default] interface IFullServ;
+		interface ICallFactory;//Added for VB and Java support
+	};
+	// AsyncFullServ coclass added to allow VB and Java to use 
+	// the AsyncIFullServ interface
+	[
+		uuid(F03BE176-A8DE-40D1-9161-A36BCBE1FEA6),
+		helpstring("AsyncFullServ Class")
+	]
+	coclass AsyncFullServ
+	{
+		[default] interface AsyncIFullServ;
+		interface ISynchronize;
+		interface ICancelMethodCalls;
+	};
+};

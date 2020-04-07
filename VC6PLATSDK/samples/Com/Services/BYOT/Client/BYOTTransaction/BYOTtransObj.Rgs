@@ -1,0 +1,26 @@
+HKCR
+{
+	ByotSample.ByotTransaction.ByotTransaction.1 = s 'ByotTransaction Object Class'
+	{
+		CLSID = s '{B8B87F20-C6B7-11D2-8482-0080C7A03FC6}'
+	}
+	ByotSample.ByotTransaction.ByotTransaction = s 'ByotTransaction Object Class'
+	{
+		CLSID = s '{B8B87F20-C6B7-11D2-8482-0080C7A03FC6}'
+		CurVer = s 'ByotSample.ByotTransaction.ByotTransaction.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B8B87F20-C6B7-11D2-8482-0080C7A03FC6} = s 'ByotTransaction Object Class'
+		{
+			ProgID = s 'ByotSample.ByotTransaction.ByotTransaction.1'
+			VersionIndependentProgID = s 'ByotSample.ByotTransaction.ByotTransaction'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{F9638B00-C6B6-11D2-8482-0080C7A03FC6}'
+		}
+	}
+}

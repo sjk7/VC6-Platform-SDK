@@ -1,0 +1,57 @@
+//==============================================================================
+// Filename:  ADOKB.idl
+//
+// Description: IDL source for ADOKB.dll
+//
+// This file is part of the Microsoft COM+ Samples
+//
+// Copyright (C) 1995-1999 Microsoft Corporation. All rights reserved
+//
+// This source code is intended only as a supplement to Microsoft
+// Development Tools and/or on-line documentation.  See these other
+// materials for detailed information reagrding Microsoft code samples.
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+// KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
+//==============================================================================
+
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ADOKB.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(FD6AF2D0-E380-11D0-823B-00AA00A3F13E),
+		dual,
+		helpstring("IADOComponent Interface"),
+		pointer_default(unique)
+	]
+	interface IADOComponent : IDispatch
+	{
+		[id(1), helpstring("method SimpleQuery")] HRESULT SimpleQuery([in, out] VARIANT * returnval);
+	};
+[
+	uuid(FD6AF2C3-E380-11D0-823B-00AA00A3F13E),
+	version(1.0),
+	helpstring("ADOKB 1.0 Type Library")
+]
+library ADOKBLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(FD6AF2D1-E380-11D0-823B-00AA00A3F13E),
+		helpstring("ADOComponent Class")
+	]
+	coclass ADOComponent
+	{
+		[default] interface IADOComponent;
+	};
+};

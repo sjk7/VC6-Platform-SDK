@@ -1,0 +1,78 @@
+// Filename: tServer.idl
+//
+// Description:  IDL source for tServer.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (tServer.tlb) and marshalling code.
+//
+// This file is provided as part of the Microsoft Transaction Server Samples
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT 
+// WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+// INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+// OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR 
+// PURPOSE.
+//
+// Copyright (C) 1997 Microsoft Corporation, All rights reserved
+
+import "oaidl.idl";
+import "ocidl.idl";
+	
+	[
+		object,
+		uuid(CAAD7F9A-F22D-11D0-B5CB-00C04FB957D8),
+		dual,
+		helpstring("IComputer Interface"),
+		pointer_default(unique)
+	]
+	interface IComputer : IDispatch
+	{
+		HRESULT AddNewGame ([in] VARIANT_BOOL bEasy, [out] VARIANT* pvGameID, [out] VARIANT* pvOrder, [out] VARIANT* pvX, [out] VARIANT* pvY);
+		HRESULT NewMove ([in] long lGameID, [in] VARIANT_BOOL bEasy, [in] long lX, [in] long lY, [out] VARIANT* pvMyX, [out] VARIANT* pvMyY, [out] VARIANT* pvWin);
+	};
+	
+	[
+		object,
+		uuid(CAAD7FA0-F22D-11D0-B5CB-00C04FB957D8),
+		dual,
+		helpstring("IHuman Interface"),
+		pointer_default(unique)
+	]
+	interface IHuman : IDispatch
+	{
+		HRESULT EnterNewGame ([in] BSTR bstrLocalName, [out] VARIANT* pvGameID, [out] VARIANT* pvName, [out] VARIANT* pvOrder);
+		HRESULT NewMove ([in] long lGameID, [in] long lOrder, [in] long lX, [in] long lY, [out] VARIANT* pvWin);
+		HRESULT GetNewMove ([in] long lGameID, [in] long lOrder, [out] VARIANT* pvName, [out] VARIANT* pvFoeX, [out] VARIANT* pvFoeY, [out] VARIANT* pvWin, [out] VARIANT* pvUpdate);
+	};
+
+
+[
+	uuid(CAAD7F8B-F22D-11D0-B5CB-00C04FB957D8),
+	version(1.0),
+	helpstring("tServer 1.0 Type Library")
+]
+library TSERVERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(CAAD7F9B-F22D-11D0-B5CB-00C04FB957D8),
+		helpstring("Computer Class")
+	]
+	coclass Computer
+	{
+		[default] interface IComputer;
+	};
+
+	
+	[
+		uuid(CAAD7FA1-F22D-11D0-B5CB-00C04FB957D8),
+		helpstring("Human Class")
+	]
+	coclass Human
+	{
+		[default] interface IHuman;
+	};
+
+};

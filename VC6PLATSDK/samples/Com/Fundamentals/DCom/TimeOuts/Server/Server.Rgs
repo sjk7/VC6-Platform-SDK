@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{F159BD50-4DA8-11D2-9672-00AA00B913AC} = s 'server'
+		'server.EXE'
+		{
+			val AppID = s {F159BD50-4DA8-11D2-9672-00AA00B913AC}
+		}
+	}
+}

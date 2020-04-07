@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML DIR="ltr">
+	<HEAD>
+		<TITLE>Microsoft UDDI SDK Release Notes</TITLE>
+		<STYLE> body { color: #000000; background: #FFFFFF; font-size: 70%; font-family: Verdana, Arial, Sans Serif; margin-left: 0em; padding-left: 1.5em; }
+	a:link, a:visited { color: #0000FF; text-decoration:underline;}
+	a:active, a:hover { color: #FF0000; cursor:hand; text-decoration:underline;}
+	a.#reltopics { position:relative; top:1em; }
+	h1 { font-size: 125%; margin-bottom: .5em; clear:both; width: 85%; }
+	h2 { font-size: 110%; margin-top: 1.5em; margin-bottom: .5em; clear:both; }
+	h3 { font-size: 100%; margin-top: 1.2em; margin-bottom: .5em; clear:both; }
+	p { margin-top: .6em; margin-bottom: .6em; }
+	ol { margin-top: .5em; margin-bottom: 0em; margin-left: 2.1em; padding-left: 0em; margin-right:2.1em; }
+	ul { margin-top: .6em; margin-bottom: 0em; list-style-type: disc; margin-left: 1.5em; padding-left: 0em; margin-right: 1.5em; }
+	li { margin-bottom: .7em; clear:both; }
+	pre { margin-top: .5em; margin-bottom: .5em; }
+	code { font-family: Courier New; font-size: 1.1em; }
+	table { font-size: 100%; margin-top: 1em; margin-bottom: 1em; }
+	th { text-align: left; background: #DDDDDD; vertical-align: bottom; padding: .2em; padding-left: .45em; padding-right: .5em;}
+	tr { vertical-align: top; }
+	td { background: #EEEEEE; vertical-align: top; padding: .2em; padding-left: .45em; padding-right: .5em;}
+	TH { BACKGROUND-COLOR: #bbbbbb; }
+	</STYLE>
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=Windows-1252">
+		<META HTTP-EQUIV="MSThemeCompatible" CONTENT="Yes">
+		<META NAME="MS.LOCALE" CONTENT="EN-US">
+	</HEAD>
+	<BODY>
+		<H1>Microsoft UDDI SDK Release Notes</H1>
+		<H2>Component Registration</H2>
+		<P>
+			You must register the following components on your computer before you can use 
+			the Microsoft UDDI SDK:
+		</P>
+		<UL>
+			<UL>
+				<LI>
+					<b>Microsoft.Uddi assembly</b>
+				– this library contains the implementation of the UDDI support for linking with 
+				.NET Framework programs that use UDDI
+				<LI>
+					<b>UDDI Publish Wizard</b> – this wizard publishes details about a Web service 
+					and its associated Web Service Description Language (WSDL) file in a UDDI site</LI></UL>
+		</UL>
+		<P>These components are included in the Microsoft Platform SDK and installed by 
+			default to <b>%ProgramFiles%\Microsoft SDK\Bin\</b>. They can be registered 
+			using the UddiSdkRegister utility. This utility adds the Microsoft.Uddi 
+			assembly to the .NET Framework Global Assembly Cache and to the Visual Studio 
+			.NET components list and add the UDDI Publish Wizard to the Tools menu within 
+			the Visual Studio .NET development environment. To register these components, 
+			perfomr the following steps:</P>
+		<OL>
+		<OL>
+			<LI>
+				Click the <b>Start</b> button, click <b>Run</b>
+			<LI>
+				Type <b>"%ProgramFiles%\Microsoft SDK\Bin\UddiSdkRegister"</b></LI></OL>
+		</OL>
+		<H2>Documentation Errors and Changes</H2>
+		<P>The Microsoft UDDI SDK documentation is included in the Platform SDK help 
+			files. The documentation contains the following errors:</P>
+		<ul>
+			<ul>
+				<li>
+				The topic "Authenticating with a UDDI Server" contains incorrect URLs. The 
+			correct URLs are:
+			<ul>
+			http://mySite/uddi/inquire.asmx 
+			<br>https://mySite/uddi/publish.asmx
+			<br>http://mySite/uddi/extension.asmx
+			</ul>
+			</ul>
+			</ul>
+			<P>The following late-breaking changes did not make it into the documentation:
+		</P>
+		<ul>
+			<ul>
+				<li>
+					<B>Uddi.Name</B>
+				– the documentation incorrectly lists this as a structure. It is a class.
+				<li>
+					<b>Uddi.ManagedUrl.AdvanceSelectedIndex</b>
+				– the documentation incorrectly lists this method as protected. The method is 
+				private and unavailable to application developers.
+				<li>
+					<b>Uddi.TModels.CommonCanonical</b>
+				- the <B>NtisGovNaics2002</B> field contains the predefined tModelKey that 
+specifies the NAICS 2002 business categorization scheme.
+				<li>
+					<b>Services.BusinessService.BusinessService(String)</b> and <b>Services.BusinessService.BusinessService(Name)</b>
+					- these <b>BusinessService</b> constructors refer to the String and Name 
+					arguments as the name of the business. These argument descriptions are 
+					incorrect. The String and Name arguments contain the name of the service.
+				</li>
+			</ul>
+		</ul>
+		<hr size="1">
+	</BODY>
+</HTML>

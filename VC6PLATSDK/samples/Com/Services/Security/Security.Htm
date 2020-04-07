@@ -1,0 +1,120 @@
+<html>
+
+<head>
+<title>Role-based Programmatic Security</title>
+<link rel="stylesheet" href="../../../styles.css" type="text/css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>Role-based Programmatic Security</h2>
+
+<hr>
+
+<h4>Overview</h4>
+
+<p>The COM+ role-based security model consists of declarative security and programmatic
+security. You can build both declarative and programmatic security into your components prior to deploying them on a Windows 2000 security domain. Roles, which are central to
+the COM+ security model, consist of an abstraction that defines a logical group of users.
+At deployment time, you bind these roles to specific groups and users. You can administer package security with the Component Services Explorer. This is a form of declarative
+security, which does not require any component programming is based on standard Windows 2000 security.</p>
+
+<p>The role-based security samples show how to use the COM+ security application programming interface (API) to perform two
+tasks: 
+
+<ul>
+  <li>Discover if a client is in a particular role. This task is demonstrated with the
+    AmIAnAdminstrator object, which checks whether the client is in the Administrator
+    role. It then returns 1 if the client is an administrator, 0 if the client is not, or 2 if an
+    error occurred. </li>
+  <li>Discover who the client is. This is demonstrated in the WhoAmI method, which returns a
+    string containing the domain and user name of the direct caller, for example DOMAIN\USER. If there
+    is an error, WhoAmI returns an empty string. </li>
+</ul>
+
+<p>These methods are both implemented in Microsoft Visual Basic, Microsoft Visual C++(VC), VJ components. (The exception that the  VJ component does not have a WhoAmI method, because this interface is not supported for Java.) </p>
+
+<p>Each of these objects may be called from a Visual Basic client using the following
+code, the Dim statement will need to be slightly altered to use the VC and VJ samples:</p>
+
+<p>
+<font face="courier">
+&nbsp; &nbsp; &nbsp; Dim obj as Object<br>
+&nbsp; &nbsp; &nbsp; Set obj = CreateObject("VBSecuritySample.VBSecuritySampleClass")<br>
+&nbsp; &nbsp; &nbsp; MsgBox obj.AmIAnAdministrator<br>
+&nbsp; &nbsp; &nbsp; MsgBox obj.WhoAmI<br>
+</font>
+</p>
+
+<h4>Project Files</h4>
+
+<table border="0" width="75%">
+  <tr>
+    <td width="20%"><strong>Sub-directory</strong></td>
+    <td width="15%"><strong>Code</strong></td>
+    <td width="65%"><strong>Description</strong></td>
+  </tr>
+  <tr>
+    <td width="20%"><a href="VC">VC</a></td>
+    <td width="15%"><a href="VC\SECURITYVC.HTM">VC Code</a></td>
+    <td width="65%">Demonstrates programmatic security using Visual C++ 5.0</td>
+  </tr>
+  <tr>
+    <td width="20%"><a href="VB">VB</a></td>
+    <td width="15%"><a href="VB\SECURITYVB.HTM">VB Code</a></td>
+    <td width="65%">Demonstrates programmatic security using Visual Basic 5.0</td>
+  </tr>
+  <tr>
+    <td width="20%"><a href="VJ">VJ</a></td>
+    <td width="15%"><a href="VJ\SECURITYJAVA.HTM">VJ Code</a></td>
+    <td width="65%">Demonstrates programmatic security using Visual J++ 5.0</td>
+  </tr>
+  <tr>
+    <td width="20%"><a href="SecurityTester/ReadMe.htm">SecurityTester</a></td>
+    <td width="15%"></td>
+    <td width="65%">VB application using Security Sample methods</td>
+  </tr>
+</table>
+
+<h4>To Build & Run</h4>
+
+<p>
+<b>To build</b><br>
+<ul><li>Execute a build with the following project files:<br>
+<ul><li>VC\VCSecuritySample.dsp<br>
+<li>VB\VBSecuritySample.vbp<br>
+<li>VJ\VJSecuritySample.vjp<br>
+<li>SecurityTester\SecurityTester.vbp<br></ul>
+</ul>
+<b>To Setup:</b><br>
+<ol><li>Start Component Services Explorer, right click <b>My Computer</b> and select properties.<br>
+<li>Select <b>Options</b> tab, clear all the check boxes and text boxes.<br>
+<li>Select <b>CLBS</b> tab, clear the load balancing check box and clear the <b>Application Cluster</b> text box.<br>
+<li>Make New <b>Services Security</b> COM+ Server Application.<br>
+<li>Add VC, VB, & VJ Components to new application.<br>
+<li>Add new <b>Administrator</b> group to <b>Roles</b> (Components are Case Sensitive, be careful).<br>
+<li>Add your Logon to Users of <b>Administrator</b>.<br>
+<li>Select <b>Administrator</b> check boxes in properties of all three Components.<br>
+<li>In the new application's properties, select <b>Security</b> tab, and select <b>Enforce application level access checks</b> check box.<br></ol>
+
+<b>To Run:</b><br>
+<ol><li> Run SecurityTester.exe and exercise it's buttons.<br>
+<li>Also try exercising SecurityTester.exe's bottuons as you modify <b>application level access</b>.</ol><br>
+</p>
+
+<h4>Remarks</h4>
+
+<p>Role-based security is not supported in COM+ on Windows 95. </p>
+
+<p>&nbsp;</p>
+
+<hr>
+
+<p>&nbsp;</p>
+</body>
+</html>

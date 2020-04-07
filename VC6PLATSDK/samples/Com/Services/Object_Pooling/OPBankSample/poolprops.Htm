@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Set the "Object Pooling" property</TITLE>
+<META NAME="Template" CONTENT="D:\Program Files\Microsoft Office\Office\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H2>Set the Object Pooling property</H2>
+<P>This sequence configures COM+ to create the specified number of pooled components when the component is initially created.</P>
+<P>In this procedure you will set the "Object Pooling" and "Object Construction" properties for Bank.Account.VC and Bank.UpadateReceipt.VC:</P>
+
+<OL>
+
+<LI>Start the Component Services Explorer. Click <b>Start</b>, point to <b>Programs</b>, point to <b>Administrative Tools</b>, and then click <b>Component Services</b>.</LI>
+<LI>Select <b>Console Root</b>, click <b>Component Services</b>, click <b>Computers</b>, click <b>My Computer</b>, click <b>COM+ Applications</b>, click <b>OPBank </b>, and then click <b> Components</b>.</LI>
+<LI>Right-click on the <b>Bank.Account.VC</b> and then click <b>Properties</b>.</LI>
+<LI>Click the <b>Activation</b> tab.</LI>
+<LI>Click the <b>Enable Object Pooling</b> check box.</LI>
+<LI>Enter the minimum and maximum pool sizes-for example, 1 (min) and 10 (max). The Creation Timeout can remain at its default.</LI>
+<LI>Click the <b>Enable Object Construction</b> check box.</LI>
+<LI>For the Constructor string, type <b>FILEDSN=OPBankSamples;DATABASE=pubs;UID=sa;PWD=;APP=OPBank</b></LI>
+<LI>Click <b>OK</b>.</LI>
+<LI>Repeat the procedure for the Bank.UpdateReceipt.VC component.</LI></OL>
+
+</BODY>
+</HTML>

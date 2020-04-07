@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<title>Security Tester</title>
+<link rel="stylesheet" href="../../../../styles.css" type="text/css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>Security Tester</h2>
+
+<hr>
+
+<h4>Overview</h4>
+
+<p>Microsoft Visual Basic application using Security Sample methods</p>
+
+<br>
+<h4>To Build</h4>
+<ol>
+<li><p>Ensure that the Security Sample's Microsoft Visual C++, Visual Basic, and Java DLLs are all built.</p>
+
+<li><p> Open ServicesSecurityTester.vbp.</p>
+
+<li><p> Ensure that all references are resolved.</p>
+
+<li><p>Build ServicesSecurityTester.exe.</p></ol>
+
+<br>
+<h4>To Configure</h4>
+<ol>
+<li><p> In Component Services Explorer create a new package named Security Tester.</p>
+
+<li><p>Right-Click the new COM+ application, <b>Security Tester</b>.</p>
+
+<li><p>In <b>Properties</b>, click the <b>Security</b> Tab, click <b> Authorization</b>, and then selec <b>Enforce access checks for this application</b> check box.</p>
+
+<li><p>Click <b>OK</b>.</p>
+
+<li><p>Under the Security Tester COM+ application, create an Administrator role (beware of case sensativity).</p>
+
+<li><p> Add an intended <b>User to Administrator </b>role.</p>
+
+<li><p>Install the VC, VB, and VJ Security Sample DLLs.</p>
+
+<li><p>For each component, in <b>Properties</b>, click the <b>Security</b> Tab, and select the <b>Administrator</b> Check box.</p>
+</ol>
+<br>
+<h4>To Run</h4>
+<ol>
+<li><p> Run ServicesSecurityTester.exe.</p>
+
+<li><p>Click <b>Who is logged on?</b> to bring up up a message box displaying the answer.</p>
+
+<li><p>Click <b>Are you an Administrator?</b> to see if you are listed in the <b>Administrator</b> Role of the Services_Security package.</p>
+
+<li><p>Change <b>Users</b> in the Administrator Role or Security Options with the <b>Security Tester</b> application, to manipulate values returned by the security methods.</p>
+</ol>
+<p>&nbsp;</p>
+
+<hr>
+
+<p>&nbsp;</p>
+</body>
+</html>
+

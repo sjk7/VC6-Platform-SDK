@@ -1,0 +1,23 @@
+HKCR
+{
+	OLEDBComponent.OLEDBComponent.1 = s 'OLEDBComponent Class'
+	{
+		CLSID = s '{1A34A4CF-1C2D-11D1-98C4-00C04FC2C8D5}'
+	}
+	OLEDBComponent.OLEDBComponent = s 'OLEDBComponent Class'
+	{
+		CurVer = s 'OLEDBComponent.OLEDBComponent.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1A34A4CF-1C2D-11D1-98C4-00C04FC2C8D5} = s 'OLEDBComponent Class'
+		{
+			ProgID = s 'OLEDBComponent.OLEDBComponent.1'
+			VersionIndependentProgID = s 'OLEDBComponent.OLEDBComponent'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

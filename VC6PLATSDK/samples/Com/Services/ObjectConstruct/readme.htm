@@ -1,0 +1,282 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>COM+ Sample: Hello Object Construction</title>
+<link rel="stylesheet" type="text/css" href="../../docs/Styles.css">
+</head>
+
+<body>
+
+<h2>Hello Object Construction</h2>
+<hr>
+<p>In object oriented programming, object construction is typically used to take
+care of initializing the object.&nbsp; In the COM+ environment, there are
+certain tasks that involve one time component initialization that you may have
+previously handled in your objects constructor (or Class_Initialize in
+VB).&nbsp; In the COM+ environment when your object constructs it is not
+associated with a context at that point, certain tasks such as creating other
+objects or connecting to a database can yield unpredictable behavior and should
+be avoided.&nbsp; A better way is to enable object construction, this will cause
+COM+ to call a method on your object once it is associated with it's context and
+it is now ready to be initialized.&nbsp;</p>
+<p>Additionally many components deployed in a COM+ application require information about the
+environment they are deployed in.&nbsp; This can include things like</p>
+<ul>
+  <li>A database connection string</li>
+  <li>The location of some other required resource such as a file</li>
+  <li>Optional configuration parameters such as debug tracing</li>
+</ul>
+<p>Many applications store this type of information in the registry, environment
+variables or in a file on disk.&nbsp; While these methods have worked well in
+the past, there is a better way.&nbsp; COM+ introduced Object Construct
+strings.&nbsp; When you deploy a component in a COM+ application you can store
+this type of information in an object construct string.&nbsp; This has the
+following advantages over registry, environment of file storage.</p>
+<ul>
+  <li>The construct string is linked to the component in the COM+ Catalog</li>
+  <li>The construct string prevents mishaps where multiple components inadvertently
+    reference (or change) the same data.</li>
+</ul>
+<p>See also <a href="http://msdn.microsoft.com/library/default.asp?URL=/library/psdk/cossdk/pgservices_objectpooling_9m43.htm">Using
+Object Constructor Strings</a></p>
+<p>To take advantage of Object Construction:</p>
+<ul>
+  <li>Create a COM+ component that implements the <b><a href="http://msdn.microsoft.com/library/default.asp?URL=/library/psdk/cossdk/iobjectctrl_89tg.htm">IObjectConstruct</a></b>
+    interface</li>
+  <li>Provide initialization code in the <b><a href="http://msdn.microsoft.com/library/default.asp?URL=/library/psdk/cossdk/iobjectctrl_5nas.htm">IObjectConstruct.Construct</a></b>
+    method</li>
+  <li>Optionally, use the <b><a href="http://msdn.microsoft.com/library/default.asp?URL=/library/psdk/cossdk/iobjectctrl_6yqv.htm">IObjectConstructString</a></b>
+    interface to obtain the value of the Constructor String</li>
+</ul>
+<p>Here is a simple example of using Object Construction</p>
+<table BORDER="0" WIDTH="80%" ALIGN="CENTER" BGCOLOR="#00FFFF">
+  <tr>
+    <td WIDTH="100%" ALIGN="LEFT" VALIGN="MIDDLE"><pre><font face="Verdana">&nbsp;<font SIZE="2"><! ---Begin your cited code after this comment--- ></font></font><font size="2" face="Verdana">Implements IObjectConstruct
+
+<font color="#FF0000">' Handle object initialization here now that the object is
+' safely associated with a context</font>
+Private Sub IObjectConstruct_Construct(ByVal pCtorObj As Object)
+<font color="#FF0000">  ' Use the IObjectConstructString to get the object constructor string</font>
+  Dim iocs As IObjectConstructString
+  Set iocs = pCtorObj
+  MsgBox &quot;Object construct string is &quot; &amp; iocs.ConstructString
+End Sub</font></pre>
+    </td>
+  </tr>
+</table>
+<h4>Build / Configuration</h4>
+<p>The Object Construct sample consists of two Visual Basic 6.0 projects.</p>
+<table border="1" width="100%">
+  <tr>
+    <td width="22%"><b>Project</b></td>
+    <td width="78%"><b>Description</b></td>
+  </tr>
+  <tr>
+    <td width="22%">ObjectConstructLib</td>
+    <td width="78%">COM+ component</td>
+  </tr>
+  <tr>
+    <td width="22%">ObjectConstructTest</td>
+    <td width="78%">Test application</td>
+  </tr>
+</table>
+<p>&nbsp;To build the ObjectConstructLib project:</p>
+<ol>
+  <li>Open the project file <a href="Component/ObjectConstructLib.vbp"><b>ObjectConstructLib.vbp</b></a>
+    with Visual Basic 6.0</li>
+  <li>Select <b>File / Make ObjectConstructLib.dll</b></li>
+  <li>Save <b>ObjectConstructLib.dll</b> in the <b><a href="Bin">Bin</a></b>
+    directory</li>
+</ol>
+<p>To build the ObjectConstructTest project:</p>
+<ol>
+  <li>Open the project file <a href="Client/ObjectConstructTest.vbp"><b>ObjectConstructTest.vbp</b></a>
+    with Visual Basic 6.0</li>
+  <li>Update the reference to ObjectConstructLib by selecting <b>Project /
+    References</b></li>
+  <li>Uncheck <b>ObjectConstructLib</b>, click ok to dismiss the references
+    dialog</li>
+  <li>Select <b>Project / References</b></li>
+  <li>Check <b>ObjectConstructLib</b>, click ok</li>
+  <li>Select <b>File / Make ObjectConstructTest.exe</b></li>
+  <li>Save <b>ObjectConstructTest.exe</b> in the <b><a href="Bin">Bin</a></b>
+    directory</li>
+</ol>
+<h4>Component Services Configuration</h4>
+<p>Now that you have built the components, you must install them into COM+ by
+using the Component Services administrative tool.</p>
+<h5>Start Component Services</h5>
+<ol>
+  <li>On the <b>Start</b> menu, point to <b>Programs</b>.
+  <li>Point to <b>Administration Tools</b>, and then click <b>Component Services</b>.</li>
+</ol>
+<h5><font color="black">Create the </font>Object Construct<font color="black">
+Application</font></h5>
+<p>Our component must be hosted in a COM+ application.&nbsp; To create the
+Object Construct application, perform the following steps:</p>
+<ol>
+  <li>Click <b>COM+ Applications</b>.&nbsp;
+  <li>Right-click <b>COM+ Applications</b>, click <b>New</b>, and then click <b>Application</b>.
+  <li>Click <b>Create Empty Application</b>, and then click <b>Next</b>.
+  <li>Name the application <b>Object Construct</b>.
+  <li>Finish the wizard by using the remaining defaults.</li>
+</ol>
+<h5><b>Install the Component</b></h5>
+<p>Our&nbsp; components must by installed in the <b>Object Construct</b>
+application.&nbsp;To register the <b>Object Construct</b> component, perform the
+following steps:</p>
+<ol>
+  <li>Under the <b>Object Construct</b> application, right-click <b>Components</b>,
+    click <b>New</b>, and then click <b>Component</b>.
+  <li>Click <b>Install New Component</b>.
+  <li>Click <b>Browse</b>, select <b>ObjectConstructLib.dll</b>, and then click <b>Next</b>.
+  <li>Click <b>Finish</b> to close the wizard.</li>
+</ol>
+<h5><a name="Register a subscription">Set The Object Construct String</a></h5>
+<p>Now that the component is installed, you can set the object construct string
+in the properties.</p>
+<ol>
+  <li>Under the <b>Object Construct</b> application, right-click <b>ObjectConstructLib.clsObjectConstruct
+    </b>component, click <b>Properties</b>
+  <li>Select the <b>Activation</b> tab.
+  <li>Check the <b>Enable Object Construction</b> checkbox.</li>
+  <li>Enter the object construction string &quot;My Object Construction
+    String&quot; in the <b>Constructor string</b> text box.
+  <li>Click the <b>ok</b> button to dismiss the dialog.</li>
+</ol>
+<table width="100%" bgColor="#00ffff" border="0">
+  <tbody>
+    <tr>
+      <td>To automate this process, take a look at the scripts <b>Install Object
+        Construct.vbs</b> and Remove <b>Object Construct.vbs</b> in the <a href="Scripts"><b>Scripts</b></a>
+        directory</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a name="Tour">Tour</a></h3>
+<p>Now that you have <a href="#Build / Configuration">built and configured</a>
+the Object Construct sample, you are ready to observe the object construction
+string by performing the following steps:</p>
+<ol>
+  <li>Start the test application <b><a href="Bin/ObjectConstructTest.exe">ObjectConstructTest.exe</a></b>.
+  <li>Click on the <b>Test Object Construction</b> button.
+  <li>Observe the message box from <b>ObjectConstructLib</b> displaying the
+    object construction string.</li>
+</ol>
+<table width="100%" bgColor="#00ffff" border="0">
+  <tbody>
+    <tr>
+      <td><b>Note&nbsp;&nbsp; </b>While showing a message box for this sample is
+        useful as an illustration, you should never display a message box from a
+        COM+ component</td>
+    </tr>
+  </tbody>
+</table>
+<p>Did the sample work as expected?&nbsp;If not, check with the <a href="#HelpDesk">Help
+Desk</a>.</p>
+<h3><a name="HelpDesk"><img src="../../Images/help.gif" align="right" border="0" width="185" height="128">Help
+Desk</a></h3>
+<h5>What are you having trouble with?</h5>
+<ul>
+  <li><a href="#Building the components">Building the components</a>
+  <li><a href="#Configuring the application">Configuring the application</a>
+  <li><a href="#I don't see the message box">I don't see the message box</a>
+  <li><a href="#The object construct string is empty">The object construct
+    string is empty</a>
+  <li><a href="../../docs/Troubleshooting.htm">My problem is not listed—just
+    show me the FAQ</a></li>
+</ul>
+<h6><a name="Building the components">Building the components</a></h6>
+<table width="100%" border="1">
+  <tbody>
+    <tr>
+      <td width="4%">
+        <p align="center"><b><font size="5">Q:</font></b></p>
+      </td>
+      <td width="96%">When I try to compile the components, I get a compile
+        error &quot;Can't find project or library&quot;.</td>
+    </tr>
+    <tr>
+      <td width="4%">
+        <p align="center"><font size="5"><b>A:</b></font></p>
+      </td>
+      <td width="96%">You probably did not build the samples in the correct
+        order.&nbsp;For more detail, see the <a href="../../docs/Troubleshooting.htm#VBBrokenRef">FAQ</a>.</td>
+    </tr>
+  </tbody>
+</table>
+<h6><a name="Configuring the application">Configuring the application</a></h6>
+<table width="100%" border="1">
+  <tbody>
+    <tr>
+      <td width="4%">
+        <p align="center"><b><font size="5">Q:</font></b></p>
+      </td>
+      <td width="96%">When I right-click an item in the Component Services
+        Explorer tree, the menu doesn't have the choice I want.&nbsp;I see a <b>New</b>
+        option but not the <b>New</b>/<b>Component</b>.</td>
+    </tr>
+    <tr>
+      <td width="4%">
+        <p align="center"><font size="5"><b>A:</b></font></p>
+      </td>
+      <td width="96%">Select the item before you right-click it.&nbsp;For more
+        detail, see the <a href="../../docs/Troubleshooting.htm#CompSvcsRightClickMenu">FAQ</a>.</td>
+    </tr>
+  </tbody>
+</table>
+<h6><a name="I don't see the message box">I don't see the message box</a></h6>
+<table width="100%" border="1">
+  <tbody>
+    <tr>
+      <td width="29%"><b>Possible Cause</b></td>
+      <td width="71%"><b>What to Check</b></td>
+    </tr>
+    <tr>
+      <td width="29%">Object Construction is not enabled</td>
+      <td width="71%">Check the <b>Enable Object Construction</b> checkbox on
+        the <b>Activation</b> tab of the the properties for the <b>ObjectConstructLib.clsObjectConstruct
+    </b>component.&nbsp; It should be checked.&nbsp; If it is not, the object
+        construct code will not be called.</td>
+    </tr>
+    <tr>
+      <td width="29%">The message box is hidden beneath another window.</td>
+      <td width="71%">If you click the test application and get a message
+        box saying&nbsp;&quot;An action cannot be completed because a component
+        (ObjectConstructLib) is not responding.&nbsp;Choose 'Switch To' to
+        activate the component and correct the problem.&quot;, you should click
+        the <b>Switch To</b> button, which should bring the message box to the
+        top so that you can click <b>OK</b> to dismiss it.</td>
+    </tr>
+  </tbody>
+</table>
+<h6><a name="The object construct string is empty">The object construct string
+is empty</a></h6>
+<table width="100%" border="1">
+  <tbody>
+    <tr>
+      <td width="29%"><b>Possible Cause</b></td>
+      <td width="71%"><b>What to Check</b></td>
+    </tr>
+    <tr>
+      <td width="29%">The Object Construct string was not entered</td>
+      <td width="71%">Check the <b>Constructor string</b> text box on the
+        Activation tab of the the properties for the <b>ObjectConstructLib.clsObjectConstruct
+    </b>component.&nbsp; It should have &quot;My Object Construction
+    String&quot; in it.&nbsp;&nbsp;
+        <p>Note&nbsp;&nbsp;&nbsp; The property dialog allows you to enable
+        object construction and have an empty constructor string.</td>
+    </tr>
+  </tbody>
+</table>
+<p><font class="SMALL" face="Verdana, Arial, Geneva, Helvetica, sans-serif" size="1"><a href="http://www.microsoft.com/info/cpyright.htm">©
+2000 Microsoft Corporation. All rights reserved. Terms of Use.</a> </font>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

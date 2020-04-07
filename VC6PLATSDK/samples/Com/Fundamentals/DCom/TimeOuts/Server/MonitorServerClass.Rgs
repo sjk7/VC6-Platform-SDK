@@ -1,0 +1,21 @@
+HKCR
+{
+	Server.MonitorServerClass.1 = s 'MonitorServer Class'
+	{
+		CLSID = s '{F159BD5E-4DA8-11D2-9672-00AA00B913AC}'
+	}
+	Server.MonitorServerClass = s 'MonitorServer Class'
+	{
+		CLSID = s '{F159BD5E-4DA8-11D2-9672-00AA00B913AC}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F159BD5E-4DA8-11D2-9672-00AA00B913AC} = s 'MonitorServer Class'
+		{
+			ProgID = s 'Server.MonitorServer.1'
+			VersionIndependentProgID = s 'Server.MonitorServer'
+			val AppID = s '{F159BD50-4DA8-11D2-9672-00AA00B913AC}'
+			LocalServer32 = s '%Module%'
+		}
+	}
+}

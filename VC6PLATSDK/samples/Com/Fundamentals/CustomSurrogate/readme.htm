@@ -1,0 +1,303 @@
+<html>
+
+<head>
+<title>Custom Surrogate</title>
+<link rel="stylesheet" type="text/css" href="../../docs/Styles.css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>Custom Surrogate</h2>
+<hr>
+<h4>Overview</h4>
+
+<p>CustSur is a simple example of a COM custom surrogate. A surrogate
+is a process that loads an inproc object on behalf of another process, either remote or
+local. Generally, the benefit is seen when remotely instantiating an inproc object since
+without a surrogate, it would not be possible. However, there are rare occasions when one
+might want to use a surrogate locally. </p>
+
+<p>An inproc server project is provided to help test this surrogate.
+The Dog object supports a custom COM interface called IDog. A subdirectory of the CustSur sample called &quot;Dog&quot; contains a simple inproc server project that can be used to test this
+custom surrogate.  </p>
+ <p>A surrogate is a local or exe COM object server. When COM receives
+a remote instantiation request for an inproc object, provided that the registry identifies
+a surrogate in the HKCR/AppID/{appid}@DllSurrogate named value, it will load the surrogate
+process, passing the CLSID of the inproc object to the newly loaded process on the command
+line. See CustSur.cpp, WinMain() for the initialization code. The surrogate object served
+by this executable process is required to support ISurrogate to facilitate loading and
+unloading of the inproc server. The surrogate object server must register this object with
+COM using CoRegisterSurrogate(). From csur.cpp, CSurrogate::LoadDllServer(): </p>
+
+<table BORDER="0" WIDTH="80%" ALIGN="CENTER" BGCOLOR="#EEF0FF">
+  <tr>
+    <td WIDTH="100%" ALIGN="LEFT" VALIGN="MIDDLE"><pre><font face="Verdana">&nbsp;<font SIZE="2">
+<! ---Begin your cited code after this comment--- >
+STDMETHODIMP CSurrogate::LoadDllServer(REFCLSID rclsid)
+{
+	OutputDebugString(&quot;ISurrogate::LoadDllServer() called.&quot;);
+	// instantiate a new class factory wrapper object
+	CClassFactoryWrapper * pcfw = new CClassFactoryWrapper(rclsid);
+
+	if (!pcfw) return E_OUTOFMEMORY;
+
+	// register this new class factory wrapper (use REGCLS_SURROGATE)
+	pcfw-&gt;AddRef();
+	HRESULT hr = CoRegisterClassObject(rclsid, (IClassFactory*)pcfw,
+			CLSCTX_LOCAL_SERVER, REGCLS_SURROGATE, 
+			&amp;pcfw-&gt;m_dwReg);
+
+	// push this one into our stack
+	if (SUCCEEDED(hr)) 
+		m_stkClassFactories.push(pcfw);
+	else 
+		pcfw-&gt;Release();
+	return hr;
+}
+
+</font></font></pre>
+    </td>
+  </tr>
+</table>
+<p>If the client requests the IClassFactory pointer direct (i.e. uses
+CoGetClassObject() instead of CoCreateInstance()), the surrogate's implementation of the
+class factory wrapper will defer to the inproc object's class factory. It does this by
+supporting IMarshal. The presence of IMarshal, lets COM know that when marshaling
+IClassFactory to the client (in this case, across the wire), it must call
+IMarshal::MarshalInterface() and other methods. When it does, the surrogate has the chance
+to replace it's own class factory wrapper with the inproc object's class factory and
+marshal that instead. At that point, the client has a direct pointer to the inproc
+object's class factory and the surrogate is effectively out of the loop. The reason for
+this behaviour is to allow the inproc object's class factory to provide any other
+interfaces that it supports and that the surrogate doesn't know about. </p>
+
+<p>From cfwrap.cpp, CClassFactoryWrapper::MarshalInterface(): </p>
+
+<table BORDER="0" WIDTH="80%" ALIGN="CENTER" BGCOLOR="#EEF0FF">
+  <tr>
+    <td WIDTH="100%" ALIGN="LEFT" VALIGN="MIDDLE"><pre>&nbsp;<font SIZE="2">
+<! ---Begin your cited code after this comment--- >
+<font face="Verdana">STDMETHODIMP CClassFactoryWrapper::MarshalInterface(IStream *pStm, REFIID riid, void *pv, 
+					DWORD dwDstCtx, void *pvDstCtx, DWORD flags)
+{
+	// return a marshaled interface pointer to the inproc
+	// object's class factory object. marshal into the stream pStm
+
+	OutputDebugString(&quot;IMarshal::MarhsalInterface() called.&quot;);
+	IUnknown *pUnk = 0;
+	HRESULT hr = CoGetClassObject(m_clsid, CLSCTX_INPROC_SERVER, 0, IID_IUnknown,
+					(LPVOID*) &amp;pUnk);
+
+	if (SUCCEEDED(hr))
+	{
+		// marshal the class factory object pUnk using the standard marshaler
+		hr = CoMarshalInterface(pStm, riid, pUnk, dwDstCtx, pvDstCtx, flags);
+		pUnk-&gt;Release();
+	}
+	return hr;
+}</font>
+<! ---End your cited code before this comment--- >
+</font></pre>
+    </td>
+  </tr>
+</table>
+
+<p>When the client releases its last reference on the inproc object,
+COM calls ISurrogate::FreeSurrogate(). This signifies that the surrogate is no longer
+needed and gives it a chance to release any class factories or other objects it may be
+holding as well as other cleanup. This sample uses a templated stack class to store the
+class factory wrappers that it registers and releases them here. There is no &quot;Revoke
+Surrogate&quot; call to match the CoRegisterSurrogate(). </p>
+
+<p><font face="Verdana">From csur.cpp, CSurrogate::FreeSurrogate(): </font></p>
+
+<table BORDER="0" WIDTH="80%" ALIGN="CENTER" BGCOLOR="#EEF0FF">
+  <tr>
+    <td WIDTH="100%" ALIGN="LEFT" VALIGN="MIDDLE"><pre><font face="Verdana">&nbsp;<font SIZE="2">
+<! ---Begin your cited code after this comment--- >
+STDMETHODIMP CSurrogate::FreeSurrogate()
+{
+	OutputDebugString(&quot;ISurrogate::FreeSurrogate() called.&quot;);
+	// revoke all of our class factory wrapper objects from COM
+	int i = m_stkClassFactories.size();
+	while (i--)
+	{
+		CoRevokeClassObject(m_stkClassFactories.top()-&gt;m_dwReg);
+		m_stkClassFactories.top()-&gt;Release();
+		m_stkClassFactories.pop();
+	}
+
+	// terminate the message pump
+	PostQuitMessage(0);
+	return S_OK;
+}
+<! ---End your cited code before this comment--- >
+</font></font></pre>
+    </td>
+  </tr>
+</table>
+
+
+
+
+<p>
+<h4>Project Files</h4>
+<table border="0" width="75%">
+  <tr>
+    <td width="26%"><strong>File Name</strong></td>
+    <td width="74%"><strong>Description</strong></td>
+  </tr>
+  <tr>
+    <td width="26%">MAKEFILE</td>
+    <td width="74%">The generic makefile for building the code sample</td>
+  </tr>
+
+  <tr>
+    <td width="26%">SURROG\MAKEFILE</td>
+    <td width="74%">The generic makefile for building the code sample</td>
+  </tr>
+
+  <tr>
+    <td width="26%">SURROG\CUSTSUR.DSP, CUSTSUR.DSW </td>
+    <td width="74%">Workspace and project files</td>
+  </tr>
+
+  <tr>
+    <td width="26%">SURROG\CUSTSUR.CPP </td>
+    <td width="74%">WinMain() implementation</td>
+  </tr>
+
+  <tr>
+    <td width="26%">SURROG\CSUR.CPP </td>
+    <td width="74%">CSurrogate class implementation (ISurrogate)</td>
+  </tr>
+
+  <tr>
+    <td width="26%">SURROG\CFWRAP.CPP</td>
+    <td width="74%">Class factory wrapper implementation</td>
+  </tr>
+
+  <tr>
+    <td width="26%">SURROG\COMMON.H, CFWRAP.H, CSUR.H</td>
+    <td width="74%">Headers for class declarations</td>
+  </tr>
+
+  <tr>
+    <td width="26%">DOG\DOG.CPP</td>
+    <td width="74%">DllMain(), etc.</td>
+  </tr>
+
+<tr>
+    <td width="26%">DOG\DOGCF.CPP</td>
+    <td width="74%">Class Factory for Dog object</td>
+  </tr>
+
+<tr>
+    <td width="26%">DOG\IDOG.CPP  </td>
+    <td width="74%">IDog implementation</td>
+  </tr>
+
+<tr>
+    <td width="26%">DOG\IDOG.IDL</td>
+    <td width="74%">IDog definition</td>
+  </tr>
+<tr>
+    <td width="26%">DOG\DOG.DEF </td>
+    <td width="74%">DEF file for exports</td>
+  </tr>
+<tr>
+    <td width="26%">DOG\DOG.DSP, DOG.DSW </td>
+    <td width="74%">Workspace and project files</td>
+  </tr>
+
+<tr>
+    <td width="26%">DOG\DOGPS.MK </td>
+    <td width="74%">makefile for the proxy/stub</td>
+  </tr>
+
+<tr>
+    <td width="26%">DOG\DOGPS.DEF </td>
+    <td width="74%">DEF file for exports</td>
+  </tr>
+
+<tr>
+    <td width="26%">DOG\DOG.REG </td>
+    <td width="74%">Registration file for Dog projects</td>
+  </tr>
+
+
+<tr>
+    <td width="26%">DOG\CDOG.H, DOGCF.H </td>
+    <td width="74%"> Header files for the project.</td>
+  </tr>
+
+<tr>
+    <td width="26%">DOG\MAKEFILE </td>
+    <td width="74%">Makefile for the Dog project and the Proxy/Stub </td>
+  </tr>
+
+</table>
+
+
+<h4>Build Notes</h4>
+
+<p>To test the custom surrogate, build the inproc server using the makefile provided: </p>
+
+<p>nmake /all </p>
+
+<p>from the command line while in the Dog directory. This will build
+both the inproc object server and the proxy/stub dll for the IDog custom interface that it
+supports. Register the proxy/stub dll using: </p>
+
+<p>regsvr32 dogps.dll </p>
+
+<p>Then merge the provided registry file called &quot;Dog.reg&quot;.
+This will add the AppID and DllSurrogate keys that are needed to associate the Dog inproc
+server sample with the CustSur surrogate. Remember to modify the paths for the dog.dll, custsur.exe and idog.tlb as appropriate before merging the .reg file. For example, when you install these files to a given 'path', you would edit the dog.reg file:</p>
+<table BORDER="0" WIDTH="80%" ALIGN="CENTER" BGCOLOR="#EEF0FF">
+  <tr>
+    <td WIDTH="100%" ALIGN="LEFT" VALIGN="MIDDLE"><pre><font face="Verdana">&nbsp;<font SIZE="2">
+<! ---Begin your cited code after this comment--- >
+; AppID Information
+[HKEY_CLASSES_ROOT\AppID\{F40B88C0-D534-11d1-9D01-0060081982D5}]
+@=&quot;CustSur Sample&quot;
+&quot;DllSurrogate&quot;=&quot;'path'\custsur.exe&quot;
+<! ---End your cited code before this comment--- >
+</font></font></pre>
+    </td>
+  </tr>
+</table>
+
+
+
+
+<p></p>
+<h4>Remarks</h4>
+
+<p>OLEVIEW.EXE can also be used to register the Dog object server dll
+and specify the surrogate as &quot;CustSur.exe&quot; in the &quot;Implementation&quot; tab
+of OLEVIEW's user interface. After registration, any creation of the Dog inproc object
+using the CLSCTX_LOCAL_SERVER or CLSCTX_REMOTE_SERVER flags will result in loading the
+surrogate. For example, use the OLEVIEW.EXE tool to locate and instantiate the Dog object.
+Remember to change the creation flags used by OLEVIEW to local or remote server. </p>
+
+
+<p>You can also double-click the CUSTSUR.DSP file in the
+Windows Explorer to load a sample's project into Visual Studio. From within Visual Studio
+you can then browse the C++ classes of the sample source and generally perform the other
+edit-compile-debug operations. Note that, as part of the Platform SDK, the compilation of
+these samples from within Visual Studio requires the proper setting of directory paths in
+Visual Studio. </p>
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p>&nbsp;</p>
+</body>
+</html>

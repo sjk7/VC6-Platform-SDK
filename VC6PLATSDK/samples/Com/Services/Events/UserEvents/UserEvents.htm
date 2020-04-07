@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE></TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="MSHTML 5.00.2918.400" name=GENERATOR></HEAD>
+<BODY>
+<P><FONT size=5><STRONG><U>OVERVIEW</U></STRONG></FONT></P>
+<P>        
+    The User Events sample shows how to generate 
+application specific events. The events can be monitored using the ComSpy tool located in the Administration directory. 
+The sample is based on the extensive SampleBank sample from the Transaction 
+directory..</P>
+<P>The User Events sample is made up of four programs:</P>
+<P><STRONG>VBBank</STRONG>  
+     , a client application 
+that creates an instance of a Bank.Account server and calls the Post 
+method.</P>
+<P><STRONG>vbacct</STRONG> 
+            
+          
+           
+        
+      , a Visual Basic 
+version of the Bank.Account COM+ server.</P>
+<P><STRONG>vcacct</STRONG> 
+             
+          
+               
+           
+           
+, a Visual C++ version of the Bank.Account COM+ server.</P>
+<P><FONT size=5><STRONG><U>BUILDING THE SAMPLE</U></STRONG></FONT></P>
+<P>   Build each 
+of the three Bank.Account servers.</P>
+<UL>
+  <LI>Visual C++:&nbsp; Open the workspace <FONT color=red>account.dsw </FONT>in the vcacct folder and build with F7.
+  <LI>Visual Basic: Build <FONT color=red>vbacct.vbp</FONT> in the vbacct 
+  folder.</LI></UL>
+<P>Each folder will then have on DLL: <EM>vcacct.dll & vbacct.dll</EM>  
+     .</P>
+<P>Run the included script <FONT color=red>InstallSampleBank.vbs</FONT> to 
+create a COM+ application and install the necessary servers.</P>
+
+<P><FONT size=5><U><STRONG>OPERATION</STRONG></U></FONT> </P>
+<P>Build and launch the <FONT 
+color=red>ComSpy.exe</FONT>   
+           &nbsp;tool&nbsp;in the \Administration\Spy\ComSpy folder. 
+</P>
+<P>Start Bank Client by running <FONT color=red>vbbank.exe</FONT>&nbsp;in the 
+vbbank folder.</P>
+<P>In ComSpy, select the <EM>Sample Bank</EM> application using <EM>Spy | Select 
+Events</EM>... menu option. Select to monitor <EM>UserDefined</EM> events and 
+press the Close button. </P>
+<P>By pressing the Post button Bank Client, events can be observed in 
+ComSpy.</P></BODY></HTML>

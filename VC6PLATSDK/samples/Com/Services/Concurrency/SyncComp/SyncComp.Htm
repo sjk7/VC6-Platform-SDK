@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<title>Object Synchronization</title>
+</head>
+
+<body>
+
+<h2>Object Synchronization Time Comparison</h2>
+
+<hr>
+<h4>COM+ Synchronization Overview</h4>
+<P>COM+ provides synchronization from component to component when called from a multi-threaded client,
+without the complexity of writing a free-threaded object. By setting the synchronization attribute for
+a component, you can let Component Services (COM+) handle the component synchronization. You can read more about
+COM+ synchronization in the Platform SDK under COM+, Concurrency. </p>
+<h4>Sample Overview</h4>
+<p>The SyncComp sample shows the time performance of the COM+ Synchronization service 
+in relation to the other models, Single Threaded Apartment and Free Threaded Apartment. This sample
+is comprised of a host that creates either a Single Threaded Apartment object, a Free Threaded
+Apartment object, or a COM+ Synchronized object. It then creates multiple threads to call the
+created object multiple times. The elapsed time required to call each type of object is recorded and averaged.
+
+The sample shows that a COM+ Synchronized object is slightly slower than a Free Threaded object
+but faster than an Apartment Threaded object. This means that you get almost the same speed benefit of a 
+free-threaded object while maintaining the simplicity of writing single -threaded objects.</p>
+
+<h4>Project Files</h4>
+<table border="0" width="85%">
+  <tr>
+    <td width="30%"><strong>Subdirectory</strong></td>
+    <td width="70%"><strong>Description</strong></td>
+  </tr>
+  <tr VALIGN=top>
+    <td width="30%">SyncComp</td>
+    <td width="70%">Main dialog box which creates the desired COM objects and the threads to exercise
+    those objects.</td>
+  </tr>
+  <tr VALIGN=top>
+    <td width="30%">SyncComp\STAObject</td>
+    <td width="70%">COM marked as Apartment Threaded. No special synchronization code. Standard COM
+    Apartment synchronization keeps things synchronized.</td>
+  </tr>
+  <tr VALIGN=top>
+    <td width="30%">SyncComp\FreeObject</td>
+    <td width="70%">COM marked as Free Threaded. A Critical Section is used to maintain synchronization.</td>
+  </tr>
+  <tr VALIGN=top>
+    <td width="30%">SyncComp\ComSyncObject</td>
+    <td width="70%">COM+ object marked as Free Threaded but has no special synchronization code.
+    COM+ synchronization provides the synchronization.</td>
+  </tr>
+ </table>
+
+
+<h4>Build Notes</h4>
+<p>
+<OL>
+<LI>Build the SyncComp client and the three objects by opening the 
+SyncComp.dsw workspace from Visual C++, select <b>SyncComp Classes</b> as the active project, then build by pressing the <b>F7</b> key. <SMALL><I>You can 
+also use the Microsoft NMAKE-compatible makefile (MAKEFILE).</I></SMALL> 
+<LI>Create a new empty COM+ Server application called STA Object.
+<LI>Add the STAObject.dll as a new component to the application. 
+<LI>On the <B>Activation</B> tab of the properties for the STAObject component clear the <B>Enable Just In Time Activation</B> check box.
+<LI>On the <B>Concurency</B> tab, set the <B>Synchronization support</B> to <B>Not Supported</B>. 
+<LI>All other property defaults are acceptable. 
+
+<LI>Create a new empty COM+ Server application called Free Object.
+<LI>Add the FreeObject.dll as a new component to the application. 
+<LI>On the <B>Activation</B> tab of the properties for the FreeObject component clear the <B>Enable Just In Time Activation</B> check box.
+<LI>On the <B>Concurency</B> tab, set the <B>Synchronization support</B> to <B>Not Supported</B>. 
+<LI>All other property defaults are acceptable.
+<LI>Create a new empty COM+ Server Application called ComSync Object.
+<LI>Add the ComSyncObject.dll as a new component to the application. 
+<LI>On the <B>Activation</B> tab of the properties for the ComSyncObject component clear the <B>Enable Just In Time Activation</B> check box.
+<LI>On the <B>Concurency</B>, tab set the <B>Synchronization support</B> to <B>Required</B>. 
+<LI>All other property defaults are acceptable.</LI>
+</OL>
+</p>
+<H4>Run Notes</H4>
+<P><b>To run this sample</b> 
+<ol>
+<LI>Start the client program (SyncComp.exe). 
+<LI>Change the number of threads and/or the number of iterations to desired levels.
+<LI>Make sure the option next to STA is clicked.
+<LI>Press the Start button to run the tests. The results will be recorded in the text boxes to the right
+of the option.
+<LI>Click the option next to Free-Threaded, and then click the Start button. Let the tests finish.
+<LI>Click the option next to the COM+ Sync, and then click the Start button. Let the tests finish.
+</oL>
+<P><b>Note</b>: &nbsp;&nbsp;&nbsp; The COM+ times are only slightly slower then the free-threaded mode but faster than the STA mode.
+You might need to adjust the number of threads or the iterations (or both) to see meaningful results.
+</P>
+<h4>Remarks</h4>
+<P>Another benefit of COM+ synchronization is that it
+can nest synchronization domains. To understand this concept, imagine a series of
+objects (O1, O2, O3) that can be called directly by the client or 
+by each other. Since the objects can be called by the client, each object must
+be able to execute in a synchronized domain. In a free-threaded model, each
+object would create its own synchronization. As a result, in the case where the client
+calls O1, O1 calls O2, and then O2 calls O3, there will be three synchronization
+objects created (one for each object being called). However, if these objects
+are marked as COM+ Synchronized objects (written without the synchronization
+code) and the same example is run (client calls O1, O1 calls O2, and then O2
+calls O3), only one synchronization object will be created. This is because when
+O1 calls O2, COM+ recognizes that the call is already in a synchronization
+domain. As a result, COM+ doesn't need to create another synchronization object. The
+same is true when O2 calls O3.
+&nbsp;</P>
+
+<hr>
+
+
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+HKCR
+{
+	CrmDebugCompensator.CrmDebugCompensator.1 = s 'CrmDebugCompensator Class'
+	{
+		CLSID = s '{FA796174-D8B0-11D1-AB85-00A0C91EEDE9}'
+	}
+	CrmDebugCompensator.CrmDebugCompensator = s 'CrmDebugCompensator Class'
+	{
+		CurVer = s 'CrmDebugCompensator.CrmDebugCompensator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FA796174-D8B0-11D1-AB85-00A0C91EEDE9} = s 'CrmDebugCompensator Class'
+		{
+			ProgID = s 'CrmDebugCompensator.CrmDebugCompensator.1'
+			VersionIndependentProgID = s 'CrmDebugCompensator.CrmDebugCompensator'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

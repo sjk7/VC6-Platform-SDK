@@ -1,0 +1,71 @@
+/*+==========================================================================
+  File:      QCOrder.idl
+  Summary:   Interfaces for Queued Components Order Entry Sample 1
+  Classes:   Declared: Order
+-----------------------------------------------------------------------------
+
+This file is part of the Microsoft COM+ Samples.
+
+Copyright (C) 1995-1998 Microsoft Corporation. All rights reserved.
+
+This source code is intended only as a supplement to Microsoft
+Development Tools and/or on-line documentation. See these other
+materials for detailed information regarding Microsoft code samples.
+
+THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+==========================================================================+*/
+
+#include "mtxattr.h"	// For TRANSACTION_REQUIRED
+import "oaidl.idl";		// Automation data types
+
+/*I+I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I
+  Interface: IOrder
+  Summary:   Represents an order and its line items
+  Methods:   HRESULT CustomerId - sets Customer Identifier property
+			 HRESULT OrderId - sets Order Identifier property
+			 HRESULT LineItem - adds an item to an order
+             HRESULT ProcessOrder - Completes order
+I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I-I*/
+
+[
+	helpstring("IOrder Interface"), uuid(CB34A1A1-28C2-11D2-B5B6-00C04FC340EE),
+	object, dual, nonextensible, hidden, pointer_default(unique)
+]
+interface IOrder : IDispatch
+{
+	[id(1), propput] HRESULT CustomerId([in] long lCustomerId);
+	[id(2), propput] HRESULT OrderId([in] long lOrderId);
+	[id(3)]	HRESULT LineItem([in] long lItemId, [in] long lQuantity);
+	[id(4)]	HRESULT Process([in] long lFlags);
+};
+
+// Library and classes
+
+[
+	uuid(6DD1E6C2-28C1-11D2-B5B6-00C04FC340EE),
+	version(1.0),
+	helpstring("QCOrder 1.0 Type Library")
+]
+library QCORDERLib
+{
+	importlib("stdole2.tlb");
+
+/*C+C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C+++C
+  Class:	   Order
+  Summary:     Order Entry - accept an order and its line items
+  Interfaces:  IUnknown			Standard COM object interface
+               IOrder			The order being entered
+  Aggregation: Not supported
+C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C---C-C*/  
+
+	[
+		helpstring("Order Class"), uuid(CB34A1A2-28C2-11D2-B5B6-00C04FC340EE),
+		TRANSACTION_REQUIRED
+	]
+	coclass Order { [default] interface IOrder; };
+
+};

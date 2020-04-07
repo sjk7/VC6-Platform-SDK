@@ -1,0 +1,91 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Queued Components</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Office\html.dot">
+<LINK rel="stylesheet" href="../../styles.css" type="text/css"><STYLE></STYLE></HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<H2>Queued Components</H2>
+<P><HR></P>
+<H4>Overview</H4>
+<P>Queued Components is a Component Services feature that leverages Message Queuing to allow help components logically participate in transactions while unavailable or offline. The method calls issued by a client against a Queued Component are transparently recorded, queued, and played back at a later time when the server component becomes available.</P>
+<P>The Queued Components samples depict an order entry application using asynchronous queued transactions to submit an order, process/ship the order, and notify the requestor that the order has been processed. Queued Components split a business transaction, such as the sample order entry application, into several smaller transactions that can be separated in time and connected by reliable message queues. Once the transaction is committed to the queue, the requester is free to perform other tasks including committing the transaction. Later, when the server resources become available, the messages are moved from the queue and processed to complete the business transaction.</P>
+<P><A HREF="msmq.htm">PLEASE READ: Important Message Queuing Information </A></P>
+<H4>Project Files</H4>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=637>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P><B>Subdirectory</B></TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<B><P>Description</B></TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P><A HREF="qcsamp1.htm">QCSamp1</A></TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>On the client computer, the driver creates QCOrder using standard COM activation. QCOrder creates a queued reference to QCShip on the server computer to submit 100 orders.</P>
+<P>When QCShip on the server computer comes online, for each of the 100 orders that are processed, QCShip will create a queued reference to a QCNotify object on the client computer and queue a notification back to that computer.</P>
+<P>When QCNotify on the client computer comes online, it will process each of the notifications.</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P><A HREF="qcsamp2.htm">QCSamp2</A></TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>QCSamp2 is identical to QCSamp1 except that the queued reference to QCNotify is created on the client computer and sent to the server computer as a method parameter to QCShip. QCShip simply uses the object reference to queue notifications back to the client computer.</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P><A HREF="qcsamp3.htm">QCSamp3</A></TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>QCSamp3 is a Visual Basic version of the QCSamp1 and QCSamp2 samples. It consists of the same three components-QCOrder,
+QCShip and QCNotify-along with a forms-based driver program. The driver program allows
+various execution options to be selected such as whether a database should be updated, how the notify component is
+created and called, and whether to use late or early binding.
+</TD>
+</TR>
+</TABLE>
+<P>
+<H4>Administration Samples</H4>
+The queued component properties can all be set programmatically. In addition, you have full control over when COM+ applications
+start and stop. The admin subdirectory contains a number of VBScripts that show how to
+manipulate and modify the state of queued components.
+<p>
+Scripts like these can be added to the NT task scheduler in order for queued applications to
+be scheduled automatically. For example, a component may be run in batch mode by allowing operations to be queued during the day and then, at a predetermined time,
+the COM+ application could be started with the listener enabled to process the day's requests.
+<p>
+<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=7 WIDTH=637>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P><B>Script</B></TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<B><P>Description</B></TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>QCApp.vbs</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+Enable or disable a COM+ application for queuing.
+</TD>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>QCListen.vbs</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+Enable or disable the listener on a COM+ application marked as queued. <P><b>Note</b>: &nbsp;&nbsp;&nbsp; The application must be
+shut down and restarted before a change to the listener state is effective.
+</TD>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>QComp.vbs</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+Enable or disable the listener and start a COM+ application.
+</TD>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>QCStart.vbs</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+Start a COM+ application.
+</TD>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>QCStop.vbs</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+Stop a COM+ application.
+</TD>
+</TABLE>
+
+<p><HR></P>
+<P>&nbsp;</P></BODY>
+</HTML>

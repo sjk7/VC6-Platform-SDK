@@ -1,0 +1,69 @@
+
+REGISTER - COM Server Registration Utility
+
+
+SUMMARY
+=======
+
+The REGISTER sample builds a simple REGISTER.EXE utility that is used in
+subsequent code samples to invoke DLL- or EXE-housed COM servers and
+command them to register or unregister their components in the system
+registry.
+
+For functional descriptions and a tutorial code tour of REGISTER, see the
+Code Tour section in REGISTER.HTM. For details on the external user
+operation of REGISTER, see both the Usage and Operation sections in
+REGISTER.HTM. To read REGISTER.HTM, run TUTORIAL.EXE in the main tutorial
+directory and click the REGISTER lesson in the table of lessons. You can
+also achieve the same thing by clicking the REGISTER.HTM file after
+locating the main tutorial directory in the Windows Explorer.
+
+In general, to set up your system to build and test the code samples in
+this COM Tutorial series, see the global TUTORIAL.HTM file for details.
+The accompanying makefile (MAKEFILE) is Microsoft NMAKE-compatible. To
+create a debug build, issue the NMAKE command in the Command Prompt
+window.
+
+For convenient use in Microsoft's Visual Studio, a project file is
+provided for each sample. To load the project for the REGISTER sample,
+you can run Visual Studio at the Command Prompt in the sample's directory
+as follows:
+
+    MSDEV REGISTER.DSP
+
+You can also simply double-click the .DSP file in the Windows Explorer to
+load a sample's project into Visual Studio. From within Visual
+Studio you can then browse the C++ classes of the sample source and
+generally perform the other edit-compile-debug operations. Note that, as
+part of the Platform SDK, the compilation of these samples from within
+Visual Studio requires the proper setting of directory paths in
+Visual Studio. For more details, see the Building the Code Samples
+section in USING.HTM.
+
+Usage
+-----
+
+REGISTER.EXE is an application that you can run directly from Windows or
+from the Command Prompt. REGISTER is usually run from the Command Prompt
+in one of the following forms:
+
+    register myserver.dll       - To register the DLL server.
+    register /u myserver.dll    - To unregister the DLL server.
+    register /e myserver.exe    - To register the EXE server.
+    register /u /e myserver.exe - To unregister the EXE server.
+
+
+FILES
+=====
+
+Files          Description
+
+REGISTER.TXT   This file.
+MAKEFILE       The generic makefile for building the code sample.
+REGISTER.H     The include file for the REGISTER application. Contains
+               string literals and Resource identifiers.
+REGISTER.CPP   The main implementation file for REGISTER.EXE. Has WinMain
+               and CMainWindow implementation.
+REGISTER.RC    The application resource definition file.
+REGISTER.ICO   The application icon resource.
+REGISTER.DSP   Microsoft Visual Studio Project file.

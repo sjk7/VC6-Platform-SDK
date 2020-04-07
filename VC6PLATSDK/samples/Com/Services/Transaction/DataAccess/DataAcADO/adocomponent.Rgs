@@ -1,0 +1,24 @@
+HKCR
+{
+	ADOComponent.ADOComponent.1 = s 'ADOComponent Class'
+	{
+		CLSID = s '{FD6AF2D1-E380-11D0-823B-00AA00A3F13E}'
+	}
+	ADOComponent.ADOComponent = s 'ADOComponent Class'
+	{
+		CurVer = s 'ADOComponent.ADOComponent.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FD6AF2D1-E380-11D0-823B-00AA00A3F13E} = s 'ADOComponent Class'
+		{
+			ProgID = s 'ADOComponent.ADOComponent.1'
+			VersionIndependentProgID = s 'ADOComponent.ADOComponent'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

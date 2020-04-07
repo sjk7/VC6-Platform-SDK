@@ -1,0 +1,13 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{66355F20-A65B-11D0-BFB5-00A0C91EBFA0}") = "JavaClient", "JavaClient.vjp", "{49920328-B890-4E44-B4CA-6EADD13DD64A}"
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {49920328-B890-4E44-B4CA-6EADD13DD64A}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {49920328-B890-4E44-B4CA-6EADD13DD64A}
+	EndGlobalSection
+	GlobalSection(DeploymentRoot) = postSolution
+	EndGlobalSection
+EndGlobal

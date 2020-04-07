@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<title>Shared Property Manager</title>
+<link rel="stylesheet" href="../../styles.css" type="text/css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>Shared Property Manager</h2>
+
+<hr>
+<h4>Overview</h4>
+<p> The Shared Property Manager sample demonstrates how state is shared during a multi user game. <p>Using the Shared Property Manager makes sharing state in a multiuser environment as easy as it is in a single-user environment. Without the use of the Shared Property Manager, the application would require much more code that has nothing to do with the business problem at hand. The Shared Property Manager is an example of how Component Services (COM+) takes care of the infrastructure for server applications so that you can concentrate on coding business logic.
+<p>
+To maintain location transparency, it's a good idea to limit the use of a shared property group to objects created by the same component, or to objects created by components implemented within the same DLL. When components provided by different DLLs use the same shared property group, you run the risk of an administrator moving one or more of those components into a different package. Because components in different packages generally run in different processes, objects created by those components would no longer be able to share properties.</p>
+
+
+
+
+
+<h4>Project Files</h4>
+<table border="0" width="75%">
+  <tr>
+    <td width="26%"><strong>Subdirectory</strong></td>
+    <td width="74%"><strong>Description</strong></td>
+  </tr>
+  <tr>
+    <td width="26%">TClient</td>
+    <td width="74%">Client components for the tic-tac-toe application.</td>
+  </tr>
+  <tr>
+    <td width="26%">TServer</td>
+    <td width="74%">Server components for the tic-tac-toe application.</td>
+  </tr>
+
+</table>
+
+<h4>Build Notes</h4>
+<p>The Tic-Tac-Toe sample application is a game that can be played with the computer or with another user on a remote COM+ computer by running the Tic-Tac-Toe application you can test your installation of COM+ without SQL Server, as well as practice package deployment and administration. </p><p>
+<b>To run the Tic-Tac-Toe sample application</b>
+<ol>
+<li>Install tServer.dll into a new COM+ application.
+<li>Run the Tic-Tac-Toe client (tClient.exe), and play against the computer or another user.
+</ol>
+
+<p><b>To run the Tic-Tac-Toe client</b></p>
+<ol>
+<li>Type your name in the <b>Your Name is</b> box, and choose if you would like to play against the computer or another user.
+</ol>
+<p>After you start playing the game, go back to Component Services Explorer. Notice that the Tic-Tac-Toe server component icon is now spinning, indicating that it is activated and that your COM+ installation is correct. If you stop the game, the icon stops spinning because the Tic-Tac-Toe client is no longer using the Tic-Tac-Toe server component. 
+</p>
+<h4>Remarks</h4>
+<p>If you click the Status view command on the View menu, you can see usage information about the Tic-Tac-Toe component.</p>
+
+
+
+<p>&nbsp;</p>
+
+<hr>
+
+
+<p>&nbsp;</p>
+</body>
+</html>

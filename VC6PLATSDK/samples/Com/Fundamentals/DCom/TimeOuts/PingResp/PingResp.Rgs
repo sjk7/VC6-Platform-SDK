@@ -1,0 +1,25 @@
+HKCR
+{
+	PingResponder.PingResponder.1 = s 'PingResponder Class'
+	{
+		CLSID = s '{8C0B3D40-DB1F-11D2-8C2B-00A0C9F422B8}'
+	}
+	PingResponder.PingResponder = s 'PingResponder Class'
+	{
+		CLSID = s '{8C0B3D40-DB1F-11D2-8C2B-00A0C9F422B8}'
+		CurVer = s 'PingResponder.PingResponder.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8C0B3D40-DB1F-11D2-8C2B-00A0C9F422B8} = s 'PingResponder Class'
+		{
+			ProgID = s 'PingResponder.PingResponder.1'
+			VersionIndependentProgID = s 'PingResponder.PingResponder'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{8C0B3D31-DB1F-11D2-8C2B-00A0C9F422B8}'
+		}
+	}
+}

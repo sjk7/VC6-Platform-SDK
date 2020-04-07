@@ -1,0 +1,242 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="-//W3C//DTD HTML 4.0//EN">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./disp1_files/filelist.xml">
+<link rel=Edit-Time-Data href="./disp1_files/editdata.mso">
+<!--[if VML]><![if !VMLRender]>
+
+<object id=VMLRender classid="CLSID:10072CEC-8CC1-11D1-986E-00A0C955B42E"
+ width=0 height=0>
+</object>
+
+<style>
+v\:* {behavior:url(#VMLRender);}
+o\:* {behavior:url(#VMLRender);}
+w\:* {behavior:url(#VMLRender);}
+.shape {behavior:url(#VMLRender);}
+
+</style>
+<![endif]><![endif]-->
+<title>Resource Dispenser</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>vinces</o:Author>
+  <o:LastAuthor>vinces</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>70</o:TotalTime>
+  <o:Created>1999-01-26T23:39:00Z</o:Created>
+  <o:LastSaved>1999-01-27T00:49:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>347</o:Words>
+  <o:Characters>1983</o:Characters>
+  <o:Company>Microsoft</o:Company>
+  <o:Lines>16</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>2435</o:CharactersWithSpaces>
+  <o:Version>9.2216</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<link rel=Stylesheet type="text/css" media=all href="../../styles.css">
+<style>
+<!--
+a:visited
+	{color: 336666;}
+A:hover {background:Olive; color: White}
+ul
+	{list-style-image:url("../images/BLACKARROW.GIF");}
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:olive;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:532349453;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1818565702 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1
+	{mso-list-id:1779255034;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1256486218 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=olive vlink=blue style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2>Resource Dispenser</h2>
+
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<h4>Overview</h4>
+
+<p>This sample demonstrates how to build a simple resource dispenser.<span
+style="mso-spacerun: yes">  </span>Resource dispensers allow COM+, Active Server Pages (ASP), or other
+applications to pool a resource between many clients.<span style="mso-spacerun:
+yes">  </span>For example, many Open Database Connectivity (ODBC) drivers are resource dispensers, allowing
+COM+ objects to pool ODBC connections. This reduces the number of connections
+required at any one time and decreases the amount of time required for a COM+
+object to obtain a connection.<span style="mso-spacerun: yes">  </span></p>
+
+<p>This sample pools integers: the pooled resource consists of two
+bytes.<span style="mso-spacerun: yes">  </span>The client receives a pointer to
+those two bytes and is then free to use them.<span style="mso-spacerun: yes"> 
+</span>Of course, in the case of integers, resource pooling offers no performance
+gain. </p>
+
+<p>Four areas of additional code may be required as you extend this sample to
+fit your needs:</p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>You will need to add code to implement the behavior of
+your resource, and adapt the Alloc and DeAlloc functions to your resource.</p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>If your pooled resource is transactional, you will need
+to update the EnlistResource, RateResource, and ResetResource implementations.</p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>If your pooled resource is a COM object, you will need
+to track it via a Global Interface Table(GIT) cookie.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p style='margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 lfo1;
+tab-stops:list .5in'><![if !supportLists]><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><![endif]>If your resource dispenser code has member
+variables whose values are changed outside of the dispenser’s constructor and
+destructor, then you will have to insert critical sections in the dispenser’s
+various methods. This will prevent several threads from accessing that shared state at once.
+</p>
+
+<h4>Project Files</h4>
+
+<table border=0 cellpadding=0 width="75%" style='width:75.0%;mso-cellspacing:
+ 1.5pt'>
+ <tr>
+  <td width="26%" style='width:26.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><strong>Subdirectory</strong></p>
+  </td>
+  <td width="74%" style='width:74.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><strong>Description</strong></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="26%" style='width:26.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Ldisp.cpp, Ldisp.h</p>
+  </td>
+  <td width="74%" style='width:74.0%;padding:.75pt .75pt .75pt'>
+  <p class=MsoNormal>Header and definition of the LDisp class which implements the resource dispenser.</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="26%" style='width:26.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Other files in the root directory</p>
+  </td>
+  <td width="74%" style='width:74.0%;padding:.75pt .75pt .75pt'>
+  <p class=MsoNormal>ATL / Visual C++ framework for the resource dispenser.</p>
+  <p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p/></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="26%" style='width:26.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>Client\Project1.vbp, Client\Form1.frm</p>
+  </td>
+  <td width="74%" style='width:74.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal>A Visual Basic client for the resource dispenser.<span
+  style="mso-spacerun: yes">  </span>Run it, press the button, see the
+  explanation, and read the code.</p>
+  </td>
+ </tr>
+</table>
+
+<h4>Build Notes</h4>
+
+<p>The Resource Dispenser was compiled with Microsoft Visual C++ 6.0 and the client was compiled
+with Microsoft Visual Basic 6.0.</p>
+
+<h4>Remarks</h4>
+
+<p>For more information about resource dispensers, see the Platform SDK IHolder documentation or the article by Maros Counderlik in the September 1998 issue of the <i>Microsoft Systems Journal</i>.</p>
+
+<p>&nbsp;</p>
+
+
+<div class=MsoNormal align=center style='text-align:center'>
+
+<hr size=2 width="100%" align=center>
+
+</div>
+
+
+<p>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

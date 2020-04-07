@@ -1,0 +1,39 @@
+// ComSyncObject.idl : IDL source for ComSyncObject.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ComSyncObject.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(BAEA7BB0-F391-11D2-A10A-0080C71F306F),
+		dual,
+		helpstring("ISyncTest Interface"),
+		pointer_default(unique)
+	]
+	interface ISyncTest : IDispatch
+	{
+		HRESULT Exercise(void);
+	};
+
+[
+	uuid(5659AA70-F6A8-11D2-A10B-0080C71F306F),
+	version(1.0),
+	helpstring("ComSyncObject 1.0 Type Library")
+]
+library COMSYNCOBJECTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(BE872DE0-F6A8-11D2-A10B-0080C71F306F),
+		helpstring("ComSyncTest Class")
+	]
+	coclass ComSyncTest
+	{
+		[default] interface ISyncTest;
+	};
+};

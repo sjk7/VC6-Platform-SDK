@@ -1,0 +1,29 @@
+// CascadeEC.idl : IDL source for CascadeEC.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CascadeEC.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "..\include\news.idl";
+
+[
+	uuid(7508F170-0FC1-11D3-925A-0080C7C30D72),
+	version(1.0),
+	helpstring("CascadeEC 1.0 Type Library")
+]
+library CASCADEECLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8CE4A9E0-0FC1-11D3-925A-0080C7C30D72),
+		helpstring("Cascade Class")
+	]
+	coclass CascadeEC
+	{
+		[default] interface INewsEvent;
+	};
+};

@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0027)http://com/sdk/template.htm -->
+<HTML><HEAD><TITLE>Pipes</TITLE>
+<META content="text/html; charset=windows-1252" http-equiv=Content-Type><LINK 
+href="template_files/styles.css" rel=stylesheet type=text/css>
+<STYLE>A:link {
+	COLOR: olive
+}
+A:visited {
+	COLOR: #336666
+}
+A:hover {
+	BACKGROUND: olive; COLOR: white
+}
+UL {
+	LIST-STYLE: url(../images/BLACKARROW.GIF)
+}
+</STYLE>
+
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY>
+<h2>DCOM Pipes Sample</h2>
+<HR>
+
+<H4>Overview</H4>
+<p>This sample demonstrates how to implement and use Pipes functionality in DCOM.</p>
+<p>A Pipe is an ordered sequence of elements, all of the same type; the number
+of elements in a pipe is determined dynamically and is potentially unlimited.
+Pipes provide a useful abstraction for transferring huge amounts of data in a
+location transparent way.</p>
+<p>This sample emphasizes on the features provided by COM Pipes that not present
+in DCE model of Pipes. These include</p>
+<ul>
+  <li>COM Pipes allow users to send/receive multiple sequences of data through a
+    single pipe.<span style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 7.0pt">&nbsp;</span></li>
+  <li>It is not required to drain all the ‘in’ pipes in parameter order
+    before filling out any ‘out’ pipes. Pull and Push may be called any
+    time, and thus pipes are in reality bi-directional.</li>
+</ul>
+<p>Moreover, from programming model perspective, pipes can be viewed as just
+another COM interface. In
+this sample, pipes are used both as ‘in’ and ‘out’ parameters. Both the
+client and the server supply the pipes in this sample and the flexibility of the
+bi-directional data flow is demonstrated</span></p>
+<H4>Project Files</H4>
+<TABLE border=0 width="75%">
+  <TBODY>
+  <TR>
+    <TD width="34%"><STRONG>Sub-directory</STRONG></TD>
+    <TD width="66%"><STRONG>Description</STRONG></TD></TR>
+  </TBODY></TABLE>
+<table border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; mso-table-layout-alt: fixed; mso-padding-alt: 0in 0in 0in 0in; margin-left: .4pt" width="666">
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">makefile<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Makefile for building the project<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Include\pipesample.idl<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Interface definition for ISimpleInterface<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Include\pipe.hxx<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Class definition for CSamplePipe<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Include\pipe.cxx<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Implementation of CSamplePipe::Pull and
+      CSamplePipe::Push<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Include\proxy.def<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Exports for Interface ISimpleInterface Proxy-Stub DLL<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Include\makefile<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Localserver\component.hxx<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Definition for ISimpleInterface and CSimpleClass<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Localserver\component.cxx<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Implementation of CSimpleClass methods<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Localserver\server.cxx<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Local Server that houses CSimpleClass<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Localserver\makefile<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Client\client.cxx<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Client of CSimpleClass<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Client\RunClient.Bat<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">Runs Client.exe with all parameters one by one<o:p>
+      </o:p>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="225" style="padding: 0in">
+      <p class="MsoNormal">Client\makefile<o:p>
+      </o:p>
+      </p>
+    </td>
+    <td width="437" style="padding: 0in">
+      <p class="MsoNormal">&nbsp;<o:p>
+      </o:p>
+      </p>
+    </td>
+
+</table>
+<TABLE border=0 width="75%">
+  <TBODY>
+  </TBODY></TABLE>
+<H4>Build Notes</H4>
+<p>Setup the normal SDK build environment and execute “nmake” from the Pipes
+directory. That will cause building of the following binaries: client.exe,
+server.exe, proxy.dll.</p>
+<p>Copy the binaries to a directory on your local and/or remote machines.</p>
+<p>Execute the following commands:<br>
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>regsvr32
+proxy.dll<br>
+<span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>server.exe
+/RegServer</p>
+<H4>Remarks</H4>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">This sample
+demonstrates the use of a pipe as both an [in] and [out] parameters and illustrates
+the code for client, server and pipe. It also demonstrates the responsibilities
+of the users of the pipes and the providers of the pipes. While looking at the
+code, it helps to remember that even though the processing of a pipe parameter <i style="mso-bidi-font-style:normal">appears</i>
+to be synchronous to the user-written code, there is no guarantee that the
+chunking seen by the users of the pipe is same as chunking used by underlying
+proxy stub code.<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">The user runs the
+client and passes an option indicating the nature of operation to be performed.
+The client binds to a simple local COM server object and invokes methods on this
+object based on the option specified.<o:p>
+</o:p>
+</span></p>
+
+
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">
+Usage: client [Options]<br>
+Note: All parameters can be used consecutively by running RunClient.Bat
+<o:p>
+
+
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">Options:<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">PIPE_AS_IN_PARAMETER
+<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">An <b style="mso-bidi-font-weight:
+normal">in</b> pipe usually is used to transfer data from the client to the
+server. The client creates a pipe and calls a method on the server
+ISimpleInterface::InPipeSample passing this pipe as the <b style="mso-bidi-font-weight:
+normal">in</b> parameter. This method on the server demonstrates how COM Pipes
+allow multiple sequences of data to be sent in both the directions. The server
+executes multiple sequences of Pulls and Pushes.
+It also demonstrates how Pull and Push can be intermixed with each other.<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">PIPE_AS_OUT_PARAMETER<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">An <b style="mso-bidi-font-weight:
+normal">out</b> pipe usually transfers data from the server to the client. The
+client calls a method ISimpleInterface::OutPipeSample on the server, passing a
+pipe as an <b style="mso-bidi-font-weight:normal">out</b> parameter. The server
+creates the pipe. The client then calls Push and Pull on this pipe.<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">PIPE_AS_IN_OUT_PARAMETER<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">The client creates a
+pipe and calls a method ISimpleInterface::InOutPipeSample on the server. The
+server uses this pipe, creates a new one and passes it back to the client.<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">PIPES_AS_IN_IN_OUT_PARAMETERS<o:p>
+</o:p>
+</span></p>
+<p><span style="font-size:11.0pt;mso-bidi-font-size:10.0pt">The client creates
+two pipes and calls a method ISimpleInterface::InInOutPipeSample on the server.
+The server code demonstrates how COM Pipes allow an <b style="mso-bidi-font-weight:normal">out</b>
+pipe to be filled even before the <b style="mso-bidi-font-weight:normal">in</b>
+pipes have been drained in. Also the <b style="mso-bidi-font-weight:normal">in</b> pipes can be processed in any order.<o:p>
+</o:p>
+</span></p>
+<HR>
+
+<P>&nbsp;</P></BODY></HTML>

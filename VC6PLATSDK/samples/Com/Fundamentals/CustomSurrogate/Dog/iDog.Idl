@@ -1,0 +1,56 @@
+// ----------------------------------------------------------------------------
+// 
+// This file is part of the Microsoft COM+ Samples.
+// 
+// Copyright (C) 1995-2000 Microsoft Corporation. All rights reserved.
+// 
+// This source code is intended only as a supplement to Microsoft
+// Development Tools and/or on-line documentation. See these other
+// materials for detailed information regarding Microsoft code samples.
+// 
+// THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+// KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+// 
+// ----------------------------------------------------------------------------
+
+// IID_IDog     
+[
+  object,
+  uuid(F40B88C1-D534-11d1-9D01-0060081982D5),                             
+  helpstring("Dog Interface"),
+  pointer_default(unique)
+]
+interface IDog : IUnknown                           
+{
+	import "unknwn.idl";
+
+    HRESULT Bark();        
+    HRESULT Scratch();        
+}
+
+// LIBID_Dog
+[
+  uuid(F40B88C3-D534-11d1-9D01-0060081982D5),              
+  helpstring("Dog Object InProc 1.0 Type Library"),
+  lcid(0x0409),
+  version(1.0)
+] 
+library DogObjectLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+
+	interface IDog;
+
+    // CLSID_Dog
+    [
+	   uuid(F40B88C2-D534-11d1-9D01-0060081982D5),          
+       helpstring("Dog Class")
+    ]                                             
+    coclass DogClass
+    {   
+        [default] interface IDog;
+    }
+}

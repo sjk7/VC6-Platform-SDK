@@ -1,0 +1,178 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "SyncComp Module\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "SyncComp\0"
+            VALUE "LegalCopyright", "Copyright 1999 - 2000\0"
+            VALUE "OriginalFilename", "SyncComp.EXE\0"
+            VALUE "ProductName", "SyncComp Module\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "OLESelfRegister", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN DIALOG DISCARDABLE  0, 0, 291, 130
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "COM+ Syncronization Sample"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Component Type",IDC_STATIC,2,4,284,64
+    CONTROL         "STA",IDC_RADIO_STA,"Button",BS_AUTORADIOBUTTON | 
+                    BS_LEFTTEXT | WS_GROUP,9,24,63,12
+    CONTROL         "Free-Threaded",IDC_RADIO_FREE,"Button",
+                    BS_AUTORADIOBUTTON | BS_LEFTTEXT,9,38,63,12
+    CONTROL         "COM+ Sync",IDC_RADIO_COMSYNC,"Button",
+                    BS_AUTORADIOBUTTON | BS_LEFTTEXT,9,52,63,12
+    EDITTEXT        IDC_THREADCOUNT,85,73,64,12,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_GROUP
+    EDITTEXT        IDC_ITERCOUNT,85,87,64,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Number of Threads",IDC_STATIC,15,76,64,8
+    LTEXT           "Number of Iterations",IDC_STATIC,15,90,64,8
+    DEFPUSHBUTTON   "Start",IDC_START,236,111,50,14
+    CTEXT           "Max Time (ms)",IDC_STATIC,85,13,64,9
+    EDITTEXT        IDC_MAXTIME1,85,24,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_GROUP | NOT WS_TABSTOP
+    CTEXT           "MinTime (ms)",IDC_STATIC,151,13,64,9
+    EDITTEXT        IDC_MINTIME1,151,24,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    CTEXT           "Avg Time (ms)",IDC_STATIC,217,13,64,9
+    EDITTEXT        IDC_AVGTIME1,217,24,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_MAXTIME2,85,38,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_MINTIME2,151,38,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_AVGTIME2,217,38,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_MAXTIME3,85,52,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_MINTIME3,151,52,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_AVGTIME3,217,52,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    EDITTEXT        IDC_ITERTOTAL,85,114,64,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    ES_NUMBER | NOT WS_TABSTOP
+    LTEXT           "Total Iterations",IDC_STATIC,15,115,64,8
+    EDITTEXT        IDC_THREADRUNNING,85,100,64,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | ES_NUMBER | NOT WS_TABSTOP
+    LTEXT           "Threads Running",IDC_STATIC,15,103,64,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 286
+        VERTGUIDE, 86
+        VERTGUIDE, 281
+        BOTTOMMARGIN, 125
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "SyncComp"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+

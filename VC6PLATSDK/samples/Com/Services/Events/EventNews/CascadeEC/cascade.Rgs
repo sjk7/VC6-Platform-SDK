@@ -1,0 +1,26 @@
+HKCR
+{
+	CascadeEC.CascadeEC.1 = s 'CascadeEC Class'
+	{
+		CLSID = s '{8CE4A9E0-0FC1-11D3-925A-0080C7C30D72}'
+	}
+	CascadeEC.CascadeEC = s 'CascadeEC Class'
+	{
+		CLSID = s '{8CE4A9E0-0FC1-11D3-925A-0080C7C30D72}'
+		CurVer = s 'CascadeEC.CascadeEC.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8CE4A9E0-0FC1-11D3-925A-0080C7C30D72} = s 'CascadeEC Class'
+		{
+			ProgID = s 'CascadeEC.CascadeEC.1'
+			VersionIndependentProgID = s 'CascadeEC.CascadeEC'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{7508F170-0FC1-11D3-925A-0080C7C30D72}'
+		}
+	}
+}

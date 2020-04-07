@@ -1,0 +1,87 @@
+
+/******************************************************************************\
+********************************************************************************
+* Filename: SimpleLog.idl
+*
+* Description:
+*
+* This file is provided as part of the Microsoft Transaction Server
+* Software Development Kit
+*
+*THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT 
+*WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+*INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+*OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR 
+*PURPOSE.
+*
+* Copyright (C) 1997 Microsoft Corporation, All rights reserved
+********************************************************************************
+\******************************************************************************/
+// SimpleLog.idl : IDL source for SimpleLog.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SimpleLog.tlb) and marshalling code.
+import "oaidl.idl";
+
+//---------------------------------------------------------------------
+// LOG_RM_COMMAND:
+// Enumeration of resource manager command codes used during logging.
+//---------------------------------------------------------------------
+
+typedef long LOG_RM_COMMAND;
+
+const LOG_RM_COMMAND 	LOG_RM_PRIVATE			=1;
+const LOG_RM_COMMAND 	LOG_RM_XACT_PREPARE		=2;
+const LOG_RM_COMMAND 	LOG_RM_XACT_COMMIT		=3;
+const LOG_RM_COMMAND 	LOG_RM_XACT_BEGIN		=4;
+const LOG_RM_COMMAND 	LOG_RM_XACT_END			=5;		
+const LOG_RM_COMMAND 	LOG_RM_ENDOFLOG			=6;
+const LOG_RM_COMMAND 	LOG_RM_CHECKPOINT		=7;
+const LOG_RM_COMMAND 	LOG_RM_ABORT_REQUEST	=20;
+const LOG_RM_COMMAND 	LOG_RM_COMMIT_REQUEST	=21;
+
+
+[
+	
+		object,	
+		uuid(5BFC4335-4C90-11D0-9697-00AA00C149A6),
+		helpstring("ISimpleLog Interface"),
+		pointer_default(unique)
+	]
+	interface ISimpleLog : IUnknown
+	{
+
+	
+		HRESULT	WriteLog (	[in] GUID guidTx,
+							[in] LOG_RM_COMMAND eOp, 
+							[in, size_is(cbBytes)] BYTE * pByte,
+							[in] long cbBytes);
+
+		HRESULT	Init([in]BSTR  pszLogFileName);
+		HRESULT	RecoveryInfo([out] IStorage **ppStorage);
+		[helpstring("method WriteStreamToLog")] HRESULT WriteStreamToLog(GUID GuidTx, LOG_RM_COMMAND eOp, IStream * pStream);
+		[helpstring("method RemoveTxStream")] HRESULT RemoveTxStream(GUID guidTx);
+		[helpstring("method WriteVariantToLog")] HRESULT WriteVariantToLog(GUID m_guidTx, VARIANT *pVariant);
+		[helpstring("method GetStream")] HRESULT GetStream(GUID guidTx, [out] IStream **ppStream);
+
+
+	};
+[
+	uuid(5BFC4333-4C90-11D0-9697-00AA00C149A6),
+	version(1.0),
+	helpstring("SimpleLog 1.0 Type Library")
+]
+library SIMPLELOGLib
+{
+	importlib("stdole32.tlb");
+
+	[
+		uuid(5BFC4336-4C90-11D0-9697-00AA00C149A6),
+		helpstring("SimpleLog Class")
+	]
+	coclass CoSimpleLog
+	{
+		[default] interface ISimpleLog;
+	};
+};

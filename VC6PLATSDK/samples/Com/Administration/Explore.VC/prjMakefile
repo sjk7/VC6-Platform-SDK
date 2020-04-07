@@ -1,0 +1,6 @@
+All:
+!IFDEF NODEBUG
+   nmake /f VCExplore.mak CFG="VCExplore - Win32 Release" -nologo /$(MAKEFLAGS) $(makeopts)
+!ELSE
+   nmake /f VCExplore.mak -nologo /$(MAKEFLAGS) $(makeopts)
+!ENDIF

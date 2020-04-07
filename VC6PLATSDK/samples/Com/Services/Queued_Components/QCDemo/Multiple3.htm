@@ -1,0 +1,45 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Running the sample on multiple machines</title>
+<LINK rel="stylesheet" href="../../styles.css" type="text/css"><STYLE></STYLE></HEAD>
+
+<body bgcolor="#ffffff">
+
+<h2>Running QCDemo on multiple machines</h2>
+<p>
+In this step, we will distribute the queued component sample application over
+several machines. When an application calls a COM+ application on a remote machine,
+it does so via an application proxy. The steps below describe how to create and
+install an application proxy.
+
+<ol>
+    <li>On machine A, create and configure the COM+ application
+        QCOrder per the instructions documented in <A
+        href="running.htm">Running the sample</a>. 
+    <li>Build&nbsp;QCShip on machine A (do not configure in 
+  COM+ there).&nbsp; Copy and configure&nbsp;the COM+ application on Machine B . 
+
+    <li>Build QCNotify on machine A (do not configure in COM+ 
+  there).&nbsp; Copy and configure the COM+ application on Machine C. 
+    <li>On machine B, <A href="proxy.htm">export an application proxy</A> 
+  for QCShip. 
+    <li>On machine C, <A href="proxy.htm">export an application proxy</A> 
+  for QCNotify. 
+    <li>On machine A, <A href="proxy.htm">import the application proxy</A> for QCShip and QCNotify created in steps 4 and 5. 
+    <li>On machine B, <A href="proxy.htm">import the application proxy</A> for QCNotify created in steps 5. 
+    <li>On machine A, run driver.exe. 
+    <li>Experiment with running this configuration with QCShip
+        and/or QCNotify not running.</li>
+</ol>
+
+Notice, that you have created an application proxy for QCNotify on both machine A and machine B.
+This allows the driver application to select whether the QCNotify component is created by the
+QCShip component (on machine B) or the QCOrder component (on machine A) and then passed to the QCShip
+component.
+
+</body>
+</html>

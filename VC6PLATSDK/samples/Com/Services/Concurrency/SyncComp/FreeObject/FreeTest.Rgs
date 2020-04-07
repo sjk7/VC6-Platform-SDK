@@ -1,0 +1,26 @@
+HKCR
+{
+	FreeObject.FreeTest.1 = s 'FreeTest Class'
+	{
+		CLSID = s '{8EAE3AA1-F430-11D2-A10A-0080C71F306F}'
+	}
+	FreeObject.FreeTest = s 'FreeTest Class'
+	{
+		CLSID = s '{8EAE3AA1-F430-11D2-A10A-0080C71F306F}'
+		CurVer = s 'FreeObject.FreeTest.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8EAE3AA1-F430-11D2-A10A-0080C71F306F} = s 'FreeTest Class'
+		{
+			ProgID = s 'FreeObject.FreeTest.1'
+			VersionIndependentProgID = s 'FreeObject.FreeTest'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{795BF0E0-F430-11D2-A10A-0080C71F306F}'
+		}
+	}
+}

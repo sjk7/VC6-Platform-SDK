@@ -1,0 +1,26 @@
+HKCR
+{
+	STAObject.STATest.1 = s 'STATest Class'
+	{
+		CLSID = s '{CEFEEE70-F391-11D2-A10A-0080C71F306F}'
+	}
+	STAObject.STATest = s 'STATest Class'
+	{
+		CLSID = s '{CEFEEE70-F391-11D2-A10A-0080C71F306F}'
+		CurVer = s 'STAObject.STATest.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CEFEEE70-F391-11D2-A10A-0080C71F306F} = s 'STATest Class'
+		{
+			ProgID = s 'STAObject.STATest.1'
+			VersionIndependentProgID = s 'STAObject.STATest'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A6A21490-F391-11D2-A10A-0080C71F306F}'
+		}
+	}
+}

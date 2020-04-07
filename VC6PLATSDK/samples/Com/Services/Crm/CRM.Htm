@@ -1,0 +1,223 @@
+<html>
+
+<head>
+<title>Compensating Transaction Manager</title>
+<link rel="stylesheet" href="../../styles.css" type="text/css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>Compensating Resource Manager</h2>
+
+<hr>
+
+<h4>Overview</h4>
+
+<p>The Compensating Resource Manager (CRM) feature of COM+ allows quick and easy
+development of resources that can participate in a two-phase commit with Microsoft Distribution Transaction Coordinator. </p>
+
+<p>CRMs are a mechanism by which nontransactional
+resources can participate in a two-phase commit transaction with DTC, and hence with other
+transactional resources such as a database. CRMs accomplish this by using a compensating action, which rolls back the normal action performed by the CRM as part of the transaction. The CRM developer
+provides both the normal action plus the compensating action. The CRM infrastructure (part of COM+) calls the compensating action only if the transaction aborts. </p>
+
+<p>Typically CRMs do not provide the isolation capabilities of full resource managers, but
+they do provide transactional atomicity (all or nothing) and durability via a log. A CRM
+is developed as a pair of COM components: the CRM Worker and the CRM Compensator. </p>
+
+<p>The CRM Worker is responsible for performing the normal action as part of the
+transaction. This action is specific to the particular type of CRM, and is accessed via a
+CRM-specific interface. The CRM Worker will write records to a durable log via a defined
+interface so that in case of failure, recovery can be performed. The CRM Worker must
+perform write aheads that is, it must write the log records for the action (and make them
+durable) prior to actually performing the action. This is to ensure that the record of the
+action (which might be used to roll back, or compensate for, the action) is durable in
+case of a failure. This implies that the compensating action and indeed,
+all the actions, are idempotent, or can be performed again and will lead to the same
+state.</p>
+
+<p>The CRM Compensator is responsible for providing the compensating action to be
+performed in the case of an abort, and also provides a clean-up action if
+the transaction commits. This clean-up action can be used to clean up any state that was
+being maintained in case the transaction had to be rolled back.&nbsp; </p>
+
+<p>We provide the following samples for the Compensating Resource Manager: 
+
+<ul>
+  <li>CrmDebug. This sample is a CRM Compensator that 
+  simply outputs debug messages for all CRM Compensator notifications. It is 
+  written in C++ and uses the ActiveX Template Library (ATL). It can be used as 
+  a temporary substitute for your own CRM Compensator while developing your CRM. 
+  It implements both ICrmCompensator and ICrmCompensatorVariants. 
+  <li>CrmFiles. This sample is a CRM that creates and deletes files. It implements a CRM Worker that 
+  provides an interface for creating or deleting files, and a CRM Compensator 
+  that implements ICrmCompensator to receive transaction outcome notifications. 
+  The CRM Compensator also implements ICrmFormatLogRecords to support 
+  monitoring. This CRM can be installed in a server application or in a library 
+  application for use by multiple server applications. While the CRM Worker requires a 
+  transaction, the CRM Compensator should not have a transaction 
+  <li>CrmFilesVB. Visual Basic version of CrmFiles. It 
+  shows how the CRM interfaces can be used for logging from Microsoft Visual Basic(VB), and how the 
+  ICrmCompensatorVariants interface can be implemented on a VB component. Note 
+  that you must build and register CrmFiles.dll before building this VB project 
+  because that defines the interface implemented by CrmFilesVB. 
+  <li>Crmfilesvj. Visual J++(VJ++) version of CrmFiles. It shows 
+  how the CRM interfaces can be used for logging from VJ++, and how the 
+  ICrmCompensatorVariants interfaces can be implemented on a VJ++ component. Note 
+  that you must run crmfilesvj/GenerateJavaWrappersAndTLB.cmd before building 
+  this VJ++ project. This batch file generates Java wrappers for the components in %SystemRoot%\system32\comsvcs.dll
+  and compiles the type library for crmfilesvj.dll.
+  <li>CrmFilesTest. This is a test component and user 
+  interface that can be used to drive any of the CrmFiles components. The test 
+  component, CrmFilesTest.dll should be installed in a COM+ application. 
+  FileTest.vbp is a Visual Basic project that provides the user interface 
+  (FileTest.exe).&nbsp; 
+  <li>CrmMonitor. This sample demonstrates the use of the CRM monitoring interfaces. It shows
+    how CRM clerks in a specified transaction can be found and queried. CrmMonComp.dll is a
+    component which should be installed in the application to be monitored. It does not
+    require a transaction, and demonstrates the use of the following interfaces: ICrmMonitor,
+    ICrmMonitorLogRecords, ICrmMonitorClerks, and ICrmFormatLogRecords. This sample also
+    contains a Visual Basic project that provides a simple user interface to CrmMonComp. This
+    project (Monitor.vbp) builds Monitor.exe. </li>
+</ul>
+
+<h4>Project Files</h4>
+
+<table border="0" width="75%">
+  <tr>
+    <td width="26%"><strong>Subdirectory</strong></td>
+    <td width="74%"><strong>Description</strong></td>
+  </tr>
+  <tr>
+    <td width="26%">CrmDebug</td>
+    <td width="74%">Sample debug CRM Compensator.</td>
+  </tr>
+  <tr>
+    <td width="26%">CrmFiles</td>
+    <td width="74%">Sample CRM that creates and deletes files.</td>
+  </tr>
+  <tr>
+    <td width="26%">CrmFilesTest</td>
+    <td width="74%">Test program for CrmFiles.</td>
+  </tr>
+  <tr>
+    <td width="26%">CrmFilesVB</td>
+    <td width="74%">Visual Basic version of CrmFiles.</td>
+  </tr>
+  <TR>
+    <TD width="26%">crmfilesvj</TD>
+    <TD width="74%">Visual J++ version of CrmFiles.</TD></TR>
+   <tr>
+    <td width="26%">CrmMonitor</td>
+    <td width="74%">Test program that demonstrates use of the CRM monitoring interfaces.</td>
+  </tr>
+</table>
+
+<h4>Build Notes</h4>
+<p><u>Microsoft Visual C++ Samples</u></p> 
+<ul>
+<p><li>Open and build the CRM.dsw project with Visual Studio. 
+<p><li>or 
+<p><li>Run NMAKE -A at the command line from the CRM\ folder.
+</p></ul>
+<p><u>Microsoft Visual Basic Samples</u></p> 
+<p>  Build the VB projects. 
+The VB implementation of a CRM is in the CrmFilesVB directory. 
+This project has a reference to CrmFiles.dll which is built&nbsp;with the 
+C++ projects. 
+
+<ol><P><li>Go to Project/References. 
+<p><li>If <STRONG> CRM Files 1.0 </STRONG> is missing from your 
+references, click <STRONG>browse</STRONG>, select <STRONG>CrmFiles.dll</STRONG> and click <STRONG>add</STRONG>. 
+<p><li>Compile the project 
+using File/Make CrmFilesVB.dll.</ol> 
+
+<p><B>Note</b>:&nbsp;&nbsp;&nbsp; In addition to the VB implementation of a CRM in the 
+CrmFilesVB directory, there are two other VB projects in the CrmFilesTest and 
+CrmMonitor directories. These can be compiled or run.</P>
+
+<p><u>VJ++ Samples</u></p> 
+<ol><P><li>To build the VJ++ sample CRM, load crmfilesvj.vjp into Visual Studio. 
+<p><li>Run GenerateJavaWrappers.cmd. This batch file creates Java wrappers for %SystemRoot%\system32\comsvcs.dll and compiles crmfilesvj.idl to produce 
+Crmfilesvj.tlb. 
+<p><li>Put the crmfilesvj subdirectory on your Classpath System 
+environment variable. The comsvcs and crmfilesvj class files in the 
+subdirectory are required by Crmfilesvj.dll. 
+<p><li>Build the comsvcs project and 
+the Crmfilesvj project. </P></ol>
+<h4>Usage Notes</h4>
+
+<p>If you are not familiar with Component Services Explorer additional documentation can be found
+under "Installing and Deploying COM+ Applications" in the Platform SDK documentation.</p> 
+
+<p><u>CrmFilesTest</u></p>
+
+<p><b>To use FileTest.exe</b>
+
+<ol>
+  <li>Create a new COM+ application. 
+  <li>Right-click the COM+ application and select <b>Properties</b> and then click on the <b>Advanced</b> tab. 
+<li>Set the <b>Enable 
+  Compensating Resource Managers</b> property for this COM+ application.</li> 
+ <li> Click the <b>Activation</b> tab and then click the <b>Server application</b> check box. 
+  <li>  Install CrmFiles.dll, CrmFilesVB.dll, and Crmfilesvj.dll into this COM+ application. 
+  These are the CRM components. 
+  <li>   Add the crmfilesvj subdirectory to your Classpath 
+  System environment variable. The comsvcs and crmfilesvj 
+  Java class files are required by crmfilesvj.dll. 
+  <li>Mark the CRM Worker components as <b>Transaction 
+  Support = Required</b> and enable Just-In-Time(JIT) Activation. The CRM Compensator 
+  components do not require a transaction or JIT Activation, so these 
+  do not require any further settings. 
+  <li>Install the CrmFileTest.dll component into the same 
+  COM+ application, set it to <b>Transaction Support = Required</b> and enable JIT Activation. 
+  <li>Run FileTest.exe. This is generated by the 
+  FileTest.vbp VB project in the CrmFilesTest directory.&nbsp;Enter the name of the file you want 
+  to create or delete, and click either <b>Create File</b> or <b>Delete File</b> respectively. 
+  Use Windows Explorer to see the file being created and deleted. 
+  <li>You may select more than one CRM Compensator type in 
+  the same transaction and/or perform multiple file creates or deletes in the 
+  same transaction. However, do not perform create or delete on the same file 
+  name more than once in the same transaction or unpredictable results will 
+  occur, as CRMs do not enforce isolation. 
+  <li>Once you have finished creating or deleting files, you can click either <b>Commit</b> or <b>Abort</b>
+    to complete the transaction as required. Note that the VB version of the CRM uses a
+    slightly different algorithm for delete file than the VC++ version. Please see the code for
+    details. </li>
+</ol>
+
+<p><u>CrmMonitor</u></p>
+
+<p>Monitor.exe can be used in conjunction with FileTest.exe to view the active CRMs. 
+<p><b>To
+use Monitor.exe</b>
+
+<ol>
+  <li>Install CrmMonComp.dll into the COM+ application you 
+  created above. CrmMonComp.dll does not require any further settings. 
+  <li>Run Monitor.exe. This is generated by the Monitor.vbp 
+  VB project in the CrmMonitor directory. 
+  <li>Using FileTest.exe, create a file; this will 
+  activate a CRM and a transaction. 
+  <li>Copy the transaction Unit Of Work (UOW) identifier 
+  for the transaction you want to monitor from the Component Services Explorer 
+  (Distributed Transaction Coordinator, Transaction List). 
+  <li>Paste the transaction UOW into Monitor.exe, 
+  then click <b>Go</b>. This will list details of all the CRMs currently 
+  involved in that transaction. 
+  <li>The transaction can optionally be aborted by selecting the <b>Abort Transaction</b> check box
+    prior to clicking <b>Go</b>. </li>
+</ol>
+
+<p>&nbsp;</p>
+
+<hr>
+
+<p>&nbsp;</p>
+</body>
+</html>

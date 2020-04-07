@@ -1,0 +1,29 @@
+// NewsEventClass.idl : IDL source for NewsEventClass.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (NewsEventClass.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "..\include\News.idl";
+
+[
+	uuid(94007C90-0F00-11D3-9257-0080C7C30D72),
+	version(1.0),
+	helpstring("NewsEventClass 1.0 Type Library")
+]
+library NEWSEVENTCLASSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(997FF9C0-0F01-11D3-9257-0080C7C30D72),
+		helpstring("NewsEvent Class")
+	]
+	coclass NewsEvent
+	{
+		[default] interface INewsEvent;
+	};
+};

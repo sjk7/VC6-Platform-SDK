@@ -1,0 +1,23 @@
+HKCR
+{
+	tServer.Computer = s 'Computer Class'
+	{
+		CLSID = s '{CAAD7F9B-F22D-11D0-B5CB-00C04FB957D8}'
+	}
+	tServer.Computer = s 'Computer Class'
+	{
+		CLSID = s '{CAAD7F9B-F22D-11D0-B5CB-00C04FB957D8}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {CAAD7F9B-F22D-11D0-B5CB-00C04FB957D8} = s 'Computer Class'
+		{
+			ProgID = s 'tServer.Computer'
+			VersionIndependentProgID = s 'tServer.Computer'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

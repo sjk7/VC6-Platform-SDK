@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{1A57F961-FDBC-11D2-A10D-0080C71F306F} = s 'PoolTest'
+		'PoolTest.EXE'
+		{
+			val AppID = s {1A57F961-FDBC-11D2-A10D-0080C71F306F}
+		}
+	}
+}

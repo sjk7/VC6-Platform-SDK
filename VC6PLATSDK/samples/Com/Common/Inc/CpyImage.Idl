@@ -1,0 +1,73 @@
+
+/******************************************************************************\
+********************************************************************************
+* Filename: CpyImage.idl
+*
+* Description: IDL source for CpyImage.dll
+
+ This file will be processed by the MIDL tool to
+ produce the type library (CpyImage.tlb) and marshalling code.
+
+*
+* This file is provided as part of the Microsoft Transaction Server
+* Software Development Kit
+*
+*THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT 
+*WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, 
+*INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+*OF MERCHANTABILITY AND/OR FITNESS FOR A  PARTICULAR 
+*PURPOSE.
+*
+* Copyright (C) 1997 Microsoft Corporation, All rights reserved
+********************************************************************************
+\******************************************************************************/
+
+
+import "oaidl.idl";
+
+	[
+	
+		object,
+	
+		uuid(F2C67D15-5447-11D0-B152-00AA00BA3258),
+	
+		dual,
+	
+		helpstring("ICpyImage Interface"),
+		pointer_default(unique)
+	]
+	interface ICpyImage : IDispatch
+	{
+
+		[helpstring("Copies a file and inserts the tag data in SQL Server")]
+		HRESULT InsertData([in] BSTR sFromFile, [in] BSTR sToFile, 
+						   [in] BSTR sDescription, [in] BSTR sMainColor, 
+						   [in] BSTR sTheme, [out] BSTR * msg);
+		
+		[helpstring("Commits the Tx")]
+		HRESULT SetComplete();
+
+		[helpstring("Aborts the Tx")]
+		HRESULT SetAbort();
+
+		HRESULT Test([out] BSTR * msg);
+
+	};
+[
+	uuid(F2C67D13-5447-11D0-B152-00AA00BA3258),
+	version(1.0),
+	helpstring("CpyImage 1.0 Type Library")
+]
+library CPYIMAGELib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(F2C67D17-5447-11D0-B152-00AA00BA3258),
+		helpstring("CpyImage Class")
+	]
+	coclass CpyImage
+	{
+		[default] interface ICpyImage;
+	};
+};

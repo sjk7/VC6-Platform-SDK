@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+	<TITLE>Security VB</TITLE>
+</HEAD>
+
+
+<STYLE TYPE="text/css">
+<!--
+  A:link {text-decoration: none;
+	font: 10pt Verdana, Arial, Helvetica;
+	font-weight: bold;
+	color: #003399}
+  A:visited {text-decoration: none;
+	font: 10pt Verdana, Arial, Helvetica;
+	font-weight: bold;
+	color: #0080ff}
+BODY { 
+     font-family: Verdana, Arial, Helvetica;
+    line-height: 1;
+    color: #000000; 
+    font-size:  9pt;
+	
+  H1, H2, H3, H4, H5, H6, P, UL, OL, DIR, MENU, DIV, 
+  DT, DD, ADDRESS, BLOCKQUOTE, PRE, BR { display: block }
+
+  B, STRONG, I, EM, CITE, VAR, TT, CODE, KBD, SAMP, 
+  IMG, SPAN { display: inline }
+	
+  H1, H2, H3, H4 { margin-top: 1em; margin-bottom: 1em }
+  H5, H6 { margin-top: 1em }
+  H1 { text-align: center }
+  H1, H2, H4, H6 { font-weight: bold }
+  H3, H5 { font-style: italic }
+
+  H1 { font-size: xx-large }
+  H2 { font-size: x-large }
+  H3 { font-size: large }
+	
+  }
+-->
+</STYLE>
+
+
+<BODY BGCOLOR="#ffffff" TOPMARGIN="20" LEFTMARGIN="10">
+
+<h2><A NAME="H2_2185685973"></A>Security VB</h2>
+
+
+<PRE>
+<CODE>
+
+
+Public Function AmIAnAdministrator() As Integer
+
+On Error GoTo ErrorHandler
+
+Dim objCtx As ObjectContext
+
+Set objCtx = GetObjectContext()
+
+If objCtx Is Nothing Then
+    'Return Error Code
+    AmIAnAdministrator = 2
+    Exit Function
+End If
+
+If Not objCtx.IsSecurityEnabled Then
+    'Return Error Code
+    AmIAnAdministrator = 2
+    Exit Function
+End If
+
+' Find out if the caller is in the right role.
+' If the Administrator role does not exist, and error will
+' be raised and we will drop into the error handler.
+If objCtx.IsCallerInRole("Administrator") Then
+    'Return True
+    AmIAnAdministrator = 1
+Else
+    'Return False
+    AmIAnAdministrator = 0
+End If
+Exit Function
+
+ErrorHandler:
+'An error will be caused if the Administrator role does
+'not exist.
+If Err.Number = mtsErrCtxRoleNotFound Then
+    AmIAnAdministrator = 0
+Else
+    AmIAnAdministrator = 2
+End If
+
+End Function
+
+Public Function WhoAmI() As String
+
+Dim objCtx As ObjectContext
+
+Set objCtx = GetObjectContext()
+
+If objCtx Is Nothing Then
+    'Don't return anything
+    Exit Function
+End If
+
+'Check if security is enabled.
+If Not objCtx.IsSecurityEnabled Then
+    'Don't return anything
+    Exit Function
+End If
+
+WhoAmI = objCtx.Security.GetDirectCallerName
+
+End Function
+
+
+</CODE>
+</PRE>
+
+<HR>
+<CENTER>
+<FONT FACE="VERDANA,ARIAL,HELVETICA" size=1>
+&copy; 1997 Microsoft Corporation. All rights reserved. 
+</FONT>
+</CENTER>
+
+</BODY>
+</HTML>

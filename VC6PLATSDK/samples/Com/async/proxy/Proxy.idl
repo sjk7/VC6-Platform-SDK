@@ -1,0 +1,72 @@
+// ----------------------------------------------------------------------------
+// 
+// This file is part of the Microsoft COM+ Samples.
+// 
+// Copyright (C) 1995-2000 Microsoft Corporation. All rights reserved.
+// 
+// This source code is intended only as a supplement to Microsoft
+// Development Tools and/or on-line documentation. See these other
+// materials for detailed information regarding Microsoft code samples.
+// 
+// THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+// KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+// 
+// ----------------------------------------------------------------------------
+
+[
+	object,
+	uuid(FEB699CE-E786-11d1-A81E-0000F808342A),			// IID_ITest
+	async_uuid(213839C0-D5BC-11d2-B497-00600852B4EA),	// IID_AsyncITest
+	helpstring("Asynchronous Test"),
+	pointer_default(unique)
+]
+interface ITest : IUnknown
+{
+	import "unknwn.idl";
+	typedef ITest* LPTEST;
+
+	HRESULT Test1([in,out] BSTR lpbstr);
+	HRESULT Test2([in] BSTR bstrIn, [out] BSTR *lpbstrOut);
+};
+
+
+[
+	object,
+	uuid(083986E1-EBFB-11d1-8FB7-006097DA88F5),			// IID_AppEvents
+    async_uuid(223839C0-D5BC-11d2-B497-00600852B4EA),	// IID_AsyncAppEvents
+	helpstring("Asynchronous Events"),
+	pointer_default(unique)
+]
+interface AppEvents : IUnknown
+{
+	import "unknwn.idl";
+
+	HRESULT Beep([in] short alert);
+};
+
+
+// Type library description
+[
+	uuid(FEB699CF-E786-11d1-A81E-0000F808342A),			// LIBID_Async_Lib
+	version(1.0),
+	lcid(0x409),
+	helpstring("Async COM Test' v 1.0 typelibrary")
+]
+library Async_Lib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(FEB699D0-E786-11d1-A81E-0000F808342A),		// CLSID_AsyncTest
+		appobject,
+		version(1.0),
+		helpstring("Asynchronous COM Test Class")
+	]
+	coclass AsyncTest
+	{
+		[default] interface ITest;
+		[default, source] interface AppEvents;
+	};
+};

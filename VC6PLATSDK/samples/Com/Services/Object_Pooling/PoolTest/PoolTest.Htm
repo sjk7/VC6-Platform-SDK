@@ -1,0 +1,66 @@
+<html>
+
+<head>
+<title>Object Pooling</title>
+</head>
+
+<body>
+
+<h2>Object Pooling</h2>
+
+<hr>
+<h4>Overview</h4>
+<p>This Object Pooling sample is a very simple one that shows how to utilize the COM+ 
+object pooling. The basis for this sample is a logging object, which opens a specified file
+on construction and then shares access to this file via the pooling ability of COM+. It closes the file 
+on destruction.</p>
+
+</p>
+<h4>Project Files</h4>
+<table border="0" width="75%">
+  <tr>
+    <td width="26%"><strong>Subdirectory</strong></td>
+    <td width="80%"><strong>Description</strong></td>
+  </tr>
+  <tr>
+    <td width="26%">PoolTest</td>
+    <td width="80%">Main dialog box that periodically calls the LogWriter object.</td>
+  </tr>
+  <tr>
+    <td width="26%">PoolTest\LogWriter</td>
+    <td width="80%">COM+ object that actually writes the information to the file</td>
+  </tr>
+ </table>
+
+
+<h4>Build Notes</h4>
+<p>Note: <br>Both the LogWriter object and the PoolTest client must be built in Unicode. <br><br>
+<ol>
+	<li>Build the PoolTest client and the LogWriter object by opening the PoolTest.dsw workspace from Visual C++
+	and clicking <b>Build/Rebuild All</b> a the menus. <small><I>You can also use the Microsoft NMAKE-compatible
+	 makefile (MAKEFILE).</I></small>
+	<li>Create a new empty COM+ Server application.
+	<li>Add the LogWriter.dll as a new component to the application. 
+	<li>On the <B>Activation</B> tab of the properties for the LogWriter component, click the <B>Enable Object Pooling</B> option. 
+	<li>Set the <B>Minimum pool size</B> to <b>zero (0)</b> and the <B>Maximum pool size</B> to <b>one (1)</b>.
+	<li>Select the <B>Enable object construction</B> check box and type the name of the file to receive the log entries
+	in the <B>Constructor string</B> text box.
+	<li>All other property defaults are acceptable.
+
+</ol>
+</p>
+<h4>Run Notes</h4>
+<ol><p><li>To run this sample, start multiple instances of the PoolTest.exe program. 
+<li>At the rate of once every second, an entry will
+be written to the file specified in Component Services. After each instance has written several entries, close each
+of the PoolTest clients. 
+<li>Open the logging file and note that the entries from each of the ProcIDs are interweaved,
+as the LogWriter object was served up to each client from the pool.</ol>
+
+&nbsp;</p>
+
+<hr>
+
+<p>&nbsp;</p>
+</body>
+</html>

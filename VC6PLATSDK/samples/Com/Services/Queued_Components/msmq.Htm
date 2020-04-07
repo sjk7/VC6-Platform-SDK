@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>Important MSMQ Prerequisites!</TITLE>
+<META NAME="Template" CONTENT="D:\Program Files\Microsoft Office\Office\html.dot">
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080" BGCOLOR="#ffffff">
+
+<H2>Important Message Queuing Information</H2>
+<P><HR></P>
+<P>This section is not the definitive resource for configuring and managing Message Queuing. Please refer to the MSMQ documentation for information and clarification on any of the following instructions. Some familiarity with Message Queuing terminology is assumed.</P>
+<H4>Message Queuing Primary Enterprise Controller must exist on the network</H4>
+<P>As of this writing, Queued Components does not yet support the Message Queuing Workgroup configuration for Windows 2000. Therefore, an Message Queuing Primary Enterprise Controller (PEC) must exist on the network. The PEC can reside on either a Microsoft Windows NT 4.0 Server or a Microsoft Windows 2000 Server. Please note that a Microsoft Windows NT 4.0-based PEC requires Microsoft SQL Server 6.5, and a Windows 2000-based PEC requires Active Directory. See the Message Queuing documentation for more information on installing a PEC. See the Component Services README to find late-breaking information regarding Queued Component support for the Message Queuing Workgroup configuration for Windows 2000.</P>
+<H4>Message Queuing must be installed on the computer</H4>
+<P>For a computer to host either a client application that calls a queued component or a
+COM+ application containing a queued component, the computer must have Message Queuing
+client installed. You can install either a <I>dependent client</I> or a
+<I>Message Queuing server</I> (previously known as an <I>independent client</I>).
+A Message Queuing server is the preferred configuration, since Message Queuing servers have their own message store and are capable of sending and receiving messages even when they are not connected to the network. A dependent client always requires access to a Message Queuing server.</P>
+<P><b>To install a Message Queuing server (with no routing enabled) on your computer.</b></P>
+
+<oL>
+<LI>From <b>Control Panel</b>, click <b>Add/Remove Programs</b>. </LI>
+<LI>Click <b>Add/Remove Windows Components</b>. </LI>
+<LI>Click <b>Components</b>. </LI>
+<LI>The Windows Components Wizard will appear. Click <b>Next</b>. </LI>
+<LI>A list of Windows Components will appear with check boxes next to them. Scroll down to select the <b>Message Queuing Services</b> check box, and then click <b>Next</b>. </LI>
+<LI>For the Message Queuing computer type, click the <b>Message Queuing</b> option button. Do not click any other options on this page. Click <b>Next</b>. </LI>
+<LI>You will then be prompted to enter the name of Message Queuing Active Directory server name. You must specify the name of a computer that is the Message Queuing PEC for your network. Click <b>Next</b> to complete the installation. </LI>
+<LI>Close the wizard by clicking <b>Finish</b>. </LI></oL>
+
+<P>In order to enforce the default security policies for COM+ applications, users whose identities are used to issue method calls against a Queued Component must possess an Message Queuing internal certificate.</P>
+
+<P><B>To obtain an internal certificate</b></p>
+<ol>
+<li> <P>While logged in as the user whose identity will be used to execute the COM+ Application, from <b>Control Panel</b>, click the MS Message Queue applet. 
+<li>Click the <b>Security</b> tab. 
+<li>Click <b>Renew Internal Certificate</b>. 
+<li>Click <b>OK</b>. 
+<li>Close the MS Message Queue applet.</P></ol>
+
+<H4>Enable the Message Queuing Microsoft Management Console(MMC) snap-in</H4>
+<P>As of this writing, you have to manually configure the Message Queuing MMC snap-in.</P>
+
+<p><b>To configure the snap-in</b>
+
+<oL>
+<LI>Click <b>Start</b> and then <b>Run</b>. </LI>
+<LI>In the text box, type "mmc" and click <b>OK</b>.</LI>
+<LI>Click <b>Console</b> and then click <b>Add/Remove</b> snap-in.</LI>
+<LI>In the <b>Add/Remove</b> snap-in dialog box, click <b>Add</b>.</LI>
+<LI>In the <b>Add Standalone</b> snap-in dialog box, scroll down and click <b>Computer Management</b> snap-in and then click <b>Add</b>. </LI>
+<LI>In the <b>Computer Management</b> dialog box, make sure that the Local computer option button is clicked and then click <b>Finish</b> to close the Computer Management dialog box. </LI>
+<LI>Click <b>Close</b> on the <b>Add Standalone</b> snap-in dialog to close it. </LI>
+<LI>You will see "Computer Management (Local)" appear in the list of snap-ins added to Console Root. Click <b>OK</b> to accept and close the dialog box. </LI>
+<LI>In the console tree of MMC, expand the <b>Computer Management</b> (Local) tree. </LI>
+<LI>Expand the <b>Server Applications and Services</b>. </LI>
+<LI>Expand the <b>Message Queuing</b> tree. </LI>
+<LI>Make sure that the Message Queuing entry is clicked. </LI>
+<LI>Click the MMC menu option Console and then click <b>Save</b>. </LI>
+<LI>Save the current configuration as msmq.msc in the default Administrative Tools folder.</LI></oL>
+
+<P>Whenever you need the status of the Message Queuing queues that are used and managed by
+Queued Components, click <b>Start</b>, point to <b>Programs</b>, point to <b>Administrative Tools</b> and then click <b>msmq.msc</b>.</P></BODY>
+</HTML>

@@ -1,0 +1,40 @@
+// VCSecuritySample.idl : IDL source for VCSecuritySample.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (VCSecuritySample.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(8107B4EE-166C-11D1-98C1-00C04FC2C8D5),
+		dual,
+		helpstring("IVCSecuritySampleClass Interface"),
+		pointer_default(unique)
+	]
+	interface IVCSecuritySampleClass : IDispatch
+	{
+		[id(1), helpstring("method AmIAnAdministrator")] HRESULT AmIAnAdministrator([out, retval] short*);
+		[id(2), helpstring("method WhoAmI")] HRESULT WhoAmI([out, retval] BSTR*);
+	};
+[
+	uuid(8107B4E1-166C-11D1-98C1-00C04FC2C8D5),
+	version(1.0),
+	helpstring("VCSecuritySample 1.0 Type Library")
+]
+library VCSECURITYSAMPLELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8107B4EF-166C-11D1-98C1-00C04FC2C8D5),
+		helpstring("VCSecuritySampleClass Class")
+	]
+	coclass VCSecuritySampleClass
+	{
+		[default] interface IVCSecuritySampleClass;
+	};
+};

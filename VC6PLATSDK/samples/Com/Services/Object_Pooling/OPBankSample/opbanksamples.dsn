@@ -1,0 +1,8 @@
+[ODBC]
+DRIVER=SQL Server
+UID=sa
+DATABASE=pubs
+WSID=%COMPUTERNAME%
+APP=Microsoft(R) Windows NT(R) Operating System
+SERVER=(local)
+Description=Object Pooling Bank Application DSN

@@ -1,0 +1,22 @@
+// NewsFlash.idl	
+#include "mtxattr.h"
+import "oaidl.idl";
+import "ocidl.idl";
+import "eventsys.idl";
+
+// INewsEvent interface
+[
+	object,
+	uuid(4BF5E480-A5D3-11D2-AD4D-0080C7BFF6DB),
+	dual,
+	helpstring("INewsEvent Interface"),
+	pointer_default(unique),
+	QUEUEABLE
+]
+interface INewsEvent : IDispatch
+{
+  
+	[id(1), helpstring("method NewsFlash")] HRESULT NewsFlash([in] DATE dtTimeStamp, [in] BSTR Symbol, [in] BSTR Headline,[in] BSTR URL );
+	[id(2), helpstring("method ShortQuote")] HRESULT ShortQuote( [in] BSTR Symbol, [in] double BidPrice, [in] double AskPrice, [in] DATE LastTradeTime, [in] double LastTradePrice, [in] double NetChange, [in] double DailyHigh, [in] double DailyLow );
+	[id(3), helpstring("method LongQuote")] HRESULT LongQuote( [in] BSTR Symbol, [in] double BidPrice, [in] double AskPrice,[in] BSTR LastTradeTime, [in] double LastTradePrice, [in] double NetChange, [in] double DailyHigh, [in] double DailyLow,[in] long AskSize, [in] long BidSize, [in] double OpenPrice, [in] double ClosePrice, [in] BSTR CloseDate );
+};

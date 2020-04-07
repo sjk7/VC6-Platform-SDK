@@ -1,0 +1,78 @@
+/*+==========================================================================
+  File:      QCNotify.idl
+  Summary:   Interfaces for Queued Components Order Entry Sample 1
+  Classes:   Declared: Notify
+  Origin:    Implementation of case study in Queued Components specification.
+----------------------------------------------------------------------------
+  Copyright 1992 - 1998 Microsoft Corporation, All rights reserved.
+
+    THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+    ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+    THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+    PARTICULAR PURPOSE
+==========================================================================+*/ 
+
+#include "mtxattr.h"	// For TRANSACTION_REQUIRED
+
+import "oaidl.idl";
+
+// Shipping Status - used between Ship and Notify components
+
+typedef [public] enum _ShipStatus
+{
+	ssUnprocessed		= 0,	// as yet unprocessed
+	ssShipped			= 1,	// item is on its way
+	ssBackOrdered		= 2,	// item ordered from supplier
+	ssNotStocked		= 3,	// we no longer stock this item
+	ssUnrecognizedItem	= 4		// item identifier not recognized
+} ShipStatus;
+
+
+/*I+I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I+++I
+  Interface: INotify
+  Summary:   Returns shipping status from Shipping component to requesting client
+  Methods:   HRESULT CustomerId - sets Customer Identifier property
+			 HRESULT OrderId - sets Order Identifier property
+			 HRESULT LineItem - returns status about one line item
+             HRESULT ProcessOrder - Completes order
+I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I---I-I*/
+
+[
+	helpstring("INotify Interface"), uuid(6DD1E6EF-28C1-11D2-B5B6-00C04FC340EE),
+	object, dual, nonextensible, hidden, pointer_default(unique),
+	QUEUEABLE
+]
+interface INotify : IDispatch
+{
+	[id(1), propput] HRESULT CustomerId([in] long lCustomerId);
+	[id(2), propput] HRESULT OrderId([in] long lOrderId);
+	[id(3)]	HRESULT LineItem([in] long lItemId, [in] long lQuantity, [in] ShipStatus shipStatus);
+	[id(4)]	HRESULT Process([in] long lFlags);
+}
+
+[
+	uuid(6DD1E6DC-28C1-11D2-B5B6-00C04FC340EE),
+	version(1.0),
+	helpstring("QCNotify 1.0 Type Library")
+]
+
+// Library and classes
+
+library QCNOTIFYLib
+{
+	importlib("stdole2.tlb");
+
+/*O+O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O+++O
+  ObjectClass: Notify
+  Summary:     created by shipping department to update shipping status
+  Interfaces:  IUnknown			Standard COM object interface
+               INotify			The order being notified
+  Aggregation: Not supported
+O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O---O-O*/  
+
+	[
+		helpstring("Notify Class"), uuid(6DD1E6F0-28C1-11D2-B5B6-00C04FC340EE),
+		TRANSACTION_REQUIRED
+	]
+	coclass Notify { [default] interface INotify; };
+};

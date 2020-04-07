@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VCSecuritySample", "VCSecuritySample.vcproj", "{8901B52A-3B48-4995-A668-D80E74F35999}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release MinSize
+		ConfigName.2 = Unicode Debug
+		ConfigName.3 = Unicode Release MinDependency
+		ConfigName.4 = Unicode Release MinSize
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Debug.ActiveCfg = Debug|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Debug.Build.0 = Debug|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Release MinSize.ActiveCfg = Release MinSize|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Release MinSize.Build.0 = Release MinSize|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Unicode Debug.ActiveCfg = Unicode Debug|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Unicode Debug.Build.0 = Unicode Debug|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Unicode Release MinDependency.ActiveCfg = Unicode Release MinDependency|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Unicode Release MinDependency.Build.0 = Unicode Release MinDependency|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Unicode Release MinSize.ActiveCfg = Unicode Release MinSize|Win32
+		{8901B52A-3B48-4995-A668-D80E74F35999}.Unicode Release MinSize.Build.0 = Unicode Release MinSize|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

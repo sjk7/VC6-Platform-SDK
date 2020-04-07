@@ -1,0 +1,175 @@
+<html>
+
+<head>
+<title>Call Cancel</title>
+<link rel="stylesheet" type="text/css" href="../../../docs/Styles.css">
+<style>
+A:link {color: Olive}
+A:visited {color: 336666}
+A:hover {background:Olive; color: White}
+</style>
+</head>
+
+<body>
+
+<h2>Call Cancel</h2>
+<hr>
+<h4>Overview</h4>
+
+<p>This sample demonstrates the call cancel feature of COM. This
+feature allows you to cancel COM calls that take a long time to complete. The sample constitutes of 1) a client 2) an in-process server that
+can be configured to run with a Threading Model None, Apartment or Free 3) A local Single
+Threaded Apartment (STA) server 4) A local Multi Threaded Apartment (MTA) server. This
+allows the following combination: </p>
+<p>A) Inprocess </p>
+
+<p>a) STA -&gt; Primary STA activation </p>
+
+<p>b) STA -&gt; Primary STA call </p>
+
+<p>c) STA -&gt; MTA activation </p>
+
+<p>d) STA -&gt; MTA call </p>
+
+<p>e) MTA -&gt; STA activation </p>
+
+<p>f) MTA -&gt; STA call </p>
+
+<p>B) Cross-process/remote </p>
+
+<p>a) STA-&gt;STA activation </p>
+
+<p>b) STA-&gt;STA call </p>
+
+<p>c) STA-&gt;MTA activation </p>
+
+<p>d) STA-&gt;MTA call </p>
+
+<p>e) MTA-&gt;STA activation </p>
+
+<p>f) MTA-&gt;STA call </p>
+
+<p>g) MTA-&gt;MTA activation </p>
+
+<p>h) MTA-&gt;MTA call </p>
+<p>The sample allows you to cancel any of the above combinations.</p>
+
+
+<p>The client program is named cancel.exe. If invoking this from a
+cmd prompt, it is recommended that you run the client as &quot;start cancel&quot;. The
+reason for using start is to make the process run with its own console. The inprocess
+servers are linked with the /subsystem:console option, so that output from these servers
+can be displayed on the console. Without the start command, the output from the console is
+directed to the parent console and this may cause visual confusion. Once the client program is running, you can choose the various
+buttons to exercise any of the above combinations. </p>
+<h4>Project Files</h4>
+<table border="0" width="75%">
+   <tr>
+    <td width="26%"><strong>File Name</strong></td>
+    <td width="74%"><strong>Description</strong></td>
+  </tr>
+
+  <tr>
+    <td width="26%">cancel.dsw	</td>
+    <td width="74%">VC workspace for the cancel project</td>
+  </tr>
+
+  <tr>
+    <td width="26%">makefile</td>
+    <td width="74%">Win32 makefile for the cancel project</td>
+  </tr>
+
+  <tr>
+    <td width="26%">register.reg	</td>
+    <td width="74%">Registration script</td>
+  </tr>
+
+
+    <tr>
+    <td width="26%">client\cancel.cpp	</td>
+    <td width="74%">Client program main file</td>
+  </tr>
+  <tr>
+    <td width="26%">client\cancel.rc	</td>
+    <td width="74%">Resource file</td>
+  </tr>
+
+  <tr>
+    <td width="26%">client\resource.h</td>
+    <td width="74%">Header file created by rc.exe</td>
+  </tr>
+
+  <tr>
+    <td width="26%">client\cancel.dsp	</td>
+    <td width="74%">VC project file  for the cancel project</td>
+  </tr>
+
+
+<tr>
+    <td width="26%">inproc\SSERVER.CPP	</td>
+    <td width="74%">Inprocess server main file</td>
+  </tr>
+
+<tr>
+    <td width="26%">inproc\dllsrv.def	</td>
+    <td width="74%">
+Export Definition file</td>
+  </tr>
+
+<tr>
+    <td width="26%">inproc\inproc.dsp	</td>
+    <td width="74%">VC project file  for the inproc project</td>
+  </tr>
+<tr>
+    <td width="26%">inproc\makefile	</td>
+    <td width="74%">Win32 makefile for the inproc project</td>
+  </tr>
+<tr>
+    <td width="26%">local\mta\SSERVER.CPP	</td>
+    <td width="74%">Local server - MTA main file</td>
+  </tr>
+
+<tr>
+    <td width="26%">local\mta\mta.dsp</td>
+    <td width="74%">VC project file  for the mta project</td>
+  </tr>
+<tr>
+    <td width="26%">local\mta\makefile</td>
+    <td width="74%">Win32 makefile for the mta project</td>
+  </tr>
+<tr>
+    <td width="26%">local\sta\SSERVER.CPP</td>
+    <td width="74%">Local server - STA main file</td>
+  </tr>
+<tr>
+    <td width="26%">local\sta\sta.dsp</td>
+    <td width="74%">VC project file  for the sta project</td>
+  </tr>
+<tr>
+    <td width="26%">local\sta\makefile</td>
+    <td width="74%">Win32 makefile for the sta project</td>
+  </tr>
+</table>
+
+
+<h4>Build Notes</h4>
+
+<p>Before running the sample, register the servers. First edit
+register.reg file and make Inprocserver32 and Localserver32 entries point to the correct
+location of these files on the machine. The full path must be specified and &quot;\\&quot;
+must be used in the path. Register the script by typing register.reg at the cmd prompt or
+by double-clicking on the register.reg file. </p>
+
+<p>For convenient use in Microsoft's Visual Studio, a project file is
+provided for each sample. To load the project for the FRESERVE sample, you can run Visual
+Studio at the Command Prompt in the sample's directory as follows: </p>
+<pre><font face="Verdana">&nbsp;<font SIZE="2">
+    MSDEV CANCEL.DSP
+</font> </font></pre>
+<h4>Remarks</h4>
+<p>
+You can use standard COM remoting mechanisms to remote the servers
+if needed.
+</p>
+</body>
+</html>

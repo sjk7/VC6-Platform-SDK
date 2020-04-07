@@ -1,0 +1,62 @@
+/*+==========================================================================
+
+File: PingResp.idl
+
+Summary:  Defines the IPingResponder and AsyncIPingResponder interfaces
+
+----------------------------------------------------------------------------
+
+This file is part of the Microsoft COM+ Samples.
+
+Copyright (C) 1995-1999 Microsoft Corporation. All rights reserved.
+
+This source code is intended only as a supplement to Microsoft
+Development Tools and/or on-line documentation. See these other
+materials for detailed information regarding Microsoft code samples.
+
+THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+==========================================================================+*/
+
+// PingResp.idl : IDL source for PingResp.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (PingResp.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(8C0B3D3F-DB1F-11D2-8C2B-00A0C9F422B8),
+		async_uuid(8C0B3D3E-DB1F-11D2-8C2B-00A0C9F422B8),
+		helpstring("IPingResponder Interface"),
+		pointer_default(unique)
+	]
+	interface IPingResponder : IUnknown
+	{
+		HRESULT Ping();
+	};
+
+[
+	uuid(8C0B3D31-DB1F-11D2-8C2B-00A0C9F422B8),
+	version(1.0),
+	helpstring("PingResp 1.0 Type Library")
+]
+library PINGRESPLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(8C0B3D40-DB1F-11D2-8C2B-00A0C9F422B8),
+		helpstring("PingResponder Class")
+	]
+	coclass PingResponder
+	{
+		[default] interface IPingResponder;
+	};
+};

@@ -1,0 +1,118 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./proxy_files/filelist.xml">
+<title>Running the sample on multiple machines</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Chris Whitaker</o:Author>
+  <o:LastAuthor>Chris Whitaker</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>1999-05-07T17:58:00Z</o:Created>
+  <o:LastSaved>1999-05-07T17:59:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>220</o:Words>
+  <o:Characters>1255</o:Characters>
+  <o:Company>Microsoft Corp.</o:Company>
+  <o:Lines>10</o:Lines>
+  <o:Paragraphs>2</o:Paragraphs>
+  <o:CharactersWithSpaces>1541</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:869605928;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1055045532 -2097229696 1657339534 520671428 -1482513290 -807084456 -1981754466 -446373280 191279622 165998462;}
+@list l1
+	{mso-list-id:1619993744;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-940817882 1036786894 1701071888 1600838746 -312849874 1410126134 -1099243386 668077184 -216349794 726577718;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2>Exporting and Importing Application Proxies</h2>
+
+<h4>To export an application proxy</h4>
+
+
+<p>The following procedure will create a .MSI file with the specified file name. This file should be made available to the
+machine that is going to import and use the COM+ application.
+
+<ol>
+<LI>Start Component Services Explorer by clicking <b>Start</b>, point to <b>Programs</b>, point to <b>Administrative Tools</b> and then click <b>Component Services</b>.</LI>
+<LI>Select <b>Console Root</b>, click <b>Component Services</b>, click <b>Computers</b>, click <b>My Computer</b>, and then click <b>COM+ Applications</b>.</LI>
+<LI>You will see the icons for the COM+ applications, for example, QCShip.</LI>
+<LI>Right-click the application and select <b>Export</b>. This will start the <b>COM Application Export Wizard</b></LI>. Click <b>Next</b>.
+<LI>Enter the full path for the application file (.MSI file) you want to create.</li>
+<li>Click <b>Export as an Application Proxy</b> and then click <b>Next</b>.</li>
+<li>Click <b>Finish</b>.</li>
+</ol>
+
+<h4>To import an application proxy</h4>
+
+
+<ol>
+<LI>Start Component Services Explorer by clicking <b>Start</b>, point to <b>Programs</b>, point to <b>Administrative Tools</b> and then click <b>Component Services</b>.</LI>
+<LI>Select <b>Console Root</b>, click <b>Component Services</b>, click <b>Computers</b>, click <b>My Computer</b>, and then click <b>COM+ Applications</b>.</LI>
+<li>Right-click the <b>COM+ Applications</b> folder, click <b>New</b>, and then click <b>Application</b>. This will start the <b>COM Application Install Wizard</b>.</li>
+<li>Click <b>Next</b>.</li>
+<li>Click <b>Install pre-built application(s)</b>.</li>
+<li>Click the .MSI file created by exporting the application (see To export an application proxy above).</li>
+<li>Click <b>Open</b>.
+<li>Click <b>Next</b>. This will install the application into the directory shown.</li>
+<li>Click <b>Next</b>.</li>
+<li>Click <b>Finish</b>.</li>
+</ol>
+</div>
+
+</body>
+
+</html>

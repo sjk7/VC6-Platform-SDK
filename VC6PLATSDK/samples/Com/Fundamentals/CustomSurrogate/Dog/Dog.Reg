@@ -1,0 +1,43 @@
+REGEDIT4
+; Registration information for the Simple Auotmation Object application
+
+; Version independent registration
+[HKEY_CLASSES_ROOT\Dog.Object]
+@="Dog Object" 
+[HKEY_CLASSES_ROOT\Dog.Object\CLSID]
+@="{F40B88C2-D534-11d1-9D01-0060081982D5}" 
+
+; Version 1.0 registration
+[HKEY_CLASSES_ROOT\Dog.Object.1] 
+@="Dog Object v 1.0"
+[HKEY_CLASSES_ROOT\Dog.Object.1\CLSID]
+@="{F40B88C2-D534-11d1-9D01-0060081982D5}"
+
+[HKEY_CLASSES_ROOT\CLSID\{F40B88C2-D534-11d1-9D01-0060081982D5}] 
+@="Dog Object v 1.0"
+"AppID"="{F40B88C0-D534-11d1-9D01-0060081982D5}" 
+
+[HKEY_CLASSES_ROOT\CLSID\{F40B88C2-D534-11d1-9D01-0060081982D5}\ProgID]
+@="Dog.Object.1"
+[HKEY_CLASSES_ROOT\CLSID\{F40B88C2-D534-11d1-9D01-0060081982D5}\VersionIndependentProgID]
+@="Dog.Object"
+[HKEY_CLASSES_ROOT\CLSID\{F40B88C2-D534-11d1-9D01-0060081982D5}\InProcServer32]
+@="dog.dll" 
+"ThreadingModel"="Both"
+
+; AppID Information
+[HKEY_CLASSES_ROOT\AppID\{F40B88C0-D534-11d1-9D01-0060081982D5}]
+@="CustSur Sample"
+"DllSurrogate"="custsur.exe"
+
+; Type library registration information  
+[HKEY_CLASSES_ROOT\TypeLib\{F40B88C3-D534-11d1-9D01-0060081982D5}]
+[HKEY_CLASSES_ROOT\TypeLib\{F40B88C3-D534-11d1-9D01-0060081982D5}\1.0]
+@="Dog Object 1.0 Type Library"
+[HKEY_CLASSES_ROOT\TypeLib\{F40B88C3-D534-11d1-9D01-0060081982D5}\1.0\HELPDIR]
+@=""
+
+;US english
+[HKEY_CLASSES_ROOT\TypeLib\{F40B88C3-D534-11d1-9D01-0060081982D5}\1.0\0\win32]
+@="idog.tlb"
+

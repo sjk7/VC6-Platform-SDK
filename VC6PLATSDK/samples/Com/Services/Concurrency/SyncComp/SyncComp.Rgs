@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{14E28561-F38D-11D2-A10A-0080C71F306F} = s 'SyncComp'
+		'SyncComp.EXE'
+		{
+			val AppID = s {14E28561-F38D-11D2-A10A-0080C71F306F}
+		}
+	}
+}

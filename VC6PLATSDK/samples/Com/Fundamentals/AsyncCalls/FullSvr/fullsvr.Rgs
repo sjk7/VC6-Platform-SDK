@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		{56130FDA-CFF8-4A66-BA65-024DCDCE3E2C} = s 'FullSvr'
+		'FullSvr.EXE'
+		{
+			val AppID = s {56130FDA-CFF8-4A66-BA65-024DCDCE3E2C}
+		}
+	}
+}

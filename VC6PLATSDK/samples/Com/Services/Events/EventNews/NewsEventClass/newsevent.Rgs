@@ -1,0 +1,26 @@
+HKCR
+{
+	NewsEventClass.NewsEvent.1 = s 'NewsEvent Class'
+	{
+		CLSID = s '{997FF9C0-0F01-11D3-9257-0080C7C30D72}'
+	}
+	NewsEventClass.NewsEvent = s 'NewsEvent Class'
+	{
+		CLSID = s '{997FF9C0-0F01-11D3-9257-0080C7C30D72}'
+		CurVer = s 'NewsEventClass.NewsEvent.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {997FF9C0-0F01-11D3-9257-0080C7C30D72} = s 'NewsEvent Class'
+		{
+			ProgID = s 'NewsEventClass.NewsEvent.1'
+			VersionIndependentProgID = s 'NewsEventClass.NewsEvent'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{94007C90-0F00-11D3-9257-0080C7C30D72}'
+		}
+	}
+}
