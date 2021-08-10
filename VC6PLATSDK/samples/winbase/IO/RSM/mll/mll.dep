@@ -1,0 +1,6 @@
+# Microsoft Developer Studio Generated Dependency File, included by Mll.mak
+
+.\STL_mll.cpp : \
+	"..\inc\stl.h"\
+	".\STL_mll.h"\
+	

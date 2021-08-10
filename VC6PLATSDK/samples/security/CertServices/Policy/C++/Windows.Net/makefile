@@ -1,0 +1,42 @@
+# Nmake macros for building Win32 & Win64 apps
+
+!IF "$(TARGETOS)" == "WINNT" && "$(CPU)" != "IA64"
+
+!include <Win32.Mak>
+
+PROJNAME = CertPSam
+OBJFILES = Atl.Obj CeLib.Obj CeDebug.Obj CeError.Obj CeFormat.Obj \
+	CertPSam.Obj Pch.Obj CertPSam_i.Obj Module.Obj Policy.obj \
+	Request.obj
+
+EXTRA_LIBS = CertIdl.Lib Crypt32.Lib WinINet.Lib
+
+all: $(PROJNAME).Dll
+
+CertPSam.h CertPSam.Tlb: CertPSam.Idl
+   midl /h CertPSam.h /tlb CertPSam.Tlb CertPSam.Idl
+
+CertPSam.Res: CertPSam.rc CertPSam.Tlb Resource.h
+    $(rc) $(rcvars) -r -fo $*.Res $*.rc
+
+CertPSam.Obj: CertPSam.Cpp CertPSam.h Resource.h Policy.h
+
+CeLib.Obj: CeLib.Cpp
+
+Policy.Obj: Policy.Cpp Policy.h CertPSam.h Resource.h
+
+Request.Obj: Request.Cpp Policy.h CertPSam.h Resource.h
+
+.Cpp.Obj:
+    $(cc) $(cdebug) $(cflags) $(cvarsdll) -I. -DUNICODE $*.Cpp
+
+
+$(PROJNAME).Dll: $(OBJFILES) CertPSam.Res
+    $(link) $(linkdebug) $(dlllflags) -def:CertPSam.Def -out:$*.Dll $** -nodefaultlib:libc $(olelibsdll) $(EXTRA_LIBS)
+
+
+clean:
+    del *.Obj *.Res
+!ELSE
+!MESSAGE Sorry this sample only builds for the i386 Windows NT Platform
+!ENDIF

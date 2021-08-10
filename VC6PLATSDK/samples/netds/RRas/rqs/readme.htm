@@ -1,0 +1,570 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="readme_files/filelist.xml">
+<title>Remote Access Quarantine Agent and Client</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>quintinb</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>quintinb</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>2</o:TotalTime>
+  <o:Created>2003-02-04T17:54:00Z</o:Created>
+  <o:LastSaved>2003-02-04T20:42:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>739</o:Words>
+  <o:Characters>4217</o:Characters>
+  <o:Company>Microsoft Corporation</o:Company>
+  <o:Lines>35</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>4947</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackRevisions/>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:???????¡ì????;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-alt:Tahoma;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:1 135135232 16 0 262144 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+ins
+	{mso-style-type:export-only;
+	text-decoration:none;}
+span.msoIns
+	{mso-style-type:export-only;
+	mso-style-name:"";
+	text-decoration:underline;
+	text-underline:single;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 65.95pt 1.0in 65.95pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h1>Remote Access Quarantine Agent and Client</h1>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Description<span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></h2>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>This
+sample shows a simple way to use the <span class=SpellE>MprAdminConnectionRemoveQuarantine</span>
+API to implement a quarantine network for a server running Routing and Remote
+Access.<span style='mso-spacerun:yes'>  </span>Both the quarantine service and
+the corresponding quarantine client are included.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Platform<span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></h2>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>The
+RQS service requires a server running a member of the Windows Server 2003 <span
+class=msoIns><ins cite="mailto:Susan%20Ferrell" datetime="2003-02-04T09:39">f</ins></span>amily<span
+class=msoIns><ins cite="mailto:Susan%20Ferrell" datetime="2003-02-04T09:39">,</ins></span>
+since this is the first version of Routing and Remote Access to support the <span
+class=SpellE>MprAdminConnectionRemoveQuarantine</span> API.<span
+style='mso-spacerun:yes'>  </span>The RQC quarantine client is designed to run
+on Windows Millennium, Windows 2000, Windows XP, and the Windows Server 20003
+family.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Requirements<span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></h2>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>A
+Windows Server 2003 family server running Routing and Remote Access, configured
+with dial<span class=msoIns><ins cite="mailto:Susan%20Ferrell"
+datetime="2003-02-04T09:40">-</ins></span>in ports.<span
+style='mso-spacerun:yes'>  </span>The dial-in ports can be any valid media
+(e.g. modem, ISDN, PPTP, L2TP, etc), as long as the user can make a remote
+access connection to the server.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Build instructions<span style='font-size:10.0pt;font-family:"Courier New"'><o:p></o:p></span></h2>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+class=GramE>cd</span></span> server</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+class=GramE>nmake</span></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+class=GramE>cd</span></span><span class=GramE> ..</span>\client</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+class=GramE>nmake</span></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>Microsoft
+Visual C++ is not required to build this sample<span class=msoIns><ins
+cite="mailto:Susan%20Ferrell" datetime="2003-02-04T09:41">,</ins></span> but it
+does use shlwapi.dll and thus you will need the associated library and header
+file.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Rqs.exe Usage</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>Rqs.exe
+can either be run as a service or in command line mode.<span
+style='mso-spacerun:yes'>  </span>The command line mode is very useful for
+debugging the service.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'>Usage:</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='mso-spacerun:yes'> 
+</span><span class=SpellE><span class=GramE>rqs</span></span> /run<span
+style='mso-spacerun:yes'>         </span>Execute quarantine engine</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='mso-spacerun:yes'> 
+</span><span class=SpellE><span class=GramE>rqs</span></span> /?<span
+style='mso-spacerun:yes'>           </span>Display this help</p>
+
+<p class=MsoPlainText style='margin-left:.5in'>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>No
+parameters are required to run RQS as a service.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Rqc.exe Usage</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'>rqc.exe &lt;<span class=SpellE>ConnName</span>&gt; &lt;<span class=SpellE>TunnelConnName</span>&gt;
+&lt;Port&gt; &lt;Domain&gt; &lt;Username&gt; &lt;String&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'><span style='mso-spacerun:yes'>  </span><span class=SpellE>ConnName</span>:<span
+style='mso-tab-count:2'>       </span>the name of the remote access connection
+on this host<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'><span style='mso-spacerun:yes'>  </span><span class=SpellE>TunnelConnName</span>:<span
+style='mso-tab-count:1'> </span>the name of the remote access tunnel connection
+on this host<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'><span style='mso-spacerun:yes'>  </span>Port:<span style='mso-tab-count:
+3'>                 </span>the port to send the quarantine string to<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'><span style='mso-spacerun:yes'>  </span>Domain:<span style='mso-tab-count:
+2'>         </span>the domain of the connecting user<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'><span style='mso-spacerun:yes'>  </span>Username:<span
+style='mso-spacerun:yes'>            </span><span style='mso-tab-count:1'> </span>the
+username of the connecting user<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'><span style='mso-spacerun:yes'>  </span>String:<span style='mso-tab-count:
+2'>         </span>the string to send<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'>rqc.exe /?<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:"Courier New";mso-fareast-font-family:SimSun;mso-fareast-language:
+JA'><span style='mso-spacerun:yes'>  </span>Display this help<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:Verdana;mso-fareast-font-family:SimSun;mso-fareast-language:JA'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:Arial;mso-fareast-font-family:SimSun;mso-fareast-language:JA'>The
+executable will return error codes from its main function to indicate success
+or failure.<span style='mso-spacerun:yes'>  </span>A batch file can obtain the
+error code by consulting the %ERRORLEVEL% environment variable after executing
+rqc.exe.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:Arial;mso-fareast-font-family:SimSun;mso-fareast-language:JA'>&nbsp;<o:p></o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:66.2pt;border-collapse:collapse;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-padding-alt:0in 5.4pt 0in 5.4pt'>
+ <tr style='mso-yfti-irow:0;height:12.25pt'>
+  <td width=217 valign=top style='width:162.9pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal align=center style='margin-right:.5in;text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;font-family:
+  Arial;mso-fareast-font-family:SimSun;mso-fareast-language:ZH-CN'>Return code<o:p></o:p></span></b></p>
+  </td>
+  <td width=807 valign=top style='width:605.35pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal align=center style='margin-right:.5in;text-align:center'><b
+  style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;font-family:
+  Arial;mso-fareast-font-family:SimSun;mso-fareast-language:ZH-CN'>Meaning<o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:14.35pt'>
+  <td width=217 valign=top style='width:162.9pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:14.35pt'>
+  <p class=MsoNormal align=center style='margin-right:.5in;text-align:center'><span
+  style='font-size:10.0pt;font-family:Arial;mso-fareast-font-family:SimSun;
+  mso-fareast-language:ZH-CN'>-1<o:p></o:p></span></p>
+  </td>
+  <td width=807 valign=top style='width:605.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:14.35pt'>
+  <p class=MsoNormal style='margin-right:.5in'><span style='font-size:10.0pt;
+  font-family:Arial;mso-fareast-font-family:SimSun;mso-fareast-language:ZH-CN'>Generic
+  error.<span style='mso-spacerun:yes'>  </span>Can also happen If RQS is
+  present, but it closes the connection without a response.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;height:12.25pt'>
+  <td width=217 valign=top style='width:162.9pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal align=center style='margin-right:.5in;text-align:center'><span
+  style='font-size:10.0pt;font-family:Arial;mso-fareast-font-family:SimSun;
+  mso-fareast-language:ZH-CN'>0<o:p></o:p></span></p>
+  </td>
+  <td width=807 valign=top style='width:605.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal style='margin-right:.5in'><span style='font-size:10.0pt;
+  font-family:Arial;mso-fareast-font-family:SimSun;mso-fareast-language:ZH-CN'>Success.<span
+  style='mso-spacerun:yes'>  </span>RQS returned the OK response indicating
+  quarantine was removed or there was no quarantine in the first place.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:12.25pt'>
+  <td width=217 valign=top style='width:162.9pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal align=center style='margin-right:.5in;text-align:center'><span
+  style='font-size:10.0pt;font-family:Arial;mso-fareast-font-family:SimSun;
+  mso-fareast-language:ZH-CN'>1<o:p></o:p></span></p>
+  </td>
+  <td width=807 valign=top style='width:605.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal style='margin-right:.5in'><span style='font-size:10.0pt;
+  font-family:Arial;mso-fareast-font-family:SimSun;mso-fareast-language:ZH-CN'>Connection
+  error, RQC was unable to connect to the listener.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes;height:12.25pt'>
+  <td width=217 valign=top style='width:162.9pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal align=center style='margin-right:.5in;text-align:center'><span
+  style='font-size:10.0pt;font-family:Arial;mso-fareast-font-family:SimSun;
+  mso-fareast-language:ZH-CN'>2<o:p></o:p></span></p>
+  </td>
+  <td width=807 valign=top style='width:605.35pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt;height:12.25pt'>
+  <p class=MsoNormal style='margin-right:.5in'><span style='font-size:10.0pt;
+  font-family:Arial;mso-fareast-font-family:SimSun;mso-fareast-language:ZH-CN'>Client
+  Rejected.<span style='mso-spacerun:yes'>  </span>RQS returned the NO response
+  indicating the client sent the wrong string or couldn’t be removed from
+  quarantine.<span style='mso-spacerun:yes'>  </span>The configuration script
+  should take appropriate action such as forwarding the user to a
+  troubleshooting and repair website.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:.5in;margin-bottom:0in;
+margin-left:.5in;margin-bottom:.0001pt'><span style='font-size:10.0pt;
+font-family:Arial;mso-fareast-font-family:SimSun;mso-fareast-language:JA'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>Note:<span
+style='mso-spacerun:yes'>  </span>For the <span class=SpellE>ConnectionName</span>
+and <span class=SpellE>TunnelConnectionName</span> parameters, you will only
+have both if doing a double dial connection (dial<span class=msoIns><ins
+cite="mailto:Susan%20Ferrell" datetime="2003-02-04T09:41">-</ins></span>up
+connection to the internet and a tunnel connection over it).<span
+style='mso-spacerun:yes'>  </span>If you do not have both, then the text
+&quot;NULL&quot; should be passed for the unused parameter.<span
+style='mso-spacerun:yes'>  </span>See the <span class=SpellE>GetClientAndServerAddresses</span>
+function for more information on how these parameters are used.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Setup</h2>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;tab-stops:
+list .75in'><span style='font-family:Arial;mso-fareast-font-family:Arial'>1.</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+Arial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+Arial'>Copy Rqs.exe, rqsmsg.dll, and <span class=SpellE>rqs_setup.bat</span> to
+a temporary directory on the server running Routing and Remote Access.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;tab-stops:
+list .75in'><span style='font-family:Arial;mso-fareast-font-family:Arial'>2.</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+Arial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+Arial'>Run <span class=msoIns><ins cite="mailto:Comparison"
+datetime="2002-08-22T17:07">“</ins></span><span class=SpellE>rqs_setup.bat</span>
+/install<span class=msoIns><ins cite="mailto:Comparison"
+datetime="2002-08-22T17:07">”</ins></span> to install the RQS service on the
+server running Routing and Remote Access.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;tab-stops:
+list .75in'><span style='font-family:Arial;mso-fareast-font-family:Arial'>3.</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+Arial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+Arial'>Create a versioned key string that will be passed from the client to the
+server.<span style='mso-spacerun:yes'>  </span>Add a <span class=SpellE>Reg_MultiSz</span>
+value named <span class=SpellE>AllowedSet</span> to HKLM\System\<span
+class=SpellE>CurrentControlSet\Services\Rqs</span> that contains the shared key
+or keys.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;tab-stops:
+list .75in'><span style='font-family:Arial;mso-fareast-font-family:Arial'>4.</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+Arial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+Arial'>Create a Quarantine policy on your IAS server using the MS-Quarantine-<span
+class=SpellE>IPFilter</span> and MS-Quarantine-Session-Timeout attributes.<span
+style='mso-spacerun:yes'>  </span>These are advanced attributes available from
+the <span class=GramE>Advanced</span> tab of the Edit Dial-in profile dialog. <span
+class=msoIns><ins cite="mailto:Comparison" datetime="2002-08-22T17:07"><span
+style='mso-spacerun:yes'> </span></ins></span>Please see the Internet
+Authentication Server (IAS) product documentation for more details.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;tab-stops:
+list .75in'><span style='font-family:Arial;mso-fareast-font-family:Arial'>5.</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+Arial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+Arial'>Start the Remote Access Quarantine Agent service or run rqs.exe in
+command line mode.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:Arial'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.75in;text-indent:-.25in;tab-stops:
+list .75in'><span style='font-family:Arial;mso-fareast-font-family:Arial'>6.</span><span
+style='font-size:7.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+Arial'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style='font-family:
+Arial'>Connect to the server running Routing and Remote Access using a remote
+access client.<span style='mso-spacerun:yes'>  </span><span class=GramE>Once
+connected use the Quarantine client to remove any Quarantine timers or filters.</span><span
+style='mso-spacerun:yes'>  </span>Note that a script can be run on the client
+to determine if it is safe to remove the client from Quarantine (for instance
+the client is running the appropriate virus software).<span
+style='mso-spacerun:yes'>  </span>The recommended way to deploy the quarantine
+client and any related scripts is through a Connection Manager profile.<span
+style='mso-spacerun:yes'>  </span>Please see the Connection Manager
+Administration Kit product documentation and the Internet Authentication Server
+product documentation for further details.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>Known Limitations</h2>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:Arial'>The
+version string passed between the client and server is not secured and is a
+shared secret.<span style='mso-spacerun:yes'>  </span>This method could be
+improved but should be sufficient for verifying and configuring non-malicious
+clients.<o:p></o:p></span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<h2>List of API's exercised in the sample application</h2>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE>MprAdminServerConnect</span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE>MprAdminServerDisconnect</span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE>MprAdminConnectionRemoveQuarantine</span></p>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

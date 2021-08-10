@@ -1,0 +1,74 @@
+/*
+    Copyright Microsoft Corp. 1992 - 2001
+
+    File Replication Sample
+
+    FILE: FileRepClient.idl
+
+    PURPOSE:  Defines the interface for the server system service.
+
+*/
+
+[
+    uuid(fe7f2eda-5da1-4041-928c-d2534d3fa128),
+    pointer_default(ref),
+    version(1.0)
+]
+
+interface FileRepServer {
+
+// Declare the string data type. This should work for UNICODE.
+#ifdef _UNICODE
+    typedef wchar_t * STR;
+#else
+    typedef unsigned char * STR;
+#endif
+
+    // The size of the buffer returned with the RemoteOpen call.
+    // It allows us to send back some data with the server reply for free:
+    // since the TCP MTU size is at least 1500 bytes, we can make 
+    // use of the remaining bytes.
+    const unsigned short OPEN_BUFSIZE = 1024 * 1;
+
+    // The size of the buffer returned with RemoteRead.  It is larger
+    // due to being optimized for data transfer.
+    const unsigned short READ_BUFSIZE = 10000;
+
+    // Used to define fixed-size buffer to receive data on the client.
+    // The buffer size is basically the larger of the above values +1.
+    cpp_quote("#define MAX_BUFSIZE (READ_BUFSIZE+1)")
+
+    typedef [context_handle] void * PCONTEXT_HANDLE_TYPE;
+  
+   /*
+      Opens a file specified by pszFile, reads up to OPEN_BUFSIZE bytes
+      from it, and returns the number of bytes read as well as
+      the data read in achBuf[].  If the whole file has been read,
+      it is closed and the returned context handle is NULL.  Thus,
+      the file may be transfered with a single call to
+      RemoteOpen().  If the returned context handle is not NULL, subsequent
+      calls to RemoteRead with the context handle will return additional
+      file data.
+    */
+    void RemoteOpen([in] handle_t hFileRepServer,
+		    [out] PCONTEXT_HANDLE_TYPE *pphContext,
+		    [in, ref, string] STR pszFile,
+		    [out, ref, size_is(OPEN_BUFSIZE+1), length_is(*cbRead)] byte *Buf,
+		    [in, out, ref] unsigned long *cbRead);
+
+    /*
+      Reads up to READ_BUFSIZE bytes from a previously opened file
+      corresponding to the context handle phContext and returns
+      the number of bytes read.  If the whole file has been read,
+      it is closed and the returned context handle is NULL.  This cuts
+      down on the number fo calls necessary for file transfer.  The [in]
+      context handle must be a non-NULL context handle returned by RemoteOpen.
+      The [out] context handle can be NULL is the read has completed and the
+      file has been closed.
+    */
+    void RemoteRead([in] handle_t hFileRepServer,
+		    [in, out] PCONTEXT_HANDLE_TYPE *pphContext,
+		    [out, ref, size_is(READ_BUFSIZE+1), length_is(*cbRead)] byte *Buf,
+		    [in, out, ref] unsigned long *cbRead);
+
+}

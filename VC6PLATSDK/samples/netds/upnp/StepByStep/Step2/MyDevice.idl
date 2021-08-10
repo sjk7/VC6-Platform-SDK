@@ -1,0 +1,108 @@
+// MyDevice.idl : IDL source for MyDevice.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MyDevice.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(B620B328-B1ED-4205-8593-08C762C96562),
+		dual,
+		helpstring("IDimmer Interface"),
+		pointer_default(unique)
+	]
+	interface IDimmer : IDispatch
+	{
+	};
+	[
+		object,
+		uuid(AEF464AB-75A6-4205-B143-72A43675863F),
+		dual,
+		helpstring("IDimmerService Interface"),
+		pointer_default(unique)
+	]
+	interface IDimmerService : IDispatch
+	{
+	};
+
+[
+	uuid(51AC2F4C-3F4F-48B3-A018-910E81677EEF),
+	version(1.0),
+	helpstring("MyDevice 1.0 Type Library")
+]
+library MYDEVICELib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+typedef [v1_enum] enum DIMMINGSERVICE_SCPD_DISPIDS
+{
+	 DISPID_POWER = 1,
+	 DISPID_DIMLEVEL,
+	 DISPID_POWERON,
+	 DISPID_POWEROFF,
+	 DISPID_GETPOWERVALUE,
+	 DISPID_SETDIMLEVEL,
+	 DISPID_GETDIMLEVEL,
+	 DISPID_GETCONFIGDETAILS
+
+} DIMMINGSERVICE_SCPD_DISPIDS;
+
+[
+	 uuid(a315fcbd-7f4b-4081-a172-2f534c438957),
+	 oleautomation,
+	 pointer_default(unique)
+]
+interface IUPnPService_DimmingService_SCPD : IDispatch {
+	[propget, id(DISPID_POWER), helpstring("Property Power")]
+	HRESULT Power(
+		[out, retval] VARIANT_BOOL *pPower);
+
+	[propget, id(DISPID_DIMLEVEL), helpstring("Property dimLevel")]
+	HRESULT dimLevel(
+		[out, retval] long *pdimLevel);
+
+
+	[ id(DISPID_POWERON), helpstring("Method PowerOn")]
+	HRESULT PowerOn();
+
+	[ id(DISPID_POWEROFF), helpstring("Method PowerOff")]
+	HRESULT PowerOff();
+
+	[ id(DISPID_GETPOWERVALUE), helpstring("Method GetPowerValue")]
+	HRESULT GetPowerValue(
+		[in, out] VARIANT_BOOL *ppowerVall);
+
+	[ id(DISPID_SETDIMLEVEL), helpstring("Method SetDimLevel")]
+	HRESULT SetDimLevel(
+		[in] long dLevel);
+
+	[ id(DISPID_GETDIMLEVEL), helpstring("Method GetDimLevel")]
+	HRESULT GetDimLevel(
+		[in, out] long *pdLevel);
+
+	[ id(DISPID_GETCONFIGDETAILS), helpstring("Method GetConfigDetails")]
+	HRESULT GetConfigDetails(
+		[in, out] VARIANT_BOOL *ppowerVal,
+		[in, out] long *pdLevel);
+};
+
+	[
+		uuid(433B7962-88CD-48F3-B726-2187A48C7128),
+		helpstring("Dimmer Class")
+	]
+	coclass Dimmer
+	{
+		[default] interface IDimmer;
+	};
+	[
+		uuid(67B046DD-6000-4122-9092-0706F1C7C4D8),
+		helpstring("DimmerService Class")
+	]
+	coclass DimmerService
+	{
+		[default] interface IDimmerService;
+	};
+};

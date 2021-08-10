@@ -1,0 +1,5 @@
+LIBRARY mll_stl
+
+EXPORTS
+	ClaimMediaLabel
+	MaxMediaLabel

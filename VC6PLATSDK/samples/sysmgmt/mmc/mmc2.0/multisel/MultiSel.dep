@@ -1,0 +1,178 @@
+# Microsoft Developer Studio Generated Dependency File, included by MultiSel.mak
+
+.\About.Cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\AddDeviceDlg.cpp : \
+	".\AddDeviceDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\AddFolderDlg.cpp : \
+	".\AddFolderDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\AddVFileDlg.cpp : \
+	".\AddVFileDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\BaseDialog.cpp : \
+	".\BaseDialog.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\BaseSnap.Cpp : \
+	".\About.h"\
+	".\BaseNode.h"\
+	".\BaseSnap.h"\
+	".\Compdata.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\Comp.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\Dataobj.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	".\VirtualFile.h"\
+	
+
+.\Compdata.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\Dataobj.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\Dataobj.cpp : \
+	".\BaseNode.h"\
+	".\Dataobj.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\DeviceNode.cpp : \
+	".\AddFolderDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\DeviceNode.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\TraceMacro.h"\
+	".\VirtualFile.h"\
+	
+
+.\FolderNode.cpp : \
+	".\AddVFileDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\Dataobj.h"\
+	".\DeviceNode.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	".\VirtualFile.h"\
+	
+
+.\Globals.cpp : \
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\LListImpl.cpp : \
+	".\LListImpl.h"\
+	
+
+.\MultiSel.rc : \
+	".\Res\AppImg16.bmp"\
+	".\Res\AppImg32.bmp"\
+	".\Res\bmp00001.bmp"\
+	".\Res\Nodes16.bmp"\
+	".\Res\Nodes32.bmp"\
+	".\Res\Snapin.ico"\
+	".\Res\toolbar1.bmp"\
+	".\Res\vfile_to.bmp"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\StaticNode.cpp : \
+	".\AddDeviceDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\DeviceNode.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	".\VirtualFile.h"\
+	
+
+.\TraceMacro.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\TraceMacro.h"\
+	
+
+.\VirtualFile.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\TraceMacro.h"\
+	".\VirtualFile.h"\
+	

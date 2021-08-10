@@ -1,0 +1,18 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (5f606d29).
+//
+// STAObject.tli
+//
+// Wrapper implementations for Win32 type library Debug/STAObject.dll
+// compiler-generated file created 04/20/99 at 10:53:42 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface ISyncTest wrapper method implementations
+//
+
+inline HRESULT ISyncTest::Exercise ( int nRecurse ) {
+    HRESULT _hr = raw_Exercise(nRecurse);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

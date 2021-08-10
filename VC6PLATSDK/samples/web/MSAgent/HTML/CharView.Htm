@@ -1,0 +1,216 @@
+<HTML>
+<HEAD>
+<TITLE>MS Agent Character Viewer</TITLE>
+
+<OBJECT ID="agent" width=0 height=0
+ CLASSID="CLSID:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F">
+</OBJECT>
+
+<script language=JScript>
+var charID = "";
+var url = "";
+var anim = "";
+var optCnt = 0;
+var char;
+var loadReq, getReq, playReq;
+
+function loadChar() {
+	url = protocol.value + urlEditBox.value;
+	if (charID != "")
+		agent.characters.unload(charID);
+	charID = "somebody";
+	agent.connected = true;		// for IE3
+	loadReq = agent.Characters.load(charID, url);
+	}
+
+function haveChar() {
+var optEl;
+var animCollection;
+	char = agent.characters.character(charID);
+	char.get("state","showing");
+	char.moveto(400,300,0);
+	char.show();
+
+	for (optIdx = optCnt-1; optIdx >= 0; optIdx--)
+			animSelect.remove(optIdx)
+	optCnt = 0;
+	
+	animCollection = new Enumerator(char.AnimationNames)
+	do {	// todo: handle empty case
+		optEl = document.createElement("option");
+		optEl.text = animCollection.item();
+		optEl.value = animCollection.item();
+		animSelect.add(optEl);
+		optCnt += 1;
+		animCollection.moveNext();
+		}
+	while (!animCollection.atEnd())
+	status = optCnt + " animations";
+
+	animSelect.removeAttribute("disabled");
+	}
+
+function getAnim() {
+	char.stop();	// in case prev animation is looping
+	anim = animSelect.value;
+	if (anim == "")
+		return;
+	getReq = char.get("animation",anim);
+	}
+
+function haveAnim() {
+	playReq = char.play(anim);
+	}
+
+function Cant(what,why, desc) {
+var zeros = "0000";
+	loBitStr = (why & 0x0000ffff).toString(16);
+	loBitStr = zeros.substring(0,4-loBitStr.length) + loBitStr;
+	hiBitStr = (why >>> 16).toString(16);
+	hiBitStr = zeros.substring(0,4-hiBitStr.length) + hiBitStr;
+	alert(what + " failed\nError = " + "0x" + hiBitStr + loBitStr + "\n" + desc);
+	status = what + " failed";
+	}
+
+</script>
+
+<script for=agent event=RequestStart(reqObj) language=JScript>
+	switch (reqObj) {
+		case loadReq:
+			status = "Load " + url;
+			break;
+		case getReq:
+			status = "Get " + anim;
+			break;
+		case playReq:
+			status = "Play " + anim;
+			break;
+		default:
+			alert("Unexpected RequestStart event");
+		}
+</script>
+
+<script for=agent event=RequestComplete(reqObj) language=JScript>
+	switch (reqObj) {
+		case loadReq:
+			if (reqObj.status == 0) {
+				haveChar();
+				}
+			else {
+				Cant("Load", reqObj.number, reqObj.description);
+				charID = "";
+				}
+			break;
+		case getReq:
+			if (reqObj.status == 0) {
+				haveAnim();
+				}
+			else
+				Cant("Get", reqObj.number, reqObj.description);
+			break;
+		case playReq:
+			break;
+		default:
+			alert("Unexpected RequestComplete event");
+		}
+</script>
+
+<SCRIPT language=VBScript>
+
+Function AgentVersion()
+' This function returns the version of Agent found on the client
+' Return values are:
+'	0 - no Agent control on client
+'	1 - version 1.5 on client
+'	2 - version 2.0 on client
+
+	If CanCreate("Agent.Control.2") Then
+		AgentVersion = 2
+	ElseIf CanCreate("Agent.Control.1") Then
+		AgentVersion = 1
+	Else
+		AgentVersion = 0
+	End If
+End Function
+
+Function CanCreate(ctlName)
+' This procedure attempts to create an Agent Control object.
+' If it succeeds, it returns True.
+' 	This means the control is available on the client.
+' If it fails, it returns False.
+' 	This means the control hasn't been installed on the client.
+
+' Note: the version-specific name of the control
+' is the argument to the function.
+'
+' Note2: requires VBScript 2.0 or higher.
+' VBScript 1.0 does not have CreateObject().
+
+	Dim agent
+	On Error Resume Next
+	Set agent = CreateObject(ctlName)
+	CanCreate = IsObject(agent)
+	Set agent = Nothing		' release the object if it was created
+End Function
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+
+function msieVersion() {
+// Returns major version number of MS Internet Explorer, 0 for others
+var ua = window.navigator.userAgent;
+var msie = ua.indexOf("MSIE ");
+	if (msie > -1)
+		return parseInt(ua.substring(msie+5,ua.indexOf(".", msie)));
+	else
+		return 0;
+	}
+
+</SCRIPT>
+
+<STYLE type="text/css">
+	.normal {font: 10pt Verdana,Arial,sans-serif}
+</STYLE>
+
+</HEAD>
+<BODY>
+
+<font face="Verdana, Arial, sans serif" size="2">
+<h3> Microsoft Agent Character Viewer
+<hr width=75% align=left>
+ 
+</h3>This page lets you view the animations in any Microsoft Agent .ACF 
+character file.
+<p>
+
+<SCRIPT language=JavaScript>
+if (msieVersion() < 4) {
+	document.write("<font color=red>");
+	document.write("<b>Sorry, the Character Viewer requires Microsoft Internet Explorer 4.0 or higher</b>");
+	document.write("</font>");
+	document.write("<p>You can obtain the latest release of Microsoft Internet Explorer at: ");
+	document.write("<a href=http://www.microsoft.com/ie/>HTTP://www.microsoft.com/ie/</a>");
+	}
+else if (AgentVersion() < 2) {
+	document.write("<font color=red>");
+	document.write("<b>Sorry, the Character Viewer requires Microsoft Agent version 2.0</b>");
+	document.write("</font>");
+	document.write("<p>You can obtain the latest release of Microsoft Agent at: ");
+	document.write("<a href=http://www.microsoft.com/msagent/>HTTP://www.microsoft.com/msagent/</a>");
+	}
+else {
+	document.write('<table><tr><td class=normal>Character file URL:&nbsp&nbsp&nbsp');
+	document.write('<td class=normal><input id=protocol disabled size=4 type=text value="http://">');
+	document.write('<input id=urlEditBox size=45 tabindex=1 title="Enter the URL to a .ACF file" TYPE=text value="agent.microsoft.com/agent2/chars/peedy/peedy.acf">');
+	document.write('<td class=normal>');
+	document.write('<button id=loadBtn title="Click to load character" type=button onClick=loadChar()> Load</button>');
+	document.write('<tr><td class=normal>Play animation:');
+	document.write('<td class=normal>');
+	document.write('<select disabled id=animSelect size=1 tabindex=2 title="Select an animation" onChange="getAnim()">');
+	document.write('</select></table>');
+	}
+</SCRIPT></p></font>
+
+</BODY>
+</HTML>

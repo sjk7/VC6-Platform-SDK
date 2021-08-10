@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.00"
+	Name="mcastws1"
+	ProjectGUID="{7EA3B39B-8B73-49BE-8692-57ED57B9E9AE}">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="BOTH_RETAIL|Win32"
+			OutputDirectory="BOTH_RETAIL"
+			IntermediateDirectory="BOTH_RETAIL"
+			ConfigurationType="1">
+			<Tool
+				Name="VCCLCompilerTool"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="kernel32.lib ws2_32.lib mswsock.lib"
+				OutputFile="BOTH_RETAIL\MCASTWS1.EXE"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				GenerateDebugInformation="TRUE"
+				SubSystem="1"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm">
+			<File
+				RelativePath="Mcastws1.c">
+				<FileConfiguration
+					Name="BOTH_RETAIL|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						Optimization="3"
+						PreprocessorDefinitions=";NDEBUG;CRTAPI1=_cdecl;CRTAPI2=_cdecl;_X86_=1;WIN32;_WIN32;_WIN32_IE=0x0501;WINVER=0x0501;_MT"
+						RuntimeLibrary="0"
+						ObjectFile="BOTH_RETAIL\"
+						ProgramDataBaseFileName="BOTH_RETAIL\"
+						SuppressStartupBanner="TRUE"
+						CompileOnly="TRUE"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="resolve.c">
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl;inc">
+			<File
+				RelativePath="resolve.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		</Filter>
+		<File
+			RelativePath="ReadMe.Txt">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

@@ -1,0 +1,202 @@
+// resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DLG_NLS DIALOG DISCARDABLE  0, 0, 344, 260
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "NLS APIs"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    CONTROL         "List2",IDC_LV_LCID,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    LVS_AUTOARRANGE | WS_BORDER | WS_TABSTOP,5,7,331,92
+    GROUPBOX        "Large Numbers: ",IDC_STATIC,6,105,144,47
+    LTEXT           "Positive:",IDC_STATIC,9,118,40,9
+    LTEXT           "Negative:",IDC_STATIC,9,134,40,9
+    EDITTEXT        IDC_POS_NUMBER,61,118,82,12,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_NEG_NUMBER,61,134,82,12,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Currency format: ",IDC_STATIC,5,156,144,47
+    LTEXT           "Positive:",IDC_STATIC,9,169,40,9
+    LTEXT           "Negative:",IDC_STATIC,9,185,40,9
+    EDITTEXT        IDC_POS_CURRENCY,61,169,82,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_NEG_CURRENCY,61,185,82,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    GROUPBOX        "Time: ",IDC_STATIC,5,206,144,47
+    LTEXT           "Time sample:",IDC_STATIC,9,220,55,9
+    LTEXT           "Time Format:",IDC_STATIC,9,236,55,9
+    EDITTEXT        IDC_TIMESAMPLE,71,220,72,12,ES_AUTOHSCROLL | ES_READONLY
+    COMBOBOX        IDC_TIMEFORMAT,71,236,72,49,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Date:",IDC_STATIC,158,105,178,124
+    LTEXT           "Short date sample:",IDC_STATIC,162,153,74,9
+    LTEXT           "Short date format:",IDC_STATIC,162,169,70,9
+    EDITTEXT        IDC_SDATESAMPLE,245,153,84,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    COMBOBOX        IDC_SDATEFORMAT,245,169,85,49,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Long date sample:",IDC_STATIC,162,193,74,9
+    LTEXT           "Long date format:",IDC_STATIC,162,209,70,9
+    EDITTEXT        IDC_LDATESAMPLE,246,193,84,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    COMBOBOX        IDC_LDATEFORMAT,246,209,85,49,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Calendar\ntypes:",IDC_STATIC,162,125,42,18
+    COMBOBOX        IDC_CALFORMAT,209,125,121,49,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+END
+
+DLG_TEXT DIALOG DISCARDABLE  0, 0, 344, 260
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Text APIs"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    EDITTEXT        IDC_EDITWIN,16,18,258,199,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_WANTRETURN
+    PUSHBUTTON      "&Clear",IDB_CLEAR,282,20,55,14
+    PUSHBUTTON      "&Font",IDB_FONT,282,36,55,14
+    PUSHBUTTON      "Toggle reading order",IDB_READING,282,52,55,25,
+                    BS_MULTILINE
+    PUSHBUTTON      "Toggle alignment",IDB_ALIGN,282,79,55,25,BS_MULTILINE
+END
+
+DLG_LCID DIALOG DISCARDABLE  0, 0, 209, 101
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Locale information"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,156,82,50,14
+    LTEXT           "Localized Lang Name:",IDC_STATIC,11,9,89,8
+    LTEXT           "Native Lang Name:",IDC_STATIC,11,22,74,8
+    LTEXT           "Native Country Name:",IDC_STATIC,11,35,74,8
+    LTEXT           "ANSI Code Page:",IDC_STATIC,11,48,74,8
+    LTEXT           "OEM Code Page:",IDC_STATIC,11,61,74,8
+    EDITTEXT        IDC_LANGNAME,111,9,90,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_NLANGNAME,111,22,90,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_NCOUNTRYNAME,111,35,90,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_ACP,111,48,90,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_OEM,111,61,90,12,ES_AUTOHSCROLL | WS_DISABLED
+END
+
+DLG_GENERAL DIALOG DISCARDABLE  0, 0, 344, 260
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "General"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    GROUPBOX        "User Interface Language:",IDC_STATIC,32,10,279,44
+    COMBOBOX        IDC_LANGUAGES,45,29,186,118,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_PURPOSE,32,85,279,103,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+    LTEXT           "Created by World-Ready Guides, Microsoft Corporation, Windows Division. Visit us on the web at:",
+                    IDC_STATIC,32,214,221,19
+    LTEXT           "http://www.microsoft.com/globaldev/",IDC_STATIC,32,235,
+                    153,11
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+DLG_NLS DLGINIT
+BEGIN
+    IDC_TIMEFORMAT, 0x403, 14, 0
+0x6f43, 0x2c73, 0x4d20, 0x736f, 0x202c, 0x6f4e, 0x0073, 
+    IDC_SDATEFORMAT, 0x403, 14, 0
+0x6f43, 0x2c73, 0x4d20, 0x736f, 0x202c, 0x6f4e, 0x0073, 
+    IDC_LDATEFORMAT, 0x403, 14, 0
+0x6f43, 0x2c73, 0x4d20, 0x736f, 0x202c, 0x6f4e, 0x0073, 
+    IDC_CALFORMAT, 0x403, 14, 0
+0x6f43, 0x2c73, 0x4d20, 0x736f, 0x202c, 0x6f4e, 0x0073, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    STR_LANGID              "LangID"
+    STR_LANG                "Language"
+    STR_NLANG               "Native Lang. name"
+    STR_NCOUNTRY            "Native Country Name"
+    STR_ACP                 "ACP"
+    STR_OEMCP               "OEM CP"
+    IDS_RESTART             "The UI language changes will be affective after you restart this application."
+    IDS_NLSWEB              "http://www.microsoft.com/globaldev/nlsweb/default.asp?submitted="
+    IDS_MUIWEB              "http://www.microsoft.com/globaldev/articles/muiapp.asp"
+    IDS_GLOBALDEV           "http://www.microsoft.com/globaldev/"
+    IDS_MULTILINGUAL        "http://www.microsoft.com/globaldev/articles/multilang.asp"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

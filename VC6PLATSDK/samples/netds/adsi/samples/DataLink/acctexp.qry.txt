@@ -1,0 +1,11 @@
+SELECT givenName, 
+            sn, 
+            telephoneNumber, 
+            userPrincipalName, 
+            physicalDeliveryOfficeName 
+FROM  'GC://DC=activeds,DC=nttest,DC=microsoft,DC=com' 
+WHERE
+        objectCategory='organizationalPerson' 
+AND objectClass='user' 
+AND department = '1024' 
+AND accountExpires < 125596224000000000

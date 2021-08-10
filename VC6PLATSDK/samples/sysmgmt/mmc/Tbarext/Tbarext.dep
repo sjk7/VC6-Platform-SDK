@@ -1,0 +1,37 @@
+# Microsoft Developer Studio Generated Dependency File, included by tbarext.mak
+
+.\about.cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	
+
+.\basesnap.cpp : \
+	".\About.h"\
+	".\BaseSnap.h"\
+	".\extend.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TBarExt.h"\
+	
+
+.\registry.cpp : \
+	".\extend.h"\
+	".\Globals.h"\
+	".\Registry.h"\
+	
+
+.\TBarExt.cpp : \
+	".\Globals.h"\
+	".\TBarExt.h"\
+	
+
+.\resource.rc : \
+	".\lgbmp.bmp"\
+	".\lgicons.bmp"\
+	".\smbmp.bmp"\
+	".\smicons.bmp"\
+	".\smopen.bmp"\
+	".\snapin.ico"\
+	".\toolbar1.bmp"\
+	

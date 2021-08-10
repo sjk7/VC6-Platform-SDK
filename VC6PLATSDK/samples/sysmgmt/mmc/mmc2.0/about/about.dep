@@ -1,0 +1,74 @@
+# Microsoft Developer Studio Generated Dependency File, included by about.mak
+
+.\About.cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	
+
+.\BaseSnap.cpp : \
+	".\About.h"\
+	".\BaseNode.h"\
+	".\BaseSnap.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\Comp.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\Globals.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\CompData.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\Globals.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\DataObj.cpp : \
+	".\BaseNode.h"\
+	".\DataObj.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\StaticNode.h"\
+	
+
+.\Globals.cpp : \
+	".\Globals.h"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\StaticNode.cpp : \
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\StaticNode.h"\
+	
+
+.\TraceMacro.cpp : \
+	".\Globals.h"\
+	".\TraceMacro.h"\
+	
+
+.\Resource.rc : \
+	".\Res\AppImg16.bmp"\
+	".\Res\AppImg32.bmp"\
+	".\Res\Snapin.ico"\
+	

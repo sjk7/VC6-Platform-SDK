@@ -1,0 +1,234 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+//////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+//////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+//////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE
+BEGIN
+    "1 TYPELIB ""MyStorageResource.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+//////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "MyStorageResource Module\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "MyStorageResource\0"
+            VALUE "LegalCopyright", "Copyright 2003\0"
+            VALUE "OriginalFilename", "MyStorageResource.DLL\0"
+            VALUE "ProductName", "MyStorageResource Module\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "OLESelfRegister", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_CEnumStorageResource    REGISTRY DISCARDABLE    "CEnumStorageResource.rgs"
+IDR_CStorageResource        REGISTRY DISCARDABLE    "CStorageResource.rgs"
+IDR_CStorageResType         REGISTRY DISCARDABLE    "CStorageResType.rgs"
+IDR_CPartitionInfo          REGISTRY DISCARDABLE    "CPartitionInfo.rgs"
+
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_PROJNAME                    "MyStorageResource"
+    IDS_ENUMSTORAGERESOURCE_DESC    "CEnumStorageResource Class"
+    IDS_STORAGERESOURCE_DESC        "CStorageResource Class"
+    IDS_PARTITIONINFO_DESC          "CStoragePartition Class"
+    IDS_STORAGERESTYPE_DESC         "CStorageResType Class"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_RESTYPE_DISPLAYNAME         "Physical Disk"
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_DISK                    "MyDisk"
+    IDS_GPT                     "GPT"
+    IDS_LDM                     "LOGICAL DISK MANAGER"
+    IDS_ERROR_NULL_POINTER      "A NULL pointer argument was used."
+    IDS_ERROR_NULL_POINTER_REF  "Cluster configuration cannot continue. A NULL pointer argument was used."
+    IDS_ERROR_INVALIDARG        "One or more arguments are invalid."
+    IDS_ERROR_INVALIDARG_REF    "Cluster configuration cannot continue. An invalid argument was used."
+    IDS_ERROR_OUTOFMEMORY       "Your computer is running low on resources. Quit any open programs, and then try again."
+    IDS_ERROR_OUTOFMEMORY_REF   "Cluster configuration cannot continue because insufficient memory is available. Quit any open programs and try again."
+    IDS_ERROR_NO_INTERFACE      "The '%1!ws!' interface is not supported by this object."
+
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_RESOURCE_DESCRIPTION    "Created by '%1!ws!'."
+    IDS_CONFIGURING_RESTYPE     "Configuring the '%1!ws!' resource type."
+    IDS_CONFIGURING_RESTYPE_FAILED
+                                "Configuration of the '%1!ws!' resource type failed."
+    IDS_CONFIGURED_RESTYPE      "Successfully created resource type '%1!ws!' with display name '%2!ws!' and dll name '%3!ws!."
+    IDS_CONFIGURED_EXTENSION    "Successfully registered the extension dll for resource type '%1!ws!'."
+    IDS_ERROR_GETCOMPUTERNAME_FAILED
+                                "Could not retrieve the local computer name."
+END
+
+STRINGTABLE DISCARDABLE
+BEGIN
+    IDS_WARN_DISK_NOT_NTFS                              "The disk ""%1!ws!"" cannot be used in the cluster because it is not formatted with the NTFS file system."
+    IDS_WARN_DISK_NOT_NTFS_REF                          "This disk is not formatted with the NTFS file system and cannot be used in the cluster. If you want to use this disk, reformat it with the NTFS file system."
+
+    IDS_WARN_BOOT_PARTITION_NOT_NTFS                    "The disk volume on which the operating system is installed is not an NTFS file system volume."
+    IDS_WARN_BOOT_PARTITION_NOT_NTFS_REF                "It is recommended that the system disk on all cluster nodes be formated with the NTFS file system. The NTFS file system is more recoverable, secure, and reliable than other file systems (such as FAT32)."
+
+    IDS_INFO_PRUNING_PAGEFILEDISK_BUS                   "Looking for disks on the same storage bus as page files..."
+    IDS_INFO_PAGEFILEDISK_PRUNED                        "The disk ""%1!ws!"" cannot be managed because it is on the same storage bus as a page file disk."
+    IDS_INFO_PAGEFILEDISK_PRUNED_REF                    "The cluster cannot manage disks that are on the same storage bus as volumes containing paging files because other nodes connected to the storage bus cannot distinguish between these volumes and volumes used for data."
+
+    IDS_INFO_PRUNING_BOOTDISK_BUS                       "Looking for disks on the same storage bus as the boot disk..."
+    IDS_INFO_BOOTDISK_PRUNED                            "The disk ""%1!ws!"" cannot be managed because it is on the same storage bus as the boot disk."
+    IDS_INFO_BOOTDISK_PRUNED_REF                        "The cluster cannot manage disks that are on the same storage bus as the volume that contains the operating system because other nodes connected to the storage bus cannot distinguish between these volumes and volumes used for data."
+
+    IDS_INFO_PRUNING_SYSTEMDISK_BUS                     "Looking for disks on the same storage bus as the system disk..."
+    IDS_INFO_SYSTEMDISK_PRUNED                          "The disk ""%1!ws!"" cannot be managed because it is on the same storage bus as the sysem disk."
+    IDS_INFO_SYSTEMDISK_PRUNED_REF                      "The cluster cannot manage disks that are on the same storage bus as the boot volume because other nodes connected to the storage bus cannot distinguish between these disks and disks used for data."
+
+    IDS_INFO_PRUNING_CRASHDUMP_BUS                      "Looking for disks on the same storage bus as the crash dump disk..."
+    IDS_INFO_CRASHDUMPDISK_PRUNED                       "The disk ""%1!ws!"" cannot be managed because it is on the same storage bus as the crash dump disk."
+    IDS_INFO_CRASHDUMPDISK_PRUNED_REF                   "The cluster cannot manage disks that are on the same storage bus as the crash dump disk because other nodes connected to the storage bus cannot distinguish between these disks and disks used for data."
+
+    IDS_INFO_NON_SCSI_DISKS                             "The following disks will not be managed by the cluster:"
+    IDS_INFO_NON_SCSI_DISKS_REF                         "The cluster can only manage those disks that are connected to a shared storage bus using the SCSI protocol. All other types of disks (such as IDE, 1394, and USB) will not be managed by the cluster."
+
+    IDS_INFO_GPT_DISK                                   "The disk ""%1!ws! (%2!ws!)"" contains GPT partitions and cannot be managed in a cluster."
+    IDS_INFO_GPT_DISK_REF                               "GPT disks cannot be used in a cluster. If you want to use GPT disks, convert them to MBR disks, create a basic partition, and format with the NTFS file system."
+
+    IDS_ERROR_FOUND_NON_SCSI_DISK                       "The disk ""%1!ws!"" is not a SCSI disk and will not be managed by the cluster."
+    IDS_ERROR_FOUND_NON_SCSI_DISK_REF                   "The cluster can only use those disks that are connected to a shared storage bus using the SCSI protocol. All other types of disks (e.g. IDE, 1394, and USB) will not be managed by the cluster."
+
+    IDS_ERROR_LDM_DISK                                  "The disk ""%1!ws! (%2!ws!)"" contains a dynamic volume and cannot be managed in a cluster."
+    IDS_ERROR_LDM_DISK_REF                              "Dynamic disks cannot be used in a cluster. To use this disk in a cluster, revert it to a basic disk, create a new partition, and reformat with the NTFS file system."
+
+    IDS_INFO_DISK_PRECREATE                             "Creating %1!ws! resource ""%2!ws!""..."
+    IDS_INFO_DISK_CREATE                                "Created %1!ws! resource ""%2!ws!""..."
+
+    IDS_ERROR_DISK_SIGNATURE                            "Windows could not obtain the signature for %1!ws! resource ""%2!ws!""."
+    IDS_ERROR_DISK_SIGNATURE_REF                        "Cluster configuration cannot continue. This managed disk does not have a valid signature. Ensure that this disk contains a valid basic volume and has been formatted with the NTFS file system."
+
+    IDS_ERROR_DISK_CLUSTER_CAPABLE                      "Could not determine if the disk ""%1!ws!"" on SCSI port ""%2!d!"" is cluster capable."
+    IDS_ERROR_DISK_CLUSTER_CAPABLE_REF                  "Additional information about this failure can be found in the ClCfgSrv.log file."
+
+    IDS_INFO_DISK_CLUSTER_CAPABLE                       "Disk were found that are not cluster capable and they will not be added to the cluster."
+    IDS_INFO_DISK_NOT_CLUSTER_CAPABLE                   "The disk ""%1!ws!"" is not cluster-capable."
+    IDS_INFO_DISK_NOT_CLUSTER_CAPABLE_REF               "This disk is not cluster-capable and cannot be used by the cluster. Some managed disks are not cluster-capable by default and require a custom resource type to use them in a cluster."
+
+    IDS_ERROR_DISK_NO_FILE_SYSTEM                       "The disk ""%1!ws!"" must be formatted in order to be managed."
+    IDS_ERROR_DISK_NO_FILE_SYSTEM_REF                   "The cluster configuration server cannot manage unformatted disks. Format the disk, and then use Cluster Administrator to add it to the cluster manually."
+
+    IDS_ERROR_WMI_GET_LOGICALDISK_FAILED                "The information for the logical disk ""%1!ws!"" could not be retrieved."
+    IDS_ERROR_WMI_GET_LOGICALDISK_FAILED_REF            "Cluster configuration cannot continue. The Windows Management Instrumentation (WMI) query (for the logical disk information) has failed. Stop and restart the Windows Management Instrumentation (winmgmt) service on this node and try again. If the problem persists, reboot this node and try again."
+
+    IDS_ERROR_WMI_DISKDRIVEPARTITIONS_QRY_FAILED        "The query for the information about the partitions of resource ""%1!ws!"" failed."
+    IDS_ERROR_WMI_DISKDRIVEPARTITIONS_QRY_FAILED_REF    "Cluster configuration cannot continue. The Windows Management Instrumentation (WMI) query (to locate the partitions of the managed disk on this node) has failed. Stop and restart the Windows Management Instrumentation (winmgmt) service on this node and try again. If the problem persists, reboot this node and try again."
+
+    IDS_ERROR_WQL_QRY_NEXT_FAILED                       "Could not get information from the WMI query ""%1!ws!""."
+    IDS_ERROR_WQL_QRY_NEXT_FAILED_REF                   "Cluster configuration cannot continue because it could not obtain some elements of a Windows Management Instrumentation (WMI) query on this node. Stop and restart the Windows Management Instrumentation (winmgmt) service on this node and try again. If the problem persists, reboot this node and try again."
+
+    IDS_ERROR_WMI_DISKS_QRY_FAILED                      "The query for the managed disk's information failed."
+    IDS_ERROR_WMI_DISKS_QRY_FAILED_REF                  "Cluster configuration cannot continue. The Windows Management Instrumentation (WMI) query (to locate the physical disks on this node) has failed. Stop and restart the Windows Management Instrumentation (winmgmt) service on this node and try again. If the problem persists, reboot this node and try again."
+
+    IDS_ERROR_WBEM_CONNECTION_FAILURE                   "A connection with the Windows Management Instrumentation service could not be established."
+    IDS_ERROR_WBEM_CONNECTION_FAILURE_REF               "Cluster configuration cannot continue. A connection with the Windows Management Instrumentation service cannot be made on this node. Stop and restart the Windows Management Instrumentation (winmgmt) service on this node and try again. If the problem persists, reboot this node and try again."
+
+END
+
+#endif    // English (U.S.) resources
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+//////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "MyStorageResource.tlb"
+
+//////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

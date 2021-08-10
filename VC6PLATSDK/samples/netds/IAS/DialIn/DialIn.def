@@ -1,0 +1,9 @@
+; dialin.def : Declares the module parameters.
+
+LIBRARY      "dialin.dll"
+
+VERSION 1.0
+
+EXPORTS
+	RadiusExtensionInit      PRIVATE
+	RadiusExtensionProcess   PRIVATE

@@ -1,0 +1,3245 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (88fb913a).
+//
+// msrdo20.tli
+//
+// Wrapper implementations for Win32 type library msrdo20.dll
+// compiler-generated file created 05/13/99 at 12:51:29 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface _rdoEngine wrapper method implementations
+//
+
+inline long _rdoEngine::GetrdoDefaultLoginTimeout ( ) {
+    long _result;
+    HRESULT _hr = get_rdoDefaultLoginTimeout(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoEngine::PutrdoDefaultLoginTimeout ( long Value ) {
+    HRESULT _hr = put_rdoDefaultLoginTimeout(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoEngine::GetrdoDefaultUser ( ) {
+    BSTR _result;
+    HRESULT _hr = get_rdoDefaultUser(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoEngine::PutrdoDefaultUser ( _bstr_t Value ) {
+    HRESULT _hr = put_rdoDefaultUser(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoEngine::GetrdoDefaultPassword ( ) {
+    BSTR _result;
+    HRESULT _hr = get_rdoDefaultPassword(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoEngine::PutrdoDefaultPassword ( _bstr_t Value ) {
+    HRESULT _hr = put_rdoDefaultPassword(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline rdoEnvironmentsPtr _rdoEngine::GetrdoEnvironments ( ) {
+    struct rdoEnvironments * _result;
+    HRESULT _hr = get_rdoEnvironments(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoEnvironmentsPtr(_result, false);
+}
+
+inline rdoErrorsPtr _rdoEngine::GetrdoErrors ( ) {
+    struct rdoErrors * _result;
+    HRESULT _hr = get_rdoErrors(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoErrorsPtr(_result, false);
+}
+
+inline _bstr_t _rdoEngine::GetrdoVersion ( ) {
+    BSTR _result;
+    HRESULT _hr = get_rdoVersion(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline enum CursorDriverConstants _rdoEngine::GetrdoDefaultCursorDriver ( ) {
+    enum CursorDriverConstants _result;
+    HRESULT _hr = get_rdoDefaultCursorDriver(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoEngine::PutrdoDefaultCursorDriver ( enum CursorDriverConstants Value ) {
+    HRESULT _hr = put_rdoDefaultCursorDriver(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoEngine::GetrdoDefaultErrorThreshold ( ) {
+    long _result;
+    HRESULT _hr = get_rdoDefaultErrorThreshold(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoEngine::PutrdoDefaultErrorThreshold ( long Value ) {
+    HRESULT _hr = put_rdoDefaultErrorThreshold(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _rdoEngine::rdoRegisterDataSource ( _bstr_t DSN, _bstr_t Driver, VARIANT_BOOL Silent, _bstr_t Attributes ) {
+    HRESULT _hr = raw_rdoRegisterDataSource(DSN, Driver, Silent, Attributes);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoEnvironmentPtr _rdoEngine::rdoCreateEnvironment ( _bstr_t Name, _bstr_t User, _bstr_t Password ) {
+    struct _rdoEnvironment * _result;
+    HRESULT _hr = raw_rdoCreateEnvironment(Name, User, Password, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoEnvironmentPtr(_result, false);
+}
+
+inline enum rdoLocaleIDConstants _rdoEngine::GetrdoLocaleID ( ) {
+    enum rdoLocaleIDConstants _result;
+    HRESULT _hr = get_rdoLocaleID(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoEngine::PutrdoLocaleID ( enum rdoLocaleIDConstants Value ) {
+    HRESULT _hr = put_rdoLocaleID(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoEngine::GetrdoDefaultUserA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_rdoDefaultUserA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoEngine::PutrdoDefaultUserA ( _bstr_t Value ) {
+    HRESULT _hr = put_rdoDefaultUserA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoEngine::GetrdoDefaultPasswordA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_rdoDefaultPasswordA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoEngine::PutrdoDefaultPasswordA ( _bstr_t Value ) {
+    HRESULT _hr = put_rdoDefaultPasswordA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoEngine::GetrdoVersionA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_rdoVersionA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _rdoEngine::rdoRegisterDataSourceA ( _bstr_t DSN, _bstr_t Driver, VARIANT_BOOL Silent, _bstr_t Attributes ) {
+    HRESULT _hr = raw_rdoRegisterDataSourceA(DSN, Driver, Silent, Attributes);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoEnvironmentPtr _rdoEngine::rdoCreateEnvironmentA ( _bstr_t Name, _bstr_t User, _bstr_t Password ) {
+    struct _rdoEnvironment * _result;
+    HRESULT _hr = raw_rdoCreateEnvironmentA(Name, User, Password, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoEnvironmentPtr(_result, false);
+}
+
+inline HRESULT _rdoEngine::SetGlobalDebugMode ( IUnknown * pDebugger, VARIANT_BOOL fDebuggingOn ) {
+    HRESULT _hr = raw_SetGlobalDebugMode(pDebugger, fDebuggingOn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL _rdoEngine::IsGlobalDebugMode ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_IsGlobalDebugMode(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+//
+// dispinterface rdoEngineEvents wrapper method implementations
+//
+
+inline HRESULT rdoEngineEvents::InfoMessage ( ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+//
+// interface rdoError wrapper method implementations
+//
+
+inline long rdoError::GetNumber ( ) {
+    long _result;
+    HRESULT _hr = get_Number(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t rdoError::GetSource ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Source(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoError::GetDescription ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Description(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long rdoError::GetHelpContext ( ) {
+    long _result;
+    HRESULT _hr = get_HelpContext(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t rdoError::GetHelpFile ( ) {
+    BSTR _result;
+    HRESULT _hr = get_HelpFile(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoError::GetSQLState ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SQLState(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long rdoError::GetSQLRetcode ( ) {
+    long _result;
+    HRESULT _hr = get_SQLRetcode(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t rdoError::GetSourceA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SourceA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoError::GetDescriptionA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_DescriptionA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoError::GetHelpFileA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_HelpFileA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoError::GetSQLStateA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SQLStateA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface _rdoConnection wrapper method implementations
+//
+
+inline long _rdoConnection::GetQueryTimeout ( ) {
+    long _result;
+    HRESULT _hr = get_QueryTimeout(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoConnection::PutQueryTimeout ( long Value ) {
+    HRESULT _hr = put_QueryTimeout(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline rdoTablesPtr _rdoConnection::GetrdoTables ( ) {
+    struct rdoTables * _result;
+    HRESULT _hr = get_rdoTables(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoTablesPtr(_result, false);
+}
+
+inline rdoPreparedStatementsPtr _rdoConnection::GetrdoPreparedStatements ( ) {
+    struct rdoPreparedStatements * _result;
+    HRESULT _hr = get_rdoPreparedStatements(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementsPtr(_result, false);
+}
+
+inline rdoResultsetsPtr _rdoConnection::GetrdoResultsets ( ) {
+    struct rdoResultsets * _result;
+    HRESULT _hr = get_rdoResultsets(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoResultsetsPtr(_result, false);
+}
+
+inline _bstr_t _rdoConnection::GetConnect ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Connect(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoConnection::PutConnect ( _bstr_t Value ) {
+    HRESULT _hr = put_Connect(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoConnection::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoConnection::PutName ( _bstr_t Value ) {
+    HRESULT _hr = put_Name(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoConnection::GetRowsAffected ( ) {
+    long _result;
+    HRESULT _hr = get_RowsAffected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoConnection::GetTransactions ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Transactions(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoConnection::GetUpdatable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Updatable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _rdoConnection::GetVersion ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Version(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long _rdoConnection::GethDbc ( ) {
+    long _result;
+    HRESULT _hr = get_hDbc(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoConnection::GetStillExecuting ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_StillExecuting(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoConnection::GetAsyncCheckInterval ( ) {
+    long _result;
+    HRESULT _hr = get_AsyncCheckInterval(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoConnection::PutAsyncCheckInterval ( long Value ) {
+    HRESULT _hr = put_AsyncCheckInterval(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _rdoConnection::Close ( ) {
+    HRESULT _hr = raw_Close();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoConnection::Execute ( _bstr_t Source, const _variant_t & Options ) {
+    HRESULT _hr = raw_Execute(Source, Options);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoResultsetPtr _rdoConnection::OpenResultset ( _bstr_t Name, const _variant_t & Type, const _variant_t & LockType, const _variant_t & Options ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = raw_OpenResultset(Name, Type, LockType, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline rdoPreparedStatementPtr _rdoConnection::CreatePreparedStatement ( _bstr_t Name, const _variant_t & SqlString ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = raw_CreatePreparedStatement(Name, SqlString, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+inline HRESULT _rdoConnection::BeginTrans ( ) {
+    HRESULT _hr = raw_BeginTrans();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoConnection::CommitTrans ( ) {
+    HRESULT _hr = raw_CommitTrans();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoConnection::RollbackTrans ( ) {
+    HRESULT _hr = raw_RollbackTrans();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoConnection::Cancel ( ) {
+    HRESULT _hr = raw_Cancel();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoResultsetPtr _rdoConnection::GetLastQueryResults ( ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = get_LastQueryResults(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline enum CursorDriverConstants _rdoConnection::GetCursorDriver ( ) {
+    enum CursorDriverConstants _result;
+    HRESULT _hr = get_CursorDriver(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoConnection::PutCursorDriver ( enum CursorDriverConstants Value ) {
+    HRESULT _hr = put_CursorDriver(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoConnection::GetLoginTimeout ( ) {
+    long _result;
+    HRESULT _hr = get_LoginTimeout(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoConnection::PutLoginTimeout ( long Value ) {
+    HRESULT _hr = put_LoginTimeout(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _rdoConnection::EstablishConnection ( const _variant_t & Prompt, const _variant_t & Readonly, const _variant_t & Options ) {
+    HRESULT _hr = raw_EstablishConnection(Prompt, Readonly, Options);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL _rdoConnection::GetStillConnecting ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_StillConnecting(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline rdoPreparedStatementPtr _rdoConnection::CreateQuery ( _bstr_t Name, const _variant_t & SqlString ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = raw_CreateQuery(Name, SqlString, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+inline rdoQueriesPtr _rdoConnection::GetrdoQueries ( ) {
+    struct rdoQueries * _result;
+    HRESULT _hr = get_rdoQueries(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoQueriesPtr(_result, false);
+}
+
+inline _bstr_t _rdoConnection::GetLogMessages ( ) {
+    BSTR _result;
+    HRESULT _hr = get_LogMessages(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoConnection::PutLogMessages ( _bstr_t Value ) {
+    HRESULT _hr = put_LogMessages(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _rdoEnvironmentPtr _rdoConnection::GetOwner ( ) {
+    struct _rdoEnvironment * _result;
+    HRESULT _hr = get_Owner(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoEnvironmentPtr(_result, false);
+}
+
+inline _bstr_t _rdoConnection::GetConnectA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_ConnectA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _rdoConnection::GetNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _rdoConnection::GetVersionA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_VersionA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _rdoConnection::ExecuteA ( _bstr_t Source, const _variant_t & Options ) {
+    HRESULT _hr = raw_ExecuteA(Source, Options);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoResultsetPtr _rdoConnection::OpenResultsetA ( _bstr_t Name, const _variant_t & Type, const _variant_t & LockType, const _variant_t & Options ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = raw_OpenResultsetA(Name, Type, LockType, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline rdoPreparedStatementPtr _rdoConnection::CreateQueryA ( _bstr_t Name, const _variant_t & SqlString ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = raw_CreateQueryA(Name, SqlString, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+inline _rdoResultsetPtr _rdoConnection::DaoOpenResultsetA ( _bstr_t Name, const _variant_t & Type, const _variant_t & LockType, const _variant_t & Options ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = raw_DaoOpenResultsetA(Name, Type, LockType, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+//
+// dispinterface rdoConnectionEvents wrapper method implementations
+//
+
+inline HRESULT rdoConnectionEvents::Connect ( VARIANT_BOOL ErrorOccurred ) {
+    return _com_dispatch_method(this, 0x2, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x000b", ErrorOccurred);
+}
+
+inline HRESULT rdoConnectionEvents::BeforeConnect ( BSTR * ConnectString, VARIANT * Prompt ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x4008\x400c", ConnectString, Prompt);
+}
+
+inline HRESULT rdoConnectionEvents::Disconnect ( ) {
+    return _com_dispatch_method(this, 0x3, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoConnectionEvents::QueryComplete ( struct rdoPreparedStatement * Query, VARIANT_BOOL ErrorOccurred ) {
+    return _com_dispatch_method(this, 0x4, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009\x000b", Query, ErrorOccurred);
+}
+
+inline HRESULT rdoConnectionEvents::QueryTimeout ( struct rdoPreparedStatement * Query, VARIANT_BOOL * Cancel ) {
+    return _com_dispatch_method(this, 0x5, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009\x400b", Query, Cancel);
+}
+
+inline HRESULT rdoConnectionEvents::WillExecute ( struct rdoPreparedStatement * Query, VARIANT_BOOL * Cancel ) {
+    return _com_dispatch_method(this, 0x6, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009\x400b", Query, Cancel);
+}
+
+//
+// interface _rdoColumn wrapper method implementations
+//
+
+inline _variant_t _rdoColumn::GetValue ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Value(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void _rdoColumn::PutValue ( const _variant_t & Value ) {
+    HRESULT _hr = put_Value(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum DataTypeConstants _rdoColumn::GetType ( ) {
+    enum DataTypeConstants _result;
+    HRESULT _hr = get_Type(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _rdoColumn::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoColumn::PutName ( _bstr_t Value ) {
+    HRESULT _hr = put_Name(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoColumn::GetSize ( ) {
+    long _result;
+    HRESULT _hr = get_Size(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoColumn::PutSize ( long Value ) {
+    HRESULT _hr = put_Size(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _rdoColumn::GetAllowZeroLength ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_AllowZeroLength(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoColumn::PutAllowZeroLength ( VARIANT_BOOL Value ) {
+    HRESULT _hr = put_AllowZeroLength(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum AttributeConstants _rdoColumn::GetAttributes ( ) {
+    enum AttributeConstants _result;
+    HRESULT _hr = get_Attributes(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoColumn::GetUpdatable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Updatable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoColumn::PutUpdatable ( VARIANT_BOOL Value ) {
+    HRESULT _hr = put_Updatable(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline short _rdoColumn::GetOrdinalPosition ( ) {
+    short _result;
+    HRESULT _hr = get_OrdinalPosition(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoColumn::GetRequired ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Required(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _rdoColumn::GetSourceColumn ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SourceColumn(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoColumn::PutSourceColumn ( _bstr_t Value ) {
+    HRESULT _hr = put_SourceColumn(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoColumn::GetSourceTable ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SourceTable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoColumn::PutSourceTable ( _bstr_t Value ) {
+    HRESULT _hr = put_SourceTable(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _rdoColumn::GetChunkRequired ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_ChunkRequired(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT _rdoColumn::AppendChunk ( const _variant_t & Chunk ) {
+    HRESULT _hr = raw_AppendChunk(Chunk);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t _rdoColumn::GetChunk ( long Size ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_GetChunk(Size, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline long _rdoColumn::ColumnSize ( ) {
+    long _result;
+    HRESULT _hr = raw_ColumnSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _rdoColumn::GetBatchConflictValue ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_BatchConflictValue(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t _rdoColumn::GetOriginalValue ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_OriginalValue(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline enum ColumnStatusConstants _rdoColumn::GetStatus ( ) {
+    enum ColumnStatusConstants _result;
+    HRESULT _hr = get_Status(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoColumn::PutStatus ( enum ColumnStatusConstants Value ) {
+    HRESULT _hr = put_Status(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _rdoColumn::GetKeyColumn ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_KeyColumn(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoColumn::PutKeyColumn ( VARIANT_BOOL Value ) {
+    HRESULT _hr = put_KeyColumn(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoColumn::GetVariantType ( ) {
+    long _result;
+    HRESULT _hr = get_VariantType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoColumn::GetCSize ( ) {
+    long _result;
+    HRESULT _hr = get_CSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _rdoColumn::GetValueA ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ValueA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void _rdoColumn::PutValueA ( const _variant_t & Value ) {
+    HRESULT _hr = put_ValueA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoColumn::GetNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _rdoColumn::GetSourceColumnA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SourceColumnA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoColumn::PutSourceColumnA ( _bstr_t Value ) {
+    HRESULT _hr = put_SourceColumnA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoColumn::GetSourceTableA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SourceTableA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoColumn::PutSourceTableA ( _bstr_t Value ) {
+    HRESULT _hr = put_SourceTableA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _rdoColumn::AppendChunkA ( const _variant_t & Chunk ) {
+    HRESULT _hr = raw_AppendChunkA(Chunk);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t _rdoColumn::GetChunkA ( long Size ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_GetChunkA(Size, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline long _rdoColumn::GetFoxAttributes ( ) {
+    long _result;
+    HRESULT _hr = get_FoxAttributes(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _rdoColumn::GetFoxSourceTable ( ) {
+    BSTR _result;
+    HRESULT _hr = get_FoxSourceTable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline short _rdoColumn::GetFoxType ( ) {
+    short _result;
+    HRESULT _hr = get_FoxType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoColumn::GetFoxPrecision ( ) {
+    long _result;
+    HRESULT _hr = get_FoxPrecision(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline short _rdoColumn::GetFoxScale ( ) {
+    short _result;
+    HRESULT _hr = get_FoxScale(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoColumn::GetFoxMoney ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_FoxMoney(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoColumn::GetFoxAllowZeroLength ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_FoxAllowZeroLength(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoColumn::GetFoxSize ( ) {
+    long _result;
+    HRESULT _hr = get_FoxSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline short _rdoColumn::GetFoxOrdinalPosition ( ) {
+    short _result;
+    HRESULT _hr = get_FoxOrdinalPosition(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _rdoColumn::GetBatchConflictValueA ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_BatchConflictValueA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t _rdoColumn::GetOriginalValueA ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_OriginalValueA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+//
+// dispinterface rdoColumnEvents wrapper method implementations
+//
+
+inline HRESULT rdoColumnEvents::DataChanged ( ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoColumnEvents::WillChangeData ( VARIANT * newvalue, VARIANT_BOOL * Cancel ) {
+    return _com_dispatch_method(this, 0x2, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x400c\x400b", newvalue, Cancel);
+}
+
+//
+// interface rdoTable wrapper method implementations
+//
+
+inline rdoColumnsPtr rdoTable::GetrdoColumns ( ) {
+    struct rdoColumns * _result;
+    HRESULT _hr = get_rdoColumns(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoColumnsPtr(_result, false);
+}
+
+inline _bstr_t rdoTable::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline VARIANT_BOOL rdoTable::GetUpdatable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Updatable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long rdoTable::GetRowCount ( ) {
+    long _result;
+    HRESULT _hr = get_RowCount(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t rdoTable::GetType ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Type(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _rdoResultsetPtr rdoTable::OpenResultset ( const _variant_t & Type, const _variant_t & LockType, const _variant_t & Options ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = raw_OpenResultset(Type, LockType, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline _bstr_t rdoTable::GetNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoTable::GetTypeA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_TypeA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// interface _rdoResultset wrapper method implementations
+//
+
+inline _variant_t _rdoResultset::GetBookmark ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Bookmark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void _rdoResultset::PutBookmark ( const _variant_t & Value ) {
+    HRESULT _hr = put_Bookmark(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline rdoColumnsPtr _rdoResultset::GetrdoColumns ( ) {
+    struct rdoColumns * _result;
+    HRESULT _hr = get_rdoColumns(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoColumnsPtr(_result, false);
+}
+
+inline VARIANT_BOOL _rdoResultset::GetBOF ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_BOF(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoResultset::GetBookmarkable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Bookmarkable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoResultset::GetrdoEOF ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_rdoEOF(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoResultset::GetLockEdits ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_LockEdits(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _rdoResultset::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoResultset::PutName ( _bstr_t Value ) {
+    HRESULT _hr = put_Name(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _rdoResultset::GetTransactions ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Transactions(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline enum ResultsetTypeConstants _rdoResultset::GetType ( ) {
+    enum ResultsetTypeConstants _result;
+    HRESULT _hr = get_Type(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoResultset::GetRowCount ( ) {
+    long _result;
+    HRESULT _hr = get_RowCount(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoResultset::GetUpdatable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Updatable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoResultset::GetRestartable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Restartable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoResultset::GetEditMode ( ) {
+    long _result;
+    HRESULT _hr = get_EditMode(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline float _rdoResultset::GetPercentPosition ( ) {
+    float _result;
+    HRESULT _hr = get_PercentPosition(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutPercentPosition ( float Value ) {
+    HRESULT _hr = put_PercentPosition(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoResultset::GethStmt ( ) {
+    long _result;
+    HRESULT _hr = get_hStmt(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoResultset::GetAbsolutePosition ( ) {
+    long _result;
+    HRESULT _hr = get_AbsolutePosition(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutAbsolutePosition ( long Value ) {
+    HRESULT _hr = put_AbsolutePosition(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _rdoResultset::GetStillExecuting ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_StillExecuting(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _rdoResultset::GetLastModified ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_LastModified(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline long _rdoResultset::GetBatchSize ( ) {
+    long _result;
+    HRESULT _hr = get_BatchSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutBatchSize ( long Value ) {
+    HRESULT _hr = put_BatchSize(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline short _rdoResultset::GetUpdateOperation ( ) {
+    short _result;
+    HRESULT _hr = get_UpdateOperation(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutUpdateOperation ( short Value ) {
+    HRESULT _hr = put_UpdateOperation(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline short _rdoResultset::GetUpdateCriteria ( ) {
+    short _result;
+    HRESULT _hr = get_UpdateCriteria(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutUpdateCriteria ( short Value ) {
+    HRESULT _hr = put_UpdateCriteria(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _rdoResultset::AddNew ( ) {
+    HRESULT _hr = raw_AddNew();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Close ( ) {
+    HRESULT _hr = raw_Close();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Delete ( ) {
+    HRESULT _hr = raw_Delete();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Edit ( ) {
+    HRESULT _hr = raw_Edit();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::MoveFirst ( ) {
+    HRESULT _hr = raw_MoveFirst();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::MoveLast ( const _variant_t & Options ) {
+    HRESULT _hr = raw_MoveLast(Options);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::MoveNext ( ) {
+    HRESULT _hr = raw_MoveNext();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::MovePrevious ( ) {
+    HRESULT _hr = raw_MovePrevious();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Update ( ) {
+    HRESULT _hr = raw_Update();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Requery ( const _variant_t & Options ) {
+    HRESULT _hr = raw_Requery(Options);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Move ( long Rows, const _variant_t & Start ) {
+    HRESULT _hr = raw_Move(Rows, Start);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL _rdoResultset::MoreResults ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_MoreResults(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT _rdoResultset::Cancel ( ) {
+    HRESULT _hr = raw_Cancel();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::CancelUpdate ( ) {
+    HRESULT _hr = raw_CancelUpdate();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t _rdoResultset::GetRows ( const _variant_t & NumRows ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_GetRows(NumRows, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline HRESULT _rdoResultset::BatchUpdate ( const _variant_t & SingleRow, const _variant_t & Force ) {
+    HRESULT _hr = raw_BatchUpdate(SingleRow, Force);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::CancelBatch ( const _variant_t & SingleRow ) {
+    HRESULT _hr = raw_CancelBatch(SingleRow);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoConnectionPtr _rdoResultset::GetActiveConnection ( ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = get_ActiveConnection(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline void _rdoResultset::PutRefActiveConnection ( struct _rdoConnection * pRet ) {
+    HRESULT _hr = putref_ActiveConnection(pRet);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoResultset::GetBatchCollisionCount ( ) {
+    long _result;
+    HRESULT _hr = get_BatchCollisionCount(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t _rdoResultset::GetBatchCollisionRows ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_BatchCollisionRows(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline enum LockTypeConstants _rdoResultset::GetLockType ( ) {
+    enum LockTypeConstants _result;
+    HRESULT _hr = get_LockType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutLockType ( enum LockTypeConstants Value ) {
+    HRESULT _hr = put_LockType(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum RowStatusConstants _rdoResultset::GetStatus ( ) {
+    enum RowStatusConstants _result;
+    HRESULT _hr = get_Status(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutStatus ( enum RowStatusConstants Value ) {
+    HRESULT _hr = put_Status(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoResultset::GetClipString ( long NumRows, const _variant_t & ColumnDelimiter, const _variant_t & RowDelimiter, const _variant_t & NullExpr ) {
+    BSTR _result;
+    HRESULT _hr = raw_GetClipString(NumRows, ColumnDelimiter, RowDelimiter, NullExpr, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline HRESULT _rdoResultset::IsKnownLastRow ( VARIANT_BOOL * pRetval ) {
+    HRESULT _hr = raw_IsKnownLastRow(pRetval);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::IsKnownFirstRow ( VARIANT_BOOL * pRetval ) {
+    HRESULT _hr = raw_IsKnownFirstRow(pRetval);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Advise ( IUnknown * pSink, long * pnCookie ) {
+    HRESULT _hr = raw_Advise(pSink, pnCookie);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::Unadvise ( long nCookie ) {
+    HRESULT _hr = raw_Unadvise(nCookie);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::FreezeNotifications ( VARIANT_BOOL Frozen ) {
+    HRESULT _hr = raw_FreezeNotifications(Frozen);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::FindByValues ( long bmk, IUnknown * pBmk, long lFF, long lV, IUnknown * rgColumns, IUnknown * rgValues, IUnknown * plSeekFlags, IUnknown * pvFetchParams ) {
+    HRESULT _hr = raw_FindByValues(bmk, pBmk, lFF, lV, rgColumns, rgValues, plSeekFlags, pvFetchParams);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoPreparedStatementPtr _rdoResultset::GetOwner ( ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = get_Owner(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+inline HRESULT _rdoResultset::RDCClose ( ) {
+    HRESULT _hr = raw_RDCClose();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _variant_t _rdoResultset::GetCollect ( const _variant_t & Index ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Collect(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void _rdoResultset::PutCollect ( const _variant_t & Index, const _variant_t & pRetval ) {
+    HRESULT _hr = put_Collect(Index, pRetval);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoResultset::GetNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoResultset::PutNameA ( _bstr_t Value ) {
+    HRESULT _hr = put_NameA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t _rdoResultset::GetRowsA ( const _variant_t & NumRows ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_GetRowsA(NumRows, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline _variant_t _rdoResultset::GetCollectA ( const _variant_t & Index ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_CollectA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void _rdoResultset::PutCollectA ( const _variant_t & Index, const _variant_t & pRetval ) {
+    HRESULT _hr = put_CollectA(Index, pRetval);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _rdoResultset::Resync ( ) {
+    HRESULT _hr = raw_Resync();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline long _rdoResultset::GetFoxpCursor ( ) {
+    long _result;
+    HRESULT _hr = get_FoxpCursor(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL _rdoResultset::GetFoxBOF ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_FoxBOF(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxBOF ( VARIANT_BOOL pbBOF ) {
+    HRESULT _hr = put_FoxBOF(pbBOF);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL _rdoResultset::GetFoxEOF ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_FoxEOF(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxEOF ( VARIANT_BOOL pbEOF ) {
+    HRESULT _hr = put_FoxEOF(pbEOF);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t _rdoResultset::GetFoxSQL ( ) {
+    BSTR _result;
+    HRESULT _hr = get_FoxSQL(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long _rdoResultset::GetFOxBindThreshold ( ) {
+    long _result;
+    HRESULT _hr = get_FOxBindThreshold(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline IDispatchPtr _rdoResultset::GetFoxQueryDefDisp ( ) {
+    IDispatch * _result;
+    HRESULT _hr = get_FoxQueryDefDisp(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline long _rdoResultset::GetFoxConcurrency ( ) {
+    long _result;
+    HRESULT _hr = get_FoxConcurrency(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long _rdoResultset::GetFoxCurrentRow ( ) {
+    long _result;
+    HRESULT _hr = get_FoxCurrentRow(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxCurrentRow ( long pnCurrentRow ) {
+    HRESULT _hr = put_FoxCurrentRow(pnCurrentRow);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoResultset::GetFoxRowsetStart ( ) {
+    long _result;
+    HRESULT _hr = get_FoxRowsetStart(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxRowsetStart ( long pnRowsetStart ) {
+    HRESULT _hr = put_FoxRowsetStart(pnRowsetStart);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoResultset::GetFoxRowsetDirection ( ) {
+    long _result;
+    HRESULT _hr = get_FoxRowsetDirection(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxRowsetDirection ( long pnRowsetDirect ) {
+    HRESULT _hr = put_FoxRowsetDirection(pnRowsetDirect);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoResultset::GetFoxCurrentRowsetSize ( ) {
+    long _result;
+    HRESULT _hr = get_FoxCurrentRowsetSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxCurrentRowsetSize ( long pnCurRowsetSize ) {
+    HRESULT _hr = put_FoxCurrentRowsetSize(pnCurRowsetSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoResultset::GetFoxMaxRowsetSize ( ) {
+    long _result;
+    HRESULT _hr = get_FoxMaxRowsetSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxMaxRowsetSize ( long pnMaxRowsetSize ) {
+    HRESULT _hr = put_FoxMaxRowsetSize(pnMaxRowsetSize);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoResultset::GetFoxRecordCount ( ) {
+    long _result;
+    HRESULT _hr = get_FoxRecordCount(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoResultset::PutFoxRecordCount ( long pnRecordCnt ) {
+    HRESULT _hr = put_FoxRecordCount(pnRecordCnt);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT _rdoResultset::FoxCreateErrorInfo ( long scode, long IdDecription, long IdHelp ) {
+    HRESULT _hr = raw_FoxCreateErrorInfo(scode, IdDecription, IdHelp);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoResultset::FoxCreateSQLErro ( long retcode, VARIANT_BOOL bCreateInfo, long hDbc, long hResults ) {
+    HRESULT _hr = raw_FoxCreateSQLErro(retcode, bCreateInfo, hDbc, hResults);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline long _rdoResultset::GetRDCLastActionState ( ) {
+    long _result;
+    HRESULT _hr = get_RDCLastActionState(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t _rdoResultset::GetClipStrCurrentRow ( const _variant_t & ColumnDelimiter, const _variant_t & RowDelimiter, const _variant_t & NullExpr ) {
+    BSTR _result;
+    HRESULT _hr = raw_GetClipStrCurrentRow(ColumnDelimiter, RowDelimiter, NullExpr, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+//
+// dispinterface rdoResultsetEvents wrapper method implementations
+//
+
+inline HRESULT rdoResultsetEvents::Associate ( ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoResultsetEvents::ResultsChanged ( ) {
+    return _com_dispatch_method(this, 0x2, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoResultsetEvents::Dissociate ( ) {
+    return _com_dispatch_method(this, 0x3, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoResultsetEvents::RowStatusChanged ( ) {
+    return _com_dispatch_method(this, 0x4, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoResultsetEvents::RowCurrencyChange ( ) {
+    return _com_dispatch_method(this, 0x5, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoResultsetEvents::WillAssociate ( struct _rdoConnection * Connection, VARIANT_BOOL * Cancel ) {
+    return _com_dispatch_method(this, 0x6, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x0009\x400b", Connection, Cancel);
+}
+
+inline HRESULT rdoResultsetEvents::WillDissociate ( VARIANT_BOOL * Cancel ) {
+    return _com_dispatch_method(this, 0x7, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x400b", Cancel);
+}
+
+inline HRESULT rdoResultsetEvents::WillUpdateRows ( short * ReturnCode ) {
+    return _com_dispatch_method(this, 0x8, DISPATCH_METHOD, VT_EMPTY, NULL, 
+        L"\x4002", ReturnCode);
+}
+
+//
+// interface rdoPreparedStatement wrapper method implementations
+//
+
+inline long rdoPreparedStatement::GetQueryTimeout ( ) {
+    long _result;
+    HRESULT _hr = get_QueryTimeout(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutQueryTimeout ( long Value ) {
+    HRESULT _hr = put_QueryTimeout(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum QueryTypeConstants rdoPreparedStatement::GetType ( ) {
+    enum QueryTypeConstants _result;
+    HRESULT _hr = get_Type(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline long rdoPreparedStatement::GetMaxRows ( ) {
+    long _result;
+    HRESULT _hr = get_MaxRows(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutMaxRows ( long Value ) {
+    HRESULT _hr = put_MaxRows(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long rdoPreparedStatement::GetBindThreshold ( ) {
+    long _result;
+    HRESULT _hr = get_BindThreshold(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutBindThreshold ( long Value ) {
+    HRESULT _hr = put_BindThreshold(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline rdoParametersPtr rdoPreparedStatement::GetrdoParameters ( ) {
+    struct rdoParameters * _result;
+    HRESULT _hr = get_rdoParameters(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoParametersPtr(_result, false);
+}
+
+inline _bstr_t rdoPreparedStatement::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void rdoPreparedStatement::PutName ( _bstr_t Value ) {
+    HRESULT _hr = put_Name(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long rdoPreparedStatement::GetRowsAffected ( ) {
+    long _result;
+    HRESULT _hr = get_RowsAffected(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t rdoPreparedStatement::GetSQL ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SQL(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void rdoPreparedStatement::PutSQL ( _bstr_t Value ) {
+    HRESULT _hr = put_SQL(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum LockTypeConstants rdoPreparedStatement::GetLockType ( ) {
+    enum LockTypeConstants _result;
+    HRESULT _hr = get_LockType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutLockType ( enum LockTypeConstants Value ) {
+    HRESULT _hr = put_LockType(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline rdoColumnsPtr rdoPreparedStatement::GetrdoColumns ( ) {
+    struct rdoColumns * _result;
+    HRESULT _hr = get_rdoColumns(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoColumnsPtr(_result, false);
+}
+
+inline long rdoPreparedStatement::GetKeysetSize ( ) {
+    long _result;
+    HRESULT _hr = get_KeysetSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutKeysetSize ( long Value ) {
+    HRESULT _hr = put_KeysetSize(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long rdoPreparedStatement::GetRowsetSize ( ) {
+    long _result;
+    HRESULT _hr = get_RowsetSize(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutRowsetSize ( long Value ) {
+    HRESULT _hr = put_RowsetSize(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long rdoPreparedStatement::GethStmt ( ) {
+    long _result;
+    HRESULT _hr = get_hStmt(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoPreparedStatement::GetStillExecuting ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_StillExecuting(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline enum ResultsetTypeConstants rdoPreparedStatement::GetCursorType ( ) {
+    enum ResultsetTypeConstants _result;
+    HRESULT _hr = get_CursorType(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutCursorType ( enum ResultsetTypeConstants Value ) {
+    HRESULT _hr = put_CursorType(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _rdoConnectionPtr rdoPreparedStatement::GetActiveConnection ( ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = get_ActiveConnection(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline void rdoPreparedStatement::PutRefActiveConnection ( struct _rdoConnection * pRet ) {
+    HRESULT _hr = putref_ActiveConnection(pRet);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline VARIANT_BOOL rdoPreparedStatement::GetPrepared ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Prepared(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutPrepared ( VARIANT_BOOL Value ) {
+    HRESULT _hr = put_Prepared(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t rdoPreparedStatement::GetLogMessages ( ) {
+    BSTR _result;
+    HRESULT _hr = get_LogMessages(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void rdoPreparedStatement::PutLogMessages ( _bstr_t Value ) {
+    HRESULT _hr = put_LogMessages(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoPreparedStatement::Close ( ) {
+    HRESULT _hr = raw_Close();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoPreparedStatement::Execute ( const _variant_t & Options ) {
+    HRESULT _hr = raw_Execute(Options);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoResultsetPtr rdoPreparedStatement::OpenResultset ( const _variant_t & Type, const _variant_t & LockType, const _variant_t & Options ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = raw_OpenResultset(Type, LockType, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline HRESULT rdoPreparedStatement::Cancel ( ) {
+    HRESULT _hr = raw_Cancel();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoConnectionPtr rdoPreparedStatement::GetOwner ( ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = get_Owner(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline _bstr_t rdoPreparedStatement::GetNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoPreparedStatement::GetSQLA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_SQLA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void rdoPreparedStatement::PutSQLA ( _bstr_t Value ) {
+    HRESULT _hr = put_SQLA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _bstr_t rdoPreparedStatement::GetLogMessagesA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_LogMessagesA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void rdoPreparedStatement::PutLogMessagesA ( _bstr_t Value ) {
+    HRESULT _hr = put_LogMessagesA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _rdoResultsetPtr rdoPreparedStatement::DaoOpenResultset ( const _variant_t & Type, const _variant_t & LockType, const _variant_t & Options ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = raw_DaoOpenResultset(Type, LockType, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline long rdoPreparedStatement::GetFoxMaxRows ( ) {
+    long _result;
+    HRESULT _hr = get_FoxMaxRows(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoPreparedStatement::GetUpdatable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Updatable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _bstr_t rdoPreparedStatement::GetConnect ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Connect(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t rdoPreparedStatement::GetConnectA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_ConnectA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline long rdoPreparedStatement::GetErrorThreshold ( ) {
+    long _result;
+    HRESULT _hr = get_ErrorThreshold(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatement::PutErrorThreshold ( long Value ) {
+    HRESULT _hr = put_ErrorThreshold(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface _rdoEnvironment wrapper method implementations
+//
+
+inline rdoConnectionsPtr _rdoEnvironment::GetrdoConnections ( ) {
+    struct rdoConnections * _result;
+    HRESULT _hr = get_rdoConnections(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoConnectionsPtr(_result, false);
+}
+
+inline _bstr_t _rdoEnvironment::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _rdoEnvironment::GetUserName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_UserName(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoEnvironment::PutUserName ( _bstr_t pRetval ) {
+    HRESULT _hr = put_UserName(pRetval);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline void _rdoEnvironment::PutPassword ( _bstr_t _arg1 ) {
+    HRESULT _hr = put_Password(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoEnvironment::GetLoginTimeout ( ) {
+    long _result;
+    HRESULT _hr = get_LoginTimeout(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoEnvironment::PutLoginTimeout ( long Value ) {
+    HRESULT _hr = put_LoginTimeout(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum CursorDriverConstants _rdoEnvironment::GetCursorDriver ( ) {
+    enum CursorDriverConstants _result;
+    HRESULT _hr = get_CursorDriver(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void _rdoEnvironment::PutCursorDriver ( enum CursorDriverConstants Value ) {
+    HRESULT _hr = put_CursorDriver(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long _rdoEnvironment::GethEnv ( ) {
+    long _result;
+    HRESULT _hr = get_hEnv(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline HRESULT _rdoEnvironment::BeginTrans ( ) {
+    HRESULT _hr = raw_BeginTrans();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoEnvironment::Close ( ) {
+    HRESULT _hr = raw_Close();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoEnvironment::CommitTrans ( ) {
+    HRESULT _hr = raw_CommitTrans();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT _rdoEnvironment::RollbackTrans ( ) {
+    HRESULT _hr = raw_RollbackTrans();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoConnectionPtr _rdoEnvironment::OpenConnection ( _bstr_t dsName, const _variant_t & Prompt, const _variant_t & Readonly, const _variant_t & Connect, const _variant_t & Options ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = raw_OpenConnection(dsName, Prompt, Readonly, Connect, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline _rdoConnectionPtr _rdoEnvironment::RDCOpenConnection ( _bstr_t dsName, const _variant_t & Prompt, const _variant_t & Readonly, const _variant_t & Connect ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = raw_RDCOpenConnection(dsName, Prompt, Readonly, Connect, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline _rdoEnginePtr _rdoEnvironment::GetOwner ( ) {
+    struct _rdoEngine * _result;
+    HRESULT _hr = raw_GetOwner(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoEnginePtr(_result, false);
+}
+
+inline _bstr_t _rdoEnvironment::GetNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline _bstr_t _rdoEnvironment::GetrdoUserNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_rdoUserNameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void _rdoEnvironment::PutrdoUserNameA ( _bstr_t pRetval ) {
+    HRESULT _hr = put_rdoUserNameA(pRetval);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline void _rdoEnvironment::PutPasswordA ( _bstr_t _arg1 ) {
+    HRESULT _hr = put_PasswordA(_arg1);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _rdoConnectionPtr _rdoEnvironment::OpenConnectionA ( _bstr_t dsName, const _variant_t & Prompt, const _variant_t & Readonly, const _variant_t & Connect, const _variant_t & Options ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = raw_OpenConnectionA(dsName, Prompt, Readonly, Connect, Options, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline _rdoConnectionPtr _rdoEnvironment::RDCOpenConnectionA ( _bstr_t dsName, const _variant_t & Prompt, const _variant_t & Readonly, const _variant_t & Connect ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = raw_RDCOpenConnectionA(dsName, Prompt, Readonly, Connect, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+//
+// dispinterface rdoEnvironmentEvents wrapper method implementations
+//
+
+inline HRESULT rdoEnvironmentEvents::BeginTrans ( ) {
+    return _com_dispatch_method(this, 0x1, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoEnvironmentEvents::CommitTrans ( ) {
+    return _com_dispatch_method(this, 0x2, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+inline HRESULT rdoEnvironmentEvents::RollbackTrans ( ) {
+    return _com_dispatch_method(this, 0x3, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
+}
+
+//
+// interface rdoParameter wrapper method implementations
+//
+
+inline _bstr_t rdoParameter::GetName ( ) {
+    BSTR _result;
+    HRESULT _hr = get_Name(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void rdoParameter::PutName ( _bstr_t Value ) {
+    HRESULT _hr = put_Name(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum DataTypeConstants rdoParameter::GetType ( ) {
+    enum DataTypeConstants _result;
+    HRESULT _hr = get_Type(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoParameter::PutType ( enum DataTypeConstants Value ) {
+    HRESULT _hr = put_Type(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t rdoParameter::GetValue ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_Value(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void rdoParameter::PutValue ( const _variant_t & Value ) {
+    HRESULT _hr = put_Value(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline enum DirectionConstants rdoParameter::GetDirection ( ) {
+    enum DirectionConstants _result;
+    HRESULT _hr = get_Direction(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoParameter::PutDirection ( enum DirectionConstants Value ) {
+    HRESULT _hr = put_Direction(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoParameter::AppendChunk ( const _variant_t & Chunk ) {
+    HRESULT _hr = raw_AppendChunk(Chunk);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _bstr_t rdoParameter::GetNameA ( ) {
+    BSTR _result;
+    HRESULT _hr = get_NameA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _bstr_t(_result, false);
+}
+
+inline void rdoParameter::PutNameA ( _bstr_t Value ) {
+    HRESULT _hr = put_NameA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline _variant_t rdoParameter::GetValueA ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = get_ValueA(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline void rdoParameter::PutValueA ( const _variant_t & Value ) {
+    HRESULT _hr = put_ValueA(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline long rdoParameter::GetSize ( ) {
+    long _result;
+    HRESULT _hr = get_Size(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoParameter::PutSize ( long Value ) {
+    HRESULT _hr = put_Size(Value);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+//
+// interface DualCollection wrapper method implementations
+//
+
+inline long DualCollection::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL DualCollection::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void DualCollection::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT DualCollection::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT DualCollection::Add ( IDispatch * pItem ) {
+    HRESULT _hr = raw_Add(pItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT DualCollection::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline IDispatchPtr DualCollection::GetItem ( const _variant_t & Index ) {
+    IDispatch * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline IUnknownPtr DualCollection::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT DualCollection::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT DualCollection::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline IDispatchPtr DualCollection::GetItemA ( const _variant_t & Index ) {
+    IDispatch * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IDispatchPtr(_result, false);
+}
+
+inline HRESULT DualCollection::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT DualCollection::Fox_GetNext ( long * pPos, IDispatch * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT DualCollection::Fox_GetPrev ( long * pPos, IDispatch * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT DualCollection::Fox_GetItem ( long Index, IDispatch * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoColumns wrapper method implementations
+//
+
+inline long rdoColumns::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoColumns::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoColumns::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoColumns::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoColumns::Add ( IDispatch * prdoColumn ) {
+    HRESULT _hr = raw_Add(prdoColumn);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoColumns::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoColumnPtr rdoColumns::GetItem ( const _variant_t & Index ) {
+    struct _rdoColumn * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoColumnPtr(_result, false);
+}
+
+inline IUnknownPtr rdoColumns::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoColumns::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoColumns::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoColumnPtr rdoColumns::GetItemA ( const _variant_t & Index ) {
+    struct _rdoColumn * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoColumnPtr(_result, false);
+}
+
+inline HRESULT rdoColumns::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoColumns::Fox_GetNext ( long * pPos, struct _rdoColumn * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoColumns::Fox_GetPrev ( long * pPos, struct _rdoColumn * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoColumns::Fox_GetItem ( long Index, struct _rdoColumn * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoTables wrapper method implementations
+//
+
+inline long rdoTables::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoTables::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoTables::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoTables::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoTables::Add ( IDispatch * prdoTable ) {
+    HRESULT _hr = raw_Add(prdoTable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoTables::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoTablePtr rdoTables::GetItem ( const _variant_t & Index ) {
+    struct rdoTable * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoTablePtr(_result, false);
+}
+
+inline IUnknownPtr rdoTables::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoTables::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoTables::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoTablePtr rdoTables::GetItemA ( const _variant_t & Index ) {
+    struct rdoTable * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoTablePtr(_result, false);
+}
+
+inline HRESULT rdoTables::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoTables::Fox_GetNext ( long * pPos, struct rdoTable * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoTables::Fox_GetPrev ( long * pPos, struct rdoTable * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoTables::Fox_GetItem ( long Index, struct rdoTable * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoConnections wrapper method implementations
+//
+
+inline long rdoConnections::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoConnections::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoConnections::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoConnections::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoConnections::Add ( struct _rdoConnection * prdoConnection ) {
+    HRESULT _hr = raw_Add(prdoConnection);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoConnections::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoConnectionPtr rdoConnections::GetItem ( const _variant_t & Index ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline IUnknownPtr rdoConnections::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoConnections::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoConnections::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoConnectionPtr rdoConnections::GetItemA ( const _variant_t & Index ) {
+    struct _rdoConnection * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoConnectionPtr(_result, false);
+}
+
+inline HRESULT rdoConnections::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoConnections::Fox_GetNext ( long * pPos, struct _rdoConnection * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoConnections::Fox_GetPrev ( long * pPos, struct _rdoConnection * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoConnections::Fox_GetItem ( long Index, struct _rdoConnection * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoParameters wrapper method implementations
+//
+
+inline long rdoParameters::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoParameters::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoParameters::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoParameters::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoParameters::Add ( IDispatch * prdoParameter ) {
+    HRESULT _hr = raw_Add(prdoParameter);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoParameters::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoParameterPtr rdoParameters::GetItem ( const _variant_t & Index ) {
+    struct rdoParameter * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoParameterPtr(_result, false);
+}
+
+inline IUnknownPtr rdoParameters::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoParameters::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoParameters::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoParameterPtr rdoParameters::GetItemA ( const _variant_t & Index ) {
+    struct rdoParameter * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoParameterPtr(_result, false);
+}
+
+inline HRESULT rdoParameters::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoParameters::Fox_GetNext ( long * pPos, struct rdoParameter * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoParameters::Fox_GetPrev ( long * pPos, struct rdoParameter * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoParameters::Fox_GetItem ( long Index, struct rdoParameter * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoResultsets wrapper method implementations
+//
+
+inline long rdoResultsets::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoResultsets::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoResultsets::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoResultsets::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoResultsets::Add ( IDispatch * prdoResultset ) {
+    HRESULT _hr = raw_Add(prdoResultset);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoResultsets::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoResultsetPtr rdoResultsets::GetItem ( const _variant_t & Index ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline IUnknownPtr rdoResultsets::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoResultsets::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoResultsets::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoResultsetPtr rdoResultsets::GetItemA ( const _variant_t & Index ) {
+    struct _rdoResultset * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoResultsetPtr(_result, false);
+}
+
+inline HRESULT rdoResultsets::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoResultsets::Fox_GetNext ( long * pPos, struct _rdoResultset * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoResultsets::Fox_GetPrev ( long * pPos, struct _rdoResultset * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoResultsets::Fox_GetItem ( long Index, struct _rdoResultset * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoEnvironments wrapper method implementations
+//
+
+inline long rdoEnvironments::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoEnvironments::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoEnvironments::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoEnvironments::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoEnvironments::Add ( struct _rdoEnvironment * prdoEnvironment ) {
+    HRESULT _hr = raw_Add(prdoEnvironment);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoEnvironments::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoEnvironmentPtr rdoEnvironments::GetItem ( const _variant_t & Index ) {
+    struct _rdoEnvironment * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoEnvironmentPtr(_result, false);
+}
+
+inline IUnknownPtr rdoEnvironments::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoEnvironments::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoEnvironments::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline _rdoEnvironmentPtr rdoEnvironments::GetItemA ( const _variant_t & Index ) {
+    struct _rdoEnvironment * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _rdoEnvironmentPtr(_result, false);
+}
+
+inline HRESULT rdoEnvironments::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoEnvironments::Fox_GetNext ( long * pPos, struct _rdoEnvironment * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoEnvironments::Fox_GetPrev ( long * pPos, struct _rdoEnvironment * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoEnvironments::Fox_GetItem ( long Index, struct _rdoEnvironment * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoQueries wrapper method implementations
+//
+
+inline long rdoQueries::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoQueries::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoQueries::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoQueries::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoQueries::Add ( IDispatch * prdoQuery ) {
+    HRESULT _hr = raw_Add(prdoQuery);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoQueries::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoPreparedStatementPtr rdoQueries::GetItem ( const _variant_t & Index ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+inline IUnknownPtr rdoQueries::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoQueries::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoQueries::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoPreparedStatementPtr rdoQueries::GetItemA ( const _variant_t & Index ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+inline HRESULT rdoQueries::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoQueries::Fox_GetNext ( long * pPos, struct rdoPreparedStatement * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoQueries::Fox_GetPrev ( long * pPos, struct rdoPreparedStatement * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoQueries::Fox_GetItem ( long Index, struct rdoPreparedStatement * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface rdoPreparedStatements wrapper method implementations
+//
+
+inline long rdoPreparedStatements::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoPreparedStatements::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoPreparedStatements::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoPreparedStatements::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoPreparedStatements::Add ( IDispatch * prdoQuery ) {
+    HRESULT _hr = raw_Add(prdoQuery);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoPreparedStatements::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoPreparedStatementPtr rdoPreparedStatements::GetItem ( const _variant_t & Index ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+inline IUnknownPtr rdoPreparedStatements::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoPreparedStatements::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoPreparedStatements::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoPreparedStatementPtr rdoPreparedStatements::GetItemA ( const _variant_t & Index ) {
+    struct rdoPreparedStatement * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoPreparedStatementPtr(_result, false);
+}
+
+//
+// interface rdoErrors wrapper method implementations
+//
+
+inline long rdoErrors::GetCount ( ) {
+    long _result;
+    HRESULT _hr = get_Count(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL rdoErrors::GetEditable ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = get_Editable(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline void rdoErrors::PutEditable ( VARIANT_BOOL Editable ) {
+    HRESULT _hr = put_Editable(Editable);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+}
+
+inline HRESULT rdoErrors::Remove ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_Remove(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoErrors::Add ( IDispatch * prdoError ) {
+    HRESULT _hr = raw_Add(prdoError);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoErrors::Refresh ( ) {
+    HRESULT _hr = raw_Refresh();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoErrorPtr rdoErrors::GetItem ( const _variant_t & Index ) {
+    struct rdoError * _result;
+    HRESULT _hr = get_Item(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoErrorPtr(_result, false);
+}
+
+inline IUnknownPtr rdoErrors::_NewEnum ( ) {
+    IUnknown * _result;
+    HRESULT _hr = raw__NewEnum(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return IUnknownPtr(_result, false);
+}
+
+inline HRESULT rdoErrors::Clear ( ) {
+    HRESULT _hr = raw_Clear();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoErrors::RemoveA ( const _variant_t & ItemToRemove ) {
+    HRESULT _hr = raw_RemoveA(ItemToRemove);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline rdoErrorPtr rdoErrors::GetItemA ( const _variant_t & Index ) {
+    struct rdoError * _result;
+    HRESULT _hr = get_ItemA(Index, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return rdoErrorPtr(_result, false);
+}
+
+inline HRESULT rdoErrors::Fox_GetHeadPos ( long * pPos ) {
+    HRESULT _hr = raw_Fox_GetHeadPos(pPos);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoErrors::Fox_GetNext ( long * pPos, struct rdoError * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetNext(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoErrors::Fox_GetPrev ( long * pPos, struct rdoError * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetPrev(pPos, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT rdoErrors::Fox_GetItem ( long Index, struct rdoError * * lplpItem ) {
+    HRESULT _hr = raw_Fox_GetItem(Index, lplpItem);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IPrivColGetRows wrapper method implementations
+//
+
+inline HRESULT IPrivColGetRows::BindColumn ( short DataType, void * pColData, long MaxDataLen, long * pdataLen ) {
+    HRESULT _hr = raw_BindColumn(DataType, pColData, MaxDataLen, pdataLen);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IPrivColGetRows::GetData ( short DataType, void * pColData, long MaxDataLen, long * pdataLen ) {
+    HRESULT _hr = raw_GetData(DataType, pColData, MaxDataLen, pdataLen);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+//
+// interface IPrivRsGetRows wrapper method implementations
+//
+
+inline HRESULT IPrivRsGetRows::Initiallize ( ) {
+    HRESULT _hr = raw_Initiallize();
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IPrivRsGetRows::CanGetDataBlock ( VARIANT_BOOL * pfCanGetDatablock ) {
+    HRESULT _hr = raw_CanGetDataBlock(pfCanGetDatablock);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IPrivRsGetRows::SetRowsetSize ( long dwNumRows ) {
+    HRESULT _hr = raw_SetRowsetSize(dwNumRows);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IPrivRsGetRows::SetRowLen ( long dwRowLen ) {
+    HRESULT _hr = raw_SetRowLen(dwRowLen);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IPrivRsGetRows::GetRows ( long lRow, short dwFetchType, long * pudwNomRows, short * pudwStatus ) {
+    HRESULT _hr = raw_GetRows(lRow, dwFetchType, pudwNomRows, pudwStatus);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline VARIANT_BOOL IPrivRsGetRows::get_DaoBOF ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_get_DaoBOF(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline VARIANT_BOOL IPrivRsGetRows::get_DaoEOF ( ) {
+    VARIANT_BOOL _result;
+    HRESULT _hr = raw_get_DaoEOF(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}
+
+inline _variant_t IPrivRsGetRows::get_DaoBookmark ( ) {
+    VARIANT _result;
+    VariantInit(&_result);
+    HRESULT _hr = raw_get_DaoBookmark(&_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _variant_t(_result, false);
+}
+
+inline HRESULT IPrivRsGetRows::MoveTo ( long Index ) {
+    HRESULT _hr = raw_MoveTo(Index);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}
+
+inline HRESULT IPrivRsGetRows::get_DaoRowsetPos ( long * lpRowSetPos, long * lpRowsInBuf, long * lpRowIndex ) {
+    HRESULT _hr = raw_get_DaoRowsetPos(lpRowSetPos, lpRowsInBuf, lpRowIndex);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _hr;
+}

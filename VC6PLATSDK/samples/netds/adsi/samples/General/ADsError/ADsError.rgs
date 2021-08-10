@@ -1,0 +1,23 @@
+HKCR
+{
+	ADsError.1 = s 'ADsError Class'
+	{
+		CLSID = s '{417D01E0-F1C6-11D2-BC88-00C04FD430AF}'
+	}
+	ADsError = s 'ADsError Class'
+	{
+		CLSID = s '{417D01E0-F1C6-11D2-BC88-00C04FD430AF}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {417D01E0-F1C6-11D2-BC88-00C04FD430AF} = s 'ADsError Class'
+		{
+			ProgID = s 'ADsError.1'
+			VersionIndependentProgID = s 'ADsError'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+# Microsoft Developer Studio Generated Dependency File, included by PPgeExt.mak
+
+.\About.cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	
+
+.\BaseSnap.cpp : \
+	".\About.h"\
+	".\BaseSnap.h"\
+	".\Extend.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\PPgeExt.h"\
+	".\Registry.h"\
+	
+
+.\PPgeExt.cpp : \
+	".\Globals.h"\
+	".\PPgeExt.h"\
+	
+
+.\Registry.cpp : \
+	".\Extend.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	
+
+.\resource.rc : \
+	".\icon2.ico"\
+	".\lgbmp.bmp"\
+	".\smbmp.bmp"\
+	".\snapin.ICO"\
+	

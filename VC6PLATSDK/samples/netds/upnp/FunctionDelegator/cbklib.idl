@@ -1,0 +1,38 @@
+[
+    uuid(EBC4BD48-A6F5-4802-9254-C0F9E5BFBD9C),
+    version(1.0),
+    helpstring("Callback Library")
+]
+library CallbackIUnknownLib
+{
+    importlib("stdole2.tlb");
+#ifdef __MKTYPLIB__
+#ifdef VARIANT_BOOL
+#undef VARIANT_BOOL
+#endif
+#define VARIANT_BOOL boolean
+#endif //__MKTYPLIB__
+
+    [
+        odl,
+        uuid(EBC4BD49-A6F5-4802-9254-C0F9E5BFBD9C),
+        helpstring("Service Callback Function")
+    ]
+    interface ServiceCallBackInterface : IUnknown
+    {
+        [id(0)]
+        HRESULT CallbackFunction([in] VARIANT pszCallbackType, [in] VARIANT svcObject, [in] VARIANT pszStateVarName, [in] VARIANT varValue);
+    }
+    [
+        odl,
+        uuid(88813aea-9f83-4fbb-9dfd-58be6b59f029),
+        helpstring("Callback Function")
+    ]
+    interface DeviceFinderCallBackInterface : IUnknown
+    {
+        [id(0)]
+        HRESULT CallbackFunction([in] VARIANT device, [in] VARIANT UDN, [in] VARIANT callbackType);
+    }
+
+    	
+};

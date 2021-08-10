@@ -1,0 +1,636 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+ICO_MAIN                ICON    DISCARDABLE     "main.ico"
+ICO_NOAUDIO             ICON    DISCARDABLE     "noaudio.ico"
+ICO_PHONE               ICON    DISCARDABLE     "calling.ico"
+ICO_SPEAKER             ICON    DISCARDABLE     "speaker.ico"
+ICO_AUDIO               ICON    DISCARDABLE     "audio.ico"
+ICO_TOPMOST             ICON    DISCARDABLE     "ico_topm.ico"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_APP MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Monitor",                     IDM_MONITOR
+        MENUITEM SEPARATOR
+        MENUITEM "System Information",          IDM_SYSINFO
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Status Bar",                 IDM_VIEW_SBAR, CHECKED
+        MENUITEM "&Toolbar",                    IDM_VIEW_TBAR, CHECKED
+        MENUITEM "&Messages",                   IDM_VIEW_MSG, CHECKED
+        MENUITEM "&Chat",                       IDM_VIEW_CHAT, CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "Font...",                     IDM_VIEW_FONT
+        MENUITEM "&Options...",                 IDM_OPTIONS
+        MENUITEM SEPARATOR
+        MENUITEM "Clear Log",                   IDM_VIEW_CLEAR
+    END
+    POPUP "&Call"
+    BEGIN
+        MENUITEM "&User...",                    IDM_CALL
+        MENUITEM "C&onference...",              IDM_CALL_CONF
+        MENUITEM SEPARATOR
+        MENUITEM "&Accept",                     IDM_CALL_ACCEPT
+        MENUITEM "&Reject",                     IDM_CALL_REJECT
+        MENUITEM "&Cancel",                     IDM_CALL_CANCEL
+    END
+    POPUP "C&onference"
+    BEGIN
+        MENUITEM "&Host...",                    IDM_CONF_START
+        MENUITEM "S&top",                       IDM_CONF_STOP
+        MENUITEM "&Information",                IDM_CONFINFO
+        MENUITEM SEPARATOR
+        MENUITEM "Leak members?",               IDM_CONF_LEAK
+        MENUITEM "Leak applications?",          IDM_CONF_LEAK2
+    END
+    POPUP "&User"
+    BEGIN
+        MENUITEM "Eject...",                    IDM_EJECT
+        MENUITEM SEPARATOR
+        MENUITEM "Launch Remote App...",        IDM_LAUNCH
+        MENUITEM SEPARATOR
+        MENUITEM "Lo&g on/Log off",             IDM_LOGONOFF
+        MENUITEM SEPARATOR
+        MENUITEM "&Update\t<F5>",               IDM_UPDATE
+    END
+    POPUP "Ch&annel"
+    BEGIN
+        MENUITEM "Data",                        IDM_CHANNEL_DATA
+        MENUITEM "&Audio...",                   IDM_CHANNEL_AUDIO
+        MENUITEM "&File Transfer...",           IDM_CHANNEL_FT
+        MENUITEM "Application &Sharing",        IDM_CHANNEL_SHARE
+    END
+    POPUP "A&pplets"
+    BEGIN
+        MENUITEM "Show&Local",                  IDM_SHOWLOCAL
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&Is AppSharing Enabled",      IDM_IS_SHARING_ENABLED
+        MENUITEM SEPARATOR
+        MENUITEM "&Enable AppSharing",          IDM_ENABLE_APPSHARING
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Contents...",                IDM_HELP_CONTENTS
+        MENUITEM SEPARATOR
+        MENUITEM "&About NmUi...",              IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+ID_APPACCEL ACCELERATORS DISCARDABLE 
+BEGIN
+    "Q",            IDM_EXIT,               VIRTKEY, CONTROL, NOINVERT
+    VK_F5,          IDM_UPDATE,             VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CALL DIALOG DISCARDABLE  0, 0, 242, 79
+STYLE DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Call"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,182,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,182,24,50,14
+    LTEXT           "Address:",IDC_STATIC,7,7,30,8
+    EDITTEXT        IDE_ADDR,39,7,125,12,ES_AUTOHSCROLL
+    LTEXT           "Type:",IDC_STATIC,7,25,30,8
+    COMBOBOX        IDL_ADDR_TYPE,40,26,125,80,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Conference:",IDC_STATIC,7,58,45,8
+    COMBOBOX        IDL_CONFERENCE,55,58,109,51,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Call Type:",IDC_STATIC,185,45,32,8
+    COMBOBOX        IDL_CALL_TYPE,183,58,52,47,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_SENDFILE DIALOG DISCARDABLE  0, 0, 177, 69
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Send File"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,119,4,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,120,24,50,14
+    LTEXT           "User:",IDC_STATIC,5,4,37,8
+    COMBOBOX        IDL_USERS,5,14,82,76,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "&File name:",IDC_STATIC,5,30,33,8
+    EDITTEXT        IDE_FILENAME,5,41,108,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Browse",IDB_BROWSE,120,41,50,14
+END
+
+IDD_CONFERENCE DIALOG DISCARDABLE  0, 0, 237, 119
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Conference"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,177,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,177,24,50,14
+    LTEXT           "Name:",IDC_STATIC,7,7,22,8
+    EDITTEXT        IDE_NAME,45,7,113,12,ES_AUTOHSCROLL
+    LTEXT           "Password:",IDC_STATIC,7,25,35,8
+    EDITTEXT        IDE_PASSWORD,45,25,113,12,ES_AUTOHSCROLL
+    GROUPBOX        "Allowable Channel Types",IDC_STATIC,7,52,150,59
+    CONTROL         "&Data",IDC_NMCH_DATA,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,66,36,10
+    CONTROL         "&Audio",IDC_NMCH_AUDIO,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,81,36,10
+    CONTROL         "&File Transfer",IDC_NMCH_FT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,71,66,76,10
+    CONTROL         "&Application Sharing",IDC_NMCH_AS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,71,81,76,10
+END
+
+IDD_OPTIONS DIALOG DISCARDABLE  0, 0, 249, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,192,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,192,24,50,14
+    GROUPBOX        "On Startup",IDC_STATIC,7,7,175,85
+    CONTROL         "Automatically &Monitor Conferences",IDC_MONITOR,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,20,128,11
+    CONTROL         "&Host Conference",IDC_HOST,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,37,70,12
+    EDITTEXT        IDE_CONFERENCE_NAME,97,38,75,12,ES_AUTOHSCROLL
+    CONTROL         "&Call User",IDC_CALL_USER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,55,70,12
+    EDITTEXT        IDE_USER_NAME,97,56,75,12,ES_AUTOHSCROLL
+    CONTROL         "&Create Chat Channel",IDC_AUTO_CHAT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,73,101,12
+    GROUPBOX        "Initialize",IDC_STATIC,7,97,119,80
+    CONTROL         "NM_INIT_NORMAL",IDR_INIT_NORMAL,"Button",
+                    BS_AUTORADIOBUTTON,15,111,92,10
+    CONTROL         "NM_INIT_CONTROL",IDR_INIT_CONTROL,"Button",
+                    BS_AUTORADIOBUTTON,15,122,92,10
+    CONTROL         "NM_INIT_NO_LAUNCH",IDR_INIT_NO_LAUNCH,"Button",
+                    BS_AUTORADIOBUTTON,15,133,92,10
+    GROUPBOX        "Debug &Output",IDC_STATIC,143,97,99,63
+    CONTROL         "Trace",IDC_MSG_TRACE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,108,84,12
+    CONTROL         "Notifications",IDC_MSG_NOTIFY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,120,84,12
+    CONTROL         "Objects",IDC_MSG_OBJECTS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,132,84,12
+    CONTROL         "States",IDC_MSG_STATE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,150,144,84,12
+    CONTROL         "NM_INIT_BACKGROUND",IDR_INIT_BACKGROUND,"Button",
+                    BS_AUTORADIOBUTTON,16,144,98,10
+END
+
+IDD_AUDIO DIALOG DISCARDABLE  0, 0, 182, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Audio"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "User:",IDC_STATIC,7,4,37,8
+    COMBOBOX        IDL_USERS,7,14,90,76,CBS_DROPDOWNLIST | 
+                    CBS_OWNERDRAWFIXED | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,119,4,50,14
+    CONTROL         "&Active",IDC_ACTIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,7,37,39,10
+    GROUPBOX        "&Level",IDC_STATIC,7,57,168,31
+    PUSHBUTTON      "&Update",IDB_UPDATE,119,35,50,14
+    CONTROL         "&Pause",IDC_PAUSE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    59,37,39,10
+    CONTROL         "Slider1",IDC_LEVEL,"msctls_trackbar32",TBS_NOTICKS | 
+                    WS_TABSTOP,15,68,111,14
+    EDITTEXT        IDE_LEVEL,129,68,39,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_SHARE DIALOG DISCARDABLE  0, 0, 266, 122
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Share Applications"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,209,7,50,14
+    PUSHBUTTON      "&Share",IDB_SHARE,209,41,50,14
+    CONTROL         "",IDL_APP,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_SHOWSELALWAYS | LVS_SORTASCENDING | WS_BORDER | 
+                    WS_TABSTOP,7,6,192,102
+    PUSHBUTTON      "U&nshare",IDB_UNSHARE,209,58,50,14
+    PUSHBUTTON      "&Update",IDB_UPDATE,209,24,50,14
+    PUSHBUTTON      "&Collaborate",IDB_COLLAB,209,76,50,14
+    PUSHBUTTON      "Un-C&ollaborate",IDB_UNCOLLAB,209,94,50,14
+END
+
+IDD_CALL_CONF DIALOG DISCARDABLE  0, 0, 242, 93
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Call Conference"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,185,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,185,24,50,14
+    LTEXT           "Address:",IDC_STATIC,7,7,30,8
+    EDITTEXT        IDE_ADDR,48,7,125,12,ES_AUTOHSCROLL
+    LTEXT           "Type:",IDC_STATIC,7,28,30,8
+    COMBOBOX        IDL_ADDR_TYPE,48,26,125,66,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Conference:",IDC_STATIC,7,52,44,8
+    EDITTEXT        IDE_CONFERENCE,57,50,116,12,ES_AUTOHSCROLL
+    LTEXT           "Password:",IDC_STATIC,8,73,34,8
+    EDITTEXT        IDE_PASSWORD,57,70,116,12,ES_AUTOHSCROLL
+    LTEXT           "Call Type:",IDC_STATIC,189,57,32,8
+    COMBOBOX        IDL_CALL_TYPE,187,70,52,40,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_SWITCH DIALOG DISCARDABLE  0, 0, 177, 69
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Switch Audio"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,119,4,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,120,24,50,14
+    LTEXT           "User:",-1,5,4,37,8
+    COMBOBOX        IDC_USERNAME,5,14,82,76,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "&Switch",IDB_SWITCH,23,41,50,14
+END
+
+IDD_LAUNCH DIALOG DISCARDABLE  0, 0, 177, 73
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Launch Remote Application"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,119,4,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,120,24,50,14
+    LTEXT           "User:",IDC_STATIC,5,4,37,8
+    COMBOBOX        IDL_USERS,5,14,82,76,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "&Guid:",IDC_STATIC,5,38,18,8
+    COMBOBOX        IDL_GUID,5,50,167,53,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_EJECT DIALOG DISCARDABLE  0, 0, 174, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Eject User"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,119,4,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,120,24,50,14
+    LTEXT           "User:",-1,5,4,37,8
+    COMBOBOX        IDL_USERS,5,14,82,76,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_SHOWLOCAL DIALOGEX 0, 0, 157, 98
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ShowLocal"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,99,5,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,99,22,50,14
+    GROUPBOX        "Application",IDC_STATIC,7,5,80,86
+    CONTROL         "File Transfer",IDC_SHOW_FT,"Button",BS_AUTORADIOBUTTON,
+                    13,48,55,10
+    CONTROL         "Chat",IDC_SHOW_CHAT,"Button",BS_AUTORADIOBUTTON,13,14,
+                    31,10
+    CONTROL         "Whiteboard",IDC_SHOW_WB,"Button",BS_AUTORADIOBUTTON,13,
+                    37,53,10
+    CONTROL         "App Sharing",IDC_SHOW_AS,"Button",BS_AUTORADIOBUTTON,13,
+                    59,55,10
+    CONTROL         "T126 Whiteboard",IDC_SHOW_T126WB,"Button",
+                    BS_AUTORADIOBUTTON,13,25,71,10
+    CONTROL         "Find Someone",IDC_FINDSOMEONE,"Button",
+                    BS_AUTORADIOBUTTON,13,71,61,10
+END
+
+IDD_LOGONOFF DIALOG DISCARDABLE  0, 0, 138, 41
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "LogOnOff"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,84,4,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,23,50,14
+    LTEXT           "ServerName",IDC_STATIC,5,4,37,8
+    EDITTEXT        IDC_SERVER_NAME,6,18,59,14,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CALL DLGINIT
+BEGIN
+    IDL_ADDR_TYPE, 0x403, 8, 0
+0x6e55, 0x6e6b, 0x776f, 0x006e, 
+    IDL_ADDR_TYPE, 0x403, 11, 0
+0x5049, 0x4120, 0x6464, 0x6572, 0x7373, "\000" 
+    IDL_ADDR_TYPE, 0x403, 13, 0
+0x614d, 0x6863, 0x6e69, 0x2065, 0x614e, 0x656d, "\000" 
+    IDL_ADDR_TYPE, 0x403, 17, 0
+0x6554, 0x656c, 0x6870, 0x6e6f, 0x2065, 0x754e, 0x626d, 0x7265, "\000" 
+    IDL_ADDR_TYPE, 0x403, 9, 0
+0x4c55, 0x2053, 0x614e, 0x656d, "\000" 
+    IDL_CONFERENCE, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDL_CONFERENCE, 0x403, 8, 0
+0x7543, 0x7272, 0x6e65, 0x0074, 
+    IDL_CALL_TYPE, 0x403, 8, 0
+0x6e55, 0x6e6b, 0x776f, 0x006e, 
+    IDL_CALL_TYPE, 0x403, 11, 0
+0x5049, 0x4120, 0x6464, 0x6572, 0x7373, "\000" 
+    IDL_CALL_TYPE, 0x403, 13, 0
+0x614d, 0x6863, 0x6e69, 0x2065, 0x614e, 0x656d, "\000" 
+    IDL_CALL_TYPE, 0x403, 17, 0
+0x6554, 0x656c, 0x6870, 0x6e6f, 0x2065, 0x754e, 0x626d, 0x7265, "\000" 
+    IDL_CALL_TYPE, 0x403, 9, 0
+0x4c55, 0x2053, 0x614e, 0x656d, "\000" 
+    0
+END
+
+IDD_CALL_CONF DLGINIT
+BEGIN
+    IDL_ADDR_TYPE, 0x403, 8, 0
+0x6e55, 0x6e6b, 0x776f, 0x006e, 
+    IDL_ADDR_TYPE, 0x403, 11, 0
+0x5049, 0x4120, 0x6464, 0x6572, 0x7373, "\000" 
+    IDL_ADDR_TYPE, 0x403, 13, 0
+0x614d, 0x6863, 0x6e69, 0x2065, 0x614e, 0x656d, "\000" 
+    IDL_ADDR_TYPE, 0x403, 17, 0
+0x6554, 0x656c, 0x6870, 0x6e6f, 0x2065, 0x754e, 0x626d, 0x7265, "\000" 
+    IDL_ADDR_TYPE, 0x403, 9, 0
+0x4c55, 0x2053, 0x614e, 0x656d, "\000" 
+    IDL_CALL_TYPE, 0x403, 8, 0
+0x6e55, 0x6e6b, 0x776f, 0x006e, 
+    IDL_CALL_TYPE, 0x403, 11, 0
+0x5049, 0x4120, 0x6464, 0x6572, 0x7373, "\000" 
+    IDL_CALL_TYPE, 0x403, 13, 0
+0x614d, 0x6863, 0x6e69, 0x2065, 0x614e, 0x656d, "\000" 
+    IDL_CALL_TYPE, 0x403, 17, 0
+0x6554, 0x656c, 0x6870, 0x6e6f, 0x2065, 0x754e, 0x626d, 0x7265, "\000" 
+    IDL_CALL_TYPE, 0x403, 9, 0
+0x4c55, 0x2053, 0x614e, 0x656d, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDC_TOOLBAR TOOLBAR DISCARDABLE  16, 16
+BEGIN
+    BUTTON      ID_BUTTON40100
+    BUTTON      ID_BUTTON40101
+    BUTTON      ID_BUTTON40102
+    BUTTON      ID_BUTTON40103
+    BUTTON      ID_BUTTON40104
+    SEPARATOR
+    BUTTON      ID_BUTTON40105
+    BUTTON      ID_BUTTON40106
+    BUTTON      ID_BUTTON40107
+    BUTTON      ID_BUTTON40108
+    BUTTON      ID_BUTTON40109
+    SEPARATOR
+    BUTTON      ID_BUTTON40110
+    SEPARATOR
+    BUTTON      ID_BUTTON40111
+    BUTTON      ID_BUTTON40112
+    SEPARATOR
+    BUTTON      ID_BUTTON40113
+    BUTTON      ID_BUTTON40114
+    SEPARATOR
+    BUTTON      ID_BUTTON40115
+    SEPARATOR
+    BUTTON      ID_BUTTON40116
+    BUTTON      ID_BUTTON40117
+    SEPARATOR
+    BUTTON      ID_BUTTON40118
+    BUTTON      ID_BUTTON40119
+    BUTTON      ID_BUTTON40120
+    BUTTON      ID_BUTTON40121
+    SEPARATOR
+    BUTTON      ID_BUTTON40122
+    SEPARATOR
+    BUTTON      ID_BUTTON40123
+    BUTTON      ID_BUTTON40124
+    BUTTON      ID_BUTTON40125
+    BUTTON      ID_BUTTON40126
+    BUTTON      ID_BUTTON40127
+    BUTTON      ID_BUTTON40140
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDC_TOOLBAR             BITMAP  DISCARDABLE     "toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_AUDIO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 175
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_SHARE, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 120
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_APP_TITLE           "Microsoft NetMeeting UI Example"
+    IDS_VERSION             "NmUi v0.5"
+    IDS_SYSMENU             "Move, size, or close application window"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_VIEW_SBAR           "Show/Hide status bar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_VIEW_CLEAR          "Clear Output"
+    IDM_VIEW_TBAR           "Show/Hide the toolbar"
+    IDM_HELP_CONTENTS       "Show help file contents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_VIEW_FONT           "Change Font"
+    IDM_EXIT                "Quits the application"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_ABOUT               "Display information about this application"
+    IDM_CMD_SENDFILE        "Test the ConferenceSendFile API"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_CONF_START          "Start a local conference"
+    IDM_CONF_STOP           "Stop the conference"
+    IDM_SYSINFO             "Display system information"
+    IDM_CHANNEL_AUDIO       "Display Audio channel information"
+    IDM_CHANNEL_FT          "Transfers file"
+    IDM_CHANNEL_SHARE       "Application Sharing"
+    IDM_CALL                "Call a user"
+    IDM_EJECT               "Eject a user from the conference"
+    IDM_CHANNEL_DATA        "Data channel"
+    IDM_CALL_CANCEL         "Cancel current call"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_MONITOR             "Monitor Conferences"
+    IDM_VIEW_MSG            "Display internal messages"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_OPTIONS             "Change Options"
+    IDM_SWITCH              "Switches audio"
+    IDM_CALL_CONF           "Connect to an existing conference"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_VIEW_CHAT           "Show/Hide Chat Window"
+    IDM_LAUNCH              "Start a remote instance of an application"
+    IDM_UPDATE              "Update (refresh) the display"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_FT_CANCEL           "Cancel File Transfer"
+    IDM_CONFINFO            "Display Conference Information"
+    IDM_CALL_ACCEPT         "Accept the current call"
+    IDM_CALL_REJECT         "Reject the current call"
+    IDM_DATA_ENABLE         "Enable/Disable the data channel"
+    IDM_SYS_LOGON           "Log on to the ILS specified in the registry"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_SYS_LOGOFF          "Log off from the ILS"
+    IDS_DLLNAME             "setupdd"
+    IDS_SETUPDD_FUNC        "NMInstallNTDisplayDriver"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

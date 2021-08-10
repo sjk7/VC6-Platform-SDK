@@ -1,0 +1,124 @@
+# Microsoft Developer Studio Generated Dependency File, included by TaskPads.mak
+
+.\About.cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	
+
+.\BaseSnap.cpp : \
+	".\About.h"\
+	".\BaseSnap.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DeleBase.h"\
+	".\EnumTASK.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LocalRes.h"\
+	".\Registry.h"\
+	".\StatNode.h"\
+	
+
+.\Comp.cpp : \
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\DeleBase.h"\
+	".\EnumTASK.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\StatNode.h"\
+	
+
+.\CompData.cpp : \
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\DeleBase.h"\
+	".\EnumTASK.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\StatNode.h"\
+	
+
+.\DataObj.cpp : \
+	".\DataObj.h"\
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LocalRes.h"\
+	
+
+.\DeleBase.cpp : \
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	
+
+.\EnumTASK.cpp : \
+	".\EnumTASK.h"\
+	
+
+.\Land.cpp : \
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\Land.h"\
+	".\LocalRes.h"\
+	
+
+.\MMCCrack.cpp : \
+	".\Globals.h"\
+	
+
+.\People.cpp : \
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\People.h"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Registry.h"\
+	
+
+.\Sky.cpp : \
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\Sky.h"\
+	
+
+.\Space.cpp : \
+	".\Comp.h"\
+	".\DeleBase.h"\
+	".\EnumTASK.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\Space.h"\
+	
+
+.\StatNode.cpp : \
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\Land.h"\
+	".\LocalRes.h"\
+	".\People.h"\
+	".\Sky.h"\
+	".\Space.h"\
+	".\StatNode.h"\
+	
+
+.\Resource.rc : \
+	".\bicycle.bmp"\
+	".\iceskate.bmp"\
+	".\lgbmp.bmp"\
+	".\lgicons.bmp"\
+	".\off.bmp"\
+	".\over.bmp"\
+	".\sktbrd.bmp"\
+	".\smbmp.bmp"\
+	".\smicons.bmp"\
+	".\smopen.bmp"\
+	".\snapin.ICO"\
+	

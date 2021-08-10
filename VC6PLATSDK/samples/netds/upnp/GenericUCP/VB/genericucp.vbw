@@ -1,0 +1,7 @@
+DeviceControl = 7, -7, 936, 867, , 219, 48, 870, 710, C
+devProperties = 53, 109, 966, 846, , 109, 84, 792, 806, C
+modFunctionDelegator = 48, 178, 812, 777, C
+modCallback = 53, 109, 963, 825, C
+SCPDViewer = 11, -4, 953, 729, C, 93, 122, 862, 541, C
+modUtil = 19, 48, 959, 868, C
+modGlobalVariables = 121, 206, 885, 805, C

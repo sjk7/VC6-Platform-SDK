@@ -1,0 +1,33 @@
+# Microsoft Developer Studio Generated Dependency File, included by CMenuExt.mak
+
+.\About.cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	
+
+.\BaseSnap.cpp : \
+	".\About.h"\
+	".\BaseSnap.h"\
+	".\CMenuExt.h"\
+	".\Extend.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	
+
+.\CMenuExt.cpp : \
+	".\CMenuExt.h"\
+	".\Globals.h"\
+	
+
+.\Registry.cpp : \
+	".\Extend.h"\
+	".\Globals.h"\
+	".\Registry.h"\
+	
+
+.\resource.rc : \
+	".\lgbmp.bmp"\
+	".\smbmp.bmp"\
+	".\snapin.ICO"\
+	

@@ -1,0 +1,216 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#include "commctrl.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "winver.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+HT_ICON                 ICON    DISCARDABLE     "HALFTONE.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+HT_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Load a Bitmap",              IDM_LOADDIB
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Halftone"
+    BEGIN
+        MENUITEM "&Properties",                 IDM_PROPERTIES
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About HALFTONE...",          IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+HALFTONE ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#include ""commctrl.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""winver.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+ABOUTBOX DIALOGEX 22, 17, 182, 80
+STYLE DS_MODALFRAME | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "About HALFTONE"
+FONT 8, "System"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,133,2,46,19,WS_GROUP
+    LTEXT           "Microsoft Corp.",DLG_VERFIRST,30,12,96,8
+    LTEXT           "HalfTone Stretching Demo",401,30,2,96,8
+    LTEXT           "Copyright © 1996 - 2000",403,30,22,96,8
+    LTEXT           "This sample demonstrates the capabilities of the SetColorAdjustment() API and its effects on HALFTONE stretching.",
+                    IDC_STATIC,11,41,160,29
+    GROUPBOX        "",IDC_STATIC,3,31,176,45
+    ICON            "HT_ICON",IDC_STATIC,3,5,20,20,SS_REALSIZEIMAGE | 
+                    SS_SUNKEN | WS_BORDER,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+END
+
+HT_DIALOG DIALOGEX 0, 0, 217, 231
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Halftone Settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,165,218,49,12
+    PUSHBUTTON      "Cancel",IDCANCEL,100,218,49,12
+    COMBOBOX        IDC_FLAGS,116,5,97,48,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_ILLUMINATE,116,20,97,117,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_REDGAMMA,182,48,25,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_GREENGAMMA,182,64,25,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BLUEGAMMA,182,80,25,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_REFBLACK,182,103,25,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_REFWHITE,182,120,25,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_CONTRAST,182,144,25,15,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_BRIGHTNESS,182,161,25,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_COLORFULNESS,182,178,25,15,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_TINT,182,195,25,15,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Flags",-1,88,5,22,8
+    RTEXT           "Illuminant Index",-1,53,23,57,8
+    LTEXT           "Blue Gamma",-1,18,81,45,8
+    LTEXT           "Green Gamma",-1,13,65,50,8
+    LTEXT           "Red Gamma",-1,19,49,43,8
+    LTEXT           "Reference White",-1,4,122,55,8
+    LTEXT           "Reference Black",-1,5,105,54,8
+    LTEXT           "Colorfulness",-1,20,180,39,8
+    LTEXT           "Brightness",-1,25,163,34,8
+    LTEXT           "Contrast",-1,32,146,27,8
+    LTEXT           "Red/Green tint",-1,11,197,48,8
+    CONTROL         "Slider1",IDC_REDGAMMASLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,48,111,15,WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_GREENGAMMASLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,64,111,15,WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_BLUEGAMMASLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,80,111,15,WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_REFBLACKSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,104,111,15,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_REFWHITESLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,120,111,15,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_CONTRASTSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,144,111,15,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_BRIGHTNESSSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,161,111,15,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_COLORFULNESSSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,178,111,15,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Slider1",IDC_TINTSLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | WS_TABSTOP,65,195,111,15,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Show Changes",IDC_UPDATE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,5,5,64,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "HT_DIALOG", DIALOG
+    BEGIN
+        BOTTOMMARGIN, 204
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,650 @@
+//****************************************************************************
+//  Module:     NMCHAT.EXE
+//  File:       CLUTIL.CPP
+//  Content:    
+//              
+//
+//  Copyright (c) Microsoft Corporation 1997-2002
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A 
+// PARTICULAR PURPOSE.
+//****************************************************************************
+
+#include "precomp.h"
+
+
+//****************************************************************************
+//
+// CLASS RefCount
+//
+//****************************************************************************
+
+
+//****************************************************************************
+//
+// Constructor
+//
+//****************************************************************************
+
+RefCount::RefCount(void)
+{
+	m_cRef = 1;
+}
+
+
+//****************************************************************************
+//
+// Destructor
+//
+//****************************************************************************
+
+RefCount::~RefCount(void)
+{
+}
+
+
+//****************************************************************************
+//
+// Methods from IUnknown
+//
+//****************************************************************************
+
+ULONG STDMETHODCALLTYPE RefCount::AddRef(void)
+{
+   ASSERT(m_cRef >= 0);
+
+   InterlockedIncrement(&m_cRef);
+
+   return (ULONG) m_cRef;
+}
+
+
+ULONG STDMETHODCALLTYPE RefCount::Release(void)
+{
+	if (0 == InterlockedDecrement(&m_cRef))
+	{
+		delete this;
+		return 0;
+	}
+
+	ASSERT(m_cRef > 0);
+	return (ULONG) m_cRef;
+}
+
+
+//****************************************************************************
+//
+// CLASS CNotify
+//
+//****************************************************************************
+
+
+//****************************************************************************
+//
+// Constructor
+//
+//****************************************************************************
+
+CNotify::CNotify() :
+	m_pcnpcnt(NULL),
+    m_pcnp(NULL),
+    m_dwCookie(0),
+    m_pUnk(NULL)
+{
+}
+
+
+//****************************************************************************
+//
+// Destructor
+//
+//****************************************************************************
+
+CNotify::~CNotify()
+{
+	Disconnect(); // Make sure we're disconnected
+}
+
+
+//****************************************************************************
+//
+// HRESULT CNotify::Connect(IUnknown *pUnk, REFIID riid, IUnknown *pUnkN)
+//
+//****************************************************************************
+
+HRESULT CNotify::Connect(IUnknown *pUnk, REFIID riid, IUnknown *pUnkN)
+{
+	HRESULT hr = NO_ERROR;
+
+	if(NULL == pUnk || NULL == pUnkN)
+	{
+		return E_POINTER;
+	}
+
+	ASSERT(0 == m_dwCookie);
+	
+	if(m_dwCookie != 0)
+	{
+		return HRESULT_FROM_WIN32(ERROR_ALREADY_INITIALIZED);
+	}
+
+	// Get the connection container
+	hr = pUnk->QueryInterface(IID_IConnectionPointContainer, (void **)&m_pcnpcnt);
+	if (SUCCEEDED(hr))
+	{
+		// Find an appropriate connection point
+		hr = m_pcnpcnt->FindConnectionPoint(riid, &m_pcnp);
+		if (SUCCEEDED(hr))
+		{
+			ASSERT(NULL != m_pcnp);
+			// Connect the sink object
+			hr = m_pcnp->Advise((IUnknown *)pUnkN, &m_dwCookie);
+		}
+	}
+
+	if (FAILED(hr))
+	{
+		m_dwCookie = 0;
+	}
+	else
+	{
+    	m_pUnk = pUnk; // keep around for caller
+    }
+
+	return hr;
+}
+
+
+//****************************************************************************
+//
+// HRESULT CNotify::Disconnect (void)
+//
+//****************************************************************************
+
+HRESULT CNotify::Disconnect (void)
+{
+    if (0 != m_dwCookie)
+    {
+        // Disconnect the sink object
+        m_pcnp->Unadvise(m_dwCookie);
+        m_dwCookie = 0;
+
+        m_pcnp->Release();
+        m_pcnp = NULL;
+
+        m_pcnpcnt->Release();
+        m_pcnpcnt = NULL;
+
+        m_pUnk = NULL;
+    }
+
+    return S_OK;
+}
+
+
+//****************************************************************************
+//
+// CLASS COBLIST
+//
+//****************************************************************************
+
+
+//****************************************************************************
+//
+// Destructor
+//
+//****************************************************************************
+
+COBLIST::~COBLIST()
+{
+    ASSERT(IsEmpty());
+}
+
+
+#ifdef DEBUG
+VOID* COBLIST::GetHead()
+{
+	ASSERT(m_pHead);
+	
+	if(NULL == m_pHead)
+	{
+		return NULL;
+	}
+
+	return m_pHead->pItem;
+}
+   
+VOID* COBLIST::GetTail()
+{
+	ASSERT(m_pTail);
+
+	if(NULL == m_pTail)
+	{
+		return NULL;
+	}
+
+	return m_pTail->pItem;
+}
+#endif /* DEBUG */
+
+
+//****************************************************************************
+//
+// VOID* COBLIST::GetNext(POSITION& rPos)
+//
+//****************************************************************************
+
+VOID* COBLIST::GetNext(POSITION& rPos)
+{
+	ASSERT(rPos);
+	
+	if(NULL == rPos)
+	{
+		return NULL;
+	}
+
+	VOID* pReturn = rPos->pItem;
+	rPos = rPos->pNext;
+
+	return pReturn;
+}
+
+
+//****************************************************************************
+//
+// VOID* COBLIST::RemoveAt(POSITION Pos)
+//
+//****************************************************************************
+
+VOID* COBLIST::RemoveAt(POSITION Pos)
+{
+	if(NULL == Pos)
+	{
+		return NULL;
+	}
+	
+	VOID* pReturn = NULL;
+
+	if (m_pHead)
+	{
+		if (m_pHead == Pos)
+		{
+			// Removing the first element in the list
+			
+			m_pHead = Pos->pNext;
+			pReturn = Pos->pItem;
+			delete Pos;
+			m_cItem--;
+			ASSERT(0 <= m_cItem);
+
+			if (NULL == m_pHead)
+			{
+				// Removing the only element!
+				m_pTail = NULL;
+			}
+		}
+		else
+		{
+			POSITION pCur = m_pHead;
+
+			while (pCur && pCur->pNext)
+			{
+				if (pCur->pNext == Pos)
+				{
+					// Removing 
+					
+					pCur->pNext = Pos->pNext;
+					if (m_pTail == Pos)
+					{
+						m_pTail = pCur;
+					}
+					pReturn = Pos->pItem;
+					delete Pos;
+
+					m_cItem--;
+					ASSERT(0 <= m_cItem);
+				}
+
+				pCur = pCur->pNext;
+			}
+		}
+	}
+
+	return pReturn;
+}
+
+
+//****************************************************************************
+//
+// POSITION COBLIST::AddTail(VOID* pItem)
+//
+//****************************************************************************
+
+POSITION COBLIST::AddTail(VOID* pItem)
+{
+	POSITION posRet = NULL;
+
+	if (m_pTail)
+	{
+		if (m_pTail->pNext = new COBNODE)
+		{
+			m_pTail = m_pTail->pNext;
+			m_pTail->pItem = pItem;
+			m_pTail->pNext = NULL;
+			m_cItem++;
+		}
+	}
+	else
+	{
+		ASSERT(!m_pHead);
+		if (m_pHead = new COBNODE)
+		{
+			m_pTail = m_pHead;
+			m_pTail->pItem = pItem;
+			m_pTail->pNext = NULL;
+			m_cItem++;
+		}
+	}
+
+	return m_pTail;
+}
+
+
+//****************************************************************************
+//
+// void COBLIST::EmptyList()
+//
+//****************************************************************************
+
+void COBLIST::EmptyList()
+{
+    while (!IsEmpty())
+	{
+        RemoveAt(GetHeadPosition());
+    }
+}
+
+
+#ifdef DEBUG
+VOID* COBLIST::RemoveTail()
+{
+	ASSERT(m_pHead);
+	ASSERT(m_pTail);
+	
+	if(NULL == m_pHead || NULL == m_pTail)
+	{
+		return NULL;
+	}
+
+	return RemoveAt(m_pTail);
+}
+
+VOID* COBLIST::RemoveHead()
+{
+	ASSERT(m_pHead);
+	ASSERT(m_pTail);
+
+	if(NULL == m_pHead || NULL == m_pTail)
+	{
+		return NULL;
+	}
+	
+	return RemoveAt(m_pHead);
+}
+
+void * COBLIST::GetFromPosition(POSITION Pos)
+{
+    void * Result = SafeGetFromPosition(Pos);
+	ASSERT(Result);
+	return Result;
+}
+#endif /* DEBUG */
+
+
+//****************************************************************************
+//
+// POSITION COBLIST::GetPosition(void* _pItem)
+//
+//****************************************************************************
+
+POSITION COBLIST::GetPosition(void* _pItem)
+{
+    POSITION    Position = m_pHead;
+
+    while (Position)
+	{
+        if (Position->pItem == _pItem)
+		{
+            break;
+        }
+		GetNext(Position);
+    }
+    return Position;
+}
+
+
+//****************************************************************************
+//
+// POSITION COBLIST::Lookup(void* pComparator)
+//
+//****************************************************************************
+
+POSITION COBLIST::Lookup(void* pComparator)
+{
+    POSITION    Position = m_pHead;
+
+    while (Position)
+	{
+        if (Compare(Position->pItem, pComparator))
+		{
+            break;
+        }
+		GetNext(Position);
+    }
+    return Position;
+}
+
+
+//****************************************************************************
+//
+// void * COBLIST::SafeGetFromPosition(POSITION Pos)
+//
+//****************************************************************************
+
+void * COBLIST::SafeGetFromPosition(POSITION Pos)
+{
+	// Safe way to validate that an entry is still in the list,
+	// which ensures bugs that would reference deleted memory,
+	// reference a NULL pointer instead
+	// (e.g. an event handler fires late/twice).
+	// Note that versioning on entries would provide an additional 
+	// safeguard against re-use of a position.
+	// Walk	list to find entry.
+
+	POSITION PosWork = m_pHead;
+	
+	while (PosWork)
+	{
+		if (PosWork == Pos)
+		{
+			return Pos->pItem;
+		}
+		GetNext(PosWork);
+	}
+	return NULL;
+}
+
+
+//****************************************************************************
+//
+// COBLIST Utility routines
+//
+//****************************************************************************
+
+
+//****************************************************************************
+//
+// POSITION AddNode(PVOID pv, COBLIST ** ppList)
+//
+// Add a node to a list.
+// Initializes the ObList, if necessary.
+// Returns the position in the list or NULL if there was a problem.
+//
+//****************************************************************************
+
+POSITION AddNode(PVOID pv, COBLIST ** ppList)
+{
+	ASSERT(NULL != ppList);
+	if(NULL == ppList)
+	{
+		return NULL;
+	}
+	
+	if (NULL == *ppList)
+	{
+		*ppList = new COBLIST();
+		if (NULL == *ppList)
+		{
+			return NULL;
+		}
+	}
+
+	return (*ppList)->AddTail(pv);
+}
+
+
+//****************************************************************************
+//
+// PVOID RemoveNode(POSITION * pPos, COBLIST *pList)
+//
+// Remove a node from a list.
+// Sets pPos to NULL
+//
+//****************************************************************************
+
+PVOID RemoveNode(POSITION * pPos, COBLIST *pList)
+{
+	if ((NULL == pList) || (NULL == pPos))
+	{
+		return NULL;
+	}
+
+	PVOID pv = pList->RemoveAt(*pPos);
+	*pPos = NULL;
+	return pv;
+}
+
+
+//****************************************************************************
+//
+// CLASS BSTRING
+//
+//****************************************************************************
+
+
+//****************************************************************************
+//
+// Constructor
+//
+// We don't support construction from an ANSI string in the Unicode build.
+//
+//****************************************************************************
+
+#if !defined(UNICODE)
+
+BSTRING::BSTRING(LPCSTR lpcString)
+{
+	m_bstr = NULL;
+
+	// Compute the length of the required BSTR, including the null
+	int cWC =  MultiByteToWideChar(CP_ACP, 0, lpcString, -1, NULL, 0);
+	if (cWC <= 0)
+	{
+		return;
+	}
+
+	// Allocate the BSTR, including the null
+	m_bstr = SysAllocStringLen(NULL, cWC); // SysAllocStringLen adds another 1
+
+	ASSERT(NULL != m_bstr);
+	if (NULL == m_bstr)
+	{
+		return;
+	}
+
+	ZeroMemory(m_bstr, (cWC + 1) * sizeof(OLECHAR));
+
+	// Copy the string
+	MultiByteToWideChar(CP_ACP, 0, lpcString, -1, (LPWSTR) m_bstr, cWC);
+}
+
+#endif // !defined(UNICODE)
+
+
+//****************************************************************************
+//
+// CLASS BTSTR
+//
+//****************************************************************************
+
+//****************************************************************************
+//
+// Constructor
+//
+//****************************************************************************
+
+BTSTR::BTSTR(BSTR bstr)
+{
+	m_psz = PszFromBstr(bstr);
+}
+
+
+//****************************************************************************
+//
+// Destructor
+//
+//****************************************************************************
+
+BTSTR::~BTSTR()
+{
+	if (NULL != m_psz)
+	{
+		LocalFree(m_psz);
+	}
+}
+
+
+//****************************************************************************
+//
+// LPTSTR PszFromBstr(BSTR bstr)
+//
+// Converts a BSTR to a LPSTR
+//
+//****************************************************************************
+
+LPTSTR PszFromBstr(BSTR bstr)
+{
+	if (NULL == bstr)
+	{
+		return NULL;
+	}
+	int cch =  WideCharToMultiByte(CP_ACP, 0, (LPWSTR)bstr, -1, NULL, 0, NULL, NULL);
+	if (cch <= 0)
+	{
+		return NULL;
+	}
+
+	LPTSTR psz = PszAlloc(cch);
+	if (NULL == psz)
+	{
+		return NULL;
+	}
+
+	ZeroMemory(psz, sizeof(TCHAR) * (cch + 1));
+
+	WideCharToMultiByte(CP_ACP, 0, (LPWSTR)bstr, -1, psz, cch, NULL, NULL);
+	return psz;
+}
+

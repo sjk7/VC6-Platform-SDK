@@ -1,0 +1,18 @@
+HKCR
+{
+    Microsoft.ClusterSamples.MyEvictListener.1 = s 'ClusCfg Evict Listener Sample'
+    {
+        CLSID = s '{8097F026-7E96-4afa-B317-B35D8F88CFF7}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {8097F026-7E96-4afa-B317-B35D8F88CFF7} = s 'ClusCfg Evict Listener Sample'
+        {
+            ProgID = s 'Microsoft.ClusterSamples.MyEvictListener.1'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Both'
+            }
+        }
+    }
+}

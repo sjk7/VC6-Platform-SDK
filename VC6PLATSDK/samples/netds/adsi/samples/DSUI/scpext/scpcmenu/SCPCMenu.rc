@@ -1,0 +1,134 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//
+//  Copyright (C) Microsoft Corporation, 1999 - 2000
+//
+//  File:       SCPCMenu.rc
+//
+//--------------------------------------------------------------------------
+
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SCP_MENU_DIALOG DIALOG DISCARDABLE  0, 0, 252, 218
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Clipboard Format Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,141,197,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,195,197,50,14
+    LTEXT           "Prefix:",IDC_STATIC,7,10,64,8
+    EDITTEXT        IDC_PREFIX_EDIT,99,7,146,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Username:",IDC_STATIC,7,30,64,8
+    EDITTEXT        IDC_USER_EDIT,99,27,146,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Server:",IDC_STATIC,7,50,64,8
+    EDITTEXT        IDC_SERVER_EDIT,99,47,146,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Server Configuration Path:",IDC_STATIC,7,70,86,8
+    EDITTEXT        IDC_SERVER_CONFIG_PATH_EDIT,99,67,146,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Path:",IDC_STATIC,7,90,64,8
+    EDITTEXT        IDC_PATH_EDIT,99,87,146,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Class:",IDC_STATIC,7,110,86,8
+    EDITTEXT        IDC_CLASS_EDIT,99,107,146,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SCP_MENU_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        VERTGUIDE, 99
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SCP_MENU            "S&how Clipboard Information"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

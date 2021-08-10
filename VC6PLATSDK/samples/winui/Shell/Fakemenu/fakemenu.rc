@@ -1,0 +1,48 @@
+/*****************************************************************************
+ *
+ *  FakeMenu.rc
+ *
+ *  Copyright (c) 1997 Microsoft Corporation.  All rights reserved.
+ *
+ *       This source code is only intended as a supplement to
+ *       Microsoft Development Tools, q.v. for detailed
+ *       information regarding the Microsoft samples programs.
+ *
+ *  Abstract:
+ *
+ *      Version resource information for Fake Menu sample.
+ *
+ *****************************************************************************/
+
+#include <windows.h>
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION                         1, 0, 0, 0
+PRODUCTVERSION                      1, 0, 0, 0
+FILEFLAGSMASK                       VS_FFI_FILEFLAGSMASK
+FILEFLAGS                           0
+FILEOS                              VOS_DOS_WINDOWS32
+FILETYPE                            VFT_APP
+FILESUBTYPE                         VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName",        "Microsoft Corporation\0"
+            VALUE "FileDescription",    "FakeMenu Sample\0"
+            VALUE "FileVersion",        "1.0\0"
+            VALUE "InternalName",       "FAKEMENU.EXE"
+            VALUE "LegalCopyright",     "Copyright \251 Microsoft Corp. 1997\0"
+            VALUE "OriginalFilename",   "FAKEMENU.EXE"
+            VALUE "ProductName",        "Microsoft Win32 SDK\0"
+            VALUE "ProductVersion",     "1.0\0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+
+END

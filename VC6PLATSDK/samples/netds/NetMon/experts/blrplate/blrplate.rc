@@ -1,0 +1,152 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resrc1.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "winver.h"
+#include "bhver.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BLRPLATE_CONFIG_DIALOG DIALOG DISCARDABLE  10, 10, 173, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "BlrPlate Config Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,5,70,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,61,70,50,14
+    PUSHBUTTON      "&Help",IDM_HELP,117,70,50,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 5,0,0,1
+ PRODUCTVERSION 5,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x10004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Microsoft Corporation\0"
+            VALUE "FileDescription", "Expert BLRPLATE\0"
+            VALUE "FileVersion", "You Build Number Here\0"
+            VALUE "InternalName", "BLRPLATE.dll\0"
+            VALUE "LegalCopyright", "Copyright (c) Microsoft Corp. 1981 - 2000\0"
+            VALUE "OriginalFilename", "BLRPLATE.DLL\0"
+            VALUE "ProductName", "Microsoft(R) Network Monitor\0"
+            VALUE "ProductVersion", "5, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resrc1.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""winver.h""\r\n"
+    "#include ""resource.h""\r\n"
+    "#include ""bhver.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_EXPERTNAME          "BLRPLATE"
+    IDS_COMMENT             "BLRPLATE"
+    IDS_AUTHOR              "Microsoft Corporation"
+    IDS_EVENTNAME           "Event Name Here"
+    IDS_DESCRIPTION         "Event Description Here"
+    IDS_COLZERO             "Column Zero Caption Here"
+    IDS_COLONE              "Column One Caption Here"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_JUSTIFICATION_FORMAT "%s Data"
+    IDS_INITIALIZING        "Initializing"
+    IDS_CANTALLOCMEM        "Could not allocate memory"
+    IDS_CANTCREATEFILTER    "Could not create filter"
+    IDS_CANTADDTOFILTER     "Could not add element to filter"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

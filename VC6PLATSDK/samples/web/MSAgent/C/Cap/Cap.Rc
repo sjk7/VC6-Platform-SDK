@@ -1,0 +1,254 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CAP DIALOGEX 0, 0, 278, 250
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_ACCEPTFILES
+CAPTION "Microsoft Character Animation Previewer"
+MENU IDR_MENU
+CLASS "CAP"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "&Animations",IDC_ANIMATIONS_LABEL,7,5,191,105,
+                    WS_DISABLED
+    LISTBOX         IDC_ANIMATIONS,13,16,178,71,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    CONTROL         "Play sound &effects",IDC_SFX,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,14,93,70,11
+    CONTROL         "Stop &before next action",IDC_STOPBEFOREPLAY,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_GROUP | WS_TABSTOP,99,
+                    93,85,11
+    GROUPBOX        "Speech &Output",IDC_SPEECHOUTPUT_LABEL,7,112,191,92,
+                    WS_DISABLED
+    EDITTEXT        IDC_SPEAKTEXT,14,123,178,41,ES_MULTILINE | WS_DISABLED | 
+                    WS_VSCROLL | WS_GROUP
+    CONTROL         "Display &word balloon",IDC_BALLOON_USE,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_GROUP | WS_TABSTOP,14,
+                    171,77,10
+    CONTROL         "Auto Hi&de",IDC_BALLOON_AUTOHIDE,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,25,185,45,9
+    CONTROL         "Auto Pa&ce",IDC_BALLOON_AUTOPACE,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,79,185,47,9
+    CONTROL         "Si&ze To Text",IDC_BALLOON_SIZETOTEXT,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,133,185,57,9
+    GROUPBOX        "Position",IDC_POSITION_LABEL,7,209,191,34,WS_DISABLED
+    LTEXT           "&X:",IDC_X_LABEL,15,224,8,8,WS_DISABLED
+    EDITTEXT        IDC_MOVE_X,25,222,23,13,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_DISABLED | WS_GROUP
+    LTEXT           "&Y:",IDC_Y_LABEL,81,224,8,8,WS_DISABLED
+    EDITTEXT        IDC_MOVE_Y,91,222,23,13,ES_AUTOHSCROLL | ES_NUMBER | 
+                    WS_DISABLED | WS_GROUP
+    PUSHBUTTON      "&Play",IDC_PLAY,208,17,62,14,WS_DISABLED | WS_GROUP
+    PUSHBUTTON      "S&top",IDC_STOP,208,38,62,14,WS_DISABLED | WS_GROUP
+    PUSHBUTTON      "&Speak",IDC_SPEAK,208,123,62,14,WS_DISABLED | WS_GROUP
+    PUSHBUTTON      "&Move",IDC_MOVE,208,220,62,14,WS_DISABLED | WS_GROUP
+END
+
+IDD_ABOUT DIALOGEX 0, 0, 253, 84
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_RIGHT
+CAPTION "About Microsoft Character Animation Previewer"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,196,7,50,14
+    LTEXT           "Microsoft Character Animation Previewer",IDC_STATIC,36,
+                    8,131,9
+    LTEXT           "Copyright © 1998 - 2000 Microsoft Corporation",IDC_STATIC,36,
+                    18,128,9
+    LTEXT           "Static",IDC_ICONPOS,7,7,28,21,NOT WS_VISIBLE
+    LTEXT           "1.0.0.0",IDC_VERSION,64,28,67,9
+    LTEXT           "Version",IDC_STATIC,37,28,26,9
+    LTEXT           "Microsoft Agent",IDC_STATIC,35,49,50,9
+    LTEXT           "1.00",IDC_AGENTVERSION,63,59,67,9
+    LTEXT           "Version",IDC_STATIC,36,59,26,9
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 243
+    END
+
+    IDD_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 246
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON    DISCARDABLE     "cap.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPENCHARACTER
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_FILE_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Microsoft Character Animation Previewer", 
+                                                ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATORS ACCELERATORS DISCARDABLE 
+BEGIN
+    "O",            ID_FILE_OPENCHARACTER,  VIRTKEY, CONTROL, NOINVERT
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Microsoft Corporation\0"
+            VALUE "FileDescription", "Microsoft Character Animation Previewer\0"
+            VALUE "FileVersion", "1.0.0.0\0"
+            VALUE "InternalName", "Cap\0"
+            VALUE "LegalCopyright", "Copyright © 1998 - 2000\0"
+            VALUE "OriginalFilename", "Cap.exe\0"
+            VALUE "ProductName", "Microsoft Character Animation Previewer\0"
+            VALUE "ProductVersion", "1.0.0.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_COMMAND_PROPERTIES  "&Advanced Character Properties"
+    IDS_ANIMATIONS_LABEL    "&Animations for %s"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,1491 @@
+<HTML>
+<HEAD>
+<TITLE>Peedy's Pizza Palace</TITLE>
+</HEAD>
+<BODY bgproperties=fixed>
+<FONT FACE="Comic Sans MS" SIZE=1 COLOR=NAVY>
+<CENTER>
+   <FONT SIZE=5>Peedy's Pizza Palace<P>
+   <IMG SRC="THEPIZZA.GIF" ALIGN=MIDDLE width=200 height=50>
+</CENTER>
+</FONT>
+
+<OBJECT width=0 height=0
+ classid="clsid:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F"
+  id=AgentCtl>
+</OBJECT>
+
+<OBJECT width=0 height=0
+ CLASSID="clsid:B8F2846E-CE36-11D0-AC83-00C04FD97575"
+ id = L&HTruVoiceDownload>
+</OBJECT>
+
+<OBJECT width=0 height=0
+ CLASSID="CLSID:161FA781-A52C-11d0-8D7C-00A0C9034A7E"
+ CODEBASE="#VERSION=4,0,0,0">
+ id = MicrosoftSpeechRecognitionDownload>
+</OBJECT>
+
+<SCRIPT LANGUAGE="VBScript">
+<!--
+
+'	Copyright (c) 1998 by Microsoft Corporation
+'
+'	THE INFORMATION AND CODE PROVIDED HEREUNDER (COLLECTIVELY REFERRED TO
+'	AS "SOFTWARE") IS PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER
+'	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED
+'	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. IN
+'	NO EVENT SHALL MICROSOFT CORPORATION OR ITS SUPPLIERS BE LIABLE FOR
+'	ANY DAMAGES WHATSOEVER INCLUDING DIRECT, INDIRECT, INCIDENTAL,
+'	CONSEQUENTIAL, LOSS OF BUSINESS PROFITS OR SPECIAL DAMAGES, EVEN IF
+'	MICROSOFT CORPORATION OR ITS SUPPLIERS HAVE BEEN ADVISED OF THE
+'	POSSIBILITY OF SUCH DAMAGES. SOME STATES DO NOT ALLOW THE EXCLUSION OR
+'	LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES SO THE
+'	FOREGOING LIMITATION MAY NOT APPLY.
+'
+'	This software may be copied and distributed royalty-free subject to
+'	the following conditions:
+'
+'	1. You must copy all software without modification and must include
+'	   all pages, if the software is distributed without inclusion in your
+'	   software product. If you are incorporating the software in
+'	   conjunction with and as a part of your software product which adds
+'	   substantial value, you may modify and include portions of the
+'	   software.
+'
+'	2. You must place all copyright notices and other protective
+'	   disclaimers and notices contained on the software on all copies of
+'	   the software and your software product.
+'
+'	3. Unless the software is incorporated in your software product which
+'	   adds substantial value, you may not distribute this software for
+'	   profit.
+'
+'	4. You may not use Microsoft's name, logo, or trademarks to market
+'	   your software product.
+'
+'	5. You agree to indemnify, hold harmless, and defend Microsoft and its
+'	   suppliers from and against any claims or lawsuits, including
+'	   attorneys' fees, that arise or result from the use or distribution
+'	   of your software product and any modifications to the software.		
+
+Dim Peedy
+Dim LoadRequest
+Dim SpeechInputRequest
+Dim SpeakingDoneRequest
+Dim ListenOK
+Dim StatusRequest
+Dim HeardWhat
+Dim HeardSomething
+Dim AddRequest
+Dim IsListening
+Dim NoInput
+Dim OrderType
+Dim CurrentStyle
+Dim RecogError 
+Dim ChosenBySpeech
+
+'-------------------------------------------------
+'-- window_OnLoad
+'--
+'-- This event gets fired when the page is loaded.
+'--
+'-------------------------------------------------
+
+Sub Window_OnLoad
+
+ClearRadioButtons
+
+AgentCtl.Connected = True	' for IE3
+On Error Resume Next
+
+'-- Load the character from the \msagent\chars subdirectory
+Set LoadRequest = AgentCtl.Characters.Load ("char1", "peedy.acs")
+
+'-- If the character wasn't found, put up a message
+If LoadRequest.Status = 1 Then
+	Msgbox "You don't have Peedy stored in the \chars directory."+chr(13)+"You can download him from the Microsoft Agent Downloads page."
+End If
+
+'-- Set an object variable to the character 
+'-- loaded into the collection
+Set Peedy = AgentCtl.Characters ("char1")
+
+'-- Set the character's language to English
+Peedy.LanguageID = &H0409 
+
+'-- Now check for it
+If Peedy.SRModeID = "" Then
+	Msgbox "Either you have disabled speech input," + Chr(13)+ "- you don't have a compatible sound card," + Chr(13) + "- or you haven't installed a compatible speech recognition engine ." + Chr(13) + "(You can download it from the Microsoft Agent Downloads page.)"	
+End If
+
+'-- Check for the TTS engine engine
+If Peedy.TTSModeId = "" Then
+	Msgbox "Either you have disabled speech output," + Chr(13) + "- you don't have a compatible sound card," + Chr(13) + "- or you haven't installed a compatible text-to-speech engine." + Chr(13) + "(You can download it from the Microsoft Agent Downloads page.)"
+End If
+
+'-- Add page's entry on to the character's pop-up menu
+'-- to enable switching back to this client's (page's) script
+'-- (this will only be seen if another client becomes input active)
+Peedy.Commands.Caption = "Peedy's Pizza Palace"
+Peedy.Commands.Voice = "Peedy's Pizza Palace"
+
+'-- Initialize the voice grammar for the demo
+InitializeCommands
+
+'-- Start Peedy's Intro
+DoIntro
+
+End Sub
+
+
+Sub DoIntro
+'------------------------------------------
+'-- Introduce Peedy
+'------------------------------------------
+
+'-- Move the character and make it visible
+Peedy.MoveTo 20,90
+Peedy.Show
+	
+'-- And play an intro animations
+Peedy.Play "GestureLeft"
+Peedy.Speak "Welcome to Peedy's Pizza Palace."
+Peedy.Play "Greet"
+Peedy.Speak "I am Peedy."
+Peedy.Play "Restpose"
+Set SpeakingDoneRequest = Peedy.Speak ("Your online pizza ordering assistant.")
+
+End Sub
+
+
+Sub DoInstructions
+'--------------------------------------------------
+'-- Have Peedy provide pizza ordering instructions
+'--------------------------------------------------
+ 
+'-- Move the character to the starting position
+Peedy.MoveTo 20, 90
+
+'-- Point to the pizza styles	
+Peedy.Play "GestureDown"	
+Peedy.Speak "First, I'll ask you the style of pizza you wish."
+
+'-- Move over and point to the pizza toppings	
+Peedy.MoveTo 420,280
+Peedy.Play "GestureLeft"
+Peedy.Speak "Then I'll ask what other toppings you'd like to add or remove."
+	
+Peedy.Play "RestPose"
+Peedy.Speak "When you're ready to order, just say 'Place my order',"
+	
+Peedy.Speak "And I'll confirm your final total."
+
+Peedy.Play "Think"
+Peedy.Speak "By the way,"
+	
+Peedy.Speak "You can request instructions again by clicking the 'Instructions' button."
+Peedy.Play "LookUpRight"
+Peedy.Play "LookUpRightBlink"
+Peedy.Play "LookUpRightReturn"
+
+If AgentCtl.SpeechInput.Enabled = True Then
+	Peedy.Play "Alert"
+	Peedy.Speak "You can also interrupt me at any time by pressing the " + AgentCtl.SpeechInput.HotKey + " key."
+End If
+
+Peedy.Play "Blink"
+Peedy.Speak "Let's get started."
+Peedy.MoveTo 200,280
+	
+OrderPrompt
+
+End Sub
+
+
+Sub ClickedInstructions
+'-----------------------------------------------------------
+'-- This subroutine handles ensuring that character is
+'-- prepared to present the instructions if the user clicks
+'-- the Instructions button
+'-----------------------------------------------------------	
+
+'-- Stop any ongoing activity
+Peedy.Stop
+
+'-- If the character's not visible,
+'-- make him visible
+If Not (Peedy.Visible) Then
+	Peedy.Show
+End If
+
+'-- Give the user feedback and
+'-- jump to the Instructions subroutine
+Acknowledge
+DoInstructions
+
+End Sub
+
+
+Sub AgentCtl_Click (ByVal CharacterID, ByVal Button, ByVal Shift, ByVal X, ByVal Y)
+
+'-- If the user clicks the character with button one,
+'-- make him say something amusing
+If Button = 1 Then
+	Peedy.Stop
+	Peedy.Play "Surprised"
+	Peedy.Speak "Hey, that tickles!|Be careful with that pointer!"
+	OrderPrompt
+	End If
+
+End Sub
+
+
+Sub InitializeCommands
+'-------------------------------------------------
+'-- This subroutine creates the commands the
+'-- page will use.
+'-------------------------------------------------
+
+'-- Add Instruction button voice grammar
+Peedy.Commands.Add "Instructions", "&Instructions", "(how do I order [a pizza]|[give me] [(some|the) instructions])"
+Peedy.Commands("Instructions").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("Instructions").Confidence = -60
+
+'-- Add Order button voice grammar
+Peedy.Commands.Add "Order","&Order","([(please|I want to|I'd like to|I'm ready to|let's)] [place my] [pizza] [order] [up] [(the|my) pizza] [now]|[I'm] [all] (done|finished)|that's (all|it)|nothing [else])"
+Peedy.Commands("Order").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("Order").Confidence = -60
+
+'-- Add voice grammar for ordering 
+StyleRequest = "[ [please] [no] [I said] ((I'd like [to]|let's) [(try|order)]|how about|I want|[could you] give me) [(a|the)] ]"
+AddRequest = "[ [please] [no] [I said] ((I'd like [to]|let's) [(try|order)]|how about|I want|[could you] (give me|put on|add)) [some] ]"
+Toppings = "[ [with] [(some|a little)] (pepperoni |(onion |onions )|pineapple |salmon |anchovies |canadian bacon)[and] ]*"
+RemovalRequest = "(no|skip|delete|I don't want|take off|remove|get rid of|hold|forget) [(the|any)]"
+RemoveToppings = "[ (pepperoni |(onion |onions )|pineapple |salmon |anchovies |canadian bacon)[and] ]*"
+
+'-- Add voice grammar for Traditional Style pizza
+Peedy.Commands.Add "Traditional", "Traditional Cheese Style Pizza", StyleRequest + "[traditional] cheese [style] [pizza]"+ Toppings
+Peedy.Commands("Traditional").VoiceCaption = "Traditional cheese style pizza"
+Peedy.Commands("Traditional").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("Traditional").Confidence = -60
+
+'-- Add voice grammar for Hawaiian Style pizza
+Peedy.Commands.Add "Hawaiian", "Hawaiian Style Pizza", StyleRequest + "hawaiian [style] [pizza]"+ Toppings
+Peedy.Commands("Hawaiian").VoiceCaption = "Hawaiian style pizza"
+Peedy.Commands("Hawaiian").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("Hawaiian").Confidence = -60
+
+'-- Add voice grammar for Chicago Style pizza
+Peedy.Commands.Add "Chicago", "Chicago Style Pizza", StyleRequest + "chicago [style] [pizza]"+ Toppings
+Peedy.Commands("Chicago").VoiceCaption = "Chicago style pizza"
+Peedy.Commands("Chicago").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("Chicago").Confidence = -60
+
+'-- Add voice grammar for New York Style pizza
+Peedy.Commands.Add "NewYork", "New York Style Pizza", StyleRequest + "new york [style] [pizza]"+ Toppings
+Peedy.Commands("NewYork").VoiceCaption = "New York style pizza"
+Peedy.Commands("NewYork").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("NewYork").Confidence = -60
+
+'-- Add voice grammar for Seatttle Style pizza
+Peedy.Commands.Add "Seattle", "Seattle Style Pizza", StyleRequest + "seattle [style] [pizza]"+ Toppings
+Peedy.Commands("Seattle").VoiceCaption = "Seattle style pizza"
+Peedy.Commands("Seattle").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("Seattle").Confidence = -60
+
+'-- Add voice grammar for The Works Style pizza
+Peedy.Commands.Add "TheWorks", "The Works Style Pizza", StyleRequest + "[the] works [style] [pizza]"+ Toppings
+Peedy.Commands("TheWorks").VoiceCaption = "The Works style pizza"
+Peedy.Commands("TheWorks").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("TheWorks").Confidence = -60
+
+'-- Add voice grammar for adding toppings
+Peedy.Commands.Add "AddTopping", ,AddRequest + Toppings
+'Peedy.Commands("AddTopping").VoiceCaption = "Add some (topping)"
+'Peedy.Commands("AddTopping").ConfidenceText = "Didn't understand your request."
+'Peedy.Commands("AddTopping").Confidence = -60
+
+'-- Add voice grammar for removing toppings
+Peedy.Commands.Add "RemoveTopping",,RemovalRequest + RemoveToppings
+Peedy.Commands("RemoveTopping").VoiceCaption = "Remove the (topping)"
+Peedy.Commands("RemoveTopping").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("RemoveTopping").Confidence = -60
+
+'-- Add support for Advanced Character Options
+Peedy.Commands.Add "AdvCharOpt","&Advanced Character Options", "advanced character options"
+Peedy.Commands("AdvCharOpt").ConfidenceText = "Didn't understand your request."
+Peedy.Commands("AdvCharOpt").Confidence = -60
+
+End Sub
+
+
+Sub AgentCtl_Command(byval UserInput)
+'-----------------------------------------------------
+'-- This event is fired by the Agent control whenever
+'-- a command is selected 
+'-----------------------------------------------------
+HeardWhat = UserInput.Voice
+
+'-----------------------------------------------------	
+'-- If we get a low overall confidence score, process
+'-- as a bad recognition
+'-----------------------------------------------------
+If (UserInput.Confidence <= -60) then 
+	BadAcceptanceRec
+	Exit Sub
+
+'------------------------------------------------------	
+'-- Otherwise see if the first alternative was garbage
+'-- If it was, then handle as a bad recognition
+'------------------------------------------------------
+ElseIf (UserInput.Alt1Name="") and (UserInput.Alt2Name<>"") and (UserInput.Name<>UserInput.Alt2Name) And (Abs(UserInput.Confidence-UserInput.Alt2Confidence) < 10) then
+	msgbox "failed first alt"
+	BadAcceptanceRec
+	Exit Sub
+				
+'------------------------------------------------------
+'-- We got a good confidence score, the first and second 
+'-- choices are the same or the delta > 10 so then let's 
+'-- process the results
+'------------------------------------------------------ 
+Else
+	HeardSomething = True
+	ChosenBySpeech = True
+	NoInput = 0
+	RecogError = 0
+
+	'-------------------------------------------------
+	'-- Go through each of our menu item ids looking
+	'-- for a match.  If a match is found, then take
+	'-- the appropriate action.  
+	'-------------------------------------------------
+	CommandSelected = UserInput.Name
+	
+	Select Case CommandSelected
+
+	Case "Instructions"
+		DoInstructions
+		Exit Sub
+
+	Case "Order"
+		DoOrder
+		Exit Sub
+		
+	Case "Traditional" 
+		If HeardWhat = "" Then
+			HeardWhat = "traditional"
+		End If
+
+		AddRequest = True
+		ProcessInput
+		Exit Sub
+
+	Case "Hawaiian" 
+		If HeardWhat = "" Then
+			HeardWhat = "hawaiian"
+		End If
+
+		AddRequest = True
+		ProcessInput
+		Exit Sub
+
+	Case "Chicago" 
+		If HeardWhat = "" Then
+			HeardWhat = "chicago"
+		End If
+
+		AddRequest = True
+		ProcessInput
+		Exit Sub
+
+	Case "NewYork" 
+		If HeardWhat = "" Then
+			HeardWhat = "new york"
+		End If
+
+		AddRequest = True
+		ProcessInput
+		Exit Sub
+
+	Case "Seattle" 
+		If HeardWhat = "" Then
+			HeardWhat = "seattle"
+		End If
+
+		AddRequest = True
+		ProcessInput
+		Exit Sub
+
+	Case "TheWorks" 
+		If HeardWhat = "" Then
+			HeardWhat = "works"
+		End If
+
+		AddRequest = True
+		ProcessInput
+		Exit Sub
+
+	Case "AddTopping"
+		AddRequest = True
+		ProcessInput
+		Exit Sub
+
+	Case "RemoveTopping"
+		AddRequest = False
+		ProcessInput
+		Exit Sub
+
+	Case "AdvCharOpt"
+		AgentCtl.PropertySheet.Visible = True
+
+		Peedy.Stop
+		Peedy.GestureAt AgentCtl.PropertySheet.Left,AgentCtl.PropertySheet.Top
+		Peedy.Speak "I see that you opened the 'Advanced Character Options'"
+		
+		If Not AgentCtl.SpeechInput.Enabled Then
+			Peedy.Play "Explain"
+			Peedy.Speak "If you want to enable speech input, click the 'Speech Input' tab"
+			Peedy.Speak "Then check the 'Characters Listen For Input' option, and click 'OK.'"
+		Else
+			Peedy.Play "Explain"
+			Peedy.Speak "You can change many of my interaction options here."
+		End If
+		
+		Exit Sub
+
+	End Select
+
+End If
+		
+End Sub	
+
+
+Sub BadAcceptanceRec 
+'--------------------------------------------------
+'-- We didn't get a good confidence score  
+'-- so give appropriate feedback
+'--------------------------------------------------
+TurnOffListeningMode
+
+Select Case RecogError
+
+Case 0 
+	RecogError = 1
+	Peedy.Play "DontRecognize"
+	Set SpeechInputRequest = Peedy.Speak ("Huh?|What?|How's that?")
+
+Case 1
+	RecogError = 2
+	Peedy.Play "Decline"
+	Set SpeechInputRequest = Peedy.Speak ("Say that again?|Please repeat|One more time?")
+
+Case 2
+	RecogError = 3
+	Peedy.Play "StartListening"
+	If OrderType = 0 Then
+		Set SpeechInputRequest = Peedy.Speak ("Please say 'Traditional Cheese,' 'Hawaiian,' 'New York,' 'Chicago,' 'Seattle,' or 'The Works'.")
+	Else
+		Set SpeechInputRequest = Peedy.Speak ("Please say 'Pepperoni,' 'Onion,' 'Pineapple,' 'Salmon,' 'Anchovies,' or 'Canadian Bacon.'")
+
+	End If
+
+Case 3
+	Peedy.Play "Suggest"
+	Set SpeechInputRequest = Peedy.Speak ("If your order is complete, say 'Place my order' or 'Instructions' if you need help.")
+
+End Select
+	
+End Sub
+
+	
+Sub AgentCtl_RequestComplete (ByVal Request)
+'------------------------------------------------------------
+'-- This subroutine handles all Request object processing
+'------------------------------------------------------------	
+
+HeardSomething = False
+
+'-- If the Request is to check the Listening state 
+'-- when the character finishes speaking
+If Request = SpeakingDoneRequest And Request.Status <> 3 Then
+	CheckListeningState
+
+	Peedy.Play "Pleased"
+	Peedy.Speak "Let me tell you how you can place your order."
+
+	'-- Have Peedy explain how to order
+	DoInstructions
+
+'-- If the Request is to turn on Listening mode
+'-- when the character finishes speaking 
+ElseIf Request = SpeechInputRequest Then
+	'-- if we were interrupted because the user pressed the key
+	If Request.Status = 3 Then
+		Exit Sub
+	Else 
+		TurnOnListeningMode
+	End If
+	
+	
+'-- If the Request is to update the display of the status text
+'-- when the character finishes speaking
+ElseIf Request = StatusRequest Then
+	Peedy.Play "Blink"
+
+	'-- Make certain speech is enabled
+	'-- before you change the text
+	If AgentCtl.SpeechInput.Enabled = True Then
+		Window.Status = "Press the " + AgentCtl.SpeechInput.Hotkey + " key to talk to Peedy."
+	Else '-- Otherwise, exit this subroutine
+		Exit Sub
+	End If
+
+End If
+
+End Sub
+
+
+Sub TurnOnListeningMode
+'------------------------------------------------------
+'-- This subroutine turns on Listening mode
+'------------------------------------------------------
+If AgentCtl.SpeechInput.Enabled = True Then
+
+	'-- Check the character's listening state
+	CheckListeningState
+
+	If ListenOK = True Then
+		Peedy.Play "Alert"
+		Peedy.Listen True
+	Else 
+		Exit Sub
+	End If
+
+End If
+
+End Sub
+
+
+Sub TurnOffListeningMode
+'------------------------------------------------------
+'-- This subroutine turns off Listening mode
+'------------------------------------------------------
+If AgentCtl.SpeechInput.Enabled = True Then
+
+	'-- Check to see if the character is visible
+	If Peedy.Visible Then
+
+		'-- If we are currently listening,
+		'-- turn off the Listening mode
+		If IsListening = True Then
+			Peedy.Listen False
+
+		End If
+
+	Else 
+		'-- The character's currently hidden
+		'-- so reflect this in the status text
+		Window.Status = "Cannot change Listening Mode because Peedy is hidden."
+
+	End If
+
+Else '-- If speech input is not enabled, just exit
+	Exit Sub
+
+End If
+ 
+End Sub
+
+
+Sub CheckListeningState
+'----------------------------------------------------
+'-- This routine checks the current listening state
+'----------------------------------------------------
+Select Case Peedy.SRStatus
+
+Case 0 '-- Listening state is available
+	ListenOK = True
+	Exit Sub
+
+Case 1 '-- Couldn't find an audio input device
+	Peedy.Play "Decline"
+	Peedy.Speak "It doesn't appear that your computer has support for speech input."
+	ListenOK = False
+
+Case 2 '-- Client/character is not input active
+	If Not Peedy.Visible Then
+		Window.Status = "Peedy is currently hidden."
+	End If
+	ListenOK = False
+
+Case 3 '-- The audio device is busy or unavailable
+	Peedy.Play "Decline"
+	Peedy.Speak "It appears that some application is currently using your sound card."
+	Peedy.Play "Blink"
+	Peedy.Speak "You may have to use your mouse to make selections."
+	ListenOK = False
+
+Case 4 '-- Couldn't find speech engine support
+	Peedy.Play "Sad"
+	If Peedy.SRModeID = "" Then
+		Peedy.Speak "I checked your computer and you don't currently have a compatible speech recognition engine installed."
+	End If
+	Peedy.Speak "So you won't be able to use speech input with this demo."
+	ListenOK = False
+
+Case 5 '-- Speech input has been disabled
+	Peedy.Play "Surprised"
+	Peedy.Speak "I noticed that you currently have speech input disabled."
+	Peedy.Speak "So you won't be able to speak to me to order your pizza."
+	Peedy.Play "Suggest"
+	Peedy.Speak "If you want to re-enable speech input, right-click on me and then choose 'Advanced Character Options.'"
+	ListenOK = False
+
+Case 6 '-- Unknown audio device error
+	Peedy.Play "Confused"
+	Peedy.Speak "There is some problem with your sound card, but I can't determine what it is."
+	ListenOK = False
+
+End Select
+	
+
+End Sub
+
+
+Sub OrderPrompt
+'----------------------------------------------------------
+'-- This subroutine handles the conversation for ordering 
+'-- toppings
+'----------------------------------------------------------
+
+TurnOffListeningMode
+
+If OrderType = 0 Then 
+	Peedy.MoveTo 200,280
+	Peedy.Play "GestureRight"
+	Set SpeechInputRequest = Peedy.Speak ("What style of pizza would you like?|What kind of pizza would you like?|Your preferred style?")
+
+ElseIf OrderType = 1 Then 
+	Peedy.MoveTo 420,280
+	Peedy.Play "GestureLeft"
+	
+	If ChosenBySpeech Then
+		Set SpeechInputRequest = Peedy.Speak ("What other toppings would you like to add or remove?|What else?|What other topping?")
+		ChosenBySpeech = False
+	Else 
+		Peedy.Speak "What other toppings would you like to add or remove?|What else?|What other topping?"
+		Peedy.Play "Blink"
+	End If
+
+End If
+
+End Sub
+
+
+Sub AgentCtl_ListenStart (ByVal CharacterID)
+'-----------------------------------------------------------------
+'-- This subroutine updates the status text to indicate
+'-- that the character is currently listening
+'-----------------------------------------------------------------
+IsListening = True
+
+Window.Status = "Peedy's listening"
+
+End Sub
+
+
+Sub AgentCtl_ListenComplete (ByVal CharacterID, ByVal Cause)
+'-----------------------------------------------------------------
+'-- This subroutine handles the processing when 
+'-- the Listening mode is turned off
+'-----------------------------------------------------------------
+
+Window.Status = "Peedy's not listening"
+
+If HeardSomething = False Then
+
+	'-- We didn't get any input from the user
+	If Cause = 2 Then 
+		'-- The programmed Listening mode timed out
+
+		'-- Current NoInput (0 = first request, 
+		'-- 1 = second request)
+		If NoInput = 0 Then
+			NoInput = 1 
+			Peedy.Play "DontRecognize"
+			Set SpeechInputRequest = Peedy.Speak ("I'm sorry, I didn't hear your response. Please repeat your request.")
+			
+		ElseIf NoInput = 1 Then
+			NoInput = 2
+
+			'-- Current OrderType (0 = style, 1 = ingredient)
+			If OrderType = 0 Then
+				TurnOffListeningMode
+				Peedy.Play "Explain"
+				Set SpeechInputRequest = Peedy.Speak ("Please say 'Traditional Cheese,' 'Hawaiian,' 'Chicago,' 'New York,' 'Seattle,' or 'The Works.'")
+	
+			Else
+				TurnOffListeningMode
+				Set SpeechInputRequest = Peedy.Speak ("Please say 'Pepperoni,' 'Onions,' 'Pineapple,' 'Salmon,' 'Anchovies,' or 'Canadian Bacon.'|If your order is complete, say 'Place my order.'")
+			End If
+
+		Else 
+			'-- Require that the user initiate spoken input
+			Peedy.Play "Suggest"
+			Peedy.Speak "It sounds like you need a little more time to decide."
+			Set StatusRequest = Peedy.Speak ("Just press the " + AgentCtl.SpeechInput.HotKey + " key when you are ready to continue.")
+
+		End If
+
+	ElseIf Cause = 3 Then
+		'-- The Listening key timed out
+		If OrderType = 0 Then
+			BadAcceptanceRec
+
+		Else
+			Set StatusRequest = Peedy.Speak ("When you want to continue, press and hold the " + AgentCtl.SpeechInput.HotKey + " key again.|When you are ready to continue with your order, press and hold the " + AgentCtl.SpeechInput.Hotkey + " key.")
+
+		End If
+
+	End If
+
+End If
+
+End Sub
+
+
+Sub SetTotalCost
+'-------------------------------------------------
+'-- This method will set the total cost of the
+'-- pizza.
+'-------------------------------------------------
+
+'-- Get total number of toppings.
+total = document.OrderForm.Pepperoni.checked + _
+     	document.OrderForm.Onion.checked     + _
+     	document.OrderForm.Pineapple.checked + _
+     	document.OrderForm.Salmon.checked    + _
+     	document.OrderForm.Anchovies.checked + _
+     	document.OrderForm.CanadianBacon.checked
+
+'----------
+'-- The price of a pizza is $10... then add the number of
+'-- toppings.
+'----------
+document.OrderForm.sum.value = "$" + CStr(10 + (abs(total) * 2)) + ".00"
+
+End Sub
+
+
+Sub SetIngredient(byval ingredient)
+'-------------------------------------------------
+'-- The subroutine sets the state of a topping
+'-------------------------------------------------
+Select Case ingredient
+
+Case "Pepperoni" 
+	document.OrderForm.Pepperoni.Checked = True
+			
+Case "Onion" 
+	document.OrderForm.Onion.checked = True
+
+Case "Pineapple"
+	document.OrderForm.pineapple.checked = True
+
+Case "CanadianBacon"
+	document.OrderForm.CanadianBacon.checked = True
+
+Case "Salmon" 
+	document.OrderForm.salmon.checked = True
+
+Case "Anchovies"
+	document.OrderForm.anchovies.checked = True
+
+End Select
+
+SetTotalCost
+
+End Sub
+
+
+'--------------------------------------------------------
+'-- The following Set subroutines are called via OnClick 
+'-- when the user selects an ingredient.
+'---------------------------------------------------------
+Sub SetPepperoni
+
+If OrderType = 0 Then
+	document.OrderForm.Pepperoni.Checked = False
+	RequestStyleFirst	
+	Exit Sub
+
+End If
+
+Acknowledge
+If document.OrderForm.Pepperoni.Checked Then
+	Peedy.Play "Alert"
+      Peedy.Speak "Yum, I \emp\love pepperoni.|Pepperoni is my favorite topping."
+	
+Else 
+	Peedy.Play "Sad"
+	Peedy.Speak "OK boss. No pepperoni.|No pepperoni.|Removing the pepperoni per your request."
+	
+End If
+
+SetTotalCost
+
+End Sub
+
+
+Sub SetOnion
+
+If OrderType = 0 Then
+	document.OrderForm.Onion.Checked = False
+	RequestStyleFirst	
+	Exit Sub
+
+End If
+
+Acknowledge
+If document.OrderForm.Onion.Checked Then
+	Peedy.Play "Surprised"
+	Peedy.Speak "Hope you don't have a date later.|I'll add some breath mints, too."
+	
+Else
+	Peedy.Play "Alert"
+	Peedy.Speak "No onions.|I'm removing the onions from your order."
+	
+End If
+
+SetTotalCost
+
+End Sub
+
+
+Sub SetPineapple
+
+If OrderType = 0 Then
+	document.OrderForm.Pineapple.Checked = False
+	RequestStyleFirst	
+	Exit Sub
+End If
+
+Acknowledge
+
+If document.OrderForm.Pineapple.Checked Then
+	Peedy.Play "Announce"
+	Peedy.Speak "Golden pineapple, shipped in this morning from sunny Hawaii.|Pineapple is my favorite sunshine fruit."
+	
+Else 
+	Peedy.Play "Acknowledge"
+	Peedy.Speak "No pineapple.|Removed the pineapple."
+
+End If
+
+End Sub
+
+
+Sub SetSalmon
+
+If OrderType = 0 Then
+	document.OrderForm.Salmon.Checked = False
+	RequestStyleFirst	
+	Exit Sub
+End If
+
+Acknowledge
+	
+If document.OrderForm.Salmon.Checked Then
+	Peedy.Play "Blink"
+	Peedy.Speak "The salmon is freshly caught from the Copper River.|Great! The sockeye is superb today."
+	
+Else
+	Peedy.Play "Acknowledge"
+	Peedy.Speak "OK, no more salmon.|Salmon's gone."
+
+End If
+
+SetTotalCost
+
+End Sub
+
+
+Sub SetAnchovies
+
+If OrderType = 0 Then
+	document.OrderForm.Anchovies.Checked = False
+	RequestStyleFirst	
+	Exit Sub
+End If
+
+Acknowledge
+If document.OrderForm.Anchovies.Checked Then
+	Peedy.Play "Sad"
+	Peedy.Speak "Anchovies! You like smelly little dead fish?|How can you eat those salty little things?"
+	
+Else
+	Peedy.Play "Acknowledge"
+	Peedy.Speak "What a relief!|No more anchovies."
+
+End If
+
+End Sub
+
+
+Sub SetCanadianBacon
+
+If OrderType = 0 Then
+	document.OrderForm.CanadianBacon.Checked = False
+	RequestStyleFirst	
+	Exit Sub
+End If
+
+Acknowledge
+If document.OrderForm.CanadianBacon.Checked Then
+	If Not document.OrderForm.Pineapple.Checked Then
+		Peedy.Speak "Canadian Bacon, you know it goes great with pineapple."
+	Else
+		Peedy.Play "Acknowledge"
+		Peedy.Speak "Yum. Canadian Bacon, a great choice!"
+
+	
+	End If
+
+Else
+	Peedy.Play "Acknowledge"
+	Peedy.Speak "No more Canadian bacon.|I've removed the Canadian bacon."
+	
+End If
+
+SetTotalCost
+
+End Sub
+
+
+Sub DoOrder
+'----------------------------------------------------
+'-- This subroutine finalizes the user's order
+'----------------------------------------------------
+
+If OrderType = 0 Then
+	RequestStyleFirst
+	Exit Sub
+
+End If
+
+'----------
+'-- Make sure the total cost is set
+'----------
+SetTotalCost
+
+'----------
+'-- Give the user some feedback
+'----------
+Acknowledge
+Peedy.Speak "Let's review your order."
+Peedy.Play "write"
+Peedy.Speak "Let's see."
+Peedy.Speak "You ordered a " + CurrentStyle + " style pizza,"
+Peedy.Play "WriteContinued"
+Peedy.Speak "with cheese, sauce, "
+
+If document.OrderForm.Pepperoni.Checked = True Then
+	Peedy.Speak "pepperoni,"
+End If
+
+If document.OrderForm.Onion.Checked = True Then
+	Peedy.Speak "onions,"
+End If
+
+If document.OrderForm.Pineapple.Checked = True Then
+	Peedy.Speak "pineapple,"
+End If
+
+If document.OrderForm.Salmon.Checked = True Then
+	Peedy.Speak "salmon,"
+End If
+
+If document.OrderForm.Anchovies.Checked = True Then
+	Peedy.Speak "anchovies,"
+End If
+
+If document.OrderForm.CanadianBacon.Checked = True Then
+	Peedy.Speak "and Canadian bacon."
+End If
+
+Peedy.Play "WriteReturn"
+
+'----------------------------------------------
+'-- Total the pizza and sign off
+'----------------------------------------------
+Peedy.Play "Alert"
+Peedy.Speak "Your total will be..."
+Peedy.Play "Process"
+Peedy.Speak document.OrderForm.sum.value + "."
+
+Peedy.MoveTo 20,90
+Set StatusRequest = Peedy.Speak ("Thank you for ordering from Peedy's Pizza Palace.")
+Peedy.Play "Pleased"
+		
+End Sub
+
+
+Sub ClearRadioButtons
+'------------------------------------------------------
+'-- This subroutine clears all of the radio buttons on
+'-- the order form.
+'-------------------------------------------------------
+document.OrderForm.elements(0).checked = False
+document.OrderForm.elements(1).checked = False
+document.OrderForm.elements(2).checked = False
+document.OrderForm.elements(3).checked = False
+document.OrderForm.elements(4).checked = False
+document.OrderForm.elements(5).checked = False
+
+End Sub
+ 
+
+Sub ProcessInput
+'--------------------------------------------------------
+'-- Process the text returned in the Command event
+'-- checking to see what appropriate strings it included
+'--------------------------------------------------------
+If InStr(HeardWhat, "traditional") Then
+	DoTraditional
+	ProcessedStyle  = True
+		
+End If
+
+If InStr(HeardWhat, "hawaiian") Then
+	DoHawaiian
+	ProcessedStyle = True
+
+End If
+
+If InStr(HeardWhat, "chicago") Then
+	DoChicago
+	ProcessedStyle  = True
+
+End If
+
+If InStr(HeardWhat, "seattle") Then
+	DoSeattle
+	ProcessedStyle  = True
+
+End If
+
+If InStr(HeardWhat, "new york") Then
+	DoNewYork
+	ProcessedStyle  = True
+
+End If
+
+If InStr(HeardWhat, "works") Then
+	DoTheWorks
+	ProcessedStyle = True
+	
+End If
+
+'-- If we don't have a pizza style yet, request 
+'-- that the user select one first
+If OrderType = 0 and ProcessedStyle = False Then
+	RequestStyleFirst
+	Exit Sub
+End If
+
+If InStr(HeardWhat, "pepperoni") Then
+
+	'-- request to add pepperoni
+	If AddRequest Then 
+
+		'-- Is pepperoni already on the order?
+		If document.OrderForm.Pepperoni.checked = False Then
+			document.OrderForm.Pepperoni.checked = True
+			SetPepperoni
+
+		Else 
+			Peedy.Speak "Already got pepperoni on your order."
+
+		End If
+
+	'-- request to remove pepperoni
+	Else 
+		document.OrderForm.Pepperoni.checked = False
+		SetPepperoni
+		
+	End If
+
+	ProcessedTopping = True
+	OrderPrompt
+
+
+End If
+
+If InStr(HeardWhat, "onion") Then
+
+	'-- Request to add onion
+	If AddRequest Then
+
+		'-- Is onion already on the order?
+		If document.OrderForm.Onion.checked = False Then
+			document.OrderForm.Onion.checked = True
+			SetOnion
+
+		Else 
+			Peedy.Speak "Got that already."
+
+		End If
+
+	'-- Request to remove onion
+	Else 
+		document.OrderForm.Onion.checked = False
+		SetOnion
+
+	End If
+
+	ProcessedTopping = True
+	OrderPrompt
+
+End If
+
+If InStr(HeardWhat, "pineapple") Then
+
+	'-- Request to add pineapple
+	If AddRequest Then
+
+		'-- Is pineapple already on the order?
+		If document.OrderForm.Pineapple.checked = False Then
+			document.OrderForm.Pineapple.checked = True
+			SetPineapple
+
+		Else 
+			Peedy.Speak "Already got that."
+		
+		End If
+
+	'-- Request to remove pineapple
+	Else 
+		document.OrderForm.Pineapple.checked = False
+		SetPineapple
+	End If
+
+	ProcessedTopping  = True
+	OrderPrompt
+
+End If
+
+If InStr(HeardWhat, "salmon") Then
+
+	'-- Request to add salmon
+	If AddRequest Then
+
+		'-- Is salmon already on the order?
+		If document.OrderForm.Salmon.checked = False Then
+			document.OrderForm.Salmon.checked = True
+			SetSalmon
+		Else 
+			Peedy.Speak "It's there."
+
+		End If
+
+	'-- Request to remove salmon
+	Else 
+		document.OrderForm.Salmon.checked = False
+		SetSalmon
+		
+	End If
+
+	ProcessedTopping = True
+	OrderPrompt
+
+End If
+
+If InStr(HeardWhat, "anchovies") Then
+
+	'-- Request to add anchovies
+	If AddRequest Then
+
+		'-- Are anchovies already on the order?
+		If document.OrderForm.Anchovies.checked = False Then
+			document.OrderForm.Anchovies.checked = True
+			SetAnchovies
+		Else 
+			Peedy.Speak "They're already there."
+
+		End If
+	
+	'-- Request to remove anchovies
+	Else 
+		document.OrderForm.Anchovies.checked = False
+		SetAnchovies
+	
+	End If
+
+	ProcessedTopping = True
+	OrderPrompt
+
+End If
+
+If InStr(HeardWhat, "canadian bacon") Then
+
+	'-- Request to add canadian bacon
+	If AddRequest Then
+
+		'-- Is Canadian Bacon already on the order?
+		If document.OrderForm.CanadianBacon.checked = False Then
+			document.OrderForm.CanadianBacon.checked = True
+			SetCanadianBacon
+		
+		Else 
+			Peedy.Speak "It's already there."
+		
+		End If
+
+	'-- Request to remove canadian bacon
+	Else 
+		document.OrderForm.CanadianBacon.checked = False
+		SetCanadianBacon
+
+	End If
+		
+	ProcessedTopping = True
+	OrderPrompt
+
+End If
+
+If ProcessedStyle = False And ProcessedTopping = False Then
+	BadAcceptanceRec
+	Exit Sub
+
+End If
+
+End Sub
+
+
+Sub SetIngredients(byval bPepperoni,byval bOnion,byval bPineapple,byval bSalmon,byval bAnchovies,byval bCanadianBacon)
+'-------------------------------------------------
+'--   Checks/unchecks the appropriate checkboxes on the page.
+'--   Recomputes cost of the pizza.
+'-------------------------------------------------
+
+document.OrderForm.Pepperoni.checked  = bPepperoni
+document.OrderForm.Onion.checked      = bOnion
+document.OrderForm.Pineapple.checked  = bPineapple
+document.OrderForm.Salmon.checked     = bSalmon
+document.OrderForm.Anchovies.checked  = bAnchovies
+document.OrderForm.CanadianBacon.checked  = bCanadianBacon
+
+SetTotalCost
+
+End Sub
+
+
+Sub Acknowledge
+'-----------------------------------------------
+'-- This routine positively acknowledges the 
+'-- user's request
+'-----------------------------------------------
+
+TurnOffListeningMode
+
+Peedy.Stop
+Peedy.Play "Acknowledge"
+
+End Sub
+
+
+Sub RequestStyleFirst
+'----------------------------------------------
+'-- This routine reminds the user that a style
+'-- must be selected before toppings
+'-----------------------------------------------
+TurnOffListeningMode
+Peedy.Stop
+Peedy.Play "Decline"
+Peedy.Speak "You haven't selected a pizza style yet.|Please select a pizza style first.|I need your style preference first."
+OrderPrompt
+
+End Sub
+
+
+Sub DoTraditional
+'-------------------------------------------------
+'-- This subroutine handles the selection of a 
+'-- traditional pizza
+'-------------------------------------------------
+ClearRadioButtons
+SetIngredients False, False, False, False, False, False
+document.OrderForm.Elements(0).Checked = True
+OrderType = 1
+CurrentStyle = "traditional cheese"
+SetTotalCost
+	
+Acknowledge
+		
+Peedy.Play "Explain"
+Peedy.Speak "Our traditional cheese pizza,|Our traditional cheese pizza,"
+Peedy.Speak "I can tell you like the simpler things in life.|You'll really like our famous cracker crumb crust."
+Peedy.Speak "This one includes the finest mozzarella cheese and our tangy tomato sauce."
+
+OrderPrompt
+
+End Sub
+
+ 
+Sub DoHawaiian
+'------------------------------------------------------------
+'--   A Hawaiian pizza contains Pineapple and Canadian Bacon.
+'------------------------------------------------------------
+ClearRadioButtons
+SetIngredients False, False, True, False, False, True
+document.OrderForm.Elements(1).Checked = True
+OrderType = 1
+CurrentStyle = "Hawaiian"
+SetTotalCost
+
+Acknowledge
+Peedy.Speak "The Hawaiian pizza.|Hawaiian style"
+Peedy.Play "Explain"
+Peedy.Speak "Nice choice."
+Peedy.Speak "This style combines the sweet taste of pineapple"
+Peedy.Speak "And the leanest Canadian bacon."
+
+OrderPrompt
+
+End Sub
+
+
+Sub DoChicago
+'-------------------------------------------------
+'--   A Chicago pizza contains Onion and Pepperoni.
+'-------------------------------------------------
+ClearRadioButtons
+SetIngredients True, True, False, False, False, False
+document.OrderForm.Elements(2).Checked = True
+OrderType = 1
+CurrentStyle = "Chicago"
+SetTotalCost
+
+Acknowledge
+Peedy.Play "Congratulate"
+Peedy.Speak "The Chicago style, my Godfodder's favorite.|A Chicago pizza, my personal favorite."
+Peedy.Speak "Topped with the finest pepperoni and tangy onions.|This one includes onions and pepperoni."
+
+OrderPrompt
+
+End Sub
+
+
+Sub DoNewYork
+'-------------------------------------------------
+'--   A New York pizza contains Pepperoni.
+'-------------------------------------------------
+ClearRadioButtons
+SetIngredients True, False, False, False, False, False
+document.OrderForm.Elements(3).Checked = True
+OrderType = 1
+CurrentStyle = "New York"
+SetTotalCost
+
+Acknowledge
+Peedy.Play "Read"
+Peedy.Speak "The New York style,|A New York pizza,"
+Peedy.Play "ReadContinued"
+Peedy.Speak "Piled high with pepperoni."
+Peedy.Play "ReadReturn"
+
+OrderPrompt
+
+End Sub
+
+
+Sub DoSeattle
+'-------------------------------------------------
+'--   A Seattle pizza contains Rain... However,
+'--   Rain is not a valid choice so the user can
+'--   only select Salmon.
+'-------------------------------------------------
+ClearRadioButtons
+SetIngredients False, False, False, True, False, False
+document.OrderForm.Elements(4).Checked = True
+OrderType = 1
+CurrentStyle = "Seattle"
+SetTotalCost
+
+Acknowledge
+Peedy.Speak "Our Seattle style pizza.|The Seattle style,"
+Peedy.Speak "Topped with the finest Sockeye salmon from the Copper River in Alaska."
+
+OrderPrompt
+	
+End Sub
+
+
+Sub DoTheWorks
+'-------------------------------------------------
+'--   A pizza with the works contains everything.
+'-------------------------------------------------
+ClearRadioButtons
+SetIngredients True, True, True, True, True, True
+document.OrderForm.Elements(5).Checked = True
+OrderType = 1
+CurrentStyle = "Works"
+SetTotalCost
+
+Acknowledge
+Peedy.Play "Pleased"
+Peedy.Speak "Excellent."
+Peedy.Speak "The Works, |The Works pizza, "
+Peedy.Speak "our most popular!|I hope you have a big appetite.|This one's got everything.|This one's piled high with goodies."
+
+OrderPrompt
+
+End Sub
+
+-->
+
+</SCRIPT>
+
+<FORM Name="OrderForm">
+<TABLE BORDER=1 BGCOLOR="#FFFFCC" WIDTH=200 ALIGN=LEFT>
+   <TR><TD BGCOLOR=NAVY ALIGN=CENTER><FONT COLOR=FFFFCC>Pick A Style...</TD></TR>
+   <TR><TD><IMG SRC="SLICE.GIF" ALT="*" ALIGN=CENTER>&nbsp;<INPUT TYPE=RADIO NAME=RadioGroup onClick="DoTraditional">Traditional Cheese  </TD></TR>
+   <TR><TD><IMG SRC="SLICE.GIF" ALT="*" ALIGN=CENTER>&nbsp;<INPUT TYPE=RADIO NAME=RadioGroup onClick="DoHawaiian">Hawaiian  </TD></TR>
+   <TR><TD><IMG SRC="SLICE.GIF" ALT="*" ALIGN=CENTER>&nbsp;<INPUT TYPE=RADIO NAME=RadioGroup onClick="DoChicago">Chicago   </TD></TR>
+   <TR><TD><IMG SRC="SLICE.GIF" ALT="*" ALIGN=CENTER>&nbsp;<INPUT TYPE=RADIO NAME=RadioGroup onClick="DoNewYork">New York  </TD></TR>
+   <TR><TD><IMG SRC="SLICE.GIF" ALT="*" ALIGN=CENTER>&nbsp;<INPUT TYPE=RADIO NAME=RadioGroup onClick="DoSeattle">Seattle   </TD></TR>
+   <TR><TD><IMG SRC="SLICE.GIF" ALT="*" ALIGN=CENTER>&nbsp;<INPUT TYPE=RADIO NAME=RadioGroup onClick="DoTheWorks">The Works </TD></TR>
+</TABLE>
+<TABLE BORDER=1 BGCOLOR="#FFFFCC" WIDTH=200 ALIGN=RIGHT>
+   <TR><TD BGCOLOR=NAVY ALIGN=CENTER><FONT COLOR=FFFFCC>Pick a Topping...</TD></TR>
+   <TR><TD><INPUT TYPE=CHECKBOX NAME=Pepperoni onClick="SetPepperoni">Pepperoni </TD></TR>
+   <TR><TD><INPUT TYPE=CHECKBOX NAME=Onion onClick="SetOnion">Onions     </TD></TR>
+   <TR><TD><INPUT TYPE=CHECKBOX NAME=Pineapple onClick="SetPineapple">Pineapple </TD></TR>
+   <TR><TD><INPUT TYPE=CHECKBOX NAME=Salmon onClick="SetSalmon">Salmon    </TD></TR>
+   <TR><TD><INPUT TYPE=CHECKBOX NAME=Anchovies onClick="SetAnchovies">Anchovies </TD></TR>
+   <TR><TD><INPUT TYPE=CHECKBOX NAME=CanadianBacon onClick="SetCanadianBacon">Canadian Bacon       </TD></TR>
+</FONT>
+</TABLE>
+<CENTER>
+	<INPUT TYPE = BUTTON VALUE= "Instructions" Name = "Instructions" onclick="ClickedInstructions">
+	<Br>
+<BR>
+	<BR><FONT SIZE=4>Order Now!<BR><BR>
+	</FONT><FONT SIZE=2>
+	<I> The cost for a Pizza is $10.00 </I> <BR>
+	<I> Each additional topping is $2.00 </I><BR><BR>
+
+	Total = <INPUT NAME=Sum VALUE="$0.00" SIZE=8><BR><BR>
+	<INPUT TYPE=BUTTON VALUE="Place My Order" NAME="Order" onClick="DoOrder">
+
+</CENTER>
+</FONT>
+<BR>
+</FORM>
+</BODY>
+</HTML>
+
+
+
+

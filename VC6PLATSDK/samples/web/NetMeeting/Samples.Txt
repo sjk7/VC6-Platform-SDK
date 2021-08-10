@@ -1,0 +1,95 @@
+---------------------------------------------------------
+       Windows NetMeeting SDK 3 Samples Readme File
+
+                          May 2002            
+---------------------------------------------------------
+
+             (c) Copyright Microsoft Corporation, 2002
+
+
+HOW TO USE THIS DOCUMENT
+========================
+
+To view Readme.txt on screen in Windows Notepad, maximize the Notepad window, and turn on Word Wrap under the Edit menu.
+
+To print Readme.txt, open the file in Notepad or another word processor, and then on the File menu, click Print.
+
+OVERVIEW OF THE NETMEETING 3 SDK SAMPLES
+========================================
+
+The Samples directory consists of the following subdirectories, which 
+contain samples demonstrating the use of the NetMeeting UI ActiveX Control, 
+NetMeeting COM objects, NetMeeting COM applet objects, NetMeeting transport replacement COM objects, Internet Locator COM Objects, and Codec installation COM Objects.
+
+To build the samples from Visual C++, open the project makefile 
+(for example, sample.mak) as a Microsoft VC++ project, and build as usual.
+The NetMeeting SDK directories must be added to your VC++ environment
+(use the Directories tab under the Tools->Options menu item).
+
+
+NMUI
+----
+NMUI is a large sample that demonstrates the use of most of the COM
+interfaces.  A critical new feature demonstrated by NMUI is the ability
+for an application to replace the main NetMeeting User Interface while
+still having NetMeeting display status and warning information.
+
+In general you enable this sample to start its work by selecting the File,
+Monitor menu item.  This kicks off the sample's processing.
+
+Using this sample you can see how to replace NetMeeting's user interface
+with that of your own application.   To see this, go to the View,Options...
+dialog and select the NM_INIT_CONTROL *before* selecting Monitor.  This will
+cause the NMUI sample, via the NetMeeting 2.1 API, to "take over" all UI from
+NetMeeting.  Upon selecting Monitor, the NetMeeting UI will not appear and
+you can drive everything from within the NMUI sample.
+
+You can use the Call, User... menu to place calls, the Channel, Application
+Sharing... menu to manipulate shared applications, The Call, Accept... menu
+item to accept incoming calls, etc.
+
+
+VIEWMODES
+---------
+Each file in the VIEWMODES sample directory is an HTML file that includes the 
+NetMeeting 3 UI ActiveX control in a different viewing mode showing how applications can embed the NetMeeting UI within their Web page. Viewing modes
+are defined in the Netmeeting 3 SDK documentation under "Embedding a NetMeeting UI Control." See VIEWMODES in the VIEWMODES directory for more information.
+
+TEAMPAGE
+--------
+TEAMPAGE supplies an HTML Web page that demonstrates the use of the NetMeeting 3 UI ActiveX control a place to enter the CallTo address, a button to place the call, a button to hang up, and a button to undock the UI from the Web page and dock it elsewhere on the screen.
+
+
+INSTCODC
+--------
+Instcodc demonstrates the addition, removal, and enumeration of an installed
+audio NetMeeting codec, using the NetMeeting 2.1 API provided for this purpose. See INSTCODC.TXT in the INSTCODC directory for more information.
+
+NMCHAT
+------
+NMCHAT is a Windows utility application that allows the user to 
+send text messages to other NmChat users existing NetMeeting connection. See Also, NMCHAT2. See NMCHAT.TXT in the NMCHAT directory for more information.
+
+NMCHAT2
+-------
+NMCHAT2 is a Windows utility application that has the same functionality as NMCHAT but shows how to implement it using the T.120 low-level COM interfaces. See NMCHAT2.TXT in the NMCHAT2 directory for more information.
+
+NMFT
+----
+
+NMFT is a Windows utility application that allows the user to 
+send files via an existing NetMeeting connection.  NMFT can be added
+to the system pop-up menu by placing the executable in the Windows
+SendTo director. See NMFT.TXT in the NMFT directory for more information. 
+
+NMSHARE
+-------
+NMSHARE is a Windows utility application that allows the user to 
+share application windows via an existing NetMeeting connection.  See NMSHARE.TXT in the NMSHARE directory for more information.
+
+PLUGTRANSPORT
+-------------
+PLUGTRANSPORT is a Windows utility application that allows a user to change the underlying transport NetMeeting uses. The following cases are included: make an NM call using X224 stack, make an NM call using the PSTN stack, call from SDK app to SDK app, NM2.11 calls the SDK app, and the SDK app calls NM2.11. See README.TXT in the PLUGTRANSPORT directory for more information.
+
+
+

@@ -1,0 +1,9 @@
+# Microsoft Developer Studio Generated Dependency File, included by App.mak
+
+.\App.cpp : \
+	"..\inc\stl.h"\
+	
+
+.\STL_write.cpp : \
+	"..\inc\stl.h"\
+	

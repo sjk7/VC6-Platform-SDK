@@ -1,0 +1,27 @@
+(cn=timto*)
+Finding Attribute based on query: (cn=timto*)...
+lDAPDisplayName: tIMTOAttribute1
+lDAPDisplayName: tIMTOAttribute11
+lDAPDisplayName: tIMTOAttribute3DN
+lDAPDisplayName: tIMTOAttribute5AccessPoint
+lDAPDisplayName: tIMTOAttribute5Boolean
+lDAPDisplayName: tIMTOAttribute5CaseInSensitive
+lDAPDisplayName: tIMTOAttribute5CaseSensitive
+lDAPDisplayName: tIMTOAttribute5DN
+lDAPDisplayName: tIMTOAttribute5Enumeration
+lDAPDisplayName: tIMTOAttribute5GeneralizedTime
+lDAPDisplayName: tIMTOAttribute5IA5String
+lDAPDisplayName: tIMTOAttribute5Integer
+lDAPDisplayName: tIMTOAttribute5LargeInteger
+lDAPDisplayName: tIMTOAttribute5NTSecurityDescriptor
+lDAPDisplayName: tIMTOAttribute5NumericString
+lDAPDisplayName: tIMTOAttribute5OctetString
+lDAPDisplayName: tIMTOAttribute5OID
+lDAPDisplayName: tIMTOAttribute5ORName
+lDAPDisplayName: tIMTOAttribute5PresentationAddress
+lDAPDisplayName: tIMTOAttribute5Printable
+lDAPDisplayName: tIMTOAttribute5ReplicaLink
+lDAPDisplayName: tIMTOAttribute5Sid
+lDAPDisplayName: tIMTOAttribute5UnicodeString
+lDAPDisplayName: tIMTOAttribute5UTCTime
+SUCCESS!

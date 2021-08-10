@@ -1,0 +1,37 @@
+------------------------------------------------------------------
+         Windows NetMeeting SDK 3 NMCHAT2 Readme File
+                          1999-2002
+------------------------------------------------------------------
+
+             (c) Copyright Microsoft Corporation, 1999-2002
+
+CONTENTS
+========
+
+OVERVIEW OF THE NMCHAT2 SAMPLE
+BUILDING THE NMCHAT2 SAMPLE
+
+
+OVERVIEW OF THE NMCHAT2 SAMPLE
+==============================
+
+NMCHAT2 is a Windows sample that demonstrates how to use the
+Microsoft NetMeeting IApplet interface.
+
+
+BUILDING THE NMCHAT2 SAMPLE
+===========================
+
+Building the sample application requires VC++ Version 6.0 or later.
+
+To build the sample from Visual C++, open the project makefile
+(nmchat2.dsw) as a Microsoft VC++ project, and build as usual.  The 
+NetMeeting SDK directories must be added to your VC++ environment.
+
+If your DOS environment is correctly configured, you can build the sample
+from the command line by typing "NMAKE /f "nmchat2.mak" CFG="nmchat2 - Win32 Debug".  
+The DOS path, include and lib environment variables must point to the VC installation.
+
+
+Notes: 
+

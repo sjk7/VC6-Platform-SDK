@@ -1,0 +1,18 @@
+HKCR
+{
+    Microsoft.ClusterSamples.MyMemberSetChangeListener.1 = s 'ClusCfg Member Set Change Listener Sample'
+    {
+        CLSID = s '{7CD2EBBF-0958-4513-A58F-0B0B098A6119}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {7CD2EBBF-0958-4513-A58F-0B0B098A6119} = s 'ClusCfg Member Set Change Listener Sample'
+        {
+            ProgID = s 'Microsoft.ClusterSamples.MyMemberSetChangeListener.1'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Both'
+            }
+        }
+    }
+}

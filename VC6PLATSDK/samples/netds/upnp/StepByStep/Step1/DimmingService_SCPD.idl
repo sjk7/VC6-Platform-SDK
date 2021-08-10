@@ -1,0 +1,51 @@
+typedef [v1_enum] enum DIMMINGSERVICE_SCPD_DISPIDS
+{
+	 DISPID_POWER = 1,
+	 DISPID_DIMLEVEL,
+	 DISPID_POWERON,
+	 DISPID_POWEROFF,
+	 DISPID_GETPOWERVALUE,
+	 DISPID_SETDIMLEVEL,
+	 DISPID_GETDIMLEVEL,
+	 DISPID_GETCONFIGDETAILS
+
+} DIMMINGSERVICE_SCPD_DISPIDS;
+
+[
+	 uuid(a315fcbd-7f4b-4081-a172-2f534c438957),
+	 oleautomation,
+	 pointer_default(unique)
+]
+interface IUPnPService_DimmingService_SCPD : IDispatch {
+	[propget, id(DISPID_POWER), helpstring("Property Power")]
+	HRESULT Power(
+		[out, retval] VARIANT_BOOL *pPower);
+
+	[propget, id(DISPID_DIMLEVEL), helpstring("Property dimLevel")]
+	HRESULT dimLevel(
+		[out, retval] long *pdimLevel);
+
+
+	[ id(DISPID_POWERON), helpstring("Method PowerOn")]
+	HRESULT PowerOn();
+
+	[ id(DISPID_POWEROFF), helpstring("Method PowerOff")]
+	HRESULT PowerOff();
+
+	[ id(DISPID_GETPOWERVALUE), helpstring("Method GetPowerValue")]
+	HRESULT GetPowerValue(
+		[in, out] VARIANT_BOOL *ppowerVall);
+
+	[ id(DISPID_SETDIMLEVEL), helpstring("Method SetDimLevel")]
+	HRESULT SetDimLevel(
+		[in] long dLevel);
+
+	[ id(DISPID_GETDIMLEVEL), helpstring("Method GetDimLevel")]
+	HRESULT GetDimLevel(
+		[in, out] long *pdLevel);
+
+	[ id(DISPID_GETCONFIGDETAILS), helpstring("Method GetConfigDetails")]
+	HRESULT GetConfigDetails(
+		[in, out] VARIANT_BOOL *ppowerVal,
+		[in, out] long *pdLevel);
+};

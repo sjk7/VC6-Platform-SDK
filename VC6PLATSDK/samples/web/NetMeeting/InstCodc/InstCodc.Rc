@@ -1,0 +1,180 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+//****************************************************************************
+//  Module:     instcodc.EXE     
+//  File:       instcodc.rc
+//  Content:    Resources for the sample
+//              
+//
+//  Copyright (c) Microsoft Corporation 1999
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A 
+// PARTICULAR PURPOSE.
+//****************************************************************************
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "//****************************************************************************\r\n"
+    "//  Module:     instcodc.EXE     \r\n"
+    "//  File:       instcodc.rc\r\n"
+    "//  Content:    Resources for the sample\r\n"
+    "//              \r\n"
+    "//\r\n"
+    "//  Copyright (c) Microsoft Corporation 1999\r\n"
+    "//\r\n"
+    "// THIS CODE AND INFORMATION IS PROVIDED ""AS IS"" WITHOUT WARRANTY OF \r\n"
+    "// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO \r\n"
+    "// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A \r\n"
+    "// PARTICULAR PURPOSE.\r\n"
+    "//****************************************************************************\r\n"
+    "\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAINUI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 328
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 137
+    END
+
+    IDD_REORDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 191
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINUI DIALOG DISCARDABLE  0, 0, 335, 145
+STYLE DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "NetMeeting 3rd Party Codec Installation"
+CLASS "CodecInstClass"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Install ",IDC_INSTALL,268,32,47,17
+    PUSHBUTTON      "&Uninstall",IDC_UNINSTALL,267,54,47,17
+    PUSHBUTTON      "&Reorder",IDC_REORDER,267,76,47,17
+    LISTBOX         IDC_LBINSTALLEDCODECS,24,26,239,96,LBS_NOINTEGRALHEIGHT | 
+                    LBS_NOSEL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    GROUPBOX        "Installed Audio Codecs",IDC_STATIC,15,15,305,114
+END
+
+IDD_REORDER DIALOG DISCARDABLE  0, 0, 248, 199
+STYLE DS_SETFOREGROUND | DS_CENTER | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Reorder Codecs"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "&Ok",IDC_OK,22,164,43,14
+    PUSHBUTTON      "&Cancel",IDC_CANCEL,77,164,41,14
+    PUSHBUTTON      "&Up",IDC_UP,130,164,41,14
+    PUSHBUTTON      "&Down",IDC_DOWN,183,164,41,14
+    LISTBOX         IDC_LBINSTALLEDCODECS,19,30,209,128,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Installed Codecs:",IDC_STATIC,19,18,110,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_INSTCODC            ICON    DISCARDABLE     "instcodc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GETIAUDIO           "ERROR: Getting IID_IInstallAudioCodecs"
+    IDS_RAFMT               "ERROR: RemoveACMFormat"
+    IDS_AAFMT               "ERROR: AddACMFormat"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_IAFMT               "Could not install the audio codec"
+    IDS_UAFMT               "Could not uninstall the audio codec"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

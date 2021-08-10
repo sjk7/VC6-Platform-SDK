@@ -1,0 +1,59 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (5f606d29).
+//
+// STAObject.tlh
+//
+// C++ source equivalent of Win32 type library Debug/STAObject.dll
+// compiler-generated file created 04/20/99 at 10:53:42 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ STATest;
+struct __declspec(uuid("baea7bb0-f391-11d2-a10a-0080c71f306f"))
+/* dual interface */ ISyncTest;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(ISyncTest, __uuidof(ISyncTest));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("cefeee70-f391-11d2-a10a-0080c71f306f"))
+STATest;
+    // [ default ] interface ISyncTest
+
+struct __declspec(uuid("baea7bb0-f391-11d2-a10a-0080c71f306f"))
+ISyncTest : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Exercise (
+        int nRecurse );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_Exercise (
+        int nRecurse ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "STAObject.tli"
+
+#pragma pack(pop)

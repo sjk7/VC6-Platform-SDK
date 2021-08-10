@@ -1,0 +1,158 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#include "commctrl.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "winver.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+VD_ICON                 ICON    DISCARDABLE     "VIEWDIB.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+VD_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Load...",                    IDM_LOADDIB
+        MENUITEM "Save &As...",                 IDM_SAVEDIB
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...",                   IDM_PRINT
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Copy",                       IDM_COPY
+        MENUITEM "&Paste",                      IDM_PASTE
+        MENUITEM SEPARATOR
+        MENUITEM "&Display Image Attributes...", IDM_DIBINFO
+        MENUITEM SEPARATOR
+        POPUP "Color &Depth"
+        BEGIN
+            MENUITEM "&Monochrome",                 IDM_CD1BPP
+            MENUITEM "16 Colors",                   IDM_CD4BPP
+            MENUITEM "256 Colors",                  IDM_CD8BPP
+            MENUITEM "15 Bits-Per-Pixel",           IDM_CD15BPP
+            MENUITEM "16 Bits-Per-Pixel",           IDM_CD16BPP
+            MENUITEM "24 Bits-Per-Pixel",           IDM_CD24BPP
+            MENUITEM "32 Bits-Per-Pixel",           IDM_CD32BPP
+        END
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About ViewDIB...",           IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+VIEWDIB ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    VK_INSERT,      IDM_COPY,               VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      IDM_PASTE,              VIRTKEY, SHIFT, NOINVERT
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#include ""commctrl.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""winver.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+ABOUTBOX DIALOGEX 22, 17, 182, 80
+STYLE DS_MODALFRAME | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "About ViewDIB"
+FONT 8, "System", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,133,2,46,19,WS_GROUP
+    LTEXT           "Microsoft Corp.",IDC_STATIC,30,12,96,8
+    LTEXT           "ViewDIB: DIB Section Demo ",IDC_STATIC,30,2,96,8
+    LTEXT           "Copyright © 1999 - 2000",IDC_STATIC,30,22,96,8
+    LTEXT           "This sample demonstrates how to load, display, convert, save, and print DIB Sections.",
+                    IDC_STATIC,11,45,160,21
+    GROUPBOX        "",IDC_STATIC,3,31,176,45
+    ICON            "VD_ICON",IDC_STATIC,3,5,20,20,SS_REALSIZEIMAGE | 
+                    SS_SUNKEN | WS_BORDER,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

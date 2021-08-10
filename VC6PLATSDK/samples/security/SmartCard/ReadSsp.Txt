@@ -1,0 +1,70 @@
+
+                Smart Card Service Providers
+          Copyright 1996 - 1999, Microsoft Corporation
+
+
+
+I. Revision History
+
+    Rev     Date
+    ===     ====
+    0.0     3/20/1997
+    0.1     5/5/1997
+    0.2     7/16/1997
+    0.3     9/29/1999
+
+II. Development Tools
+
+    The following tools were used to generate this project.
+
+    1. Microsoft Visual C++ 6.0 or above
+    2. Microsoft Windows NT Software Development Kit v4.0
+        or above
+    3. Active X Template Library (ATL) v1.2 or above
+    4. Microsoft Visual Basic 6.0
+
+    These tools will be required to recompile any of the project
+    code.
+
+III. ICC/COM Issues (Change since Beta 1.0)
+
+    The structure of the SCardCom (High-level, card specific, vendor
+    wrapper) example now comforms to Part 6 of the Interoperability
+    specification.  This is a major change in structure since the
+    previous release!
+
+    The SCardCOM example shows low-level SCSP calling conventions. The
+    example is a "shell" for implementing card specific SCSPs.
+
+    All GUIDS are for Microsoft use only! New GUIDS must be
+    generated for all other vendor wrapper class implementations.
+
+IV. File System Issues
+
+    File system functions (Open, Close, etc) will require code to
+    generate, handle, and track file handles, etc.. A simple example
+    is given using a MFC CMap template class.
+
+    Code is handling 2-byte file ID only for ChangeDir, Delete,
+    etc.. BSTRs passed into these functions should be 4 characters
+    in length containing the file ID (i.e. '3F00') and will be
+    converted internally.
+
+V. References on COM Development
+
+    1. "Inside COM" by Dale Rogerson
+        Microsoft Press, 1997
+        ISBN 1-57231-349-8
+
+    2. "Inside Microsoft Visual Basic, Scripting Edition"
+        by Scott Hillier
+        Microsoft Press, 1997
+        ISBN 1-57231-444-3
+
+    3. "Understanding Active X and OLE" by David Chappell
+       Microsoft Press, 1996
+       ISBN 1-57231-216-5
+
+    4. "Active X Controls Inside Out" by Adam Denning
+       Microsoft Press, 1997
+       ISBN 1-57231-350-1

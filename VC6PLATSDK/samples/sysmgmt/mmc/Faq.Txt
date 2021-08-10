@@ -1,0 +1,307 @@
+--------------------
+QUESTION: Are modal property sheets discouraged?
+
+ANSWER: Using modal property sheets in MMC is definitely discouraged.
+The problem is that your Snap-In is working in an integrated environment
+where the app-modal property sheet would block access not only to your
+Snap-In, but also to any other Snap-In loaded in that console. A better
+solution is to determine the context in which the dialog needs to be
+modal and then block access to those objects that cannot be used when the dialog
+is up.
+--------------------
+QUESTION: I want help in resolving UI questions?
+
+ANSWER: See the UI Guidelines white paper
+--------------------
+QUESTION: Is there any way to set an MMC property sheet title?
+
+ANSWER: The title is derived from the node. If this is not
+desirable, use SetWindowText(GetParent(hPageHwnd), pszTitle)
+--------------------
+QUESTION: Who is responsible for checking/unchecking "View" menu items?
+
+ANSWER: The Snap-In is responsible for the ones they insert. The console deals
+with the menu items it owns.
+--------------------
+QUESTION: Why is the "+" sign available on scope data items that have no
+children?
+
+ANSWER: The reason for the plus sign, is that there could be an extension that
+"may" add folders that are siblings to the one you are adding.  We have no way
+of knowing this. By putting the + there, it gives the user a clue that he can
+expand the folder. Granted, there may not be any children, in which case we 
+remove the + after the user clicks there. Also, this is consistent with the
+explorer.
+--------------------
+QUESTION: I am having trouble compiling with NT4 and VC++ 5.0. I get error
+messages because of an old version of MIDL. I get a message like "This stub
+requires an updated version of <rpcndr.h>".
+
+ANSWER: Put the following in your code right before any #include "mmc.h".
+
+#if __RPCNDR_H_VERSION__ < 440
+#define __RPCNDR_H_VERSION__ 440
+#define MIDL_INTERFACE(x) interface
+#endif
+
+Or, get an updated version of rpcndr.h and rpcproxy.h from the SDK.
+--------------------
+QUESTION: I've noticed that deleting scope or result nodes does not close any
+open property sheets that are viewing their contents. Does this make sense?
+Is there any reason to leave this property sheet open when the node has been
+successfully deleted? Is there any way I can programmatically close the property
+sheet for a given node?
+
+ANSWER: The only time property sheet is closed is when the document shuts down
+or the console exits. This is the only time the console knows the sheets
+are no longer valid.
+
+You may want to bring up an error dialog when the user attempts to press OK and
+apply on the sheet. Since the sheets are modeless, the console has no way to
+know when to delete the sheet. The Snap-In may need to do something like ref-count
+the node or mark the node as having a property sheet up and post a private message
+to the sheet. There are many other ways to solve this problem.
+
+To programmatically terminate the sheet send it a message:
+::SendMessage(GetParent(hMyFirstPropertyPagePage), WM_COMMAND, IDCANCEL, 0);
+--------------------
+QUESTION: My Snap-In needs to perform a time consuming task that will block the
+execution of MMC for a while. How can I implement threading in my Snap-In?
+
+ANSWER: MMC uses apartment model threading. You can create a hidden window within
+your Snap-In as an event sink, create a thread to do the work and post messages
+to your hidden window. The main thread that has the interfaces to the console
+can do the work as designed.
+--------------------
+QUESTION: How are command line parameters handled by Snap-Ins?
+
+ANSWER: MMC handles the command line switches that directly affect MMC, like
+turning off the splash screen, hiding the tips, etc. MMC will not provide any
+MMC-specific interface to get command line parameters. Your Snap-In will
+have to do that using the Win32 API GetCommandLine.
+One thing that you will have to be careful of is that MMC will not help to
+prevent collisions of command-line parameters. This means that if two Snap-Ins
+are looking for a command-line parameter called "machinename", they will both
+find it, and you won't be able to tell which Snap-In it was intended for. A
+better solution, and one we recommend, is to uniquely identify command line
+parameters by prefacing them with the Snap-In's name.
+--------------------
+QUESTION: Are there any known issues concerning Snap-In's use of MFC in a
+"Shared DLL" rather than linking to MFC statically??
+
+ANSWER:  You need to follow MFCs guidelines on using AFX_MANAGE_STATE.
+--------------------
+QUESTION: I'm trying to change the text of the root node after my Snap-In is
+installed. I've tried to do a SetItem for the root node, passing in the
+HSCOPEITEM that was given to me on the expand call. This fails.
+
+ANSWER: The text of the root node is persisted in the .msc file.  MMC does this
+to avoid having to load every Snap-In as soon as the .msc file is opened.
+The text was set when you returned clipboard format "CCF_DISPLAY_NAME" for the
+data object representing the NULL cookie. You can't change it until you
+rewrite the .msc file.
+--------------------
+QUESTION: I'm using C++ (MFC) to handle my property pages. This works great
+except that there is an object laying around for the modeless dialogs, which
+must be deleted at some point. Currently, I'm handling this in OnDestroy by
+simply calling 'delete this'. Unfortunately, this won't always work because the
+user might not have selected the tab, and thus the window is never created.
+Because the window was never created, I don't receive a destroy message, and
+thus leak the C++ object handling the page.
+
+
+ANSWER: For each property page there is a callback. In this call back there is
+both a create and delete notification. The create only gets called when the page
+is created. The delete gets called regardless. You can do it there.
+--------------------
+QUESTION: The modeless dialogs my Snap-In creates don't process tab, arrow, and
+accelerator keystrokes. The MMC message pump that is dispatching messages
+doesn't know the dialog exists, and therefore can't call IsDialogMessage() to
+cause the appropriate messages to be handled by the dialog manager.
+
+
+ANSWER: Create a thread that has its own message pump, and put up your dialog
+in that thread.
+--------------------
+QUESTION: Does MMC support IComponent persistence? If yes, when do
+IComponent::Load and IComponent::Save get called? Or is it the Snap-In's
+responsibility to call them?
+
+ANSWER: Yes, IComponent persistence is supported. Load and Save are
+called by the console whenever the user does something to initiate a save or
+load. Most often this occurs when a file is loaded, or the user selects "Save",
+or "Save As" from the "File" menu.  The Snap-In should be sure to accurately 
+implement IsDirty.
+--------------------
+QUESTION: Are Snap-Ins required to implement IPersistStorage?  The docs suggest
+that IPersistStream may be used as a (simpler) alternative.  Nonetheless, I am
+noticing that MMC is requesting an IPersistStorage interface from my Snap-In
+every time a view is closed.  Is this expected behavior?
+
+ANSWER: Snapins can implement any of IPersistStream or IPersistStorage or
+IPersistStreamInit interfaces. More exactly, MMC will always ask for
+IPersistStorage. If it doesn't get it, it will try for IPersistStream, then
+IPersistStreamInit. As in all cases, when asked for an unsupported interface,
+you should simply return with an appropriate error code.
+---------------------------
+QUESTION: When the user double clicks on a result pane container item of my
+Snap-In, it doesn't expand.
+
+ANSWER: You get an MMCN_DBLCLICK message in IComponent::Notify when result
+pane item's are double clicked, which can include containers as well as leaf
+items. Returning S_FALSE for this notification from IComponent::Notify will
+expand that container item.
+--------------------
+QUESTION: I've found that if I put up a message box (with either AfxMessageBox
+or IConsole->MessageBox) it sometimes causes a crash.
+
+ANSWER: This is likely because you are in the wrong module state. Make sure 
+you've called AFX_MANAGE_STATE(AfxGetStaticModuleState())
+--------------------
+QUESTION: What do I  do with MMCN_REMOVE_CHILDREN?
+
+ANSWER:
+1. When you receive MMCN_DELETE just delete that item and free the cookie.
+   You have to free just the memory allocated for cookies.
+2. IConsoleNameSpace::DeleteItem causes MMCN_REMOVE_CHILDREN
+   with a dataobject corresponding to the deleted item.
+3. When your receive MMCN_REMOVE_CHILDREN you are asked to free the cookies of
+   the child nodes (grandchild nodes and more...) of the deleted node. You
+   should not call IConsoleNameSpace::DeleteItem for the items, but you must
+   free all of the cookies for all of the nodes under that node.
+---------------------------
+QUESTION: How do I get the MMC console to update the views so that new data can
+be displayed in the result pane listview?
+
+ANSWER: Call IConsole::UpdateAllViews(). You'll get a notify sent to all the
+windows, INCLUDING the one that called UpdateAllViews. This way you can have one
+generic handler for the notify. The console sends you the MMCN_VIEW_CHANGE
+message to IComponent::Notify with the dataobject, data, and hint you passed to
+UpdateAllViews(). It is your responsibility to process this message to refresh
+your result pane.
+---------------------------
+QUESTION: In the scope pane, my Snap-In adds two nodes and then two extension
+nodes appear below that.  How can I get this list sorted alphabetically?
+
+ANSWER: The scope pane is not sorted. You need to add them in the correct
+order. This is so Snap-Ins can group things as they wish while not affecting
+other Snap-Ins scope items.
+---------------------------
+QUESTION: Will I have multiple IComponents being created?
+
+ANSWER: You are asked  to create an IComponent for each new view (MDI child)
+created that contains your Snap-In. It's up to you to create a new one to keep 
+things compartmentalized. If you choose to reuse the same one for all views,
+then your asking for extra work. You will also have an IComponentData for each
+instance (not view) of your Snap-In in a console.
+---------------------------
+QUESTION: Does my Snap-In code start to execute when a console file is opened?
+
+ANSWER: No. Your IComponentData:Initialize does not get called until the user
+clicks on your Snap-In.
+---------------------------
+QUESTION: I am trying to select an item in the tree automatically (without
+asking user to click).
+
+ANSWER: You can select the node using
+IConsole::SelectScopeItem([in] HSCOPEITEM hScopeItem).
+---------------------------
+QUESTION: In MMC, is there any way for an extension Snap-In to pass information 
+back to the primary Snap-In?
+
+ANSWER: You could use IDataObject::SetData on the data object provided by the
+primary. Or, you could create a private interface that could be QI'ed from the
+IDataObject, using the methods provided.  In both cases, the Snap-In that created
+the dataobject needs to support this.
+---------------------------
+QUESTION: Is there anything keeping me from making my own property sheets and
+displaying them directly?
+
+ANSWER: This prevents you from having your property sheets extended by other
+Snap-Ins and introduces the possibility of inconsistencies with the MMC
+property sheet. 
+---------------------------
+QUESTION: Should I derive every node from IDataObject?
+
+ANSWER: There are potentially two problems with deriving every node from 
+IDataObject.
+1. The ref count variable can add up for large amounts of objects. Additionally,
+the right way to handle ref counting problems is to use smart pointers.
+This will add additional performance overhead.
+2. You limit your ability to pool data objects for reuse.
+---------------------------
+????????????????????????????????????????????????????????????????????????????????
+QUESTION: Can I use MFC in my Snap-In.
+
+ANSWER: Yes. However, it must be a USER dll.
+Also, be aware that the thread created for a property sheet is not an MFC thread.
+There is no CWinApp. So, if you have pages that use MFC to display OCXs on
+property pages, and since there is no MFC to parse the dlg template, USER32
+fails to create the page because it doesn't know how to create the control. You
+need to create it manually. Additionally, your control will be ignored by the
+dialog manager for tab key operation.
+
+MFC is designed to be used as a standard Windows DLL. When writing this type of
+DLL, the developer can make no assumptions about the .exe using it. This implies
+you can use MFC to write your Snap-In. The Snap-In must make NO assumption other
+than those provided by the MMC COM interface. The only connection between the
+Snap-In and MMC is the COM interface.
+
+If you use MFC to implement property pages, read on.
+
+there is an API in mmc.lib declared:
+HRESULT MMCPropPageCallback(&mypropage->m_psp);
+The argument is the pointer to the Windows PROPSHEETPAGE structure. By default,
+MFC installs it's own callback in the pfnCallback member of the structure.
+
+For each page you create derived from CPropertyPage you must call this API with
+a pointer to page's callback.
+
+Here are couple of guidelines:
+1.	All pages for this sheet must use the same callback pointer.
+2.	If you replace MFC's callback with your own, your callback must call MFC's
+callback. 
+3.	You must call this API with each CPropertyPage derived class.
+
+Some details:
+MFC requires that you set the correct module state from an exported function or
+COM interface.  This includes calls made from the OS to the module.  For 
+exported API or COM interfaces, this is easily done with an
+AFX_MANAGE_STATE(AfxGetStaticModuleState()).  For OS calls, MFC does this for
+you. Since the property sheet is not an MFC CPropertySheet, the OS call, due to
+the callback, is in the wrong module state.  MFC will make changes in future
+to use the module state contained in the CCmdTarget class, but until then, we
+hook the window create and make sure the module state is correctly set during
+page creation. This is what the MMCPropPageCallback does. Once this is
+done, the only AFX_MANAGE_STATE calls you need to make are the ones exposed by
+the COM interfaces (IExtendPropertySheet::CreatePropertyPages()). You can verify
+if your app has the correct module state by looking at CWinApp and noting the
+name.
+--------------------
+QUESTION: I have a Snap-In where the result pane is an OCX. In the Snap-In, I
+sink events fired by the OCX. On the right mouse click event, I want to pop up
+a context sensitive menu. I want the menu to be identical to that which is
+popped up when I click an item in the scope pane. In other words, I want to get
+the same menu items that MMC provided for me in.
+
+ANSWER: You can use IContextMenuProvider. It will give you the extension
+support. But, will not give you the console's default menu items(Create New,
+Description Bar, and others).
+---------------------------
+????????????????????????????????????????????????????????????????????????????????
+QUESTION: If I want to support IComponent and IComponentData from an OCX
+control instead of writing a separate in-proc server dll, what should I do
+for GetResultView's implementation?
+
+ANSWER:
+1 - The IConsole interface you are handed from MMC has a member
+function called QueryResultView() that will return an IUnknown from your
+control.
+2 - Implement the MMC interfaces in the OCX.dll.  You need to implement both
+IComponent and IComponentData. This is not a trivial task.
+--------------------
+????????????????????????????????????????????????????????????????????????????????
+QUESTION: How do I get the HSCOPEITEM for the Snap-In's root item?
+
+ANSWER: Store it when you first get the expansion notice on the root item.
+--------------------

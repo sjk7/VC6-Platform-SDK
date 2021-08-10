@@ -1,0 +1,162 @@
+<HTML>
+<HEAD>
+<TITLE>Microsoft Agent Goodbye World Sample</TITLE>
+<META NAME="ROBOTS" CONTENT="NOINDEX">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin=0>
+<!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END-->
+<FONT FACE="verdana,arial,helvetica" SIZE="2">
+
+
+<CENTER>
+<H3><A NAME="TOP" IDX_CONCEPT="stopindex">Microsoft Agent Sample</A></H3>
+<H2>Goodbye World</H2>
+<!-- Updated to use Version 2.0 -->
+
+<HR width=66%>
+<P>This variation on the Hello World example demonstrates scripting
+<BR>a Microsoft Agent character to respond to voice commands.
+
+<P>Be patient! Loading of Genie may take a few minutes.
+<BR>Once Genie appears, right-click on him to see what commands he is
+<BR>listening for.  While holding down the <B>Scroll Lock</B> key, try saying
+<BR>one of these commands.  If Genie doesn't respond, here are some
+<BR><B><A href="http://microsoft.com/workshop/imedia/agent/tshoot.asp#topic3">troubleshooting hints</A></B>.
+
+<P>This sample loads its character from an HTTP URL, so you must be
+<BR>connected to the WWW and be able to reach the server at
+<BR><I>http://agent.microsoft.com</I>, or the sample will not work properly.
+
+<P>If you have never installed the Lernout & Hauspie TTS Engine,
+<BR>you will be prompted to install it.  Without the TTS Engine,
+<BR>characters will not produce speech output.
+
+<P>If you have never installed the Microsoft Speech Recognition
+<BR>Engine, you will be prompted to do so.  Characters will not
+<BR>be able to recognize spoken commands without the SR Engine.
+
+<P>Right-click on the page and select <B>View Source</B>
+<BR>to examine the HTML code for this page.
+<HR width=66%>
+</CENTER>
+
+<!--
+In order to use Microsoft Agent, the Microsoft Agent Control
+OBJECT tag must be placed on the page.  The presence of this
+tag will cause the control to be automatically downloaded and
+installed if it is not found on the client machine when the
+page is processed.  In the example below, the CODEBASE
+attribute is used so that the latest version number can be
+specified.  The Agent object will be referred to in script using
+the name assigned to it in the ID field of the OBJECT tag -
+in this case, "AgentControl".
+-->
+<OBJECT ID="AgentControl" width=0 height=0
+ CLASSID="CLSID:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F"
+ CODEBASE="#VERSION=2,0,0,0">
+</OBJECT>
+
+<!--
+In order to use Text-to-Speech (TTS) output, a TTS engine compatible
+with Microsoft Agent must be installed on the client's machine.
+Your Microsoft Agent license includes a license to use the TruVoice
+TTS engine from Lernout & Hauspie with Microsoft Agent.  The OBJECT tag
+below causes the TTS engine to be downloaded and installed if it is
+not found on the client machine when the page is processed. The
+CODEBASE atribute is included in order to specify the latest version
+number of the control.
+-->
+<OBJECT width=0 height=0
+ CLASSID="CLSID:B8F2846E-CE36-11D0-AC83-00C04FD97575"
+ CODEBASE="#VERSION=6,0,0,0">
+</OBJECT>
+
+<!--
+In order to use Voice Commands, a speech recognition engine compatible
+with Microsoft Agent must be installed on the client's machine.
+Microsoft Agent is compatible with any SAPI 4.0-compliant speech
+engine. Your Microsoft Agent license includes a license to use the
+Microsoft Speech Recognition Engine.  The following
+object tag causes the browser to automatically download and install
+this speech engine on the client. The CODEBASE attribute specifies
+the latest version number of the speech engine.
+-->
+<OBJECT width=0 height=0
+ CLASSID="CLSID:161FA781-A52C-11d0-8D7C-00A0C9034A7E"
+ CODEBASE="#VERSION=4,0,0,0">
+</OBJECT>
+
+<SCRIPT language=VBScript>
+' This sample assumes familiarity with the basic Hello World sample.
+' To simplify the example, all error handling has been omitted.
+
+Dim Genie	' a global variable to hold the character object
+
+Sub window_OnLoad
+	AgentControl.Connected = True	' needed for IE3
+	AgentControl.Characters.Load "Genie", "http://agent.microsoft.com/agent2/chars/genie/genie.acf"
+	Set Genie = AgentControl.Characters("Genie")
+	Genie.LanguageID = &H0409		' needed under some conditions (English)
+	Genie.Get "state", "Showing, Speaking"
+	Genie.Get "animation", "Greet, GreetReturn"
+	InitCommands
+	Genie.Show
+	Genie.Get "animation", "Sad"
+	Genie.Get "state", "Hiding"
+End Sub
+
+Sub InitCommands	' Intialize the Commands collection for Genie
+	Dim cmd	' temp variable - holds a single command object
+	Genie.Commands.Add "Hello"	' add a command to the collection
+	Set cmd = Genie.Commands("Hello")	' get its object
+	cmd.Caption = "Say Hello"	' set the text that the user sees
+	cmd.Voice = "[say] (hello | hi)"	' set the speech recognition string
+	cmd.Enabled = True	' enable the command in the pop-up menu
+	cmd.Visible = True	' add the command to the pop-up menu
+
+	' A more efficient method is to set all command properties when the command is added
+	Genie.Commands.Add "Goodbye", "Go Away", _
+		"(go away | [say] goodbye | scram | leave)", True, True
+
+	' You should always include the following command, which gives
+	' the user access to the Advanced Character Options dialog:
+	Genie.Commands.Add "ACO", "Advanced Character Options", _
+		"advanced character options", True, True
+
+	' Now configure the Commands object
+	Genie.Commands.Caption = "Goodbye World"	' display text
+	Genie.Commands.Voice = "Goodbye World"	' what the user says to make Merlin input active
+	Genie.Commands.Visible = True		' show the caption in the pop-up
+End Sub
+
+Sub AgentControl_Command(byVal UserInput)
+' This is the Command event handler.
+' It is called whenever the user speaks a command
+' or selects one from the menu.
+' The UserInput object has the details of the command.
+' The Name property contains the name assigned when the command was added.
+	Select Case UserInput.Name
+		Case "Hello"
+			SayHello
+		Case "Goodbye"
+			SayGoodbye
+		Case "ACO"
+			AgentControl.PropertySheet.visible = True
+	End Select
+End Sub
+
+Sub SayHello
+	Genie.Play "Greet"
+	Genie.Speak "Hello!"
+	Genie.Play "RestPose"
+End Sub
+
+Sub SayGoodbye
+	Genie.Play "Sad"
+	Genie.Speak "Goodbye world."
+	Genie.Hide
+End Sub
+
+</SCRIPT>
+</BODY>
+</HTML>

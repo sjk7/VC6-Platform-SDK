@@ -1,0 +1,3079 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (88fb913a).
+//
+// msrdo20.tlh
+//
+// C++ source equivalent of Win32 type library msrdo20.dll
+// compiler-generated file created 05/13/99 at 12:51:29 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("5e71f04b-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ _rdoEngine;
+struct __declspec(uuid("ee008643-64a8-11ce-920f-08002b369a33"))
+/* dispinterface */ rdoEngineEvents;
+struct /* coclass */ rdoEngine;
+struct __declspec(uuid("b541c034-63bc-11ce-920c-08002b369a33"))
+/* dual interface */ rdoError;
+struct __declspec(uuid("5e71f04d-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ _rdoConnection;
+struct __declspec(uuid("8b39dfbd-3647-11cf-814a-00aa00a40c25"))
+/* dispinterface */ rdoConnectionEvents;
+struct /* coclass */ rdoConnection;
+struct __declspec(uuid("5e71f04e-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ _rdoColumn;
+struct __declspec(uuid("8b39dfc0-3647-11cf-814a-00aa00a40c25"))
+/* dispinterface */ rdoColumnEvents;
+struct /* coclass */ rdoColumn;
+struct __declspec(uuid("b541c03d-63bc-11ce-920c-08002b369a33"))
+/* dual interface */ rdoTable;
+struct __declspec(uuid("5e71f04f-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ _rdoResultset;
+struct __declspec(uuid("8b39dfbf-3647-11cf-814a-00aa00a40c25"))
+/* dispinterface */ rdoResultsetEvents;
+struct /* coclass */ rdoResultset;
+struct __declspec(uuid("5e71f050-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ rdoPreparedStatement;
+struct /* coclass */ rdoQuery;
+struct __declspec(uuid("5e71f051-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ _rdoEnvironment;
+struct __declspec(uuid("8b39dfbc-3647-11cf-814a-00aa00a40c25"))
+/* dispinterface */ rdoEnvironmentEvents;
+struct /* coclass */ rdoEnvironment;
+struct __declspec(uuid("5e71f052-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ rdoParameter;
+struct __declspec(uuid("64949f43-67b6-11ce-9216-08002b369a33"))
+/* dual interface */ DualCollection;
+struct __declspec(uuid("2e746492-6ed1-11ce-9223-08002b369a33"))
+/* dual interface */ rdoColumns;
+struct __declspec(uuid("2e746493-6ed1-11ce-9223-08002b369a33"))
+/* dual interface */ rdoTables;
+struct __declspec(uuid("2e746494-6ed1-11ce-9223-08002b369a33"))
+/* dual interface */ rdoConnections;
+struct __declspec(uuid("2e746495-6ed1-11ce-9223-08002b369a33"))
+/* dual interface */ rdoParameters;
+struct __declspec(uuid("2e746496-6ed1-11ce-9223-08002b369a33"))
+/* dual interface */ rdoResultsets;
+struct __declspec(uuid("5e71f053-551f-11cf-8152-00aa00a40c25"))
+/* dual interface */ rdoEnvironments;
+struct __declspec(uuid("2e746498-6ed1-11ce-9223-08002b369a33"))
+/* dual interface */ rdoQueries;
+struct __declspec(uuid("5d545b93-97ca-11cf-8171-00aa00a40c25"))
+/* dual interface */ rdoPreparedStatements;
+struct __declspec(uuid("2e7464a0-6ed1-11ce-9223-08002b369a33"))
+/* dual interface */ rdoErrors;
+struct __declspec(uuid("499109e4-1e20-11cf-8146-00aa00a40c25"))
+/* interface */ IPrivColGetRows;
+struct __declspec(uuid("499109e5-1e20-11cf-8146-00aa00a40c25"))
+/* interface */ IPrivRsGetRows;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(_rdoEngine, __uuidof(_rdoEngine));
+_COM_SMARTPTR_TYPEDEF(rdoEngineEvents, __uuidof(IDispatch));
+_COM_SMARTPTR_TYPEDEF(rdoError, __uuidof(rdoError));
+_COM_SMARTPTR_TYPEDEF(_rdoConnection, __uuidof(_rdoConnection));
+_COM_SMARTPTR_TYPEDEF(rdoConnectionEvents, __uuidof(IDispatch));
+_COM_SMARTPTR_TYPEDEF(_rdoColumn, __uuidof(_rdoColumn));
+_COM_SMARTPTR_TYPEDEF(rdoColumnEvents, __uuidof(IDispatch));
+_COM_SMARTPTR_TYPEDEF(rdoTable, __uuidof(rdoTable));
+_COM_SMARTPTR_TYPEDEF(_rdoResultset, __uuidof(_rdoResultset));
+_COM_SMARTPTR_TYPEDEF(rdoResultsetEvents, __uuidof(IDispatch));
+_COM_SMARTPTR_TYPEDEF(rdoPreparedStatement, __uuidof(rdoPreparedStatement));
+_COM_SMARTPTR_TYPEDEF(_rdoEnvironment, __uuidof(_rdoEnvironment));
+_COM_SMARTPTR_TYPEDEF(rdoEnvironmentEvents, __uuidof(IDispatch));
+_COM_SMARTPTR_TYPEDEF(rdoParameter, __uuidof(rdoParameter));
+_COM_SMARTPTR_TYPEDEF(DualCollection, __uuidof(DualCollection));
+_COM_SMARTPTR_TYPEDEF(rdoColumns, __uuidof(rdoColumns));
+_COM_SMARTPTR_TYPEDEF(rdoTables, __uuidof(rdoTables));
+_COM_SMARTPTR_TYPEDEF(rdoConnections, __uuidof(rdoConnections));
+_COM_SMARTPTR_TYPEDEF(rdoParameters, __uuidof(rdoParameters));
+_COM_SMARTPTR_TYPEDEF(rdoResultsets, __uuidof(rdoResultsets));
+_COM_SMARTPTR_TYPEDEF(rdoEnvironments, __uuidof(rdoEnvironments));
+_COM_SMARTPTR_TYPEDEF(rdoQueries, __uuidof(rdoQueries));
+_COM_SMARTPTR_TYPEDEF(rdoPreparedStatements, __uuidof(rdoPreparedStatements));
+_COM_SMARTPTR_TYPEDEF(rdoErrors, __uuidof(rdoErrors));
+_COM_SMARTPTR_TYPEDEF(IPrivColGetRows, __uuidof(IPrivColGetRows));
+_COM_SMARTPTR_TYPEDEF(IPrivRsGetRows, __uuidof(IPrivRsGetRows));
+
+//
+// Type library items
+//
+
+enum PromptConstants
+{
+    rdDriverPrompt = 0,
+    rdDriverNoPrompt = 1,
+    rdDriverComplete = 2,
+    rdDriverCompleteRequired = 3
+};
+
+enum CursorDriverConstants
+{
+    rdUseIfNeeded = 0,
+    rdUseOdbc = 1,
+    rdUseServer = 2,
+    rdUseClientBatch = 3,
+    rdUseNone = 4
+};
+
+enum EditModeConstants
+{
+    rdEditNone = 0,
+    rdEditInProgress = 1,
+    rdEditAdd = 2
+};
+
+enum LockTypeConstants
+{
+    rdConcurReadOnly = 1,
+    rdConcurLock = 2,
+    rdConcurRowVer = 3,
+    rdConcurValues = 4,
+    rdConcurBatch = 5
+};
+
+enum OptionConstants
+{
+    rdAsyncEnable = 32,
+    rdExecDirect = 64,
+    rdFetchLongColumns = 128,
+    rdBackgroundFetch = 256
+};
+
+enum ResultsetTypeConstants
+{
+    rdOpenForwardOnly = 0,
+    rdOpenKeyset = 1,
+    rdOpenDynamic = 2,
+    rdOpenStatic = 3
+};
+
+enum AttributeConstants
+{
+    rdFixedColumn = 1,
+    rdVariableColumn = 2,
+    rdAutoIncrColumn = 16,
+    rdUpdatableColumn = 32,
+    rdTimestampColumn = 64
+};
+
+enum DataTypeConstants
+{
+    rdTypeCHAR = 1,
+    rdTypeNUMERIC = 2,
+    rdTypeDECIMAL = 3,
+    rdTypeINTEGER = 4,
+    rdTypeSMALLINT = 5,
+    rdTypeFLOAT = 6,
+    rdTypeREAL = 7,
+    rdTypeDOUBLE = 8,
+    rdTypeDATE = 9,
+    rdTypeTIME = 10,
+    rdTypeTIMESTAMP = 11,
+    rdTypeVARCHAR = 12,
+    rdTypeLONGVARCHAR = -1,
+    rdTypeBINARY = -2,
+    rdTypeVARBINARY = -3,
+    rdTypeLONGVARBINARY = -4,
+    rdTypeBIGINT = -5,
+    rdTypeTINYINT = -6,
+    rdTypeBIT = -7,
+    rdTypeWCHAR = -8,
+    rdTypeWVARCHAR = -9,
+    rdTypeWLONGVARCHAR = -10,
+    rdTypeGUID = -11
+};
+
+enum DirectionConstants
+{
+    rdParamInput = 0,
+    rdParamInputOutput = 1,
+    rdParamOutput = 2,
+    rdParamReturnValue = 3
+};
+
+enum rdoLocaleIDConstants
+{
+    rdLocaleEnglish = 1,
+    rdLocaleFrench = 2,
+    rdLocaleGerman = 3,
+    rdLocaleItalian = 4,
+    rdLocaleJapanese = 5,
+    rdLocaleSpanish = 6,
+    rdLocaleChinese = 7,
+    rdLocaleSimplifiedChinese = 8,
+    rdLocaleKorean = 9,
+    rdLocaleSystem = 0
+};
+
+enum QueryTypeConstants
+{
+    rdQSelect = 0,
+    rdQAction = 1,
+    rdQProcedures = 2,
+    rdQCompound = 3
+};
+
+enum SQLRetcodeConstants
+{
+    rdSQLSuccess = 0,
+    rdSQLSuccessWithInfo = 1,
+    rdSQLNoDataFound = 100,
+    rdSQLError = -1,
+    rdSQLInvalidHandle = -2
+};
+
+enum RowStatusConstants
+{
+    rdRowUnmodified = 0,
+    rdRowModified = 1,
+    rdRowNew = 2,
+    rdRowDeleted = 3,
+    rdRowDBDeleted = 4
+};
+
+enum ColumnStatusConstants
+{
+    rdColUnmodified = 0,
+    rdColModified = 1
+};
+
+enum UpdateOperationConstants
+{
+    rdOperationUpdate = 0,
+    rdOperationDelIns = 1
+};
+
+enum UpdateCriteriaConstants
+{
+    rdCriteriaKey = 0,
+    rdCriteriaAllCols = 1,
+    rdCriteriaUpdCols = 2,
+    rdCriteriaTimeStamp = 3
+};
+
+enum UpdateReturnCodeConstants
+{
+    rdUpdateSuccessful = 0,
+    rdUpdateWithCollisions = 1,
+    rdUpdateFailed = 2,
+    rdUpdateNotHandled = 3
+};
+
+struct __declspec(uuid("5e71f04b-551f-11cf-8152-00aa00a40c25"))
+_rdoEngine : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetrdoEnvironments))
+    rdoEnvironmentsPtr rdoEnvironments;
+    __declspec(property(get=GetrdoDefaultLoginTimeout,put=PutrdoDefaultLoginTimeout))
+    long rdoDefaultLoginTimeout;
+    __declspec(property(get=GetrdoDefaultUser,put=PutrdoDefaultUser))
+    _bstr_t rdoDefaultUser;
+    __declspec(property(get=GetrdoDefaultPassword,put=PutrdoDefaultPassword))
+    _bstr_t rdoDefaultPassword;
+    __declspec(property(get=GetrdoDefaultUserA,put=PutrdoDefaultUserA))
+    _bstr_t rdoDefaultUserA;
+    __declspec(property(get=GetrdoErrors))
+    rdoErrorsPtr rdoErrors;
+    __declspec(property(get=GetrdoVersion))
+    _bstr_t rdoVersion;
+    __declspec(property(get=GetrdoDefaultCursorDriver,put=PutrdoDefaultCursorDriver))
+    enum CursorDriverConstants rdoDefaultCursorDriver;
+    __declspec(property(get=GetrdoDefaultErrorThreshold,put=PutrdoDefaultErrorThreshold))
+    long rdoDefaultErrorThreshold;
+    __declspec(property(get=GetrdoDefaultPasswordA,put=PutrdoDefaultPasswordA))
+    _bstr_t rdoDefaultPasswordA;
+    __declspec(property(get=GetrdoVersionA))
+    _bstr_t rdoVersionA;
+    __declspec(property(get=GetrdoLocaleID,put=PutrdoLocaleID))
+    enum rdoLocaleIDConstants rdoLocaleID;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetrdoDefaultLoginTimeout ( );
+    void PutrdoDefaultLoginTimeout (
+        long Value );
+    _bstr_t GetrdoDefaultUser ( );
+    void PutrdoDefaultUser (
+        _bstr_t Value );
+    _bstr_t GetrdoDefaultPassword ( );
+    void PutrdoDefaultPassword (
+        _bstr_t Value );
+    rdoEnvironmentsPtr GetrdoEnvironments ( );
+    rdoErrorsPtr GetrdoErrors ( );
+    _bstr_t GetrdoVersion ( );
+    enum CursorDriverConstants GetrdoDefaultCursorDriver ( );
+    void PutrdoDefaultCursorDriver (
+        enum CursorDriverConstants Value );
+    long GetrdoDefaultErrorThreshold ( );
+    void PutrdoDefaultErrorThreshold (
+        long Value );
+    HRESULT rdoRegisterDataSource (
+        _bstr_t DSN,
+        _bstr_t Driver,
+        VARIANT_BOOL Silent,
+        _bstr_t Attributes );
+    _rdoEnvironmentPtr rdoCreateEnvironment (
+        _bstr_t Name,
+        _bstr_t User,
+        _bstr_t Password );
+    enum rdoLocaleIDConstants GetrdoLocaleID ( );
+    void PutrdoLocaleID (
+        enum rdoLocaleIDConstants Value );
+    _bstr_t GetrdoDefaultUserA ( );
+    void PutrdoDefaultUserA (
+        _bstr_t Value );
+    _bstr_t GetrdoDefaultPasswordA ( );
+    void PutrdoDefaultPasswordA (
+        _bstr_t Value );
+    _bstr_t GetrdoVersionA ( );
+    HRESULT rdoRegisterDataSourceA (
+        _bstr_t DSN,
+        _bstr_t Driver,
+        VARIANT_BOOL Silent,
+        _bstr_t Attributes );
+    _rdoEnvironmentPtr rdoCreateEnvironmentA (
+        _bstr_t Name,
+        _bstr_t User,
+        _bstr_t Password );
+    HRESULT SetGlobalDebugMode (
+        IUnknown * pDebugger,
+        VARIANT_BOOL fDebuggingOn );
+    VARIANT_BOOL IsGlobalDebugMode ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_rdoDefaultLoginTimeout (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoDefaultLoginTimeout (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_rdoDefaultUser (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoDefaultUser (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_rdoDefaultPassword (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoDefaultPassword (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_rdoEnvironments (
+        struct rdoEnvironments * * pCollection ) = 0;
+    virtual HRESULT __stdcall get_rdoErrors (
+        struct rdoErrors * * pCollection ) = 0;
+    virtual HRESULT __stdcall get_rdoVersion (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_rdoDefaultCursorDriver (
+        enum CursorDriverConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoDefaultCursorDriver (
+        enum CursorDriverConstants Value ) = 0;
+    virtual HRESULT __stdcall get_rdoDefaultErrorThreshold (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoDefaultErrorThreshold (
+        long Value ) = 0;
+    virtual HRESULT __stdcall raw_rdoRegisterDataSource (
+        BSTR DSN,
+        BSTR Driver,
+        VARIANT_BOOL Silent,
+        BSTR Attributes ) = 0;
+    virtual HRESULT __stdcall raw_rdoCreateEnvironment (
+        BSTR Name,
+        BSTR User,
+        BSTR Password,
+        struct _rdoEnvironment * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_rdoLocaleID (
+        enum rdoLocaleIDConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoLocaleID (
+        enum rdoLocaleIDConstants Value ) = 0;
+    virtual HRESULT __stdcall get_rdoDefaultUserA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoDefaultUserA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_rdoDefaultPasswordA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_rdoDefaultPasswordA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_rdoVersionA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall raw_rdoRegisterDataSourceA (
+        BSTR DSN,
+        BSTR Driver,
+        VARIANT_BOOL Silent,
+        BSTR Attributes ) = 0;
+    virtual HRESULT __stdcall raw_rdoCreateEnvironmentA (
+        BSTR Name,
+        BSTR User,
+        BSTR Password,
+        struct _rdoEnvironment * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_SetGlobalDebugMode (
+        IUnknown * pDebugger,
+        VARIANT_BOOL fDebuggingOn ) = 0;
+    virtual HRESULT __stdcall raw_IsGlobalDebugMode (
+        VARIANT_BOOL * fDebuggingOn ) = 0;
+};
+
+struct __declspec(uuid("ee008643-64a8-11ce-920f-08002b369a33"))
+rdoEngineEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT InfoMessage ( );
+};
+
+struct __declspec(uuid("9a8831f0-a263-11d1-8dcf-00a0c90fffc2"))
+rdoEngine;
+    // [ default ] interface _rdoEngine
+    // [ default, source ] dispinterface rdoEngineEvents
+
+struct __declspec(uuid("b541c034-63bc-11ce-920c-08002b369a33"))
+rdoError : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetDescription))
+    _bstr_t Description;
+    __declspec(property(get=GetNumber))
+    long Number;
+    __declspec(property(get=GetSource))
+    _bstr_t Source;
+    __declspec(property(get=GetHelpContext))
+    long HelpContext;
+    __declspec(property(get=GetHelpFile))
+    _bstr_t HelpFile;
+    __declspec(property(get=GetSQLState))
+    _bstr_t SQLState;
+    __declspec(property(get=GetSQLRetcode))
+    long SQLRetcode;
+    __declspec(property(get=GetDescriptionA))
+    _bstr_t DescriptionA;
+    __declspec(property(get=GetSourceA))
+    _bstr_t SourceA;
+    __declspec(property(get=GetHelpFileA))
+    _bstr_t HelpFileA;
+    __declspec(property(get=GetSQLStateA))
+    _bstr_t SQLStateA;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetNumber ( );
+    _bstr_t GetSource ( );
+    _bstr_t GetDescription ( );
+    long GetHelpContext ( );
+    _bstr_t GetHelpFile ( );
+    _bstr_t GetSQLState ( );
+    long GetSQLRetcode ( );
+    _bstr_t GetSourceA ( );
+    _bstr_t GetDescriptionA ( );
+    _bstr_t GetHelpFileA ( );
+    _bstr_t GetSQLStateA ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Number (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_Source (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_Description (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_HelpContext (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_HelpFile (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_SQLState (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_SQLRetcode (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_SourceA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_DescriptionA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_HelpFileA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_SQLStateA (
+        BSTR * Value ) = 0;
+};
+
+struct __declspec(uuid("5e71f04d-551f-11cf-8152-00aa00a40c25"))
+_rdoConnection : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetrdoResultsets))
+    rdoResultsetsPtr rdoResultsets;
+    __declspec(property(get=GetQueryTimeout,put=PutQueryTimeout))
+    long QueryTimeout;
+    __declspec(property(get=GetrdoTables))
+    rdoTablesPtr rdoTables;
+    __declspec(property(get=GetrdoPreparedStatements))
+    rdoPreparedStatementsPtr rdoPreparedStatements;
+    __declspec(property(get=GetConnectA))
+    _bstr_t ConnectA;
+    __declspec(property(get=GetConnect,put=PutConnect))
+    _bstr_t Connect;
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetRowsAffected))
+    long RowsAffected;
+    __declspec(property(get=GetTransactions))
+    VARIANT_BOOL Transactions;
+    __declspec(property(get=GetUpdatable))
+    VARIANT_BOOL Updatable;
+    __declspec(property(get=GetVersion))
+    _bstr_t Version;
+    __declspec(property(get=GetNameA))
+    _bstr_t NameA;
+    __declspec(property(get=GetOwner))
+    _rdoEnvironmentPtr Owner;
+    __declspec(property(get=GetVersionA))
+    _bstr_t VersionA;
+    __declspec(property(get=GethDbc))
+    long hDbc;
+    __declspec(property(get=GetStillExecuting))
+    VARIANT_BOOL StillExecuting;
+    __declspec(property(get=GetAsyncCheckInterval,put=PutAsyncCheckInterval))
+    long AsyncCheckInterval;
+    __declspec(property(get=GetLastQueryResults))
+    _rdoResultsetPtr LastQueryResults;
+    __declspec(property(get=GetCursorDriver,put=PutCursorDriver))
+    enum CursorDriverConstants CursorDriver;
+    __declspec(property(get=GetLoginTimeout,put=PutLoginTimeout))
+    long LoginTimeout;
+    __declspec(property(get=GetStillConnecting))
+    VARIANT_BOOL StillConnecting;
+    __declspec(property(get=GetrdoQueries))
+    rdoQueriesPtr rdoQueries;
+    __declspec(property(get=GetLogMessages,put=PutLogMessages))
+    _bstr_t LogMessages;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetQueryTimeout ( );
+    void PutQueryTimeout (
+        long Value );
+    rdoTablesPtr GetrdoTables ( );
+    rdoPreparedStatementsPtr GetrdoPreparedStatements ( );
+    rdoResultsetsPtr GetrdoResultsets ( );
+    _bstr_t GetConnect ( );
+    void PutConnect (
+        _bstr_t Value );
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t Value );
+    long GetRowsAffected ( );
+    VARIANT_BOOL GetTransactions ( );
+    VARIANT_BOOL GetUpdatable ( );
+    _bstr_t GetVersion ( );
+    long GethDbc ( );
+    VARIANT_BOOL GetStillExecuting ( );
+    long GetAsyncCheckInterval ( );
+    void PutAsyncCheckInterval (
+        long Value );
+    HRESULT Close ( );
+    HRESULT Execute (
+        _bstr_t Source,
+        const _variant_t & Options = vtMissing );
+    _rdoResultsetPtr OpenResultset (
+        _bstr_t Name,
+        const _variant_t & Type = vtMissing,
+        const _variant_t & LockType = vtMissing,
+        const _variant_t & Options = vtMissing );
+    rdoPreparedStatementPtr CreatePreparedStatement (
+        _bstr_t Name,
+        const _variant_t & SqlString );
+    HRESULT BeginTrans ( );
+    HRESULT CommitTrans ( );
+    HRESULT RollbackTrans ( );
+    HRESULT Cancel ( );
+    _rdoResultsetPtr GetLastQueryResults ( );
+    enum CursorDriverConstants GetCursorDriver ( );
+    void PutCursorDriver (
+        enum CursorDriverConstants Value );
+    long GetLoginTimeout ( );
+    void PutLoginTimeout (
+        long Value );
+    HRESULT EstablishConnection (
+        const _variant_t & Prompt = vtMissing,
+        const _variant_t & Readonly = vtMissing,
+        const _variant_t & Options = vtMissing );
+    VARIANT_BOOL GetStillConnecting ( );
+    rdoPreparedStatementPtr CreateQuery (
+        _bstr_t Name,
+        const _variant_t & SqlString );
+    rdoQueriesPtr GetrdoQueries ( );
+    _bstr_t GetLogMessages ( );
+    void PutLogMessages (
+        _bstr_t Value );
+    _rdoEnvironmentPtr GetOwner ( );
+    _bstr_t GetConnectA ( );
+    _bstr_t GetNameA ( );
+    _bstr_t GetVersionA ( );
+    HRESULT ExecuteA (
+        _bstr_t Source,
+        const _variant_t & Options = vtMissing );
+    _rdoResultsetPtr OpenResultsetA (
+        _bstr_t Name,
+        const _variant_t & Type = vtMissing,
+        const _variant_t & LockType = vtMissing,
+        const _variant_t & Options = vtMissing );
+    rdoPreparedStatementPtr CreateQueryA (
+        _bstr_t Name,
+        const _variant_t & SqlString );
+    _rdoResultsetPtr DaoOpenResultsetA (
+        _bstr_t Name,
+        const _variant_t & Type = vtMissing,
+        const _variant_t & LockType = vtMissing,
+        const _variant_t & Options = vtMissing );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_QueryTimeout (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_QueryTimeout (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_rdoTables (
+        struct rdoTables * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_rdoPreparedStatements (
+        struct rdoPreparedStatements * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_rdoResultsets (
+        struct rdoResultsets * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_Connect (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_Connect (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_RowsAffected (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_Transactions (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_Updatable (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_Version (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_hDbc (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_StillExecuting (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_AsyncCheckInterval (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_AsyncCheckInterval (
+        long Value ) = 0;
+    virtual HRESULT __stdcall raw_Close ( ) = 0;
+    virtual HRESULT __stdcall raw_Execute (
+        BSTR Source,
+        VARIANT Options = vtMissing ) = 0;
+    virtual HRESULT __stdcall raw_OpenResultset (
+        BSTR Name,
+        VARIANT Type,
+        VARIANT LockType,
+        VARIANT Options,
+        struct _rdoResultset * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_CreatePreparedStatement (
+        BSTR Name,
+        VARIANT SqlString,
+        struct rdoPreparedStatement * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_BeginTrans ( ) = 0;
+    virtual HRESULT __stdcall raw_CommitTrans ( ) = 0;
+    virtual HRESULT __stdcall raw_RollbackTrans ( ) = 0;
+    virtual HRESULT __stdcall raw_Cancel ( ) = 0;
+    virtual HRESULT __stdcall get_LastQueryResults (
+        struct _rdoResultset * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_CursorDriver (
+        enum CursorDriverConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_CursorDriver (
+        enum CursorDriverConstants Value ) = 0;
+    virtual HRESULT __stdcall get_LoginTimeout (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_LoginTimeout (
+        long Value ) = 0;
+    virtual HRESULT __stdcall raw_EstablishConnection (
+        VARIANT Prompt = vtMissing,
+        VARIANT Readonly = vtMissing,
+        VARIANT Options = vtMissing ) = 0;
+    virtual HRESULT __stdcall get_StillConnecting (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall raw_CreateQuery (
+        BSTR Name,
+        VARIANT SqlString,
+        struct rdoPreparedStatement * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_rdoQueries (
+        struct rdoQueries * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_LogMessages (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_LogMessages (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_Owner (
+        struct _rdoEnvironment * * pRet ) = 0;
+    virtual HRESULT __stdcall get_ConnectA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_NameA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_VersionA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall raw_ExecuteA (
+        BSTR Source,
+        VARIANT Options = vtMissing ) = 0;
+    virtual HRESULT __stdcall raw_OpenResultsetA (
+        BSTR Name,
+        VARIANT Type,
+        VARIANT LockType,
+        VARIANT Options,
+        struct _rdoResultset * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_CreateQueryA (
+        BSTR Name,
+        VARIANT SqlString,
+        struct rdoPreparedStatement * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_DaoOpenResultsetA (
+        BSTR Name,
+        VARIANT Type,
+        VARIANT LockType,
+        VARIANT Options,
+        struct _rdoResultset * * pRetval ) = 0;
+};
+
+struct __declspec(uuid("8b39dfbd-3647-11cf-814a-00aa00a40c25"))
+rdoConnectionEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT Connect (
+        VARIANT_BOOL ErrorOccurred );
+    HRESULT BeforeConnect (
+        BSTR * ConnectString,
+        VARIANT * Prompt );
+    HRESULT Disconnect ( );
+    HRESULT QueryComplete (
+        struct rdoPreparedStatement * Query,
+        VARIANT_BOOL ErrorOccurred );
+    HRESULT QueryTimeout (
+        struct rdoPreparedStatement * Query,
+        VARIANT_BOOL * Cancel );
+    HRESULT WillExecute (
+        struct rdoPreparedStatement * Query,
+        VARIANT_BOOL * Cancel );
+};
+
+struct __declspec(uuid("9a8831f1-a263-11d1-8dcf-00a0c90fffc2"))
+rdoConnection;
+    // [ default ] interface _rdoConnection
+    // [ default, source ] dispinterface rdoConnectionEvents
+
+struct __declspec(uuid("5e71f04e-551f-11cf-8152-00aa00a40c25"))
+_rdoColumn : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetValue,put=PutValue))
+    _variant_t Value;
+    __declspec(property(get=GetType))
+    enum DataTypeConstants Type;
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetSize,put=PutSize))
+    long Size;
+    __declspec(property(get=GetAllowZeroLength,put=PutAllowZeroLength))
+    VARIANT_BOOL AllowZeroLength;
+    __declspec(property(get=GetAttributes))
+    enum AttributeConstants Attributes;
+    __declspec(property(get=GetUpdatable,put=PutUpdatable))
+    VARIANT_BOOL Updatable;
+    __declspec(property(get=GetOrdinalPosition))
+    short OrdinalPosition;
+    __declspec(property(get=GetRequired))
+    VARIANT_BOOL Required;
+    __declspec(property(get=GetSourceColumn,put=PutSourceColumn))
+    _bstr_t SourceColumn;
+    __declspec(property(get=GetSourceTable,put=PutSourceTable))
+    _bstr_t SourceTable;
+    __declspec(property(get=GetChunkRequired))
+    VARIANT_BOOL ChunkRequired;
+    __declspec(property(get=GetBatchConflictValue))
+    _variant_t BatchConflictValue;
+    __declspec(property(get=GetOriginalValue))
+    _variant_t OriginalValue;
+    __declspec(property(get=GetStatus,put=PutStatus))
+    enum ColumnStatusConstants Status;
+    __declspec(property(get=GetKeyColumn,put=PutKeyColumn))
+    VARIANT_BOOL KeyColumn;
+    __declspec(property(get=GetValueA,put=PutValueA))
+    _variant_t ValueA;
+    __declspec(property(get=GetNameA))
+    _bstr_t NameA;
+    __declspec(property(get=GetSourceColumnA,put=PutSourceColumnA))
+    _bstr_t SourceColumnA;
+    __declspec(property(get=GetVariantType))
+    long VariantType;
+    __declspec(property(get=GetCSize))
+    long CSize;
+    __declspec(property(get=GetFoxPrecision))
+    long FoxPrecision;
+    __declspec(property(get=GetFoxScale))
+    short FoxScale;
+    __declspec(property(get=GetFoxMoney))
+    VARIANT_BOOL FoxMoney;
+    __declspec(property(get=GetFoxAllowZeroLength))
+    VARIANT_BOOL FoxAllowZeroLength;
+    __declspec(property(get=GetFoxSize))
+    long FoxSize;
+    __declspec(property(get=GetSourceTableA,put=PutSourceTableA))
+    _bstr_t SourceTableA;
+    __declspec(property(get=GetFoxAttributes))
+    long FoxAttributes;
+    __declspec(property(get=GetFoxSourceTable))
+    _bstr_t FoxSourceTable;
+    __declspec(property(get=GetFoxType))
+    short FoxType;
+    __declspec(property(get=GetFoxOrdinalPosition))
+    short FoxOrdinalPosition;
+    __declspec(property(get=GetBatchConflictValueA))
+    _variant_t BatchConflictValueA;
+    __declspec(property(get=GetOriginalValueA))
+    _variant_t OriginalValueA;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _variant_t GetValue ( );
+    void PutValue (
+        const _variant_t & Value );
+    enum DataTypeConstants GetType ( );
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t Value );
+    long GetSize ( );
+    void PutSize (
+        long Value );
+    VARIANT_BOOL GetAllowZeroLength ( );
+    void PutAllowZeroLength (
+        VARIANT_BOOL Value );
+    enum AttributeConstants GetAttributes ( );
+    VARIANT_BOOL GetUpdatable ( );
+    void PutUpdatable (
+        VARIANT_BOOL Value );
+    short GetOrdinalPosition ( );
+    VARIANT_BOOL GetRequired ( );
+    _bstr_t GetSourceColumn ( );
+    void PutSourceColumn (
+        _bstr_t Value );
+    _bstr_t GetSourceTable ( );
+    void PutSourceTable (
+        _bstr_t Value );
+    VARIANT_BOOL GetChunkRequired ( );
+    HRESULT AppendChunk (
+        const _variant_t & Chunk );
+    _variant_t GetChunk (
+        long Size );
+    long ColumnSize ( );
+    _variant_t GetBatchConflictValue ( );
+    _variant_t GetOriginalValue ( );
+    enum ColumnStatusConstants GetStatus ( );
+    void PutStatus (
+        enum ColumnStatusConstants Value );
+    VARIANT_BOOL GetKeyColumn ( );
+    void PutKeyColumn (
+        VARIANT_BOOL Value );
+    long GetVariantType ( );
+    long GetCSize ( );
+    _variant_t GetValueA ( );
+    void PutValueA (
+        const _variant_t & Value );
+    _bstr_t GetNameA ( );
+    _bstr_t GetSourceColumnA ( );
+    void PutSourceColumnA (
+        _bstr_t Value );
+    _bstr_t GetSourceTableA ( );
+    void PutSourceTableA (
+        _bstr_t Value );
+    HRESULT AppendChunkA (
+        const _variant_t & Chunk );
+    _variant_t GetChunkA (
+        long Size );
+    long GetFoxAttributes ( );
+    _bstr_t GetFoxSourceTable ( );
+    short GetFoxType ( );
+    long GetFoxPrecision ( );
+    short GetFoxScale ( );
+    VARIANT_BOOL GetFoxMoney ( );
+    VARIANT_BOOL GetFoxAllowZeroLength ( );
+    long GetFoxSize ( );
+    short GetFoxOrdinalPosition ( );
+    _variant_t GetBatchConflictValueA ( );
+    _variant_t GetOriginalValueA ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Value (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall put_Value (
+        VARIANT Value ) = 0;
+    virtual HRESULT __stdcall get_Type (
+        enum DataTypeConstants * Value ) = 0;
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_Size (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_Size (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_AllowZeroLength (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall put_AllowZeroLength (
+        VARIANT_BOOL Value ) = 0;
+    virtual HRESULT __stdcall get_Attributes (
+        enum AttributeConstants * Value ) = 0;
+    virtual HRESULT __stdcall get_Updatable (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall put_Updatable (
+        VARIANT_BOOL Value ) = 0;
+    virtual HRESULT __stdcall get_OrdinalPosition (
+        short * Value ) = 0;
+    virtual HRESULT __stdcall get_Required (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_SourceColumn (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_SourceColumn (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_SourceTable (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_SourceTable (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_ChunkRequired (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall raw_AppendChunk (
+        VARIANT Chunk ) = 0;
+    virtual HRESULT __stdcall raw_GetChunk (
+        long Size,
+        VARIANT * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_ColumnSize (
+        long * pRetval ) = 0;
+    virtual HRESULT __stdcall get_BatchConflictValue (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall get_OriginalValue (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall get_Status (
+        enum ColumnStatusConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_Status (
+        enum ColumnStatusConstants Value ) = 0;
+    virtual HRESULT __stdcall get_KeyColumn (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall put_KeyColumn (
+        VARIANT_BOOL Value ) = 0;
+    virtual HRESULT __stdcall get_VariantType (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_CSize (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_ValueA (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall put_ValueA (
+        VARIANT Value ) = 0;
+    virtual HRESULT __stdcall get_NameA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_SourceColumnA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_SourceColumnA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_SourceTableA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_SourceTableA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall raw_AppendChunkA (
+        VARIANT Chunk ) = 0;
+    virtual HRESULT __stdcall raw_GetChunkA (
+        long Size,
+        VARIANT * pRetval ) = 0;
+    virtual HRESULT __stdcall get_FoxAttributes (
+        long * pAttrib ) = 0;
+    virtual HRESULT __stdcall get_FoxSourceTable (
+        BSTR * pSrcTable ) = 0;
+    virtual HRESULT __stdcall get_FoxType (
+        short * pType ) = 0;
+    virtual HRESULT __stdcall get_FoxPrecision (
+        long * pPrecision ) = 0;
+    virtual HRESULT __stdcall get_FoxScale (
+        short * pScale ) = 0;
+    virtual HRESULT __stdcall get_FoxMoney (
+        VARIANT_BOOL * pMoney ) = 0;
+    virtual HRESULT __stdcall get_FoxAllowZeroLength (
+        VARIANT_BOOL * pAllowZeroLength ) = 0;
+    virtual HRESULT __stdcall get_FoxSize (
+        long * pSize ) = 0;
+    virtual HRESULT __stdcall get_FoxOrdinalPosition (
+        short * pOrdinalPosition ) = 0;
+    virtual HRESULT __stdcall get_BatchConflictValueA (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall get_OriginalValueA (
+        VARIANT * Value ) = 0;
+};
+
+struct __declspec(uuid("8b39dfc0-3647-11cf-814a-00aa00a40c25"))
+rdoColumnEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT DataChanged ( );
+    HRESULT WillChangeData (
+        VARIANT * newvalue,
+        VARIANT_BOOL * Cancel );
+};
+
+struct __declspec(uuid("5ebb68f3-3bf1-11cf-814c-00aa00a40c25"))
+rdoColumn;
+    // [ default ] interface _rdoColumn
+    // [ default, source ] dispinterface rdoColumnEvents
+
+struct __declspec(uuid("b541c03d-63bc-11ce-920c-08002b369a33"))
+rdoTable : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetrdoColumns))
+    rdoColumnsPtr rdoColumns;
+    __declspec(property(get=GetName))
+    _bstr_t Name;
+    __declspec(property(get=GetUpdatable))
+    VARIANT_BOOL Updatable;
+    __declspec(property(get=GetRowCount))
+    long RowCount;
+    __declspec(property(get=GetType))
+    _bstr_t Type;
+    __declspec(property(get=GetNameA))
+    _bstr_t NameA;
+    __declspec(property(get=GetTypeA))
+    _bstr_t TypeA;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    rdoColumnsPtr GetrdoColumns ( );
+    _bstr_t GetName ( );
+    VARIANT_BOOL GetUpdatable ( );
+    long GetRowCount ( );
+    _bstr_t GetType ( );
+    _rdoResultsetPtr OpenResultset (
+        const _variant_t & Type = vtMissing,
+        const _variant_t & LockType = vtMissing,
+        const _variant_t & Options = vtMissing );
+    _bstr_t GetNameA ( );
+    _bstr_t GetTypeA ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_rdoColumns (
+        struct rdoColumns * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_Updatable (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_RowCount (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_Type (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall raw_OpenResultset (
+        VARIANT Type,
+        VARIANT LockType,
+        VARIANT Options,
+        struct _rdoResultset * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_NameA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_TypeA (
+        BSTR * Value ) = 0;
+};
+
+struct __declspec(uuid("5e71f04f-551f-11cf-8152-00aa00a40c25"))
+_rdoResultset : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetrdoColumns))
+    rdoColumnsPtr rdoColumns;
+    __declspec(property(get=GetBookmark,put=PutBookmark))
+    _variant_t Bookmark;
+    __declspec(property(get=GetFoxRowsetDirection,put=PutFoxRowsetDirection))
+    long FoxRowsetDirection;
+    __declspec(property(get=GetBOF))
+    VARIANT_BOOL BOF;
+    __declspec(property(get=GetBookmarkable))
+    VARIANT_BOOL Bookmarkable;
+    __declspec(property(get=GetrdoEOF))
+    VARIANT_BOOL rdoEOF;
+    __declspec(property(get=GetLockEdits))
+    VARIANT_BOOL LockEdits;
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetFoxCurrentRowsetSize,put=PutFoxCurrentRowsetSize))
+    long FoxCurrentRowsetSize;
+    __declspec(property(get=GetTransactions))
+    VARIANT_BOOL Transactions;
+    __declspec(property(get=GetCollect,put=PutCollect))
+    _variant_t Collect[];
+    __declspec(property(get=GetPercentPosition,put=PutPercentPosition))
+    float PercentPosition;
+    __declspec(property(get=GetType))
+    enum ResultsetTypeConstants Type;
+    __declspec(property(get=GetRowCount))
+    long RowCount;
+    __declspec(property(get=GetUpdatable))
+    VARIANT_BOOL Updatable;
+    __declspec(property(get=GetRestartable))
+    VARIANT_BOOL Restartable;
+    __declspec(property(get=GetEditMode))
+    long EditMode;
+    __declspec(property(get=GetCollectA,put=PutCollectA))
+    _variant_t CollectA[];
+    __declspec(property(get=GetFoxMaxRowsetSize,put=PutFoxMaxRowsetSize))
+    long FoxMaxRowsetSize;
+    __declspec(property(get=GetFoxRecordCount,put=PutFoxRecordCount))
+    long FoxRecordCount;
+    __declspec(property(get=GetRDCLastActionState))
+    long RDCLastActionState;
+    __declspec(property(get=GetOwner))
+    rdoPreparedStatementPtr Owner;
+    __declspec(property(get=GethStmt))
+    long hStmt;
+    __declspec(property(get=GetAbsolutePosition,put=PutAbsolutePosition))
+    long AbsolutePosition;
+    __declspec(property(get=GetStillExecuting))
+    VARIANT_BOOL StillExecuting;
+    __declspec(property(get=GetLastModified))
+    _variant_t LastModified;
+    __declspec(property(get=GetActiveConnection,put=PutRefActiveConnection))
+    _rdoConnectionPtr ActiveConnection;
+    __declspec(property(get=GetBatchCollisionCount))
+    long BatchCollisionCount;
+    __declspec(property(get=GetBatchCollisionRows))
+    _variant_t BatchCollisionRows;
+    __declspec(property(get=GetLockType,put=PutLockType))
+    enum LockTypeConstants LockType;
+    __declspec(property(get=GetStatus,put=PutStatus))
+    enum RowStatusConstants Status;
+    __declspec(property(get=GetBatchSize,put=PutBatchSize))
+    long BatchSize;
+    __declspec(property(get=GetUpdateOperation,put=PutUpdateOperation))
+    short UpdateOperation;
+    __declspec(property(get=GetUpdateCriteria,put=PutUpdateCriteria))
+    short UpdateCriteria;
+    __declspec(property(get=GetNameA,put=PutNameA))
+    _bstr_t NameA;
+    __declspec(property(get=GetFoxpCursor))
+    long FoxpCursor;
+    __declspec(property(get=GetFoxBOF,put=PutFoxBOF))
+    VARIANT_BOOL FoxBOF;
+    __declspec(property(get=GetFoxEOF,put=PutFoxEOF))
+    VARIANT_BOOL FoxEOF;
+    __declspec(property(get=GetFoxSQL))
+    _bstr_t FoxSQL;
+    __declspec(property(get=GetFOxBindThreshold))
+    long FOxBindThreshold;
+    __declspec(property(get=GetFoxQueryDefDisp))
+    IDispatchPtr FoxQueryDefDisp;
+    __declspec(property(get=GetFoxConcurrency))
+    long FoxConcurrency;
+    __declspec(property(get=GetFoxCurrentRow,put=PutFoxCurrentRow))
+    long FoxCurrentRow;
+    __declspec(property(get=GetFoxRowsetStart,put=PutFoxRowsetStart))
+    long FoxRowsetStart;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _variant_t GetBookmark ( );
+    void PutBookmark (
+        const _variant_t & Value );
+    rdoColumnsPtr GetrdoColumns ( );
+    VARIANT_BOOL GetBOF ( );
+    VARIANT_BOOL GetBookmarkable ( );
+    VARIANT_BOOL GetrdoEOF ( );
+    VARIANT_BOOL GetLockEdits ( );
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t Value );
+    VARIANT_BOOL GetTransactions ( );
+    enum ResultsetTypeConstants GetType ( );
+    long GetRowCount ( );
+    VARIANT_BOOL GetUpdatable ( );
+    VARIANT_BOOL GetRestartable ( );
+    long GetEditMode ( );
+    float GetPercentPosition ( );
+    void PutPercentPosition (
+        float Value );
+    long GethStmt ( );
+    long GetAbsolutePosition ( );
+    void PutAbsolutePosition (
+        long Value );
+    VARIANT_BOOL GetStillExecuting ( );
+    _variant_t GetLastModified ( );
+    long GetBatchSize ( );
+    void PutBatchSize (
+        long Value );
+    short GetUpdateOperation ( );
+    void PutUpdateOperation (
+        short Value );
+    short GetUpdateCriteria ( );
+    void PutUpdateCriteria (
+        short Value );
+    HRESULT AddNew ( );
+    HRESULT Close ( );
+    HRESULT Delete ( );
+    HRESULT Edit ( );
+    HRESULT MoveFirst ( );
+    HRESULT MoveLast (
+        const _variant_t & Options = vtMissing );
+    HRESULT MoveNext ( );
+    HRESULT MovePrevious ( );
+    HRESULT Update ( );
+    HRESULT Requery (
+        const _variant_t & Options = vtMissing );
+    HRESULT Move (
+        long Rows,
+        const _variant_t & Start = vtMissing );
+    VARIANT_BOOL MoreResults ( );
+    HRESULT Cancel ( );
+    HRESULT CancelUpdate ( );
+    _variant_t GetRows (
+        const _variant_t & NumRows );
+    HRESULT BatchUpdate (
+        const _variant_t & SingleRow = vtMissing,
+        const _variant_t & Force = vtMissing );
+    HRESULT CancelBatch (
+        const _variant_t & SingleRow = vtMissing );
+    _rdoConnectionPtr GetActiveConnection ( );
+    void PutRefActiveConnection (
+        struct _rdoConnection * pRet );
+    long GetBatchCollisionCount ( );
+    _variant_t GetBatchCollisionRows ( );
+    enum LockTypeConstants GetLockType ( );
+    void PutLockType (
+        enum LockTypeConstants Value );
+    enum RowStatusConstants GetStatus ( );
+    void PutStatus (
+        enum RowStatusConstants Value );
+    _bstr_t GetClipString (
+        long NumRows,
+        const _variant_t & ColumnDelimiter = vtMissing,
+        const _variant_t & RowDelimiter = vtMissing,
+        const _variant_t & NullExpr = vtMissing );
+    HRESULT IsKnownLastRow (
+        VARIANT_BOOL * pRetval );
+    HRESULT IsKnownFirstRow (
+        VARIANT_BOOL * pRetval );
+    HRESULT Advise (
+        IUnknown * pSink,
+        long * pnCookie );
+    HRESULT Unadvise (
+        long nCookie );
+    HRESULT FreezeNotifications (
+        VARIANT_BOOL Frozen );
+    HRESULT FindByValues (
+        long bmk,
+        IUnknown * pBmk,
+        long lFF,
+        long lV,
+        IUnknown * rgColumns,
+        IUnknown * rgValues,
+        IUnknown * plSeekFlags,
+        IUnknown * pvFetchParams );
+    rdoPreparedStatementPtr GetOwner ( );
+    HRESULT RDCClose ( );
+    _variant_t GetCollect (
+        const _variant_t & Index );
+    void PutCollect (
+        const _variant_t & Index,
+        const _variant_t & pRetval );
+    _bstr_t GetNameA ( );
+    void PutNameA (
+        _bstr_t Value );
+    _variant_t GetRowsA (
+        const _variant_t & NumRows );
+    _variant_t GetCollectA (
+        const _variant_t & Index );
+    void PutCollectA (
+        const _variant_t & Index,
+        const _variant_t & pRetval );
+    HRESULT Resync ( );
+    long GetFoxpCursor ( );
+    VARIANT_BOOL GetFoxBOF ( );
+    void PutFoxBOF (
+        VARIANT_BOOL pbBOF );
+    VARIANT_BOOL GetFoxEOF ( );
+    void PutFoxEOF (
+        VARIANT_BOOL pbEOF );
+    _bstr_t GetFoxSQL ( );
+    long GetFOxBindThreshold ( );
+    IDispatchPtr GetFoxQueryDefDisp ( );
+    long GetFoxConcurrency ( );
+    long GetFoxCurrentRow ( );
+    void PutFoxCurrentRow (
+        long pnCurrentRow );
+    long GetFoxRowsetStart ( );
+    void PutFoxRowsetStart (
+        long pnRowsetStart );
+    long GetFoxRowsetDirection ( );
+    void PutFoxRowsetDirection (
+        long pnRowsetDirect );
+    long GetFoxCurrentRowsetSize ( );
+    void PutFoxCurrentRowsetSize (
+        long pnCurRowsetSize );
+    long GetFoxMaxRowsetSize ( );
+    void PutFoxMaxRowsetSize (
+        long pnMaxRowsetSize );
+    long GetFoxRecordCount ( );
+    void PutFoxRecordCount (
+        long pnRecordCnt );
+    HRESULT FoxCreateErrorInfo (
+        long scode,
+        long IdDecription,
+        long IdHelp );
+    HRESULT FoxCreateSQLErro (
+        long retcode,
+        VARIANT_BOOL bCreateInfo,
+        long hDbc,
+        long hResults );
+    long GetRDCLastActionState ( );
+    _bstr_t GetClipStrCurrentRow (
+        const _variant_t & ColumnDelimiter = vtMissing,
+        const _variant_t & RowDelimiter = vtMissing,
+        const _variant_t & NullExpr = vtMissing );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Bookmark (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall put_Bookmark (
+        VARIANT Value ) = 0;
+    virtual HRESULT __stdcall get_rdoColumns (
+        struct rdoColumns * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_BOF (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_Bookmarkable (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_rdoEOF (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_LockEdits (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_Transactions (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_Type (
+        enum ResultsetTypeConstants * Value ) = 0;
+    virtual HRESULT __stdcall get_RowCount (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_Updatable (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_Restartable (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_EditMode (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_PercentPosition (
+        float * Value ) = 0;
+    virtual HRESULT __stdcall put_PercentPosition (
+        float Value ) = 0;
+    virtual HRESULT __stdcall get_hStmt (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_AbsolutePosition (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_AbsolutePosition (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_StillExecuting (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_LastModified (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall get_BatchSize (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_BatchSize (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_UpdateOperation (
+        short * Value ) = 0;
+    virtual HRESULT __stdcall put_UpdateOperation (
+        short Value ) = 0;
+    virtual HRESULT __stdcall get_UpdateCriteria (
+        short * Value ) = 0;
+    virtual HRESULT __stdcall put_UpdateCriteria (
+        short Value ) = 0;
+    virtual HRESULT __stdcall raw_AddNew ( ) = 0;
+    virtual HRESULT __stdcall raw_Close ( ) = 0;
+    virtual HRESULT __stdcall raw_Delete ( ) = 0;
+    virtual HRESULT __stdcall raw_Edit ( ) = 0;
+    virtual HRESULT __stdcall raw_MoveFirst ( ) = 0;
+    virtual HRESULT __stdcall raw_MoveLast (
+        VARIANT Options = vtMissing ) = 0;
+    virtual HRESULT __stdcall raw_MoveNext ( ) = 0;
+    virtual HRESULT __stdcall raw_MovePrevious ( ) = 0;
+    virtual HRESULT __stdcall raw_Update ( ) = 0;
+    virtual HRESULT __stdcall raw_Requery (
+        VARIANT Options = vtMissing ) = 0;
+    virtual HRESULT __stdcall raw_Move (
+        long Rows,
+        VARIANT Start = vtMissing ) = 0;
+    virtual HRESULT __stdcall raw_MoreResults (
+        VARIANT_BOOL * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_Cancel ( ) = 0;
+    virtual HRESULT __stdcall raw_CancelUpdate ( ) = 0;
+    virtual HRESULT __stdcall raw_GetRows (
+        VARIANT NumRows,
+        VARIANT * pReturnValue ) = 0;
+    virtual HRESULT __stdcall raw_BatchUpdate (
+        VARIANT SingleRow = vtMissing,
+        VARIANT Force = vtMissing ) = 0;
+    virtual HRESULT __stdcall raw_CancelBatch (
+        VARIANT SingleRow = vtMissing ) = 0;
+    virtual HRESULT __stdcall get_ActiveConnection (
+        struct _rdoConnection * * pRet ) = 0;
+    virtual HRESULT __stdcall putref_ActiveConnection (
+        struct _rdoConnection * pRet ) = 0;
+    virtual HRESULT __stdcall get_BatchCollisionCount (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_BatchCollisionRows (
+        VARIANT * pReturnValue ) = 0;
+    virtual HRESULT __stdcall get_LockType (
+        enum LockTypeConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_LockType (
+        enum LockTypeConstants Value ) = 0;
+    virtual HRESULT __stdcall get_Status (
+        enum RowStatusConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_Status (
+        enum RowStatusConstants Value ) = 0;
+    virtual HRESULT __stdcall raw_GetClipString (
+        long NumRows,
+        VARIANT ColumnDelimiter,
+        VARIANT RowDelimiter,
+        VARIANT NullExpr,
+        BSTR * pStringValue ) = 0;
+    virtual HRESULT __stdcall raw_IsKnownLastRow (
+        VARIANT_BOOL * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_IsKnownFirstRow (
+        VARIANT_BOOL * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_Advise (
+        IUnknown * pSink,
+        long * pnCookie ) = 0;
+    virtual HRESULT __stdcall raw_Unadvise (
+        long nCookie ) = 0;
+    virtual HRESULT __stdcall raw_FreezeNotifications (
+        VARIANT_BOOL Frozen ) = 0;
+    virtual HRESULT __stdcall raw_FindByValues (
+        long bmk,
+        IUnknown * pBmk,
+        long lFF,
+        long lV,
+        IUnknown * rgColumns,
+        IUnknown * rgValues,
+        IUnknown * plSeekFlags,
+        IUnknown * pvFetchParams ) = 0;
+    virtual HRESULT __stdcall get_Owner (
+        struct rdoPreparedStatement * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_RDCClose ( ) = 0;
+    virtual HRESULT __stdcall get_Collect (
+        VARIANT Index,
+        VARIANT * pRetval ) = 0;
+    virtual HRESULT __stdcall put_Collect (
+        VARIANT Index,
+        VARIANT pRetval ) = 0;
+    virtual HRESULT __stdcall get_NameA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_NameA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall raw_GetRowsA (
+        VARIANT NumRows,
+        VARIANT * pReturnValue ) = 0;
+    virtual HRESULT __stdcall get_CollectA (
+        VARIANT Index,
+        VARIANT * pRetval ) = 0;
+    virtual HRESULT __stdcall put_CollectA (
+        VARIANT Index,
+        VARIANT pRetval ) = 0;
+    virtual HRESULT __stdcall raw_Resync ( ) = 0;
+    virtual HRESULT __stdcall get_FoxpCursor (
+        long * pCursor ) = 0;
+    virtual HRESULT __stdcall get_FoxBOF (
+        VARIANT_BOOL * pbBOF ) = 0;
+    virtual HRESULT __stdcall put_FoxBOF (
+        VARIANT_BOOL pbBOF ) = 0;
+    virtual HRESULT __stdcall get_FoxEOF (
+        VARIANT_BOOL * pbEOF ) = 0;
+    virtual HRESULT __stdcall put_FoxEOF (
+        VARIANT_BOOL pbEOF ) = 0;
+    virtual HRESULT __stdcall get_FoxSQL (
+        BSTR * pSQL ) = 0;
+    virtual HRESULT __stdcall get_FOxBindThreshold (
+        long * pThreshold ) = 0;
+    virtual HRESULT __stdcall get_FoxQueryDefDisp (
+        IDispatch * * lplpQryDisp ) = 0;
+    virtual HRESULT __stdcall get_FoxConcurrency (
+        long * pnConcurrency ) = 0;
+    virtual HRESULT __stdcall get_FoxCurrentRow (
+        long * pnCurrentRow ) = 0;
+    virtual HRESULT __stdcall put_FoxCurrentRow (
+        long pnCurrentRow ) = 0;
+    virtual HRESULT __stdcall get_FoxRowsetStart (
+        long * pnRowsetStart ) = 0;
+    virtual HRESULT __stdcall put_FoxRowsetStart (
+        long pnRowsetStart ) = 0;
+    virtual HRESULT __stdcall get_FoxRowsetDirection (
+        long * pnRowsetDirect ) = 0;
+    virtual HRESULT __stdcall put_FoxRowsetDirection (
+        long pnRowsetDirect ) = 0;
+    virtual HRESULT __stdcall get_FoxCurrentRowsetSize (
+        long * pnCurRowsetSize ) = 0;
+    virtual HRESULT __stdcall put_FoxCurrentRowsetSize (
+        long pnCurRowsetSize ) = 0;
+    virtual HRESULT __stdcall get_FoxMaxRowsetSize (
+        long * pnMaxRowsetSize ) = 0;
+    virtual HRESULT __stdcall put_FoxMaxRowsetSize (
+        long pnMaxRowsetSize ) = 0;
+    virtual HRESULT __stdcall get_FoxRecordCount (
+        long * pnRecordCnt ) = 0;
+    virtual HRESULT __stdcall put_FoxRecordCount (
+        long pnRecordCnt ) = 0;
+    virtual HRESULT __stdcall raw_FoxCreateErrorInfo (
+        long scode,
+        long IdDecription,
+        long IdHelp ) = 0;
+    virtual HRESULT __stdcall raw_FoxCreateSQLErro (
+        long retcode,
+        VARIANT_BOOL bCreateInfo,
+        long hDbc,
+        long hResults ) = 0;
+    virtual HRESULT __stdcall get_RDCLastActionState (
+        long * pState ) = 0;
+    virtual HRESULT __stdcall raw_GetClipStrCurrentRow (
+        VARIANT ColumnDelimiter,
+        VARIANT RowDelimiter,
+        VARIANT NullExpr,
+        BSTR * pStringValue ) = 0;
+};
+
+struct __declspec(uuid("8b39dfbf-3647-11cf-814a-00aa00a40c25"))
+rdoResultsetEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT Associate ( );
+    HRESULT ResultsChanged ( );
+    HRESULT Dissociate ( );
+    HRESULT RowStatusChanged ( );
+    HRESULT RowCurrencyChange ( );
+    HRESULT WillAssociate (
+        struct _rdoConnection * Connection,
+        VARIANT_BOOL * Cancel );
+    HRESULT WillDissociate (
+        VARIANT_BOOL * Cancel );
+    HRESULT WillUpdateRows (
+        short * ReturnCode );
+};
+
+struct __declspec(uuid("5ebb68f4-3bf1-11cf-814c-00aa00a40c25"))
+rdoResultset;
+    // [ default ] interface _rdoResultset
+    // [ default, source ] dispinterface rdoResultsetEvents
+
+struct __declspec(uuid("5e71f050-551f-11cf-8152-00aa00a40c25"))
+rdoPreparedStatement : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetrdoParameters))
+    rdoParametersPtr rdoParameters;
+    __declspec(property(get=GetQueryTimeout,put=PutQueryTimeout))
+    long QueryTimeout;
+    __declspec(property(get=GetType))
+    enum QueryTypeConstants Type;
+    __declspec(property(get=GetMaxRows,put=PutMaxRows))
+    long MaxRows;
+    __declspec(property(get=GetBindThreshold,put=PutBindThreshold))
+    long BindThreshold;
+    __declspec(property(get=GetNameA))
+    _bstr_t NameA;
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetSQLA,put=PutSQLA))
+    _bstr_t SQLA;
+    __declspec(property(get=GetLogMessagesA,put=PutLogMessagesA))
+    _bstr_t LogMessagesA;
+    __declspec(property(get=GetRowsAffected))
+    long RowsAffected;
+    __declspec(property(get=GetSQL,put=PutSQL))
+    _bstr_t SQL;
+    __declspec(property(get=GetLogMessages,put=PutLogMessages))
+    _bstr_t LogMessages;
+    __declspec(property(get=GetOwner))
+    _rdoConnectionPtr Owner;
+    __declspec(property(get=GetLockType,put=PutLockType))
+    enum LockTypeConstants LockType;
+    __declspec(property(get=GetUpdatable))
+    VARIANT_BOOL Updatable;
+    __declspec(property(get=GetrdoColumns))
+    rdoColumnsPtr rdoColumns;
+    __declspec(property(get=GetKeysetSize,put=PutKeysetSize))
+    long KeysetSize;
+    __declspec(property(get=GetRowsetSize,put=PutRowsetSize))
+    long RowsetSize;
+    __declspec(property(get=GetConnect))
+    _bstr_t Connect;
+    __declspec(property(get=GetConnectA))
+    _bstr_t ConnectA;
+    __declspec(property(get=GetErrorThreshold,put=PutErrorThreshold))
+    long ErrorThreshold;
+    __declspec(property(get=GethStmt))
+    long hStmt;
+    __declspec(property(get=GetStillExecuting))
+    VARIANT_BOOL StillExecuting;
+    __declspec(property(get=GetCursorType,put=PutCursorType))
+    enum ResultsetTypeConstants CursorType;
+    __declspec(property(get=GetActiveConnection,put=PutRefActiveConnection))
+    _rdoConnectionPtr ActiveConnection;
+    __declspec(property(get=GetPrepared,put=PutPrepared))
+    VARIANT_BOOL Prepared;
+    __declspec(property(get=GetFoxMaxRows))
+    long FoxMaxRows;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetQueryTimeout ( );
+    void PutQueryTimeout (
+        long Value );
+    enum QueryTypeConstants GetType ( );
+    long GetMaxRows ( );
+    void PutMaxRows (
+        long Value );
+    long GetBindThreshold ( );
+    void PutBindThreshold (
+        long Value );
+    rdoParametersPtr GetrdoParameters ( );
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t Value );
+    long GetRowsAffected ( );
+    _bstr_t GetSQL ( );
+    void PutSQL (
+        _bstr_t Value );
+    enum LockTypeConstants GetLockType ( );
+    void PutLockType (
+        enum LockTypeConstants Value );
+    rdoColumnsPtr GetrdoColumns ( );
+    long GetKeysetSize ( );
+    void PutKeysetSize (
+        long Value );
+    long GetRowsetSize ( );
+    void PutRowsetSize (
+        long Value );
+    long GethStmt ( );
+    VARIANT_BOOL GetStillExecuting ( );
+    enum ResultsetTypeConstants GetCursorType ( );
+    void PutCursorType (
+        enum ResultsetTypeConstants Value );
+    _rdoConnectionPtr GetActiveConnection ( );
+    void PutRefActiveConnection (
+        struct _rdoConnection * pRet );
+    VARIANT_BOOL GetPrepared ( );
+    void PutPrepared (
+        VARIANT_BOOL Value );
+    _bstr_t GetLogMessages ( );
+    void PutLogMessages (
+        _bstr_t Value );
+    HRESULT Close ( );
+    HRESULT Execute (
+        const _variant_t & Options = vtMissing );
+    _rdoResultsetPtr OpenResultset (
+        const _variant_t & Type = vtMissing,
+        const _variant_t & LockType = vtMissing,
+        const _variant_t & Options = vtMissing );
+    HRESULT Cancel ( );
+    _rdoConnectionPtr GetOwner ( );
+    _bstr_t GetNameA ( );
+    _bstr_t GetSQLA ( );
+    void PutSQLA (
+        _bstr_t Value );
+    _bstr_t GetLogMessagesA ( );
+    void PutLogMessagesA (
+        _bstr_t Value );
+    _rdoResultsetPtr DaoOpenResultset (
+        const _variant_t & Type = vtMissing,
+        const _variant_t & LockType = vtMissing,
+        const _variant_t & Options = vtMissing );
+    long GetFoxMaxRows ( );
+    VARIANT_BOOL GetUpdatable ( );
+    _bstr_t GetConnect ( );
+    _bstr_t GetConnectA ( );
+    long GetErrorThreshold ( );
+    void PutErrorThreshold (
+        long Value );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_QueryTimeout (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_QueryTimeout (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_Type (
+        enum QueryTypeConstants * Value ) = 0;
+    virtual HRESULT __stdcall get_MaxRows (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_MaxRows (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_BindThreshold (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_BindThreshold (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_rdoParameters (
+        struct rdoParameters * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_RowsAffected (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_SQL (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_SQL (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_LockType (
+        enum LockTypeConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_LockType (
+        enum LockTypeConstants Value ) = 0;
+    virtual HRESULT __stdcall get_rdoColumns (
+        struct rdoColumns * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_KeysetSize (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_KeysetSize (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_RowsetSize (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_RowsetSize (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_hStmt (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall get_StillExecuting (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_CursorType (
+        enum ResultsetTypeConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_CursorType (
+        enum ResultsetTypeConstants Value ) = 0;
+    virtual HRESULT __stdcall get_ActiveConnection (
+        struct _rdoConnection * * pRet ) = 0;
+    virtual HRESULT __stdcall putref_ActiveConnection (
+        struct _rdoConnection * pRet ) = 0;
+    virtual HRESULT __stdcall get_Prepared (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall put_Prepared (
+        VARIANT_BOOL Value ) = 0;
+    virtual HRESULT __stdcall get_LogMessages (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_LogMessages (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall raw_Close ( ) = 0;
+    virtual HRESULT __stdcall raw_Execute (
+        VARIANT Options = vtMissing ) = 0;
+    virtual HRESULT __stdcall raw_OpenResultset (
+        VARIANT Type,
+        VARIANT LockType,
+        VARIANT Options,
+        struct _rdoResultset * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_Cancel ( ) = 0;
+    virtual HRESULT __stdcall get_Owner (
+        struct _rdoConnection * * pRet ) = 0;
+    virtual HRESULT __stdcall get_NameA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_SQLA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_SQLA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_LogMessagesA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_LogMessagesA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall raw_DaoOpenResultset (
+        VARIANT Type,
+        VARIANT LockType,
+        VARIANT Options,
+        struct _rdoResultset * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_FoxMaxRows (
+        long * pnMaxRows ) = 0;
+    virtual HRESULT __stdcall get_Updatable (
+        VARIANT_BOOL * Value ) = 0;
+    virtual HRESULT __stdcall get_Connect (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_ConnectA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_ErrorThreshold (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_ErrorThreshold (
+        long Value ) = 0;
+};
+
+struct __declspec(uuid("9a8831f2-a263-11d1-8dcf-00a0c90fffc2"))
+rdoQuery;
+    // [ default ] interface rdoPreparedStatement
+
+struct __declspec(uuid("5e71f051-551f-11cf-8152-00aa00a40c25"))
+_rdoEnvironment : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetrdoConnections))
+    rdoConnectionsPtr rdoConnections;
+    __declspec(property(get=GetNameA))
+    _bstr_t NameA;
+    __declspec(property(get=GetName))
+    _bstr_t Name;
+    __declspec(property(get=GetUserName,put=PutUserName))
+    _bstr_t UserName;
+    __declspec(property(put=PutPassword))
+    _bstr_t Password;
+    __declspec(property(get=GetrdoUserNameA,put=PutrdoUserNameA))
+    _bstr_t rdoUserNameA;
+    __declspec(property(put=PutPasswordA))
+    _bstr_t PasswordA;
+    __declspec(property(get=GetLoginTimeout,put=PutLoginTimeout))
+    long LoginTimeout;
+    __declspec(property(get=GetCursorDriver,put=PutCursorDriver))
+    enum CursorDriverConstants CursorDriver;
+    __declspec(property(get=GethEnv))
+    long hEnv;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    rdoConnectionsPtr GetrdoConnections ( );
+    _bstr_t GetName ( );
+    _bstr_t GetUserName ( );
+    void PutUserName (
+        _bstr_t pRetval );
+    void PutPassword (
+        _bstr_t _arg1 );
+    long GetLoginTimeout ( );
+    void PutLoginTimeout (
+        long Value );
+    enum CursorDriverConstants GetCursorDriver ( );
+    void PutCursorDriver (
+        enum CursorDriverConstants Value );
+    long GethEnv ( );
+    HRESULT BeginTrans ( );
+    HRESULT Close ( );
+    HRESULT CommitTrans ( );
+    HRESULT RollbackTrans ( );
+    _rdoConnectionPtr OpenConnection (
+        _bstr_t dsName,
+        const _variant_t & Prompt = vtMissing,
+        const _variant_t & Readonly = vtMissing,
+        const _variant_t & Connect = vtMissing,
+        const _variant_t & Options = vtMissing );
+    _rdoConnectionPtr RDCOpenConnection (
+        _bstr_t dsName,
+        const _variant_t & Prompt = vtMissing,
+        const _variant_t & Readonly = vtMissing,
+        const _variant_t & Connect = vtMissing );
+    _rdoEnginePtr GetOwner ( );
+    _bstr_t GetNameA ( );
+    _bstr_t GetrdoUserNameA ( );
+    void PutrdoUserNameA (
+        _bstr_t pRetval );
+    void PutPasswordA (
+        _bstr_t _arg1 );
+    _rdoConnectionPtr OpenConnectionA (
+        _bstr_t dsName,
+        const _variant_t & Prompt = vtMissing,
+        const _variant_t & Readonly = vtMissing,
+        const _variant_t & Connect = vtMissing,
+        const _variant_t & Options = vtMissing );
+    _rdoConnectionPtr RDCOpenConnectionA (
+        _bstr_t dsName,
+        const _variant_t & Prompt = vtMissing,
+        const _variant_t & Readonly = vtMissing,
+        const _variant_t & Connect = vtMissing );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_rdoConnections (
+        struct rdoConnections * * pRetval ) = 0;
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_UserName (
+        BSTR * pRetval ) = 0;
+    virtual HRESULT __stdcall put_UserName (
+        BSTR pRetval ) = 0;
+    virtual HRESULT __stdcall put_Password (
+        BSTR _arg1 ) = 0;
+    virtual HRESULT __stdcall get_LoginTimeout (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_LoginTimeout (
+        long Value ) = 0;
+    virtual HRESULT __stdcall get_CursorDriver (
+        enum CursorDriverConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_CursorDriver (
+        enum CursorDriverConstants Value ) = 0;
+    virtual HRESULT __stdcall get_hEnv (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall raw_BeginTrans ( ) = 0;
+    virtual HRESULT __stdcall raw_Close ( ) = 0;
+    virtual HRESULT __stdcall raw_CommitTrans ( ) = 0;
+    virtual HRESULT __stdcall raw_RollbackTrans ( ) = 0;
+    virtual HRESULT __stdcall raw_OpenConnection (
+        BSTR dsName,
+        VARIANT Prompt,
+        VARIANT Readonly,
+        VARIANT Connect,
+        VARIANT Options,
+        struct _rdoConnection * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_RDCOpenConnection (
+        BSTR dsName,
+        VARIANT Prompt,
+        VARIANT Readonly,
+        VARIANT Connect,
+        struct _rdoConnection * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_GetOwner (
+        struct _rdoEngine * * lplpEngine ) = 0;
+    virtual HRESULT __stdcall get_NameA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall get_rdoUserNameA (
+        BSTR * pRetval ) = 0;
+    virtual HRESULT __stdcall put_rdoUserNameA (
+        BSTR pRetval ) = 0;
+    virtual HRESULT __stdcall put_PasswordA (
+        BSTR _arg1 ) = 0;
+    virtual HRESULT __stdcall raw_OpenConnectionA (
+        BSTR dsName,
+        VARIANT Prompt,
+        VARIANT Readonly,
+        VARIANT Connect,
+        VARIANT Options,
+        struct _rdoConnection * * pRetval ) = 0;
+    virtual HRESULT __stdcall raw_RDCOpenConnectionA (
+        BSTR dsName,
+        VARIANT Prompt,
+        VARIANT Readonly,
+        VARIANT Connect,
+        struct _rdoConnection * * pRetval ) = 0;
+};
+
+struct __declspec(uuid("8b39dfbc-3647-11cf-814a-00aa00a40c25"))
+rdoEnvironmentEvents : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    // Methods:
+    HRESULT BeginTrans ( );
+    HRESULT CommitTrans ( );
+    HRESULT RollbackTrans ( );
+};
+
+struct __declspec(uuid("5ebb68f6-3bf1-11cf-814c-00aa00a40c25"))
+rdoEnvironment;
+    // [ default ] interface _rdoEnvironment
+    // [ default, source ] dispinterface rdoEnvironmentEvents
+
+struct __declspec(uuid("5e71f052-551f-11cf-8152-00aa00a40c25"))
+rdoParameter : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetValue,put=PutValue))
+    _variant_t Value;
+    __declspec(property(get=GetName,put=PutName))
+    _bstr_t Name;
+    __declspec(property(get=GetType,put=PutType))
+    enum DataTypeConstants Type;
+    __declspec(property(get=GetDirection,put=PutDirection))
+    enum DirectionConstants Direction;
+    __declspec(property(get=GetSize,put=PutSize))
+    long Size;
+    __declspec(property(get=GetValueA,put=PutValueA))
+    _variant_t ValueA;
+    __declspec(property(get=GetNameA,put=PutNameA))
+    _bstr_t NameA;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    _bstr_t GetName ( );
+    void PutName (
+        _bstr_t Value );
+    enum DataTypeConstants GetType ( );
+    void PutType (
+        enum DataTypeConstants Value );
+    _variant_t GetValue ( );
+    void PutValue (
+        const _variant_t & Value );
+    enum DirectionConstants GetDirection ( );
+    void PutDirection (
+        enum DirectionConstants Value );
+    HRESULT AppendChunk (
+        const _variant_t & Chunk );
+    _bstr_t GetNameA ( );
+    void PutNameA (
+        _bstr_t Value );
+    _variant_t GetValueA ( );
+    void PutValueA (
+        const _variant_t & Value );
+    long GetSize ( );
+    void PutSize (
+        long Value );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Name (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_Name (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_Type (
+        enum DataTypeConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_Type (
+        enum DataTypeConstants Value ) = 0;
+    virtual HRESULT __stdcall get_Value (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall put_Value (
+        VARIANT Value ) = 0;
+    virtual HRESULT __stdcall get_Direction (
+        enum DirectionConstants * Value ) = 0;
+    virtual HRESULT __stdcall put_Direction (
+        enum DirectionConstants Value ) = 0;
+    virtual HRESULT __stdcall raw_AppendChunk (
+        VARIANT Chunk ) = 0;
+    virtual HRESULT __stdcall get_NameA (
+        BSTR * Value ) = 0;
+    virtual HRESULT __stdcall put_NameA (
+        BSTR Value ) = 0;
+    virtual HRESULT __stdcall get_ValueA (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall put_ValueA (
+        VARIANT Value ) = 0;
+    virtual HRESULT __stdcall get_Size (
+        long * Value ) = 0;
+    virtual HRESULT __stdcall put_Size (
+        long Value ) = 0;
+};
+
+struct __declspec(uuid("64949f43-67b6-11ce-9216-08002b369a33"))
+DualCollection : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    IDispatchPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    IDispatchPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * pItem );
+    HRESULT Refresh ( );
+    IDispatchPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    IDispatchPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        IDispatch * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        IDispatch * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        IDispatch * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * pCount ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * pItem ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        IDispatch * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        IDispatch * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        IDispatch * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        IDispatch * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        IDispatch * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("2e746492-6ed1-11ce-9223-08002b369a33"))
+rdoColumns : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    _rdoColumnPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    _rdoColumnPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * prdoColumn );
+    HRESULT Refresh ( );
+    _rdoColumnPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    _rdoColumnPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct _rdoColumn * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct _rdoColumn * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct _rdoColumn * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * prdoColumn ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct _rdoColumn * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct _rdoColumn * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct _rdoColumn * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct _rdoColumn * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct _rdoColumn * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("2e746493-6ed1-11ce-9223-08002b369a33"))
+rdoTables : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    rdoTablePtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    rdoTablePtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * prdoTable );
+    HRESULT Refresh ( );
+    rdoTablePtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    rdoTablePtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct rdoTable * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct rdoTable * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct rdoTable * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * prdoTable ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct rdoTable * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct rdoTable * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct rdoTable * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct rdoTable * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct rdoTable * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("2e746494-6ed1-11ce-9223-08002b369a33"))
+rdoConnections : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    _rdoConnectionPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    _rdoConnectionPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        struct _rdoConnection * prdoConnection );
+    HRESULT Refresh ( );
+    _rdoConnectionPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    _rdoConnectionPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct _rdoConnection * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct _rdoConnection * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct _rdoConnection * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        struct _rdoConnection * prdoConnection ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct _rdoConnection * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct _rdoConnection * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct _rdoConnection * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct _rdoConnection * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct _rdoConnection * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("2e746495-6ed1-11ce-9223-08002b369a33"))
+rdoParameters : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    rdoParameterPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    rdoParameterPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * prdoParameter );
+    HRESULT Refresh ( );
+    rdoParameterPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    rdoParameterPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct rdoParameter * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct rdoParameter * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct rdoParameter * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * prdoParameter ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct rdoParameter * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct rdoParameter * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct rdoParameter * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct rdoParameter * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct rdoParameter * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("2e746496-6ed1-11ce-9223-08002b369a33"))
+rdoResultsets : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    _rdoResultsetPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    _rdoResultsetPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * prdoResultset );
+    HRESULT Refresh ( );
+    _rdoResultsetPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    _rdoResultsetPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct _rdoResultset * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct _rdoResultset * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct _rdoResultset * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * prdoResultset ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct _rdoResultset * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct _rdoResultset * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct _rdoResultset * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct _rdoResultset * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct _rdoResultset * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("5e71f053-551f-11cf-8152-00aa00a40c25"))
+rdoEnvironments : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    _rdoEnvironmentPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    _rdoEnvironmentPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        struct _rdoEnvironment * prdoEnvironment );
+    HRESULT Refresh ( );
+    _rdoEnvironmentPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    _rdoEnvironmentPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct _rdoEnvironment * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct _rdoEnvironment * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct _rdoEnvironment * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        struct _rdoEnvironment * prdoEnvironment ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct _rdoEnvironment * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct _rdoEnvironment * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct _rdoEnvironment * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct _rdoEnvironment * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct _rdoEnvironment * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("2e746498-6ed1-11ce-9223-08002b369a33"))
+rdoQueries : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    rdoPreparedStatementPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    rdoPreparedStatementPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * prdoQuery );
+    HRESULT Refresh ( );
+    rdoPreparedStatementPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    rdoPreparedStatementPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct rdoPreparedStatement * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct rdoPreparedStatement * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct rdoPreparedStatement * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * prdoQuery ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct rdoPreparedStatement * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct rdoPreparedStatement * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct rdoPreparedStatement * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct rdoPreparedStatement * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct rdoPreparedStatement * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("5d545b93-97ca-11cf-8171-00aa00a40c25"))
+rdoPreparedStatements : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    rdoPreparedStatementPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    rdoPreparedStatementPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * prdoQuery );
+    HRESULT Refresh ( );
+    rdoPreparedStatementPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    rdoPreparedStatementPtr GetItemA (
+        const _variant_t & Index );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * prdoQuery ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct rdoPreparedStatement * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct rdoPreparedStatement * * pRet ) = 0;
+};
+
+struct __declspec(uuid("2e7464a0-6ed1-11ce-9223-08002b369a33"))
+rdoErrors : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetItem))
+    rdoErrorPtr Item[];
+    __declspec(property(get=GetCount))
+    long Count;
+    __declspec(property(get=GetEditable,put=PutEditable))
+    VARIANT_BOOL Editable;
+    __declspec(property(get=GetItemA))
+    rdoErrorPtr ItemA[];
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCount ( );
+    VARIANT_BOOL GetEditable ( );
+    void PutEditable (
+        VARIANT_BOOL Editable );
+    HRESULT Remove (
+        const _variant_t & ItemToRemove );
+    HRESULT Add (
+        IDispatch * prdoError );
+    HRESULT Refresh ( );
+    rdoErrorPtr GetItem (
+        const _variant_t & Index );
+    IUnknownPtr _NewEnum ( );
+    HRESULT Clear ( );
+    HRESULT RemoveA (
+        const _variant_t & ItemToRemove );
+    rdoErrorPtr GetItemA (
+        const _variant_t & Index );
+    HRESULT Fox_GetHeadPos (
+        long * pPos );
+    HRESULT Fox_GetNext (
+        long * pPos,
+        struct rdoError * * lplpItem );
+    HRESULT Fox_GetPrev (
+        long * pPos,
+        struct rdoError * * lplpItem );
+    HRESULT Fox_GetItem (
+        long Index,
+        struct rdoError * * lplpItem );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall get_Count (
+        long * Count ) = 0;
+    virtual HRESULT __stdcall get_Editable (
+        VARIANT_BOOL * Editable ) = 0;
+    virtual HRESULT __stdcall put_Editable (
+        VARIANT_BOOL Editable ) = 0;
+    virtual HRESULT __stdcall raw_Remove (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall raw_Add (
+        IDispatch * prdoError ) = 0;
+    virtual HRESULT __stdcall raw_Refresh ( ) = 0;
+    virtual HRESULT __stdcall get_Item (
+        VARIANT Index,
+        struct rdoError * * pRet ) = 0;
+    virtual HRESULT __stdcall raw__NewEnum (
+        IUnknown * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Clear ( ) = 0;
+    virtual HRESULT __stdcall raw_RemoveA (
+        VARIANT ItemToRemove ) = 0;
+    virtual HRESULT __stdcall get_ItemA (
+        VARIANT Index,
+        struct rdoError * * pRet ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetHeadPos (
+        long * pPos ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetNext (
+        long * pPos,
+        struct rdoError * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetPrev (
+        long * pPos,
+        struct rdoError * * lplpItem ) = 0;
+    virtual HRESULT __stdcall raw_Fox_GetItem (
+        long Index,
+        struct rdoError * * lplpItem ) = 0;
+};
+
+struct __declspec(uuid("499109e4-1e20-11cf-8146-00aa00a40c25"))
+IPrivColGetRows : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT BindColumn (
+        short DataType,
+        void * pColData,
+        long MaxDataLen,
+        long * pdataLen );
+    HRESULT GetData (
+        short DataType,
+        void * pColData,
+        long MaxDataLen,
+        long * pdataLen );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_BindColumn (
+        short DataType,
+        void * pColData,
+        long MaxDataLen,
+        long * pdataLen ) = 0;
+    virtual HRESULT __stdcall raw_GetData (
+        short DataType,
+        void * pColData,
+        long MaxDataLen,
+        long * pdataLen ) = 0;
+};
+
+struct __declspec(uuid("499109e5-1e20-11cf-8146-00aa00a40c25"))
+IPrivRsGetRows : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Initiallize ( );
+    HRESULT CanGetDataBlock (
+        VARIANT_BOOL * pfCanGetDatablock );
+    HRESULT SetRowsetSize (
+        long dwNumRows );
+    HRESULT SetRowLen (
+        long dwRowLen );
+    HRESULT GetRows (
+        long lRow,
+        short dwFetchType,
+        long * pudwNomRows,
+        short * pudwStatus );
+    VARIANT_BOOL get_DaoBOF ( );
+    VARIANT_BOOL get_DaoEOF ( );
+    _variant_t get_DaoBookmark ( );
+    HRESULT MoveTo (
+        long Index );
+    HRESULT get_DaoRowsetPos (
+        long * lpRowSetPos,
+        long * lpRowsInBuf,
+        long * lpRowIndex );
+
+    //
+    // Raw methods provided by interface
+    //
+
+    virtual HRESULT __stdcall raw_Initiallize ( ) = 0;
+    virtual HRESULT __stdcall raw_CanGetDataBlock (
+        VARIANT_BOOL * pfCanGetDatablock ) = 0;
+    virtual HRESULT __stdcall raw_SetRowsetSize (
+        long dwNumRows ) = 0;
+    virtual HRESULT __stdcall raw_SetRowLen (
+        long dwRowLen ) = 0;
+    virtual HRESULT __stdcall raw_GetRows (
+        long lRow,
+        short dwFetchType,
+        long * pudwNomRows,
+        short * pudwStatus ) = 0;
+    virtual HRESULT __stdcall raw_get_DaoBOF (
+        VARIANT_BOOL * pBOF ) = 0;
+    virtual HRESULT __stdcall raw_get_DaoEOF (
+        VARIANT_BOOL * pEOF ) = 0;
+    virtual HRESULT __stdcall raw_get_DaoBookmark (
+        VARIANT * Value ) = 0;
+    virtual HRESULT __stdcall raw_MoveTo (
+        long Index ) = 0;
+    virtual HRESULT __stdcall raw_get_DaoRowsetPos (
+        long * lpRowSetPos,
+        long * lpRowsInBuf,
+        long * lpRowIndex ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "msrdo20.tli"
+
+#pragma pack(pop)

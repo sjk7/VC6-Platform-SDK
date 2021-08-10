@@ -1,0 +1,151 @@
+//==============================================================================
+// Filename: Account.idl
+//
+// Description: IDL source for Account.dll
+// This file will be processed by the MIDL tool to
+// produce the type library (Account.tlb) and marshalling code
+//
+// This file is part of the Microsoft COM+ Samples
+//
+// Copyright (C) 1995-1999 Microsoft Corporation. All rights reserved
+//
+// This source code is intended only as a supplement to Microsoft
+// Development Tools and/or on-line documentation.  See these other
+// materials for detailed information reagrding Microsoft code samples.
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+// KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+// PARTICULAR PURPOSE.
+//
+//==============================================================================
+
+
+#include <mtxattr.h>
+
+	[
+		object,
+		uuid(04CF0B72-1989-11D0-B917-0080C7394688),
+		dual,
+		helpstring("IAccount Interface"),
+		pointer_default(unique)
+
+	]
+	interface IAccount : IDispatch
+	{
+		import "oaidl.idl";
+		import "ocidl.idl";
+		HRESULT Post(		
+			[in] long lAccount,
+			[in] long lAmount,
+			[out,retval] BSTR* pbstrResult);
+	};
+
+	[
+		object,
+		uuid(04CF0B77-1989-11D0-B917-0080C7394688),
+		dual,
+		helpstring("IMoveMoney Interface"),
+		pointer_default(unique)
+
+	]
+	interface IMoveMoney : IDispatch
+	{
+		import "oaidl.idl";
+		HRESULT Perform(		
+			[in] long lPrimeAccount,
+			[in] long lSecondAccount,
+			[in] long lAmount,
+			[in] long lTranType,
+			[out, retval] BSTR* pbstrResult);
+	};
+	
+		
+	[
+		object,
+		uuid(A81260B1-DDC8-11D0-B5A0-00C04FB957D8),
+		dual,
+		helpstring("IGetReceipt Interface"),
+		pointer_default(unique)
+
+	]
+	interface IGetReceipt : IDispatch
+	{
+		import "oaidl.idl";
+		HRESULT GetNextReceipt (
+			[out,retval] long* plReceiptNo);
+	};
+	
+	[
+		object,
+		uuid(A81260B7-DDC8-11D0-B5A0-00C04FB957D8),
+		dual,
+		helpstring("IUpdateReceipt Interface"),
+		pointer_default(unique)
+
+	]
+	interface IUpdateReceipt : IDispatch
+	{
+		import "oaidl.idl";
+		HRESULT Update (
+			[out,retval] long* plReceiptNo);
+	};
+
+
+
+
+
+
+
+
+[
+	uuid(04CF0B70-1989-11D0-B917-0080C7394688),
+	version(1.0),
+	helpstring("Sample Bank Account (VC version)")
+]
+library ACCOUNT
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(04CF0B76-1989-11D0-B917-0080C7394688),
+		helpstring("Account Class"),
+		TRANSACTION_REQUIRED
+	]
+	coclass CAccount
+	{
+		[default] interface IAccount;
+	};
+
+	[
+		uuid(04CF0B7B-1989-11D0-B917-0080C7394688),
+		helpstring("MoveMoney Class"),
+		TRANSACTION_REQUIRED
+	]
+	coclass CMoveMoney
+	{
+		[default] interface IMoveMoney;
+	};
+	
+	[
+		uuid(A81260B2-DDC8-11D0-B5A0-00C04FB957D8),
+		helpstring("GetReceipt Class"),
+		TRANSACTION_SUPPORTED
+	]
+	coclass CGetReceipt
+	{
+		[default] interface IGetReceipt;
+	};
+
+	
+	[
+		uuid(A81260B8-DDC8-11D0-B5A0-00C04FB957D8),
+		helpstring("UpdateReceipt Class"),
+		TRANSACTION_REQUIRES_NEW
+	]
+	coclass CUpdateReceipt
+	{
+		[default] interface IUpdateReceipt;
+	};
+
+};

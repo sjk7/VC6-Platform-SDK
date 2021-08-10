@@ -1,0 +1,23 @@
+HKCR
+{
+    MyStorageResource.CPartitionInfo.1 = s 'CPartitionInfo Class'
+    {
+        CLSID = s '{62F21368-5CB1-4e18-8AA5-E99217E1A63C}'
+    }
+    MyStorageResource.CPartitionInfo = s 'CPartitionInfo Class'
+    {
+        CLSID = s '{62F21368-5CB1-4e18-8AA5-E99217E1A63C}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {62F21368-5CB1-4e18-8AA5-E99217E1A63C} = s 'CPartitionInfo Class'
+        {
+            ProgID = s 'MyStorageResource.CPartitionInfo.1'
+            VersionIndependentProgID = s 'MyStorageResource.CPartitionInfo'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+        }
+    }
+}

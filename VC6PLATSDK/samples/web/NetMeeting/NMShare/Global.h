@@ -1,0 +1,172 @@
+//****************************************************************************
+//  Module:     NMSHARE.EXE     
+//  File:       GLOBAL.H
+//  Content:    
+//              
+//
+//  Copyright (c) Microsoft Corporation 1997-2002
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A 
+// PARTICULAR PURPOSE.
+//****************************************************************************
+
+#ifndef GLOBAL_H
+#define GLOBAL_H
+
+
+//-------------------------------------------------------
+// Useful constants
+
+#define chNull   ('\0')
+#define lpNil    (NULL)
+
+#define hwndNil      ((HWND) NULL)
+#define hfontNil     ((HFONT) NULL)
+#define hgdiNil      ((HGDIOBJ) NULL)
+
+
+//-------------------------------------------------------
+// Useful macros
+
+//#define ClearBytes(lpv, cb)		ZeroMemory((LPVOID) (lpv), (cb))
+#define ClearStruct(lpv)		ZeroMemory((LPVOID) (lpv), sizeof(*(lpv)))
+#define InitStruct(lpv)        {ClearStruct(lpv); (* (LPDWORD) lpv) = sizeof(*(lpv));}
+//#define CopyStruct(pDest, pSrc)  CopyMemory(pDest, pSrc, sizeof(*(pDest)))
+
+#define SetEmptySz(sz)			( *(sz) = _T('\0') )
+#define FEmptySz(sz)            (((sz) == NULL) || (*(sz) == _T('\0')))
+
+#define ARRAY_ELEMENTS(rg)      (sizeof(rg) / sizeof(rg[0]))
+#define CCHMAX(sz)              (sizeof(sz) / sizeof(TCHAR))
+
+
+
+
+#ifdef DEBUG
+VOID FAR PASCAL AssertProc(LPTSTR lpszMsg, LPTSTR lpszAssert, LPTSTR lpszFile, UINT line);
+
+#define DEBASSERT(exp,szMsg)  \
+	if (!(exp))                                                      \
+	{                                                                \
+		static char _szAssert[] = #exp ;   \
+		static char _szMsg[]    = szMsg;   \
+		AssertProc(_szMsg,_szAssert,__FILE__,__LINE__); \
+	}
+
+#define ASSERT(f)       DEBASSERT(f, "(" #f ")")
+#define AssertSz(f,sz)  DEBASSERT(f, sz)
+#define NotReached()    DEBASSERT(FALSE, "NotReached declaration was reached!")
+#else
+#define ASSERT(f)
+#define AssertSz(f, sz)
+#define NotReached()
+#endif
+
+
+
+//-------------------------------------------------------------------------
+// Functions for handling main window messages.  The message-dispatching
+// mechanism expects all message-handling functions to have the following
+// prototype:
+//
+// Function pointer prototype for message handling functions.
+//     LRESULT FunctionName(HWND, UINT, WPARAM, LPARAM);
+
+typedef LRESULT (*PFNMSG)(HWND, UINT, WPARAM, LPARAM);
+
+// This structure maps messages to message handling functions.
+typedef struct _MSD
+{
+	UINT   uMsg;
+	PFNMSG pfnmsg;
+} MSD;                 // MeSsage Dispatch structure
+typedef MSD * LPMSD;
+
+
+//-------------------------------------------------------------------------
+// Functions for handling main window commands--ie. functions for
+// processing WM_COMMAND messages based on the wParam value.
+// The message-dispatching mechanism expects all command-handling
+// functions to have the following prototype:
+
+typedef VOID (*PFNCMD)(VOID);
+
+// This structure maps command IDs to command handling functions.
+typedef struct _CMD
+{
+	UINT     wCmd;
+	PFNCMD pfncmd;
+} CMD;                 // CoMmand Dispatch structure
+typedef CMD * LPCMD;
+
+
+typedef struct _PREF
+{
+	BOOL fSbar;       // Display status bar
+	BOOL fMsgWindow;  // Display message window
+	BOOL fUserList;   // Display user list
+	WINDOWPLACEMENT wpMain;
+	LOGFONT lf;
+} PREF;
+
+
+
+//-------------------------------------------------------------------------
+// Special resource constants
+#define IDW_MSG   100
+#define IDW_USER  101
+#define IDW_APP  102
+
+// See _rgColMember
+#define ILV_ADDR      0
+#define ILV_HWND      1
+#define ILV_STATUS    2
+#define ILV_NAME      3
+
+const int DYP_MSG    = 30;  // Fixed Height of Message window
+const int DXP_USER   = 80;  // Fixed Width of User List
+const int YP_TOP     = 1;
+const int XP_LEFT    = 0;
+
+
+//-------------------------------------------------------------------------
+// Global Function Prototypes.
+
+
+LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+
+
+// from util.cpp
+LPVOID LpvAlloc(int cb);
+LPTSTR PszAlloc(int cch);
+VOID FreePlpv(LPVOID plpv);
+VOID MaybeDeleteObject(HGDIOBJ * phgdi);
+VOID SizeMsgWindow(int dx, int dy);
+VOID RecalcMsgWindow(void);
+VOID SetMenuCheck(UINT idm, BOOL fCheck);
+VOID ShowHwnd(HWND hwnd, BOOL fShow, int idm);
+
+VOID ClearText(void);
+VOID DisplayMsg(LPTSTR pszMsg);
+
+LRESULT MsgNotifyAppList(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+
+
+//-------------------------------------------------------------------------
+// Global Variables
+
+extern HINSTANCE ghInst;          // The current instance handle
+extern HACCEL    ghAccelTable;    // Menu accelerators
+extern HWND      ghwndMain;       // Main Window
+extern HWND      ghwndSbar;       // Status Bar
+extern HMENU     ghMenu;          // Main Menu
+extern HWND      ghwndMsg;        // Message Window
+extern HWND      ghwndUser;       // User List
+extern HWND      ghwndApp;        // Application List
+extern HFONT     ghfontEntry;     // Font for message Window
+
+extern PREF      gPref;           // Preferences
+
+#endif /* GLOBAL_H */

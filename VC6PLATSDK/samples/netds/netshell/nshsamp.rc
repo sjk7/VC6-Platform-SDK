@@ -1,0 +1,136 @@
+#include "nshsamp.h"
+
+//
+// Be sure to terminate your strings with a newline.
+//
+
+STRINGTABLE
+{
+    //
+    // Help strings.
+    //
+    HLP_ADD_OBJECT,                     "Add to the count of objects.\n"
+    HLP_ADD_OBJECT_EX,                  "Adds to the total count of objects.\n\
+                                         Usage: add [object] [value]\n\
+                                         Parameters:\n\
+                                         object\t\t- one of three values:\n\
+                                         \t\t\t  widgets: add to the widget count\n\
+                                         \t\t\t  sprockets: add to the sprocket count\n\
+                                         \t\t\t  all: add to the counts for widgets and sprockets\n\
+                                         value\t\t- value to add to [object]'s current count\n\
+                                         Examples:\n\
+                                         \tadd widgets 30\n\
+                                         \tadd all -200\n"
+                                        
+    HLP_SHOW_OBJECT,                    "Show the current count of objects.\n"
+    HLP_SHOW_OBJECT_EX,                 "Show the current count of objects.\n\
+                                         Usage: show [object]\n\
+                                         Parameters:\n\
+                                         object\t\t- one of three values:\n\
+                                         \t\t\t  widgets: show the widget count\n\
+                                         \t\t\t  sprockets: show the sprocket count\n\
+                                         \t\t\t  all: show the count for widgets and sprockets\n\
+                                         Examples:\n\
+                                         \tshow widgets\n\
+                                         \tshow all\n"
+    
+    HLP_SET_OBJECT,                     "Set the count of the specified object.\n"
+    HLP_SET_OBJECT_EX,                  "Usage: set [object=]<count value>\n\
+                                         Parameters:\n\
+                                         object\t\t- one of three values:\n\
+                                         \t\t\t  widgets: set the widget count\n\
+                                         \t\t\t  sprockets: set the sprocket count\n\
+                                         \t\t\t  all: set the count for widgets and sprockets\n\
+                                         count\t\t- value to set <object> to\n\
+                                         Examples:\n\
+                                         \tset widgets=20\n\
+                                         \tset all=15\n\
+                                         \tset sprockets=25 widgets=36\n"
+                       
+    HLP_RESET_OBJECT,                   "Reset the count of specified object.\n"
+    
+    HLP_RESET_OBJECT_WIDGETS,           "Resets the count of widgets to 0.\n"
+    HLP_RESET_OBJECT_WIDGETS_EX,        "You just ran 'reset widgets' which returned\n\
+                                         ERROR_SHOW_USAGE, so the extended help for the\n\
+                                         'widgets' command is being shown (this).\n"
+                                        
+    HLP_RESET_OBJECT_SPROCKETS,         "Resets the count of sprockets to 0.\n"
+    HLP_RESET_OBJECT_SPROCKETS_EX,      "placeholder for 'reset sprockets' this should never be shown.\n"
+    
+    HLP_RESET_OBJECT_ALL,               "Resets the count of widgets and sprockets to 0.\n"
+    HLP_RESET_OBJECT_ALL_EX,            "placeholder for 'reset all' this should never be shown.\n"
+    
+    HLP_SHOWERROR,                      "Displays one or more error message given the numbers.\n"
+    HLP_SHOWERROR_EX,                   "Usage: showerror [error number] [error number] ...\n\
+                                         Parameters:\n\
+                                         error number\t- any valid netsh, ras, mpr, or win32 error,\n\
+                                         \t\t  in hex or decimal\n\
+                                         Examples:\n\
+                                         \tshowerror 5\n\
+                                         \tshowerror 111 3 0x800F020D\n"
+    
+    HLP_SET_RANDOM_STUFF,               "Sets the values for our contrived gateway or interface\n"
+    HLP_SET_INTERFACE,                  "Sets the contrived values for a hypothetical interface.\n"
+    HLP_SET_INTERFACE_EX,               "Sets parameters for an imaginary network interface.\n\
+                                         Usage: set interface [id=] <value> [enabled|disabled] [supermetric=] <value>\n\
+                                         \t\t\t[potential=] [high|medium|low]\n\
+                                         Parameters:\n\
+                                         id=\t\t- id of the interface whos parameters are to be changed. required.\n\
+                                         enabled|disabled- interface should be enabled or disabled\n\
+                                         supermetric=\t- what the supermetric value should be\n\
+                                         potential=\t- the potential of this interface should be high, medium, or low\n\
+                                         Examples:\n\
+                                         \tset interface id=22 disabled supermetric=54 potential=low\n\
+                                         \tset interface id=2 disabled\n\
+                                         \tset interface potential=high id=22"
+                                        
+    HLP_SET_GATEWAY,                    "Sets the ip address for a hypothetical gateway.\n"
+    HLP_SET_GATEWAY_EX,                 "Usage: set gateway userdata=<value>\n\
+                                         Parameters:\n\
+                                         value\t- a value from 0 to 255, with a maximum of four separate values\n\
+                                         Examples:\n\
+                                         \tset gateway userdata=1 userdata=123\n"
+                                        
+    HLP_SHOW_RANDOM,                    "Show the current settings for the 'interface' and the 'gateway'.\n"
+    
+    //
+    // Error strings.
+    //
+    ERR_NO_VALID_COUNT,                 "ERROR: Wasn't able to get a number out of %1!s!.\n"
+    ERR_INVALID_NUM_ARGS,               "ERROR: Expected %1!u! total arguments!\n"
+    ERR_INVALID_ERROR_CODE,             "ERROR: %1!d! (0x%2!x!) was not a valid netsh, mpr, ras, or win32 error.\n"
+    
+    //
+    // General strings.
+    //
+    GEN_CMD_OKAY,                       "The command was quite successful.\n"
+    GEN_CURRENT_COUNT,                  "The current count for %1!s! is %2!u!.\n"
+    GEN_SAMPLEINTERFACE_SETTINGS,       "The current interface id is %1!u!, it is currently %2!s!, with a supermetric of %3!u!, and potential set to %4!s!.\n"
+    GEN_SAMPLEGATEWAY_SETTINGS,         "The current bits of data saved are %1!u!, %2!u!, %3!u!, and %4!u!.\n"
+    GEN_CONNECT_SHOWSTRING,             "Connect function received machine string %1!s!\n"
+    
+    //
+    // Dump strings.
+    //
+    DUMP_SAMP,                          "\n# -----------------------------\
+                                         \n# sample configuration\
+                                         \n# -----------------------------\
+                                         \npushd sample\n\
+                                         \n%1!s! %2!s!=%3!u! %4!s!=%5!u!\n\
+                                         \n\
+                                         popd\
+                                         \n# End of sample configuration\n"
+                      
+    DUMP_SAMPINTERFACE,                 "\n# -----------------------------\
+                                         \n# sampleinterface configuration\
+                                         \n# -----------------------------\
+                                         \npushd interface subinterface\n\
+                                         \n# interface subinterface configuration\n\
+                                         \n%1!s! %2!s! %3!s!=%4!u! %5!s! %6!s!=%7!u! %8!s!=%9!u!\n\
+                                         %1!s! %10!s! %11!s!=%12!u! %11!s!=%13!u! %11!s!=%14!u! %11!s!=%15!u!\n\
+                                         \n# this machine has an %16!s! architecture.\n\
+                                         \n\
+                                         popd\n\
+                                         \n# End of sampleinterface configuration\n"
+}
+

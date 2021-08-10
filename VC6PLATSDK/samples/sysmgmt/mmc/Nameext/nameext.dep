@@ -1,0 +1,77 @@
+# Microsoft Developer Studio Generated Dependency File, included by nameext.mak
+
+.\About.cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	
+
+.\BaseSnap.cpp : \
+	".\About.h"\
+	".\BaseSnap.h"\
+	".\delebase.h"\
+	".\Extend.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LocalRes.h"\
+	".\NameExt.h"\
+	".\Registry.h"\
+	
+
+.\comp.cpp : \
+	".\comp.h"\
+	".\dataobj.h"\
+	".\delebase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\NameExt.h"\
+	
+
+.\dataobj.cpp : \
+	".\dataobj.h"\
+	".\delebase.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LocalRes.h"\
+	
+
+.\delebase.cpp : \
+	".\delebase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	
+
+.\mmccrack.cpp : \
+	".\Globals.h"\
+	
+
+.\NameExt.cpp : \
+	".\comp.h"\
+	".\dataobj.h"\
+	".\delebase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\NameExt.h"\
+	".\sky.h"\
+	
+
+.\Registry.cpp : \
+	".\Extend.h"\
+	".\Globals.h"\
+	".\Registry.h"\
+	
+
+.\sky.cpp : \
+	".\delebase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\sky.h"\
+	
+
+.\resource.rc : \
+	".\lgbmp.bmp"\
+	".\lgicons.bmp"\
+	".\smbmp.bmp"\
+	".\smicons.bmp"\
+	".\smopen.bmp"\
+	".\snapin.ico"\
+	

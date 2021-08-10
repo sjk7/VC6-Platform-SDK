@@ -1,0 +1,18 @@
+HKCR
+{
+    Microsoft.ClusterSamples.MyCapabilities.1 = s 'ClusCfg Capabilities Sample'
+    {
+        CLSID = s '{96FCE880-4763-4287-A64B-53BD2AA99A04}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {96FCE880-4763-4287-A64B-53BD2AA99A04} = s 'ClusCfg Capabilities Sample'
+        {
+            ProgID = s 'Microsoft.ClusterSamples.MyCapabilities.1'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Both'
+            }
+        }
+    }
+}

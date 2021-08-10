@@ -1,0 +1,27 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (b3c6123c).
+//
+// FreeObject.tlh
+//
+// C++ source equivalent of Win32 type library FreeObject\Debug\FreeObject.dll
+// compiler-generated file created 04/19/99 at 15:44:29 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ FreeTest;
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("8eae3aa1-f430-11d2-a10a-0080c71f306f"))
+FreeTest;
+    // [ default ] interface ISyncTest
+
+#pragma pack(pop)

@@ -1,0 +1,23 @@
+HKCR
+{
+	VCBank.GetReceipt = s 'GetReceipt Class'
+	{
+		CLSID = s '{A81260B2-DDC8-11D0-B5A0-00C04FB957D8}'
+	}
+	VCBank.GetReceipt = s 'GetReceipt Class'
+	{
+		CLSID = s '{A81260B2-DDC8-11D0-B5A0-00C04FB957D8}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A81260B2-DDC8-11D0-B5A0-00C04FB957D8} = s 'GetReceipt Class'
+		{
+			ProgID = s 'VCBank.GetReceipt'
+			VersionIndependentProgID = s 'VCBank.GetReceipt'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

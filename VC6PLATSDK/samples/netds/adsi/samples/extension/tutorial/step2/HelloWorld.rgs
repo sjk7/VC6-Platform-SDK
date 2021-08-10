@@ -1,0 +1,25 @@
+HKCR
+{
+	ADsFirstExt.HelloWorld.1 = s 'HelloWorld Class'
+	{
+		CLSID = s '{E1E3EDF8-48D1-11D2-B22B-0000F87A6B50}'
+	}
+	ADsFirstExt.HelloWorld = s 'HelloWorld Class'
+	{
+		CLSID = s '{E1E3EDF8-48D1-11D2-B22B-0000F87A6B50}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E1E3EDF8-48D1-11D2-B22B-0000F87A6B50} = s 'HelloWorld Class'
+		{
+			ProgID = s 'ADsFirstExt.HelloWorld.1'
+			VersionIndependentProgID = s 'ADsFirstExt.HelloWorld'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}
+
+

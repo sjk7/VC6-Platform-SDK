@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>Microsoft Agent Hello World (VBScript) Sample</TITLE>
+<META NAME="ROBOTS" CONTENT="NOINDEX">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin=0>
+<!--TOOLBAR_START--><!--TOOLBAR_EXEMPT--><!--TOOLBAR_END-->
+<FONT FACE="verdana,arial,helvetica" SIZE="2">
+
+<CENTER>
+<H3><A NAME="TOP" IDX_CONCEPT="stopindex">Microsoft Agent Sample</A></H3>
+<H2>Hello World<BR>(VBScript)</H2>
+<!-- Updated to use Version 2.0 -->
+
+<HR width=66%>
+<P>This page illustrates the most basic use of Microsoft Agent.
+<BR>Once the character and its animations have been successfully
+<BR>loaded, Robby will appear, say hello, and disappear.
+<BR>You can refresh the page to make this happen again.
+<P>Be patient!  Loading of the character may take a few minutes.
+<P>This sample loads its character from an HTTP URL,
+<BR>so you must be connected to the WWW and be able to
+<BR>reach the server at <I>http://agent.microsoft.com</I>,
+<BR>or the sample will not work properly.
+<P>If you have never installed the Lernout & Hauspie TTS Engine,
+<BR>you will be prompted to install it.  Without the TTS Engine,
+<BR>characters will speak, but will not produce audible speech output.
+<P>Right-click on the page and select <B>View Source</B>
+<BR>to examine the HTML code for this page.
+<HR width=66%>
+</CENTER>
+
+<!--
+In order to use Microsoft Agent, the Microsoft Agent Control
+OBJECT tag must be placed on the page.  The presence of this
+tag will cause the control to be automatically downloaded and
+installed if it is not found on the client machine when the
+page is processed.  In the example below, the CODEBASE
+attribute is used so that the latest version number can be
+specified.  The Agent object will be referred to in script using
+the name assigned to it in the ID field of the OBJECT tag -
+in this case, "AgentControl".
+-->
+<OBJECT ID="AgentControl" width=0 height=0
+ CLASSID="CLSID:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F"
+ CODEBASE="#VERSION=2,0,0,0">
+</OBJECT>
+
+<!--
+In order to use Text-to-Speech (TTS) output, a TTS engine compatible
+with Microsoft Agent must be installed on the client's machine.
+Your Microsoft Agent license includes a license to use the TruVoice
+TTS engine from Lernout & Hauspie with Microsoft Agent.  The OBJECT tag
+below causes the TTS engine to be downloaded and installed if it is
+not found on the client machine when the page is processed. The
+CODEBASE atribute is included in order to specify the latest version
+number of the control.
+-->
+<OBJECT ID="TruVoice" width=0 height=0
+ CLASSID="CLSID:B8F2846E-CE36-11D0-AC83-00C04FD97575"
+ CODEBASE="#VERSION=6,0,0,0">
+</OBJECT>
+
+<SCRIPT language=VBScript>
+' In this example the Microsoft Agent control is managed using VBScript.
+' Alternatively, JScript could be used.
+
+Dim Robby	' a global variable to hold the character object
+
+' Necessary initialization of the control and charcter are most
+' readily accomplished in a page's OnLoad procedure, which is
+' run automatically when the page is first loaded in a browser.
+' The character to be used must first be loaded into the control.
+' In this example the character is loaded from an HTTP URL, which
+' must point to a .ACF file, and an object reference to the newly
+' loaded character is saved in the global variable Robby.
+' Once a character has been loaded from a .ACF
+' file, it is necessary to GET each animation before PLAYing it.
+' Here we GET all the animations that will be needed at once,
+' rather than waiting until just before they are played.
+' Newly loaded characters are initially hidden, so we show the
+' character as the last step in initializing the character.  Since
+' all the requests to the Agent control are queued and executed
+' in request order, the appearance of the character will indicate
+' that the preceding requests succeeded.  Note that this sample does
+' not include any code to handle request failures.  A production
+' quality page should always include error handling.
+
+Sub window_OnLoad
+	AgentControl.Connected = True	' necessary for IE3
+	AgentControl.Characters.Load "Robby", "http://agent.microsoft.com/agent2/chars/robby/robby.acf"
+	Set Robby = AgentControl.Characters("Robby")
+	Robby.LanguageID = &H0409		' needed under some conditions (English)
+	Robby.Get "State", "Showing, Speaking"
+	Robby.Get "Animation", "Greet, GreetReturn"
+	Robby.Show
+	Robby.Get "State", "Hiding"
+	Robby.Play "Greet"
+	Robby.Speak "Hello, World!"
+	Robby.Hide
+End Sub
+</SCRIPT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>main_team</title>
+
+<SCRIPT language="JAVASCRIPT">
+<!--
+   if (document.images)
+   {	
+		CallToBtnH = new Image
+		CallToBtnN = new Image
+		CallToBtnIn = new Image
+		HangUpBtnH = new Image
+		HangUpBtnN = new Image
+		HangUpBtnIn = new Image
+		UndockBtnH = new Image
+		UndockBtnN = new Image
+		UndockBtnIn = new Image
+
+		CallToBtnH.src = '../images/call_h.gif'
+		CallToBtnN.src = '../images/call.gif'
+		CallToBtnIn.src = '../images/call_in.gif'
+		HangUpBtnH.src = '../images/hangup_h.gif'
+		HangUpBtnN.src = '../images/hangup.gif'
+		HangUpBtnIn.src = '../images/hangup_in.gif'
+		UndockBtnH.src = '../images/undock_h.gif'
+		UndockBtnN.src = '../images/undock.gif' 
+		UndockBtnIn.src = '../images/undock_in.gif' 
+   }
+   else
+   {
+		CallToBtnH = " "
+		CallToBtnN = " "
+		CallToBtnIn = " "
+		CallToBtn = " "
+		HangUpBtnH = " "
+		HangUpBtnN = " "
+		HangUpBtnIn = " "
+		HangUpBtn = " " 
+		UndockBtnH = " "
+		UndockBtnN = " "
+		UndockBtnIn = " "
+		UndockBtn = " "
+   }
+
+-->
+</SCRIPT>
+
+<script language="jscript">
+<!--
+	function ShowCallTxtBtn()
+	{
+		if (CallTxtBtn.style.visibility == "hidden")
+		{
+			CallTxtBtn.style.visibility = "visible";
+		}
+		else
+		{
+			CallTxtBtn.style.visibility = "hidden";
+		}
+		CallToBtn.src = CallToBtnH.src;
+	}	
+
+	function HideCallTxtBtn()
+	{
+		if (CallTxtBtn.style.visibility == "visible")
+		{
+			CallTxtBtn.style.visibility = "hidden";
+		}
+		else
+		{
+			CallTxtBtn.style.visibility = "visible";
+		}
+		CallToBtn.src = CallToBtnN.src; 
+	}	
+
+	function ShowHangUpTxtBtn()
+	{
+		if (HangUpTxtBtn.style.visibility == "hidden")
+		{
+			HangUpTxtBtn.style.visibility = "visible";
+		}
+		else
+		{
+			HangUpTxtBtn.style.visibility = "hidden";
+		}
+		HangUpBtn.src = HangUpBtnH.src; 
+	}	
+
+	function HideHangUpTxtBtn()
+	{
+		if (HangUpTxtBtn.style.visibility == "visible")
+		{
+			HangUpTxtBtn.style.visibility = "hidden";
+		}
+		else
+		{
+			HangUpTxtBtn.style.visibility = "visible";
+		}
+		HangUpBtn.src = HangUpBtnN.src; 
+	}	
+
+	function ShowUndockTxtBtn()
+	{
+		if (UndockTxtBtn.style.visibility == "hidden")
+		{
+			UndockTxtBtn.style.visibility = "visible";
+		}
+		else
+		{
+			UndockTxtBtn.style.visibility = "hidden";
+		}
+		UndockBtn.src = UndockBtnH.src; 
+	}	
+
+	function HideUndockTxtBtn()
+	{
+		if (UndockTxtBtn.style.visibility == "visible") 
+		{
+			UndockTxtBtn.style.visibility = "hidden";
+		}
+		else
+		{
+			UndockTxtBtn.style.visibility = "visible";
+		}
+		UndockBtn.src = UndockBtnN.src; 
+	}	
+
+	function onHangUp()
+	{
+		NetMeeting.LeaveConference();	
+	}
+	
+-->
+</script>
+
+<script language="vbscript">
+	
+	Sub CallToBtn_onclick()
+			
+		NetMeeting.CallTo(CallToAddress.value)
+		
+	End Sub
+	
+</script>
+
+</head>
+
+<BODY STYLE="background-image:url(../images/back.gif); background-repeat:no-repeat">
+
+<OBJECT classid=CLSID:3E9BAF2D-7A79-11d2-9334-0000F875AE17
+		id=NetMeeting
+		width=176
+		height=144
+		STYLE="position:absolute; top:19; left:49; visibility:visible;"
+		codebase="http://download.microsoft.com/msdownload/netmeeting/3.0/x86/en/NM30.EXE">
+		
+		<PARAM NAME="MODE"
+			   VALUE="RemoteNoPause">
+</OBJECT>
+
+<img src="../images/call.gif"
+	 id=CallToBtn
+	 style="position:absolute; top:245; left:40;" 
+	 onmouseover="ShowCallTxtBtn();"
+	 onmouseout="HideCallTxtBtn();" 
+	 onmousedown="CallToBtn.src=CallToBtnIn.src"
+	 onmouseup="CallToBtn.src=CallToBtnN.src">
+</img>
+
+<input type=text
+	   style="position:absolute; top:183; left:30;"
+	   id="CallToAddress"
+	   size="29"
+	   value="alb@msn.com">
+</input>
+
+<br>
+
+<img src="../images/hangup.gif"
+	 id=HangUpBtn
+	 style=" position:absolute; top:245; left:118;"
+	 onclick="onHangUp();"
+	 onmouseover="ShowHangUpTxtBtn();"
+	 onmouseout="HideHangUpTxtBtn();"
+	 onmousedown="HangUpBtn.src=HangUpBtnIn.src"
+	 onmouseup="HangUpBtn.src=HangUpBtnN.src">
+ </img>
+
+<img src="../images/undock.gif"
+	 id=UndockBtn
+	 style=" position:absolute; top:245; left:185;"
+	 onclick="NetMeeting.UnDock();"
+	 onmouseover="ShowUndockTxtBtn();"
+	 onmouseout="HideUndockTxtBtn();"
+	 onmousedown="UndockBtn.src=UndockBtnIn.src"
+	 onmouseup="UndockBtn.src=UndockBtnN.src">
+</img>
+
+<img id=CallTxtBtn
+	 src="../images/call_txt.gif"
+	 style="position:absolute; top:283; left:42; visibility:hidden">
+</img>
+
+<img id=HangUpTxtBtn
+	 src="../images/hangup_txt.gif"
+	 style="position:absolute; top:283; left:30; visibility:hidden">
+</img>
+ 
+<img id=UndockTxtBtn
+	 src="../images/undock_txt.gif"
+	 style="position:absolute; top:283; left:13; visibility:hidden">
+</img>
+
+<div style="position:relative; top:0; left:340;">
+
+	<font face="Trebuchet MS" color=white size=4>
+		<b>Al Burrows</b>
+	</font>
+
+	<br>
+	
+	<font face="Trebuchet MS" color=white size=2>
+		&nbsp;
+		&nbsp;
+		Graphic Designer
+	</font>
+</div>
+
+<div style="position:relative; top:10; left:348;">
+	<font face="Trebuchet MS"  color=white size=2>
+		<b>&nbsp;Areas of Ownership:</b>
+	</font>
+	
+	<br>
+	
+	<font face="Trebuchet MS"  color=white size=2>
+		&nbsp;
+		&nbsp;
+		Graphics Stuff
+	</font>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<font face="Trebuchet MS"  color=white size=2>
+		<b><i>Interests/Hobbies:</i></b>
+	</font>
+	
+	<font face="Trebuchet MS"  color=white size=2>
+		<li>Lawn Bowling</li>
+		<li>Bocce Ball</li>
+		<li>Marbles</li>
+		<li>Tiddly-Winks</li>
+		<li>Frisbee</li>
+		<li>Hopscotch</li>
+	</font>
+	
+	<br>
+	<p></p>
+	
+	<font face="Trebuchet MS"   size=2>
+		<b><i>Favorite Links:</i></b>  
+	</font>
+	
+	<font face="Trebuchet MS"  color="#3399FF" size=2>
+		<li>http:\\www.abcdef.com</li>
+		<li>http:\\www.ghijk_lmnop.com</li>
+		<li>http:\\www.qrst.com</li>
+		<li>http:\\www.tuvwy_y_z.com</li>
+	</font>
+</div>
+
+<!--<p align="left"><font face="Tahoma" color="white" size="1"><i>© 1999-2002 Microsoft Corporation</i> </font></p> -->
+
+</body>
+</html>

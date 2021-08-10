@@ -1,0 +1,23 @@
+HKCR
+{
+    MyStorageResource.CEnumStorageResource.1 = s 'CEnumStorageResource Class'
+    {
+        CLSID = s '{DFF8522F-C3E1-4b26-BC6F-2E90945BFBE7}'
+    }
+    MyStorageResource.CEnumStorageResource = s 'CEnumStorageResource Class'
+    {
+        CLSID = s '{DFF8522F-C3E1-4b26-BC6F-2E90945BFBE7}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {DFF8522F-C3E1-4b26-BC6F-2E90945BFBE7} = s 'CEnumStorageResource Class'
+        {
+            ProgID = s 'MyStorageResource.CEnumStorageResource.1'
+            VersionIndependentProgID = s 'MyStorageResource.CEnumStorageResource'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+        }
+    }
+}

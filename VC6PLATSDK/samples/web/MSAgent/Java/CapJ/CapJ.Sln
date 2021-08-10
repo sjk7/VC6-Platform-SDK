@@ -1,0 +1,17 @@
+Microsoft Visual Studio Solution File, Format Version 1.00
+Project("{66355F20-A65B-11D0-BFB5-00A0C91EBFA0}") = "CapJ", "CapJ.vjp", "{F82E5381-4D87-11D2-851B-00C04FA34A14}"
+	ProjectSection(SourceCodeControl) = preProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(LocalDeployment) = postSolution
+		StartupProject = {F82E5381-4D87-11D2-851B-00C04FA34A14}
+	EndGlobalSection
+	GlobalSection(BuildOrder) = postSolution
+		0 = {F82E5381-4D87-11D2-851B-00C04FA34A14}
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+	EndGlobalSection
+	GlobalSection(DeploymentRoot) = postSolution
+	EndGlobalSection
+EndGlobal

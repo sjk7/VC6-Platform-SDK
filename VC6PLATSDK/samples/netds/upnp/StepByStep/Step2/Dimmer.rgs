@@ -1,0 +1,26 @@
+HKCR
+{
+	MyDevice.Dimmer.1 = s 'Dimmer Class'
+	{
+		CLSID = s '{433B7962-88CD-48F3-B726-2187A48C7128}'
+	}
+	MyDevice.Dimmer = s 'Dimmer Class'
+	{
+		CLSID = s '{433B7962-88CD-48F3-B726-2187A48C7128}'
+		CurVer = s 'MyDevice.Dimmer.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {433B7962-88CD-48F3-B726-2187A48C7128} = s 'Dimmer Class'
+		{
+			ProgID = s 'MyDevice.Dimmer.1'
+			VersionIndependentProgID = s 'MyDevice.Dimmer'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{51AC2F4C-3F4F-48B3-A018-910E81677EEF}'
+		}
+	}
+}

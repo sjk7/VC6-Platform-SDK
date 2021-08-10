@@ -1,0 +1,189 @@
+// MyStorageResource.idl : IDL source for MyStorageResource.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MyStorageResource.tlb) and marshalling code.
+
+import "wbemcli.idl";
+import "ClusCfgServer.idl";
+
+
+//////////////////////////////////////////////////////////////////////////////
+//++
+//
+//  interface IWMIServices
+//
+//  Description:
+//      The interface IWMIServices is the private interface
+//      used by the cluster configuration server to set the WBEM provider
+//      in its children.
+//
+//  Interfaces:
+//      None.
+//
+//--
+//////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(538972C6-56B9-4240-AF92-ACA165820499),
+    helpstring( "IWMIServices interface" )
+]
+interface IWMIServices : IUnknown
+{
+    HRESULT SetWbemServices( IWbemServices * pIWbemServicesIn );
+};
+
+
+//////////////////////////////////////////////////////////////////////////////
+//++
+//
+//  interface IWMIObject
+//
+//  Description:
+//      The interface IWMIObject is the private interface used by the
+//      cluster configuration server to set the WBem object.
+//
+//  Interfaces:
+//      None.
+//
+//--
+//////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(DC674A98-FBA0-4f33-9EA3-C3D0AB49AA74),
+    helpstring( "IWMIObject interface" )
+]
+interface IWMIObject : IUnknown
+{
+    HRESULT SetWbemObject( IWbemClassObject * pObjectIn, BOOL * pfRetainObjectOut );
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//++
+//
+//  class IStorageProperties
+//
+//  Description:
+//      The interface IStorageProperties is the private
+//      interface used by the cluster configuration server to get the
+//      SCSI bus number and whether the disk was booted or not.
+//
+//  Interfaces:
+//      None.
+//
+//--
+//////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(161969B2-23B6-4172-9150-73DE4C57E314),
+    helpstring( "IStorageProperties interface" )
+]
+interface IStorageProperties : IUnknown
+{
+    HRESULT IsThisLogicalDisk( WCHAR cLogicalDiskIn );
+    HRESULT HrGetSCSIBus( ULONG * pulSCSIBusOut );
+    HRESULT HrGetSCSIPort( ULONG * pulSCSIPortOut );
+    HRESULT CanBeManaged( void );
+    HRESULT HrGetDeviceID( BSTR * pbstrDeviceIDOut );
+    HRESULT HrGetSignature( DWORD * pdwSignatureOut );
+    HRESULT HrSetFriendlyName( LPCWSTR pcszFriendlyNameIn );
+    HRESULT HrGetDeviceIndex( DWORD * pidxDeviceOut );
+    HRESULT HrIsDynamicDisk( void );
+    HRESULT HrIsGPTDisk( void );
+    HRESULT HrGetDiskNames( BSTR * pbstrDiskNameOut, BSTR * pbstrDeviceNameOut );
+}
+
+
+//////////////////////////////////////////////////////////////////////////////
+//++
+//
+//  class IPartitionProperties
+//
+//  Description:
+//      The interface IPartitionProperties is the private
+//      interface used by the cluster configuration server to get the
+//      properties of a disk partition.
+//
+//  Interfaces:
+//      None.
+//
+//--
+//////////////////////////////////////////////////////////////////////////////
+[
+    object,
+    uuid(C7678615-F0C7-4cd1-8E9D-A0A7F4E536DF),
+    helpstring( "IPartitionProperties interface" )
+]
+interface IPartitionProperties : IUnknown
+{
+    HRESULT HrIsThisLogicalDisk( WCHAR cLogicalDiskIn );
+    HRESULT HrIsNTFS( void );
+    HRESULT HrGetFriendlyName( BSTR * pbstrNameOut );
+    HRESULT HrSetDeviceID( BSTR bstDeviceIDIn );
+}
+
+
+[
+    uuid(359F8AA3-6EE5-40E9-850E-F303056468C9),
+    version(1.0),
+    helpstring("MyStorageResource 1.0 Type Library")
+]
+library MyStorageResourceLib
+{
+    importlib("stdole32.tlb");
+    importlib("stdole2.tlb");
+    import "cluscfgserver.idl";
+
+    [
+        uuid(DFF8522F-C3E1-4b26-BC6F-2E90945BFBE7),
+        helpstring("CEnumStorageResource Class")
+    ]
+    coclass CEnumStorageResource
+    {
+        [default] interface IEnumClusCfgManagedResources;
+        interface IWMIServices;
+        interface IClusCfgInitialize;
+    };
+
+    [
+        uuid(B07C16FE-9F4D-4ADD-AAA4-931F501CB9FC),
+        helpstring("CStorageResource Class")
+    ]
+    coclass CStorageResource
+    {
+        [default] interface IClusCfgManagedResourceInfo;
+        interface IClusCfgManagedResourceCfg;
+        interface IClusCfgVerifyQuorum;
+        interface IClusCfgManagedResourceData;
+        interface IEnumClusCfgPartitions;
+        interface IWMIServices;
+        interface IWMIObject;
+        interface IStorageProperties;
+        interface IClusCfgInitialize;
+    };
+
+    [
+        uuid(D9E1925C-13BC-4DC5-99EA-89910215FB7F),
+        helpstring("CStorageResType Class")
+    ]
+    coclass CStorageResType
+    {
+        [default] interface IClusCfgResourceTypeInfo;
+        interface IClusCfgStartupListener;
+        interface IClusCfgInitialize;
+    };
+
+    [
+        uuid(62F21368-5CB1-4e18-8AA5-E99217E1A63C),
+        helpstring("CPartitionInfo Class")
+    ]
+    coclass CPartitionInfo
+    {
+        [default] interface IClusCfgPartitionInfo;
+        interface IWMIServices;
+        interface IWMIObject;
+        interface IPartitionProperties;
+        interface IClusCfgInitialize;
+    };
+};

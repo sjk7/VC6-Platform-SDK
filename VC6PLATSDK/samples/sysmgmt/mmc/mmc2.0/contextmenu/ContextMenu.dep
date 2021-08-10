@@ -1,0 +1,134 @@
+# Microsoft Developer Studio Generated Dependency File, included by ContextMenu.mak
+
+.\About.Cpp : \
+	".\About.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\AddDeviceDlg.cpp : \
+	".\AddDeviceDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\BaseDialog.cpp : \
+	".\BaseDialog.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\BaseSnap.Cpp : \
+	".\About.h"\
+	".\BaseNode.h"\
+	".\BaseSnap.h"\
+	".\Compdata.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\Comp.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\Dataobj.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\Compdata.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\Dataobj.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\ContextMenu.rc : \
+	".\Res\AppImg16.bmp"\
+	".\Res\AppImg32.bmp"\
+	".\Res\Nodes16.bmp"\
+	".\Res\Nodes32.bmp"\
+	".\Res\Snapin.ico"\
+	
+
+.\Dataobj.cpp : \
+	".\BaseNode.h"\
+	".\Dataobj.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\DeviceNode.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\DeviceNode.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\TraceMacro.h"\
+	
+
+.\FolderNode.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\TraceMacro.h"\
+	
+
+.\Globals.cpp : \
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\LListImpl.cpp : \
+	".\LListImpl.h"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\StaticNode.cpp : \
+	".\AddDeviceDlg.h"\
+	".\BaseDialog.h"\
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\Compdata.h"\
+	".\DeviceNode.h"\
+	".\FolderNode.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LListImpl.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\TraceMacro.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\TraceMacro.h"\
+	

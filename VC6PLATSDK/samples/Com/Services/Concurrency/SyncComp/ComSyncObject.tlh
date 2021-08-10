@@ -1,0 +1,27 @@
+// Created by Microsoft (R) C/C++ Compiler Version 12.00.8168.0 (5c62c67e).
+//
+// ComSyncObject.tlh
+//
+// C++ source equivalent of Win32 type library ComSyncObject\Debug\ComSyncObject.dll
+// compiler-generated file created 04/19/99 at 15:44:29 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct /* coclass */ ComSyncTest;
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("be872de0-f6a8-11d2-a10b-0080c71f306f"))
+ComSyncTest;
+    // [ default ] interface ISyncTest
+
+#pragma pack(pop)

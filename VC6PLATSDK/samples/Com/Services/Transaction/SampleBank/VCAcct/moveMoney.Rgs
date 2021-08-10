@@ -1,0 +1,23 @@
+HKCR
+{
+	VCBank.MoveMoney = s 'MoveMoney Class'
+	{
+		CLSID = s '{04CF0B7B-1989-11D0-B917-0080C7394688}'
+	}
+	VCBank.MoveMoneyC = s 'MoveMoney Class'
+	{
+		CLSID = s '{04CF0B7B-1989-11D0-B917-0080C7394688}'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {04CF0B7B-1989-11D0-B917-0080C7394688} = s 'MoveMoney Class'
+		{
+			ProgID = s 'VCBank.MoveMoney'
+			VersionIndependentProgID = s 'VCBank.MoveMoney.VC'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'both'
+			}
+		}
+	}
+}

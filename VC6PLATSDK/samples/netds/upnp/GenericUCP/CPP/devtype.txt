@@ -1,0 +1,4 @@
+upnp:rootdevice All Root Devices
+urn:schemas-upnp-org:device:lighting:1 X10 Lighting Devices
+urn:schemas-upnp-org:device:reminder:1 Reminder Devices
+urn:schemas-upnp-org:device.lighting.1 BVT devices

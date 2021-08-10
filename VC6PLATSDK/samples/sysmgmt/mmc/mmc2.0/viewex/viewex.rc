@@ -1,0 +1,166 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_APPIMG_32           BITMAP  DISCARDABLE     ".\\Res\\AppImg32.bmp"
+IDB_APPIMG_16           BITMAP  DISCARDABLE     ".\\Res\\AppImg16.bmp"
+IDB_NODEIMAGES_16       BITMAP  DISCARDABLE     ".\\Res\\Nodes16.bmp"
+IDB_NODEIMAGES_32       BITMAP  DISCARDABLE     ".\\Res\\Nodes32.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP_ICON            ICON    DISCARDABLE     ".\\Res\\Snapin.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BASE_DIALOG DIALOG DISCARDABLE  0, 0, 186, 94
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+END
+
+IDD_ADDDEVICE_DLG DIALOG DISCARDABLE  0, 0, 186, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Device"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,16,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,36,50,14
+    LTEXT           "Device Name",IDC_STATIC,11,7,97,8
+    EDITTEXT        IDC_DEVNAME_EDIT,10,16,100,14,ES_AUTOHSCROLL
+    GROUPBOX        "Attributes",IDC_STATIC,7,55,172,48
+    CONTROL         "Archive",IDC_ARCHIVE_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,67,69,10
+    CONTROL         "Hidden",IDC_HIDDEN_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,84,72,10
+    CONTROL         "Locked",IDC_LOCKED_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,95,67,78,10
+    CONTROL         "ReadOnly",IDC_READONLY_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,96,84,80,10
+    CONTROL         "Backup Device",IDC_BACKUP_FLAG,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,39,67,10
+END
+
+IDD_ADDVFILE_DLG DIALOG DISCARDABLE  0, 0, 186, 110
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Virtual File"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,16,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,36,50,14
+    LTEXT           "File Name",IDC_STATIC,11,7,97,8
+    EDITTEXT        IDC_DEVNAME_EDIT,10,16,100,14,ES_AUTOHSCROLL
+    GROUPBOX        "Attributes",IDC_STATIC,7,55,172,48
+    CONTROL         "Archive",IDC_ARCHIVE_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,67,69,10
+    CONTROL         "Hidden",IDC_HIDDEN_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,11,84,72,10
+    CONTROL         "Locked",IDC_LOCKED_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,95,67,78,10
+    CONTROL         "ReadOnly",IDC_READONLY_ATTR,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,96,84,80,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_BASE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_ADDDEVICE_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 103
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

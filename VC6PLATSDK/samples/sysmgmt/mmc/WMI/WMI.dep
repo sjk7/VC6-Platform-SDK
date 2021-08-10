@@ -1,0 +1,117 @@
+# Microsoft Developer Studio Generated Dependency File, included by wmi.mak
+
+.\about.cpp : \
+	".\about.h"\
+	".\globals.h"\
+	
+
+.\basesnap.cpp : \
+	".\about.h"\
+	".\basesnap.h"\
+	".\comp.h"\
+	".\compdata.h"\
+	".\delebase.h"\
+	".\globals.h"\
+	".\guids.h"\
+	".\localres.h"\
+	".\registry.h"\
+	".\statnode.h"\
+	
+
+.\comp.cpp : \
+	".\comp.h"\
+	".\compdata.h"\
+	".\dataobj.h"\
+	".\delebase.h"\
+	".\globals.h"\
+	".\localres.h"\
+	".\statnode.h"\
+	
+
+.\compdata.cpp : \
+	".\comp.h"\
+	".\compdata.h"\
+	".\dataobj.h"\
+	".\delebase.h"\
+	".\globals.h"\
+	".\localres.h"\
+	".\statnode.h"\
+	
+
+.\dataobj.cpp : \
+	".\dataobj.h"\
+	".\delebase.h"\
+	".\globals.h"\
+	".\guids.h"\
+	".\localres.h"\
+	
+
+.\delebase.cpp : \
+	".\delebase.h"\
+	".\globals.h"\
+	".\localres.h"\
+	
+
+.\land.cpp : \
+	".\delebase.h"\
+	".\globals.h"\
+	".\land.h"\
+	".\localres.h"\
+	
+
+.\mmccrack.cpp : \
+	".\globals.h"\
+	
+
+.\people.cpp : \
+	".\delebase.h"\
+	".\globals.h"\
+	".\localres.h"\
+	".\people.h"\
+	".\SimpleArray.h"\
+	{$(INCLUDE)}"wbemcli.h"\
+	
+
+.\registry.cpp : \
+	".\globals.h"\
+	".\registry.h"\
+	
+
+.\Resource.rc : \
+	".\ico00001.ico"\
+	".\icon2.ico"\
+	".\lgbmp.bmp"\
+	".\lgicons.bmp"\
+	".\smbmp.bmp"\
+	".\smicons.bmp"\
+	".\smopen.bmp"\
+	".\snapin.ICO"\
+	
+
+.\sky.cpp : \
+	".\delebase.h"\
+	".\globals.h"\
+	".\localres.h"\
+	".\sky.h"\
+	
+
+.\space.cpp : \
+	".\comp.h"\
+	".\delebase.h"\
+	".\globals.h"\
+	".\localres.h"\
+	".\space.h"\
+	
+
+.\statnode.cpp : \
+	".\delebase.h"\
+	".\globals.h"\
+	".\land.h"\
+	".\localres.h"\
+	".\people.h"\
+	".\SimpleArray.h"\
+	".\sky.h"\
+	".\space.h"\
+	".\statnode.h"\
+	{$(INCLUDE)}"wbemcli.h"\
+	

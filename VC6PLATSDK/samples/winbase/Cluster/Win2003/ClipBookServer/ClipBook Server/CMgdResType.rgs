@@ -1,0 +1,23 @@
+HKCR
+{
+    MgdResource.CMgdResType.1 = s 'ClusCfg ClipBookServer Class'
+    {
+        CLSID = s '{AD4E4946-0400-4A92-81D1-C85FE199970A}'
+    }
+    MgdResource.CMgdResType = s 'ClusCfg ClipBookServer Class'
+    {
+        CLSID = s '{AD4E4946-0400-4A92-81D1-C85FE199970A}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {AD4E4946-0400-4A92-81D1-C85FE199970A} = s 'ClusCfg ClipBookServer Class'
+        {
+            ProgID = s 'MgdResource.CMgdResType.1'
+            VersionIndependentProgID = s 'MgdResource.CMgdResType'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+        }
+    }
+}

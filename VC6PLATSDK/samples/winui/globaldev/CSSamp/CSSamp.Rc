@@ -1,0 +1,263 @@
+//resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+SETTINGS DIALOG DISCARDABLE  0, 0, 188, 384
+STYLE WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "CSSAMP - sample control",IDC_STATIC,7,4,173,43
+    RTEXT           "Base embedding level ---",IDC_STATIC,19,306,85,9
+    PUSHBUTTON      "LTR",IDC_LTR,109,304,32,12
+    PUSHBUTTON      "RTL",IDC_RTL,141,304,32,12
+    CONTROL         "Display ctrl chrs",IDC_CONTROL_CHARS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,109,329,64,12
+    CONTROL         "No gyph indices",IDC_NO_GLYPH_INDEX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,109,356,64,12
+    COMBOBOX        IDC_CODEPOINT,13,31,60,110,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Insert",IDC_INSERT_CODEPOINT,75,31,22,12
+    CONTROL         "Display logical text",IDC_LOGICAL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,16,84,10
+    GROUPBOX        "Static",IDC_STATIC,7,59,173,78
+    CONTROL         "Display plaintext",IDC_PLAINTEXT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,59,62,10
+    COMBOBOX        IDC_PLAINTEXT_FONT,13,72,92,145,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_PLAINTEXT_SIZE,105,72,31,99,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "B",IDC_PLAINTEXT_BOLD,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,137,72,12,12
+    CONTROL         "I",IDC_PLAINTEXT_ITALIC,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,149,72,12,12
+    CONTROL         "U",IDC_PLAINTEXT_UNDERLINE,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,161,72,12,12
+    CONTROL         "Clip",IDC_PLAINTEXT_CLIP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,88,82,10
+    CONTROL         "Fit",IDC_PLAINTEXT_FIT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,109,88,64,10
+    CONTROL         "Override DX",IDC_PLAINTEXT_DX,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,109,124,62,10
+    CONTROL         "Tab",IDC_PLAINTEXT_TAB,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,100,82,10
+    CONTROL         "Font Fallback",IDC_PLAINTEXT_FALLBACK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,112,57,10
+    CONTROL         "Font Linking",IDC_PLAINTEXT_LINK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,109,112,52,10
+    CONTROL         "Show hotkeys",IDC_PLAINTEXT_HOTKEY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,124,58,10
+    CONTROL         "Password",IDC_PLAINTEXT_PASSWORD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,109,100,46,10
+    GROUPBOX        "Static",IDC_STATIC,7,143,173,91
+    CONTROL         "Display formatted text",IDC_FORMATTED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,143,78,10
+    COMBOBOX        IDC_FANCY_FONT1,26,156,79,102,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FANCY_SIZE1,105,156,31,117,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "B",IDC_FANCY_BOLD1,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,137,156,12,12
+    CONTROL         "I",IDC_FANCY_ITALIC1,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,149,156,12,12
+    CONTROL         "U",IDC_FANCY_UNDERLINE1,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,161,156,12,12
+    COMBOBOX        IDC_FANCY_FONT2,26,171,79,87,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FANCY_SIZE2,105,171,31,87,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "B",IDC_FANCY_BOLD2,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,137,171,12,12
+    CONTROL         "I",IDC_FANCY_ITALIC2,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,149,171,12,12
+    CONTROL         "U",IDC_FANCY_UNDERLINE2,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,161,171,12,12
+    COMBOBOX        IDC_FANCY_FONT3,26,186,79,72,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FANCY_SIZE3,105,186,31,83,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "B",IDC_FANCY_BOLD3,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,137,186,12,12
+    CONTROL         "I",IDC_FANCY_ITALIC3,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,149,186,12,12
+    CONTROL         "U",IDC_FANCY_UNDERLINE3,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,161,186,12,12
+    COMBOBOX        IDC_FANCY_FONT4,26,201,79,57,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_FANCY_SIZE4,105,201,31,86,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "B",IDC_FANCY_BOLD4,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,137,201,12,12
+    CONTROL         "I",IDC_FANCY_ITALIC4,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,149,201,12,12
+    CONTROL         "U",IDC_FANCY_UNDERLINE4,"Button",BS_AUTOCHECKBOX | 
+                    BS_PUSHLIKE | BS_FLAT | WS_TABSTOP,161,201,12,12
+    PUSHBUTTON      "1",IDC_FORMAT1,13,156,12,12
+    PUSHBUTTON      "2",IDC_FORMAT2,13,171,12,12
+    PUSHBUTTON      "3",IDC_FORMAT3,13,186,12,12
+    PUSHBUTTON      "4",IDC_FORMAT4,13,201,12,12
+    GROUPBOX        "Itemization initial values",IDC_STATIC,7,246,173,131
+    CONTROL         "Context digits",IDC_CONTROL_CONTEXT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,278,64,12
+    COMBOBOX        IDC_LANGUAGE,19,265,85,204,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Legacy Bidi Class",IDC_LEGACY_BIDI,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,109,278,64,12
+    CONTROL         "Override direc'n",IDC_OVERRIDE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,109,318,61,10
+    CONTROL         "Digit Substitute",IDC_DIGIT_SUBSTITUTE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,318,60,10
+    CONTROL         "Use logical order",IDC_LOGICAL_ORDER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,356,77,12
+    GROUPBOX        "SCRIPT_CONTROL",IDC_STATIC,13,255,161,36
+    GROUPBOX        "SCRIPT_STATE",IDC_STATIC,13,294,161,48
+    GROUPBOX        "SCRIPT_ANALYSIS",IDC_STATIC,13,345,161,25
+    CONTROL         "AraNum Context",IDC_ARANUMCONTEXT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,19,329,61,12
+    CONTROL         "Word wrap",IDC_LINEFILL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,219,58,10
+    PUSHBUTTON      "Apply NLS digit subst",IDC_APPLYDIGITSUBST,102,31,71,12
+    LTEXT           "-- Primary language",IDC_STATIC,107,267,63,12
+    PUSHBUTTON      "Enlarge",IDC_PRESENTATION,102,15,27,12
+    PUSHBUTTON      "Show levels",IDC_SHOWLEVELS,132,15,41,12
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    "SETTINGS", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 377
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MAINMENU MENU DISCARDABLE 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "Exit",                        IDM_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// INITIALTEXT
+//
+
+110                     INITIALTEXT DISCARDABLE "initial.txt"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+SETTINGS DLGINIT
+BEGIN
+    IDC_PLAINTEXT_SIZE, 0x403, 2, 0
+0x0038, 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3432, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3633, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3834, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3036, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3237, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 3, 0
+0x3639, "\000" 
+    IDC_PLAINTEXT_SIZE, 0x403, 4, 0
+0x3231, 0x0030, 
+    0
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

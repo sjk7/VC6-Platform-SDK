@@ -1,0 +1,81 @@
+//Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+Computer                BITMAP  DISCARDABLE     "computer.bmp"
+User                    BITMAP  DISCARDABLE     "user.bmp"
+Domain                  BITMAP  DISCARDABLE     "domain.bmp"
+Syntax                  BITMAP  DISCARDABLE     "syntax.bmp"
+Service                 BITMAP  DISCARDABLE     "service.bmp"
+Group                   BITMAP  DISCARDABLE     "group.bmp"
+PrintQueue              BITMAP  DISCARDABLE     "pqueue.bmp"
+Ndsou                   BITMAP  DISCARDABLE     "ndsou.bmp"
+FileShare               BITMAP  DISCARDABLE     "fshare.bmp"
+Organization            BITMAP  DISCARDABLE     "bitmap1.bmp"
+Country                 BITMAP  DISCARDABLE     "C.BMP"
+Top                     BITMAP  DISCARDABLE     "ndsroot.bmp"
+Namespace               BITMAP  DISCARDABLE     "namespac.bmp"
+Dummy                   BITMAP  DISCARDABLE     "dummy.bmp"
+Namespaces              BITMAP  DISCARDABLE     "namespcs.bmp"
+ICON                    BITMAP  DISCARDABLE     "bmp00001.bmp"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDI_ICON1               ICON    DISCARDABLE     "icon1.ico"
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

@@ -1,0 +1,35 @@
+# Microsoft Developer Studio Generated Dependency File, included by ContextMenuEx.mak
+
+.\BaseSnap.Cpp : \
+	".\BaseSnap.h"\
+	".\ContextMenuEx.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\ContextMenuEx.cpp : \
+	".\ContextMenuEx.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\TraceMacro.h"\
+	
+
+.\Globals.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\TraceMacro.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\TraceMacro.h"\
+	

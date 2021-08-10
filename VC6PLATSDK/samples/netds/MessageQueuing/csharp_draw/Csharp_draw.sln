@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp_Draw", "CSharp_Draw.csproj", "{952BBB32-1AB2-4343-9641-6912DA6E17AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{952BBB32-1AB2-4343-9641-6912DA6E17AB}.Debug.ActiveCfg = Debug|.NET
+		{952BBB32-1AB2-4343-9641-6912DA6E17AB}.Debug.Build.0 = Debug|.NET
+		{952BBB32-1AB2-4343-9641-6912DA6E17AB}.Release.ActiveCfg = Release|.NET
+		{952BBB32-1AB2-4343-9641-6912DA6E17AB}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,481 @@
+<html>
+<body>
+
+<center><h1>Microsoft .NET Passport Software Development Kit Readme</h1>
+	<b>Version 2.5 (October 2002)</b><br>
+	© 2002 Microsoft Corporation. All rights reserved.
+	<br>
+	This document provides information that supplements the Microsoft .NET Passport 
+	Software Development Kit (SDK) version 2.5 documentation.
+</center>
+<h2>Contents</h2>
+<UL>
+	<li>
+		Windows Server 2003 and .NET Passport Integration</li>
+	<li>
+		Using .NET Passport Test and Sample Sites on Windows Server 2003</li>
+	<li>
+		Using IIS Manager to Allow ASP</li>
+	<li>
+		Setting Secure Level for Sites</li>
+	<li>
+		Configuration Recommendations</li>
+	<li>
+		Default Installation of .NET Passport on Windows Server 2003</li>
+	<li>
+		Upgrading a Windows 2000 .NET Passport Installation to Windows Server 2003</li>
+	<li>
+		Upgrading a Windows 2000 .NET Passport 1.<i>x</i> Installation to Windows Server 2003</li>
+	<li>
+		Accessing the Passport Manager Administration Utility</li>
+	<li>
+		Cobranding with Only .NET Passport Authentication Enabled</li>
+		<li>Windows XP Integrated .NET Passport Client Wizard</li>
+	<li>
+		LoginUser Method Functions Differently Depending on Configuration</li>
+	<li>
+		IIS 6.0 Mode with Only .NET Passport Authentication Enabled</li>
+	<li>
+		New Registry Keys
+		<ul>
+			<li>
+				Secure Level Key</li>
+			<li>
+				KPP Key</li>
+			<li>
+				ExtraParams Key</li>
+			<li>
+				NameSpace Key</li>
+		</ul>
+	</li>
+	<li>
+		Windows Server 2003 on 64-bit Operating Systems</li>
+	<li>
+		Updating Partner.xml
+	</li>
+	<li>
+		Signing in to the Sample Test Site</li>
+	<li>
+		Windows 2000 Events</li>
+	<li>
+		Headers and Type Libraries</li>
+	<li>
+		Query String Variables on Pages That Create Instances of Passport Manager 
+		Objects</li>
+	<li>
+		Contact Information</li>
+	<li>
+		.NET Passport Documentation</li>
+	<li>
+		.NET Passport Policies</li>
+	<li>
+		Uninstalling .NET Passport</li>
+</UL>
+<h2>Windows Server 2003 and .NET Passport Integration</h2>
+<p>
+	Microsoft Windows Server 2003 is released with most of the files provided in 
+	this standalone .NET Passport 2.5 SDK. For this reason, when this SDK installer 
+	is run on Windows Server 2003, only the remaining SDK files can be installed. These 
+	files include the documentation, header and library files, the <b>LookupTable</b>
+	object, sample and test content, and performance counter files.</p>
+<p>In addition to the .NET Passport files, the Microsoft .NET Framework is also 
+	included in the Windows Server 2003 release. These two components are all that you need 
+	to build .NET Passport solutions.</p>
+<p>At the time of the .NET Passport 2.5 SDK release, Windows Server 2003 is near 
+	the release of its Release Candidate 2. The following is a list of 
+	considerations and recommendations for the use of .NET Passport on the .NET 
+	Server platform.</p>
+<h2>Using .NET Passport Test and Sample Sites on Windows Server 2003</h2>
+<p>
+	To use the .NET Passport test and sample sites that are installed with the .NET 
+	Passport 2.5 SDK, you must configure the virtual roots of your .NET Passport 
+	Web applications to allow Active Server Pages (ASP) and set the Secure Level to 
+	0 in the registry.</p>
+<h2>Using IIS Manager to Allow ASP</h2>
+<p>The .NET Passport test and sample sites provided in the SDK are ASP applications 
+	and will not run on Windows Server 2003 unless you configure Microsoft Internet 
+	Information Services (IIS) to allow ASP applications. If ASP applications are 
+	not allowed by IIS, you will see an “HTTP 404 Error: File Not Found” message in 
+	your browser when attempting to access the site.</p>
+<p>In IIS Manager, expand the local computer node, and then click <b>Web Service 
+		Extensions</b>. In the right pane, click <b>Active Server Pages</b>, and 
+	then click <b>Allow</b>.</p>
+<p>If your ASP pages require ISAPI, CGI, ASP.NET, WebDAV, or other extensions to 
+	operate, you must enable those extensions individually.
+</p>
+<h2>Setting Secure Level for Sites</h2>
+<p>For the default site, change the registry value for the following key:</p>
+<p>
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\SecureLevel</p>
+<p>For any site other than the default, change the registry value for the following 
+	key:</p>
+<p>HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\Sites\&lt;Site 
+	Name&gt;\SecureLevel</p>
+<h2>Configuration Recommendations</h2>
+<p>To achieve the same functionality on Windows Server 2003 that is available on Windows 
+	2000, the following is the best configuration option:
+</p>
+<p>
+	Set directory security to enable both anonymous and .NET Passport authentication in 
+	IIS 6.0 mode.
+</p>
+<p>
+	If you do not need to the functionality of Windows 2000, the following 
+	configuration option provides optimal performance on Windows Server 2003:
+</p>
+<p>
+	Set directory security to enable .NET Passport authentication in IIS 6.0 
+	mode.
+</p>
+<h2>Default Installation of .NET Passport on Windows Server 2003</h2>
+<p>
+	The .NET Passport component installation on Windows Server 2003 has a 
+	configuration that emphasizes security by default. As a result, several .NET 
+	Passport default settings are different from other installations. These 
+	settings include:
+</p>
+<ul>
+	<li>
+		Forced sign-in option is turned on.</li>
+	<li>
+		TimeWindow is set to 1800 (30 minutes).</li>
+	<li>
+		Authentication Secure Level is set to 10.</li>
+	<li>
+		IIS is set to run in 6.0 mode.
+	</li>
+	<li>
+		.NET Passport DLLs are run in W3WP (isolated) process space.
+	</li>
+	<li>
+		Verbose mode logging is turned off.</li>
+</ul>
+<h2>Upgrading a Windows 2000 .NET Passport Installation to Windows Server 2003</h2>
+To upgrade your .NET Passport installation from Windows 2000 to Windows Server 2003, 
+install Windows Server 2003, and then move your site to that installation. Configure 
+.NET Passport as it was on Windows 2000, and then set the site to run in IIS 
+5.0 compatibility mode or IIS 6.0 mode. </p>
+<p>
+	If you choose the upgrade installation option, your site will be set up as 
+	follows:
+</p>
+<ul>
+	<li>
+		All previous .NET Passport configuration settings will be preserved.</li>
+	<li>
+		IIS will be set to run in IIS 5.0 compatibility mode.</li>
+	<li>
+		.NET Passport DLLs will run as dictated by the application protection setting 
+		of the site.
+	</li>
+</ul>
+<p>
+	After upgrading, if you would like to run in IIS 6.0 mode, you may choose to 
+	configure your .NET Passport installation as previously discussed in 
+	“Configuration Recommendations” section of this document.
+</p>
+<h2>Upgrading a Windows 2000 .NET Passport 1.x Installation to Windows Server 2003</h2>
+<p>
+	To upgrade to Windows Server 2003, you must first obtain a new key for your site 
+	through <a href="http://www.netservicesmanager.com">http://www.netservicesmanager.com</a>.
+	The key format was changed with the release of .NET Passport 2.0, on which the 
+	Windows Server 2003 implementation is based.
+</p>
+<h2>Accessing the Passport Manager Administration Utility</h2>
+<p>
+	If you upgraded from Windows 2000 to Windows Server 2003, the link to the Passport 
+	Manager Administration utility will be preserved. However, the target of the 
+	link will be changed to the version of the utility provided in the Windows Server 2003 
+	package.
+</p>
+<p>
+	If you performed a clean installation of Windows Server 2003 (that is, one in which 
+	.NET Passport was not installed before the operating system), then no shortcut 
+	is created. You can create a shortcut to the utility by pointing to 
+	%windir%\system32\msppcnfg.exe, or you can access the Passport Manager 
+	Administration utility by clicking the <b>Start</b> button, selecting <b>Run</b>, 
+	and then typing msppcnfg.exe.
+</p>
+<p>
+	If you install the .NET Passport 2.5 SDK on Windows Server 2003, a shortcut to the 
+	Passport Manager Administration utility provided by Windows Server 2003 will be placed 
+	in the “Microsoft Passport” group.
+</p>
+<h2>Cobranding with Only .NET Passport Authentication Enabled</h2>
+<p>
+	When running your site in IIS 6.0 mode with only .NET Passport authentication 
+	enabled, you may find that your cobranding of the .NET Passport Login, 
+	Registration, and Member Services pages does not work. When .NET Passport 
+	authentication is enabled on a site or virtual directory, the authentication 
+	applies to all elements of that site. Therefore, when the user is not 
+	authenticated, the cobranding elements are inaccessible to the user’s browser. 
+	The .NET Passport servers obtain a site’s cobranding information by accessing a 
+	file in the site. With only .NET Passport authentication enabled, the .NET 
+	Passport servers may not be able to access the cobranding file; therefore, no 
+	cobranding is displayed.
+</p>
+<p>
+	To resolve this issue:
+</p>
+<ul>
+	<li>
+		Enable anonymous access to the site (in addition to .NET Passport 
+		authentication).
+	</li>
+</ul>
+<p><b>OR</b></p>
+<ul>
+	<li>
+		Move your cobranding files to a site or virtual directory that allows anonymous 
+		access. Then change the cobrand URL that you provided when you registered on 
+		<a href="http://www.netservicesmanager.com">http://www.netservicesmanager.com</a> to reflect the new location of the files.
+	</li>
+</ul>
+<h2>Windows XP Integrated .NET Passport Client Wizard</h2>
+<p>
+	With a clean installation of Windows Server 2003, you must set directory security to 
+	anonymous and .NET Passport authentication in order to enable the integrated 
+	.NET Passport client experience.
+</p>
+<p>
+	If you upgraded to Windows Server 2003 with a previously installed version of .NET 
+	Passport, then Windows Server 2003 will run in IIS 5.0 compatibility mode and will load 
+	the .NET Passport global filter component. Although this configuration is 
+	supported, it does not provide optimal performance or reliable protection.
+</p>
+<h2>LoginUser Method Functions Differently Depending on Configuration</h2>
+<p>
+	If anonymous and .NET Passport authentication are enabled in IIS 6.0 mode, then 
+	the <b>LoginUser</b> method will use parameter values passed directly into it 
+	from the code. If parameters are not passed from the code, the defaults from 
+	the registry will be used.
+</p>
+<p>
+	If only .NET Passport authentication is enabled in IIS 6.0 mode, then the <b>LoginUser</b>
+	method will use the registry values set for the site, no matter which 
+	parameters are passed in from code in the Web page. This is because anonymous 
+	access is not granted to the page, and IIS handles the function call first. To 
+	change the default values, use the Passport Manager Administration utility or 
+	change the registry values directly. For more information, see the “New 
+	Registry Keys” section of this document.
+</p>
+<h2>IIS 6.0 Mode with Only .NET Passport Authentication Enabled</h2>
+<p>
+	In this configuration, IIS will receive the user’s request first, so it does 
+	not matter which APIs are called in the ASP pages. The pages are not executed 
+	unless the user has valid credentials. After the user has been authenticated, 
+	IIS will let requests go through and the ASP pages are executed. By default, <b>Forced 
+		Sign-In</b> is set to 1. Therefore, the user will always be redirected to 
+	the Login server even if the user has already signed in to another .NET 
+	Passport participating site.
+</p>
+<p>
+	To change this behavior so that the user is not redirected to the Login server 
+	automatically, run IIS in 6.0 mode with anonymous and .NET Passport 
+	authentication enabled.
+</p>
+<p>
+	If you want to use only .NET Passport authentication but do not want to force 
+	the user to sign in again if the user has already been authenticated at another 
+	participating site, turn off the <b>Forced Sign-In</b> option in the Passport 
+	Manager Administration utility.
+</p>
+<h2>New Registry Keys</h2>
+<p>
+	The following are the default registry key settings with a Windows Server 2003 
+	installation of .NET Passport.
+</p>
+<h3>Secure Level Key</h3>
+The default Secure Level is 10, which means that new sites using .NET Passport 
+integrated authentication will require the server to have a Secure Sockets 
+Layer (SSL) server certificate when using the default settings. You can change 
+the default setting by changing a registry value. To change the Secure Level 
+setting for the default site, change the value for the following key: 
+HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\SecureLevel To change any other 
+site’s Secure Level setting, change the value of the following key: 
+HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\Sites\&lt;Site 
+Name&gt;\SecureLevel
+<h3>KPP Key</h3>
+<p>
+	By default, there is no <i>KPP</i> parameter set in Windows Server 2003 when using .NET 
+	Passport integrated authentication. If you want to set the default <i>KPP</i> parameter 
+	so that it is used by .NET Passport integrated authentication, add a registry 
+	DWORD value to the following locations.
+</p>
+<p>
+	To add the KPP parameter for the default site, add a value for the following 
+	key:
+</p>
+<p>
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\KPP
+</p>
+<p>
+	To add the KPP parameter for any other site, add a value for the following key:
+</p>
+<p>
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\Sites\&lt;Site Name&gt;\KPP
+</p>
+<h3>ExtraParams Key</h3>
+<p>
+	By default, there are no extra parameters set in Windows Server 2003 when using .NET 
+	Passport integrated authentication. If you want to set the default <i>ExtraParams</i>
+	so that it is used by .NET Passport integrated authentication, add a registry 
+	value (a string with the extra parameters) to the following locations.
+</p>
+<p>
+	To add extra parameters for the default site, add a value for the following 
+	key:
+</p>
+<p>
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\ExtraParams
+</p>
+<p>
+	To add extra parameters for any other site, add a value for the following key:
+</p>
+<p>
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\Sites\&lt;Site 
+	Name&gt;\ExtraParams
+</p>
+<h3>NameSpace Key</h3>
+<p>
+	By default, there is no <i>NameSpace</i> parameter set in Windows Server 2003 when 
+	using .NET Passport integrated authentication. If you want to set the default <i>NameSpace</i>
+	parameter so that it is used by .NET Passport integrated authentication, add a 
+	registry value (a string containing the namespace) to the following locations.
+</p>
+<p>
+	To add the NameSpace parameter for the default site, add a value for the 
+	following key:
+</p>
+<p>
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\NameSpace
+</p>
+<p>
+	To set any other site’s namespace, add a value for the following key:
+</p>
+<p>
+	HKEY_LOCAL_MACHINE\Software\Microsoft\Passport\Sites\&lt;Site 
+	Name&gt;\NameSpace
+</p>
+<h2>Windows Server 2003 on 64-bit Operating Systems</h2>
+<p>
+	When installing the encryption key on a 64-bit operating system, you will 
+	receive an error saying the key could not be installed and asking you to verify 
+	that .NET Passport is installed on the computer.
+</p>
+<p>
+	To work around this problem, use the key installer’s remote installation 
+	capability to install the key from a 32-bit operating system (Windows 2000 or 
+	Windows XP), as follows, substituting your computer for <b>ServerName</b>:
+</p>
+<b>Partner99999.exe /addkey /m ServerName</b>
+<p>
+	The 32-bit server on which you are running the key installer must have .NET 
+	Passport installed.
+</p>
+<h2>Updating Partner.xml</h2>
+<p>
+	If your site is experiencing difficulty updating the Component Configuration 
+	Document (CCD), <i>Partner.xml</i>, the following information may be helpful.
+</p>
+<h3>Check permissions on your server.
+</h3>
+<p>
+	When Passport Manager updates <i>Partner.xml</i> on your server, it uses the 
+	local IWAM_<i>&lt;machinename&gt;</i> account. This account must therefore have 
+	"Full Control" permissions to the C:\winnt\system32\microsoftpassport directory 
+	on your server in order to write the <i>Partner.xml</i> file to that location.
+</p>
+<h3>If you obtain <i>Partner.xml</i> through a proxy, adjust the registry.</h3>
+<p>
+	The Passport Manager updates your copy of <i>Partner.xml</i> even if it must go 
+	through a proxy server to do so. When the SDK is installed, your registry is 
+	updated so that your proxy settings are available to the system process that 
+	obtains <i>Partner.xml</i>.</p>
+<p>
+	Values under the following keys have been copied from:
+</p>
+<p>
+	<b>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings, 
+		HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet 
+		Settings\ZoneMap, 
+		HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet 
+		Settings\Zones </b>
+</p>
+<p>
+	to
+</p>
+<p>
+	<b>HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Internet Settings, 
+		HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Internet 
+		Settings\ZoneMap, 
+		HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Internet 
+		Settings\Zones </b>
+</p>
+<h2>Signing in to the Sample Test Site</h2>
+<p>
+	The Setup program installs a sample test site to help you verify that Passport 
+	Manager is functioning on your server.
+</p>
+<p>To sign in to the test site, you must use Site ID 1 and your Preproduction 
+	(PREP) .NET Passport. For more information, see the "Test Site" topic in the 
+	.NET Passport documentation.
+</p>
+<h2>Windows 2000 Events</h2>
+<p>
+	If you are not seeing any Passport Manager events in your Windows 2000 event 
+	log, configure your site to run in-process. Under some circumstances, IIS 5.0 
+	will be installed with permissions that do not allow the events to be written 
+	unless you are running your site in-process, or you enable events for the 
+	account under which IIS was installed. To resolve this problem, change the 
+	value of the following key from 1 to 0.
+</p>
+<p><b> HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\RestrictGuestAccess
+	</b>
+</p>
+<h2>Headers and Type Libraries</h2>
+<p>
+	The .NET Passport header file is located in the \include\passport.h file in 
+	your SDK installation directory. The \include directory also contains two other 
+	header (.h) files used for .NET Passport-specific <b>HRESULTs</b> and 
+	constants. The .NET Passport type library is located in your SDK installation 
+	directory at \lib\x86\passport.lib.
+</p>
+<h2>Query String Variables on Pages that Create Instances of Passport Manager 
+	Objects</h2>
+<p>
+	You may wish to pass your own private query string variables to save state or 
+	context when connecting users to the .NET Passport Login server. Your site may 
+	be using query string variables for other reasons. There are three query string 
+	variable names <i>(t, p, and f)</i> that you must not use on any site that 
+	creates an instance of the <b>Passport Manager</b> object. <b>Passport Manager</b>
+	uses these variables as indicators that a fresh Ticket, Profile, or error flag 
+	has arrived from the Login server. Do not use these variables, encoded or 
+	unencoded, in a return URL passed as a parameter to a <b>Passport Manager</b> method.
+</p>
+
+<h2>Contact Information</h2>
+<p>
+	Contact information can be found in the "Support Contact Information and Hours" 
+	topic in the .NET Passport documentation.
+</p>
+<h2>.NET Passport Documentation</h2>
+<p>
+	The .NET Passport 2.5 documentation is also available in the MSDN Library, 
+	under "XML and Web Services."
+</p>
+<h2>.NET Passport Policies</h2>
+<p>
+	The .NET Passport policies as published by Microsoft in this release are 
+	subject to change periodically. For current policies and policy updates, see 
+	the Microsoft .NET Passport 2.5 documentation on MSDN at <a href="http://msdn.microsoft.com/downloads/default.asp?URL=/code/sample.asp?url=/MSDN-FILES/027/001/644/msdncompositedoc.xml">
+		http://msdn.microsoft.com/downloads/default.asp?URL=/code/sample.asp?url=/MSDN-FILES/027/001/644/msdncompositedoc.xml</a>.
+</p>
+<h2>Uninstalling .NET Passport</h2>
+<p>
+	The Microsoft Passport folder will not be uninstalled if you are using Windows 
+	XP Professional and have navigated to the Microsoft Passport folder before 
+	uninstalling. This folder must be deleted manually.
+</p>
+</body>
+</html>

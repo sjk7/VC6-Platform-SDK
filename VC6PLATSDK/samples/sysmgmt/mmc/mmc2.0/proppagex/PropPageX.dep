@@ -1,0 +1,35 @@
+# Microsoft Developer Studio Generated Dependency File, included by PropPageX.mak
+
+.\BaseSnap.Cpp : \
+	".\BaseSnap.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\PropPageX.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\Globals.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	
+
+.\PropPageX.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\PropPageX.h"\
+	".\TraceMacro.h"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\TraceMacro.h"\
+	
+
+.\TraceMacro.cpp : \
+	".\Globals.h"\
+	".\Guids.h"\
+	".\TraceMacro.h"\
+	

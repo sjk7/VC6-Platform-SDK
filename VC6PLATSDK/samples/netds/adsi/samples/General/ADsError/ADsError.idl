@@ -1,0 +1,41 @@
+// ADsError.idl : IDL source for ADsError.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ADsError.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	
+	[
+		object,
+		uuid(417D01DF-F1C6-11D2-BC88-00C04FD430AF),
+		dual,
+		helpstring("IADsError Interface"),
+		pointer_default(unique)
+	]
+	interface IADsError : IDispatch
+	{
+		[id(1), helpstring("method GetErrorMessage")] HRESULT GetErrorMessage([in] long hResult, [out,retval] BSTR *pbMsg);
+	};
+
+[
+	uuid(417D01D3-F1C6-11D2-BC88-00C04FD430AF),
+	version(1.0),
+	helpstring("ADsError 1.0 Type Library")
+]
+library ADSERRORLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(417D01E0-F1C6-11D2-BC88-00C04FD430AF),
+		helpstring("ADsError Class")
+	]
+	coclass ADsError
+	{
+		[default] interface IADsError;
+	};
+};

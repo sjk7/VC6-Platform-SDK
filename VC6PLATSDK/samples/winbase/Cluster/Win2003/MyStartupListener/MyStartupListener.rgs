@@ -1,0 +1,18 @@
+HKCR
+{
+    Microsoft.ClusterSamples.MyStartupListener.1 = s 'ClusCfg Startup Listener Sample'
+    {
+        CLSID = s '{BA3DE790-AD13-432b-A1DB-4905F6C7A336}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {BA3DE790-AD13-432b-A1DB-4905F6C7A336} = s 'ClusCfg Startup Listener Sample'
+        {
+            ProgID = s 'Microsoft.ClusterSamples.MyStartupListener.1'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Both'
+            }
+        }
+    }
+}

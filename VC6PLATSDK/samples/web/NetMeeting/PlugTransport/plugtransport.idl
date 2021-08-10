@@ -1,0 +1,18 @@
+//****************************************************************************
+//  Module:     PLUGTRANSPORT.EXE     
+//  File:       PLUGTRANSPORT.IDL
+//  Content:    
+//              
+//
+//  Copyright (c) Microsoft Corporation 1995-2002
+//
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF 
+// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A 
+// PARTICULAR PURPOSE.
+//****************************************************************************
+
+
+
+#include "imsconf3.idl"
+#include "iplgxprt.idl"

@@ -1,0 +1,5 @@
+LIBRARY         FVTEXT
+
+EXPORTS
+                DllGetClassObject private
+                DllCanUnloadNow private

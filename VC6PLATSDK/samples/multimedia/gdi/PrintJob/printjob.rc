@@ -1,0 +1,224 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "winver.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_APP                 ICON    DISCARDABLE     "PrintJob.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_PRINTJOB MENU DISCARDABLE 
+BEGIN
+    POPUP "&Printer"
+    BEGIN
+        MENUITEM "&Refresh",                    ID_FILE_REFRESH
+        MENUITEM "S&elect",                     IDM_SELECTPRINTER
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&Use Printer Notifications",  IDM_PRINTERNOTIFICATION
+        , GRAYED
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Print Job...",         IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_PRINTJOB ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    "e",            IDM_SELECTPRINTER,      ASCII,  ALT, NOINVERT
+    "n",            IDM_PRINTERNOTIFICATION, ASCII, ALT, NOINVERT
+    "r",            ID_FILE_REFRESH,        ASCII,  ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  22, 17, 167, 64
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About PrintJob"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,2,32,14,WS_GROUP
+    ICON            IDI_APP,-1,3,2,18,20
+    LTEXT           "CompanyName",IDC_COMPANYNAME,30,2,100,8
+    LTEXT           "FileDescription",IDC_FILEDESCRIPTION,30,10,82,8
+    LTEXT           "ProductVersion",IDC_PRODUCTVERSION,114,10,16,8
+    LTEXT           "LegalCopyright",IDC_LEGALCOPYRIGHT,30,18,137,8
+    LTEXT           "LegalTrademarks",IDC_LEGALTRADEMARKS,30,34,136,27
+    CONTROL         "",501,"Static",SS_BLACKRECT,28,31,138,1
+END
+
+IDD_SELECTPRINTER DIALOG DISCARDABLE  0, 0, 211, 45
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "View Printer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "&Printer:",IDC_STATIC,6,17,24,8
+    EDITTEXT        IDC_EDITSELECTPRINTER,32,15,117,13,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,155,6,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,155,23,50,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 3,3,0,0
+ PRODUCTVERSION 3,3,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0xbL
+#else
+ FILEFLAGS 0xaL
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "Microsoft Corporation\0"
+            VALUE "FileDescription", "Print Job Application\0"
+            VALUE "FileVersion", "1.0\0"
+            VALUE "InternalName", "PrintJob\0"
+            VALUE "LegalCopyright", "Copyright © Microsoft Corp. 1990 - 2000\0"
+            VALUE "LegalTrademarks", "Microsoft® is a registered trademark of Microsoft Corporation. Windows(TM) is a trademark of Microsoft Corporation\0"
+            VALUE "OriginalFilename", "\0"
+            VALUE "ProductName", "PrintJob\0"
+            VALUE "ProductVersion", "1.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+#endif    // !_MAC
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""winver.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Data
+//
+
+IDR_COLUMNWIDTHS RCDATA MOVEABLE PURE 
+BEGIN
+    0x0110, 0x0064, 0x006e, 0x0078, 0x0088
+END
+
+IDR_COLUMNCOUNT RCDATA DISCARDABLE 
+BEGIN
+    0x0005
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_COLUMN1             "Document Name"
+    IDS_COLUMN2             "Owner"
+    IDS_COLUMN3             "Status"
+    IDS_COLUMN4             "Submitted"
+    IDS_COLUMN5             "Progress"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

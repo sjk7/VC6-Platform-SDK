@@ -1,0 +1,60 @@
+# Microsoft Developer Studio Generated Dependency File, included by Simple.mak
+
+.\BaseSnap.cpp : \
+	".\BaseNode.h"\
+	".\BaseSnap.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\Registry.h"\
+	".\StaticNode.h"\
+	
+
+.\Comp.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\Globals.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\CompData.cpp : \
+	".\BaseNode.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\Globals.h"\
+	".\StaticNode.h"\
+	".\TraceMacro.h"\
+	
+
+.\DataObj.cpp : \
+	".\BaseNode.h"\
+	".\DataObj.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\StaticNode.h"\
+	
+
+.\Globals.cpp : \
+	".\Globals.h"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Registry.h"\
+	
+
+.\StaticNode.cpp : \
+	".\BaseNode.h"\
+	".\Globals.h"\
+	".\StaticNode.h"\
+	
+
+.\TraceMacro.cpp : \
+	".\Globals.h"\
+	".\TraceMacro.h"\
+	

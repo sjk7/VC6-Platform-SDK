@@ -1,0 +1,20 @@
+# Microsoft Developer Studio Generated Dependency File, included by atlcontrol.mak
+
+.\ATLControl.cpp : \
+	".\MMCControl.h"\
+	".\StdAfx.h"\
+	
+
+.\ATLControl.rc : \
+	".\mmccontr.bmp"\
+	".\MMCControl.rgs"\
+	
+
+.\MMCControl.cpp : \
+	".\MMCControl.h"\
+	".\StdAfx.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	

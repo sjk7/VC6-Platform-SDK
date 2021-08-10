@@ -1,0 +1,176 @@
+//+-------------------------------------------------------------------------
+//
+//  Microsoft Windows
+//
+//  Copyright (C) Microsoft Corporation, 1999 - 2000
+//
+//  File:       SCPWizard.rc
+//
+//--------------------------------------------------------------------------
+
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SCP_PAGE_GENERAL DIALOG DISCARDABLE  0, 0, 252, 170
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "General"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            "",IDC_STATIC_ICON,7,7,21,20
+    LTEXT           "Create in:",IDC_STATIC,43,12,33,8
+    EDITTEXT        IDC_EDIT_CONTAINER,83,12,162,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,7,35,
+                    238,1
+    LTEXT           "&Name:",IDC_STATIC,7,49,22,8
+    EDITTEXT        IDC_NAME_EDIT,80,46,165,14,ES_AUTOHSCROLL
+    LTEXT           "&Service DNS Name:",IDC_STATIC,7,69,66,8
+    EDITTEXT        IDC_DNS_NAME_EDIT,80,66,165,14,ES_AUTOHSCROLL
+    LTEXT           "S&ervice Class Name:",IDC_STATIC,7,109,73,8
+    EDITTEXT        IDC_SERVICE_CLASS_EDIT,80,106,165,14,ES_AUTOHSCROLL
+    LTEXT           "&Description:",IDC_STATIC,7,128,55,8
+    EDITTEXT        IDC_DESCRIPTION_EDIT,80,126,165,14,ES_AUTOHSCROLL
+    LTEXT           "DNS Name &Type:",IDC_STATIC,7,89,57,8
+    EDITTEXT        IDC_DNS_NAME_TYPE_EDIT,80,86,165,14,ES_AUTOHSCROLL
+END
+
+IDD_SCP_PAGE_KEYWORDS DIALOG DISCARDABLE  0, 0, 252, 170
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Keywords"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            "",IDC_STATIC_ICON,7,7,20,20
+    LTEXT           "Create in:",IDC_STATIC,43,12,33,8
+    EDITTEXT        IDC_EDIT_CONTAINER,83,12,162,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,7,35,
+                    238,1
+    EDITTEXT        IDC_KEYWORD_EDIT,7,46,131,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_KEYWORD_LIST,7,66,131,78,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Add",IDC_ADD_BUTTON,144,46,50,14
+    PUSHBUTTON      "&Delete",IDC_DELETE_BUTTON,144,66,50,14
+    PUSHBUTTON      "&Edit",IDC_EDIT_BUTTON,144,84,50,14
+END
+
+IDD_SCP_PAGE_BINDING_INFO DIALOG DISCARDABLE  0, 0, 252, 170
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Binding Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            "",IDC_STATIC_ICON,7,7,20,20
+    LTEXT           "Create in:",IDC_STATIC,43,12,33,8
+    EDITTEXT        IDC_EDIT_CONTAINER,83,12,162,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,7,35,
+                    238,1
+    EDITTEXT        IDC_KEYWORD_EDIT,7,46,131,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_KEYWORD_LIST,7,66,131,78,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Add",IDC_ADD_BUTTON,144,46,50,14
+    PUSHBUTTON      "&Delete",IDC_DELETE_BUTTON,144,66,50,14
+    PUSHBUTTON      "&Edit",IDC_EDIT_BUTTON,144,84,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SCP_PAGE_GENERAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        VERTGUIDE, 80
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+
+    IDD_SCP_PAGE_KEYWORDS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+
+    IDD_SCP_PAGE_BINDING_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 163
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

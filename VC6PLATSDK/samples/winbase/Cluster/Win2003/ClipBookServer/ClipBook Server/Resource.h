@@ -1,0 +1,6 @@
+#define IDR_CMgdResType                                 2001
+#define IDS_RESTYPE_DISPLAYNAME                         2002
+#define IDS_CLUSCFG_INFO_CONFIGURING_RESTYPE            2010
+#define IDS_CLUSCFG_INFO_CONFIGURED_RESTYPE             2011
+#define IDS_CLUSCFG_ERROR_CONFIGURING_RESTYPE_FAILED    2012
+#define IDS_CLUSCFG_ERROR_GETCOMPUTERNAME_FAILED        2013

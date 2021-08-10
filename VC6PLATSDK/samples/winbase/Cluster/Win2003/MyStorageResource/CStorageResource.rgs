@@ -1,0 +1,23 @@
+HKCR
+{
+    MyStorageResource.CStorageResource.1 = s 'CStorageResource Class'
+    {
+        CLSID = s '{B07C16FE-9F4D-4ADD-AAA4-931F501CB9FC}'
+    }
+    MyStorageResource.CStorageResource = s 'CStorageResource Class'
+    {
+        CLSID = s '{B07C16FE-9F4D-4ADD-AAA4-931F501CB9FC}'
+    }
+    NoRemove CLSID
+    {
+        ForceRemove {B07C16FE-9F4D-4ADD-AAA4-931F501CB9FC} = s 'CStorageResource Class'
+        {
+            ProgID = s 'MyStorageResource.CStorageResource.1'
+            VersionIndependentProgID = s 'MyStorageResource.CStorageResource'
+            InprocServer32 = s '%MODULE%'
+            {
+                val ThreadingModel = s 'Apartment'
+            }
+        }
+    }
+}

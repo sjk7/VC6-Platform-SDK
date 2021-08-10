@@ -1,0 +1,68 @@
+# Microsoft Developer Studio Generated Dependency File, included by Simple.mak
+
+.\BaseSnap.cpp : \
+	".\BaseSnap.h"\
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LocalRes.h"\
+	".\Registry.h"\
+	".\StatNode.h"\
+	
+
+.\Comp.cpp : \
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\StatNode.h"\
+	
+
+.\CompData.cpp : \
+	".\Comp.h"\
+	".\CompData.h"\
+	".\DataObj.h"\
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\StatNode.h"\
+	
+
+.\DataObj.cpp : \
+	".\DataObj.h"\
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\Guids.h"\
+	".\LocalRes.h"\
+	
+
+.\DeleBase.cpp : \
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	
+
+.\MMCCrack.cpp : \
+	".\Globals.h"\
+	
+
+.\Registry.cpp : \
+	".\Globals.h"\
+	".\Registry.h"\
+	
+
+.\StatNode.cpp : \
+	".\DeleBase.h"\
+	".\Globals.h"\
+	".\LocalRes.h"\
+	".\StatNode.h"\
+	
+
+.\Resource.rc : \
+	".\lgicons.bmp"\
+	".\smicons.bmp"\
+	

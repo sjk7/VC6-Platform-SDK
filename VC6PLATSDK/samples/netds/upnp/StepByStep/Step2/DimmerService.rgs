@@ -1,0 +1,26 @@
+HKCR
+{
+	MyDevice.DimmerService.1 = s 'DimmerService Class'
+	{
+		CLSID = s '{67B046DD-6000-4122-9092-0706F1C7C4D8}'
+	}
+	MyDevice.DimmerService = s 'DimmerService Class'
+	{
+		CLSID = s '{67B046DD-6000-4122-9092-0706F1C7C4D8}'
+		CurVer = s 'MyDevice.DimmerService.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {67B046DD-6000-4122-9092-0706F1C7C4D8} = s 'DimmerService Class'
+		{
+			ProgID = s 'MyDevice.DimmerService.1'
+			VersionIndependentProgID = s 'MyDevice.DimmerService'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			'TypeLib' = s '{51AC2F4C-3F4F-48B3-A018-910E81677EEF}'
+		}
+	}
+}

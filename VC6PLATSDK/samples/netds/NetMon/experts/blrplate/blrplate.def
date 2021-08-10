@@ -1,0 +1,9 @@
+LIBRARY     BLRPLATE
+DESCRIPTION "BLRPLATE EXPERT"
+VERSION     1.0
+
+EXPORTS
+        DllMain
+        Register
+        Configure
+        Run

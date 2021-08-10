@@ -1,0 +1,42 @@
+// ADsFirstExt.idl : IDL source for ADsFirstExt.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ADsFirstExt.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	
+	[
+		object,
+		uuid(E1E3EDF7-48D1-11D2-B22B-0000F87A6B50),
+		dual,
+		helpstring("IHelloWorld Interface"),
+		pointer_default(unique)
+	]
+	interface IHelloWorld : IDispatch
+	{
+		[id(1), helpstring("method Say")] HRESULT Say();
+	};
+
+[
+	uuid(E1E3EDEA-48D1-11D2-B22B-0000F87A6B50),
+	version(1.0),
+	helpstring("ADsFirstExt 1.0 Type Library")
+]
+library ADSFIRSTEXTLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	
+	[
+		uuid(E1E3EDF8-48D1-11D2-B22B-0000F87A6B50),
+		helpstring("HelloWorld Class")
+	]
+	coclass HelloWorld
+	{
+		[default] interface IHelloWorld;
+	};
+};

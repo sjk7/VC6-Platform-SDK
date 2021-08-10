@@ -1,0 +1,39 @@
+------------------------------------------------------------------
+         Windows NetMeeting 3 SDK HTML Readme File
+                         1999-2002
+------------------------------------------------------------------
+
+             (c) Copyright Microsoft Corporation, 1996 - 2002
+
+CONTENTS
+========
+
+OVERVIEW OF THE HTML SAMPLE
+USING THE HTML SAMPLE
+
+
+OVERVIEW OF THE HTML SAMPLE
+===========================
+
+The HTML directory contains two sample HTML Web pages that are the same 
+except one shows the user of the ActiveX Control from VBScript, and the 
+other shows the use of the ActiveX Control from JScript. These samples 
+illustrate the key Web-related functionality enabled by the Control, 
+which is using a Web page to bring together, in a conference, a 
+community of users with a similar interest.
+
+
+USING THE HTML SAMPLE
+=====================
+
+To use the HTML sample, replace the machine name "ConfHost" in the HTML 
+with the name of the machine on which you want to host the conference. 
+The location in which to do this is clearly marked with a comment in 
+the .htm file.
+
+Notes: 
+
+1. You must have Windows NetMeeting 3 installed in order to run this 
+   example.
+
+2. This example works only with Internet Explorer version 4.01 and later.
